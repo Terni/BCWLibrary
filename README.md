@@ -1,0 +1,2 @@
+# BCWLibrary
+Library for BitcoinWallet
