@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="0b23bf56-b02d-4f54-842f-fe6c3bc5fb8e"
+    Name="884e3535-e836-411a-88bc-22383d4930e2"
     Publisher="CN=t0mas"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="0b23bf56-b02d-4f54-842f-fe6c3bc5fb8e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="884e3535-e836-411a-88bc-22383d4930e2" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>BitcoinWallet.UWP</DisplayName>

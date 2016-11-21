@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D9744905-67C3-4422-8036-5A15A72F4629}</ProjectGuid>
+    <ProjectGuid>{9FDB5EB0-26CA-4DF8-95DF-99A8939761FA}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BitcoinWallet.WinPhone</RootNamespace>

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{C51571D9-D7F8-4B24-B6AB-EB867676AB3D}</ProjectGuid>
+    <ProjectGuid>{EA98207B-DDC0-446A-A7EA-276E58A94CA5}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BitcoinWallet.UWP</RootNamespace>

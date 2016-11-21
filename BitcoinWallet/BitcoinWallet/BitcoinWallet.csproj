@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3DCF37E9-8D25-4B43-9C4D-0DB6C6B23E34}</ProjectGuid>
+    <ProjectGuid>{C2261B12-DF1D-4DA8-BD64-96C5731A9201}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BitcoinWallet</RootNamespace>
