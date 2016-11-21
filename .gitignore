@@ -45,3 +45,5 @@ Thumbs.db
 *.lock.json
 .gitignore.orig
 BitcoinWallet/BitcoinWallet/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+BitcoinWallet/BitcoinWallet/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+BitcoinWallet/BitcoinWallet/obj/Debug/DesignTimeResolveAssemblyReferences.cache
