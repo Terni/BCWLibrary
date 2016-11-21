@@ -2,8 +2,10 @@
 *~
 
 #build
-[Oo]bj/
-[Bb]in/
+**/[Oo]bj/*
+**/[Bb]in/*
+BitcoinWallet/BitcoinWallet.WinPhone/obj/*
+BitcoinWallet/BitcoinWallet.UWP/obj/*
 packages/
 TestResults/
 .vs/
@@ -28,6 +30,7 @@ autom4te.cache/
 tarballs/
 test-results/
 Thumbs.db
+*.cache
 
 #Mac bundle stuff
 *.dmg
@@ -44,6 +47,5 @@ Thumbs.db
 *.nupkg
 *.lock.json
 .gitignore.orig
-BitcoinWallet/BitcoinWallet/obj/Debug/DesignTimeResolveAssemblyReferences.cache
-BitcoinWallet/BitcoinWallet/obj/Debug/DesignTimeResolveAssemblyReferences.cache
-BitcoinWallet/BitcoinWallet/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+
+
