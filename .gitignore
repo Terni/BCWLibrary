@@ -43,3 +43,4 @@ Thumbs.db
 *.csproj.bak
 *.nupkg
 *.lock.json
+.gitignore.orig
