@@ -4,13 +4,13 @@
 #build
 **/[Oo]bj/*
 **/[Bb]in/*
-BitcoinWallet/BitcoinWallet.WinPhone/obj/*
-BitcoinWallet/BitcoinWallet.UWP/obj/*
+BitcoinWallet/BitcoinWallet.Droid/obj/**
+BitcoinWallet/BitcoinWallet.WinPhone/obj/**
+BitcoinWallet/BitcoinWallet.UWP/obj/**
+BitcoinWallet/BitcoinWallet/obj/**
 packages/
 TestResults/
 .vs/
-obj/*
-Resources/*
 
 # globs
 Makefile.in
