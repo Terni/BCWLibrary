@@ -9,6 +9,8 @@ BitcoinWallet/BitcoinWallet.UWP/obj/*
 packages/
 TestResults/
 .vs/
+obj/*
+Resources/*
 
 # globs
 Makefile.in
