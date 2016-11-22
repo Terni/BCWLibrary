@@ -33,6 +33,7 @@ tarballs/
 test-results/
 Thumbs.db
 *.cache
+Temporary*
 
 #Mac bundle stuff
 *.dmg
