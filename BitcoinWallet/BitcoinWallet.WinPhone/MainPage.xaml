@@ -9,4 +9,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+
+    <!--
+    <Button Margin="0,291.333,0,291.667" Width="172">Test</Button>
+    -->
 </forms:WindowsPhonePage>
