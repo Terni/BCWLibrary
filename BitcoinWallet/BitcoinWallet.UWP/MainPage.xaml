@@ -1,4 +1,4 @@
-﻿<forms:WindowsPage
+﻿<Page
     x:Class="BitcoinWallet.UWP.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:forms="using:Xamarin.Forms.Platform.UWP"
@@ -11,4 +11,4 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     </Grid>
-</forms:WindowsPage>
+</Page>
