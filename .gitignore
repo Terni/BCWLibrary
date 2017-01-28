@@ -2,12 +2,12 @@
 *~
 
 #build
-**/[Oo]bj/*
-**/[Bb]in/*
-BitcoinWallet/BitcoinWallet.Droid/obj/**
-BitcoinWallet/BitcoinWallet.WinPhone/obj/**
-BitcoinWallet/BitcoinWallet.UWP/obj/**
-BitcoinWallet/BitcoinWallet/obj/**
+**/[Oo]bj/
+**/[Bb]in/
+BitcoinWallet/BitcoinWallet.Droid/obj/
+BitcoinWallet/BitcoinWallet.WinPhone/obj/
+BitcoinWallet/BitcoinWallet.UWP/obj/
+BitcoinWallet/BitcoinWallet/obj/
 packages/
 TestResults/
 .vs/
