@@ -52,3 +52,4 @@ Temporary*
 .gitignore.orig
 
 
+BitcoinWallet/BitcoinWallet.Droid/obj/Debug/sdks.cache
