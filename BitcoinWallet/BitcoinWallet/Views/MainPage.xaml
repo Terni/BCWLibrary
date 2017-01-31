@@ -6,10 +6,29 @@
              x:Class="BitcoinWallet.Views.MainPage"
              Title="MainPage">
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="Bicoin Wallet" />
+    <Label Text="Bicoin Wallet"  FontSize="32"/>
+
+    <TableView>
+      <TableRoot>
+        <TableSection Title="ID Wallet" >
+          <TextCell DetailColor="White">
+            "..."
+          </TextCell>
+        </TableSection>
+        <TableSection Title="First Password">
+          <TextCell>
+            "..."
+          </TextCell>
+        </TableSection>
+        <TableSection Title="Secound Password">
+          <TextCell>
+            "..."
+          </TextCell>
+        </TableSection>
+      </TableRoot>
+    </TableView>
+    <!--<Label>First Password</Label>
+    <Label>Secound Password</Label>-->
   </StackLayout>
-
-
-
 
   </ContentPage>
