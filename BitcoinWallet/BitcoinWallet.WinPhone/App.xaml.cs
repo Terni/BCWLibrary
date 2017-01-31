@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.Forms.Maps;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
@@ -33,6 +34,7 @@ namespace BitcoinWallet.WinPhone
         /// </summary>
         public App()
         {
+            Xamarin.FormsMaps.Init("INSERT_AUTHENTICATION_TOKEN_HERE");
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
         }

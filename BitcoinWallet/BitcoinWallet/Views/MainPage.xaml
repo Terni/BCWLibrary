@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
@@ -27,8 +27,35 @@
         </TableSection>
       </TableRoot>
     </TableView>
-    <!--<Label>First Password</Label>
-    <Label>Secound Password</Label>-->
+    --><!--<Label>First Password</Label>
+    <Label>Secound Password</Label>--><!--
   </StackLayout>
 
-  </ContentPage>
+  </ContentPage>-->
+
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="BitcoinWallet.Views.MainPage"
+            Title="MainPage">
+
+  <TabbedPage.Children>
+    <ContentPage Title="Profile">
+      <StackLayout Spacing="20" Padding="20"
+                   VerticalOptions="Center">
+        <Entry Placeholder="Username"
+               Text="{Binding Username}"/>
+        <Entry Placeholder="Password"
+               Text="{Binding Password}"
+               IsPassword="true"/>
+        <Button Text="Login" TextColor="White"
+                BackgroundColor="#77D065"
+                Command="{Binding LoginCommand}"/>
+      </StackLayout>
+    </ContentPage>
+    <!--<ContentPage Title="Settings" Icon="Settings.png">
+      --><!-- Settings --><!--
+    </ContentPage>-->
+  </TabbedPage.Children>
+</TabbedPage>
