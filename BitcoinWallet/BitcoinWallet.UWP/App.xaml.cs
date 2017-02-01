@@ -28,6 +28,7 @@ namespace BitcoinWallet.UWP
         /// </summary>
         public App()
         {
+            Xamarin.FormsMaps.Init("INSERT_AUTHENTICATION_TOKEN_HERE"); // init Xamarin.Forms.Maps
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }

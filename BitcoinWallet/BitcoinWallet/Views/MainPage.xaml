@@ -1,49 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="BitcoinWallet.Views.MainPage"
-             Title="MainPage">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="Bicoin Wallet"  FontSize="32"/>
-
-    <TableView>
-      <TableRoot>
-        <TableSection Title="ID Wallet" >
-          <TextCell DetailColor="White">
-            "..."
-          </TextCell>
-        </TableSection>
-        <TableSection Title="First Password">
-          <TextCell>
-            "..."
-          </TextCell>
-        </TableSection>
-        <TableSection Title="Secound Password">
-          <TextCell>
-            "..."
-          </TextCell>
-        </TableSection>
-      </TableRoot>
-    </TableView>
-    --><!--<Label>First Password</Label>
-    <Label>Secound Password</Label>--><!--
-  </StackLayout>
-
-  </ContentPage>-->
-
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="BitcoinWallet.Views.MainPage"
-            Title="MainPage">
+            Title="MainPage"
+            BackgroundColor="White"
+            BarTextColor="Black"
+  >
 
   <TabbedPage.Children>
     <ContentPage Title="Profile">
-      <StackLayout Spacing="20" Padding="20"
-                   VerticalOptions="Center">
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
         <Entry Placeholder="Username"
                Text="{Binding Username}"/>
         <Entry Placeholder="Password"

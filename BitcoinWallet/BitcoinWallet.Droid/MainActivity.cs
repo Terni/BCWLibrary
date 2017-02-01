@@ -21,7 +21,8 @@ namespace BitcoinWallet.Droid
 
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            Xamarin.FormsMaps.Init(this, bundle);               // init Xamarin.Forms.Maps
+            global::Xamarin.Forms.Forms.Init(this, bundle);     // init Xamarin.Forms
             LoadApplication(new App(new AndroidInitializer()));
         }
     }
