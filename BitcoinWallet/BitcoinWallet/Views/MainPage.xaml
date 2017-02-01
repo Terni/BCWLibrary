@@ -10,7 +10,7 @@
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Profile">
+    <ContentPage Title="Profile" Icon="group.png">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
         <Entry Placeholder="Username"
                Text="{Binding Username}"/>
@@ -22,8 +22,8 @@
                 Command="{Binding LoginCommand}"/>
       </StackLayout>
     </ContentPage>
-    <!--<ContentPage Title="Settings" Icon="Settings.png">
-      --><!-- Settings --><!--
-    </ContentPage>-->
+    <ContentPage Title="Settings" Icon="settings-3.png">
+       <!--Settings-->
+    </ContentPage>
   </TabbedPage.Children>
 </TabbedPage>
