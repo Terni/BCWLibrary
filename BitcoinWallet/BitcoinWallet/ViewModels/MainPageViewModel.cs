@@ -9,17 +9,30 @@ namespace BitcoinWallet.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
+        /// <summary>
+        /// Variables
+        /// </summary>
         private string _title;
+        private bwStyle _bwStyleInstance;
+
+        /// <summary>
+        /// Property
+        /// </summary>
         public string Title
         {
             get { return _title; }
             set { SetProperty(ref _title, value); }
         }
 
+        #region MyRegion
+        /// <summary>
+        /// Constructor MainPageViewModel
+        /// </summary>
         public MainPageViewModel()
         {
-
+            _bwStyleInstance = new bwStyle();
         }
+        #endregion
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {

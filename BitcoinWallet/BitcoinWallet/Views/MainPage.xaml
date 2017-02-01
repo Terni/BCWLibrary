@@ -4,26 +4,42 @@
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="BitcoinWallet.Views.MainPage"
-            Title="MainPage"
+            Title="{Binding title}"
             BackgroundColor="White"
             BarTextColor="Black"
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Profile" Icon="group.png">
+    <ContentPage Title="Profile" Icon="Icons/group.png">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
         <Entry Placeholder="Username"
                Text="{Binding Username}"/>
         <Entry Placeholder="Password"
                Text="{Binding Password}"
                IsPassword="true"/>
+        <Entry Placeholder="SecoundPassword"
+         Text="{Binding SecoundPassword}"
+         IsPassword="true" IsVisible="False"/>
         <Button Text="Login" TextColor="White"
-                BackgroundColor="#77D065"
+                BackgroundColor="#7ac3ff"
                 Command="{Binding LoginCommand}"/>
       </StackLayout>
     </ContentPage>
-    <ContentPage Title="Settings" Icon="settings-3.png">
-       <!--Settings-->
+    <ContentPage Title="Settings" Icon="Icons/settings-3.png" Style="" >
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="Black" Style="">
+        <TableView Intent="Settings">
+          <TableRoot>
+            <TableSection Title="Basic">
+              <SwitchCell Text="Secound Password" />
+              <SwitchCell Text="Auto Logon" On="true" />
+            </TableSection>
+            <TableSection Title="Expanded">
+              <SwitchCell Text="Registration" On="true"/>
+              <!--<SwitchCell Text="New Mail" />-->
+            </TableSection>
+          </TableRoot>
+        </TableView>
+      </StackLayout>
     </ContentPage>
   </TabbedPage.Children>
 </TabbedPage>
