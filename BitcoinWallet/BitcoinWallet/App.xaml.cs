@@ -2,7 +2,7 @@
 using BitcoinWallet.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml.Internals;
-using Xamarin.Forms.Maps;
+//using Xamarin.Forms.Maps;
 
 namespace BitcoinWallet
 {
@@ -14,7 +14,6 @@ namespace BitcoinWallet
 
         protected override void OnInitialized()
         {
-            
             InitializeComponent();
 
             NavigationService.NavigateAsync("MainPage?title=Hello%20from%20Xamarin.Forms");
