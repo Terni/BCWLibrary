@@ -24,6 +24,7 @@ namespace BitcoinWallet.ViewModels
                 }
             };
 
+
             //Label.StyleProperty = Device.Styles.TitleStyle;
         }
         #endregion

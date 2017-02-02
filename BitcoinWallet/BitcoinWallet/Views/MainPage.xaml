@@ -7,6 +7,7 @@
             Title="{Binding title}"
             BackgroundColor="White"
             BarTextColor="Black"
+
   >
 
   <TabbedPage.Children>
@@ -25,17 +26,25 @@
                 Command="{Binding LoginCommand}"/>
       </StackLayout>
     </ContentPage>
-    <ContentPage Title="Settings" Icon="Icons/settings-3.png" Style="" >
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="Black" Style="">
-        <TableView Intent="Settings">
+    <ContentPage Title="Settings" Icon="Icons/settings-3.png"  >
+      <!--<ContentPage.Resources>
+        <ResourceDictionary>
+          <Style x:Key="baseStyle" TargetType="SwitchCell">
+            <Setter Property=""/>
+          </Style>
+        </ResourceDictionary>
+      </ContentPage.Resources>-->
+
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="Black" >
+        <TableView>
           <TableRoot>
-            <TableSection Title="Basic">
-              <SwitchCell Text="Secound Password" />
+            <TableSection Title="Basic" PropertyChanged="BindableObject_OnPropertyChanged" >
+              <SwitchCell Text="Secound Password"  />
               <SwitchCell Text="Auto Logon" On="true" />
             </TableSection>
             <TableSection Title="Expanded">
               <SwitchCell Text="Registration" On="true"/>
-              <!--<SwitchCell Text="New Mail" />-->
+              <SwitchCell Text="Dark skin" On="False"/>
             </TableSection>
           </TableRoot>
         </TableView>
