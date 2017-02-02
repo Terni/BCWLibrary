@@ -4,14 +4,14 @@
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="BitcoinWallet.Views.MainPage"
+            x:Name="MyTabbedPage"
             Title="{Binding title}"
             BackgroundColor="White"
             BarTextColor="Black"
-
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Profile" Icon="Icons/group.png">
+    <ContentPage Title="Profile" Icon="Icons/group.png"   PropertyChanging="BindableObject_OnPropertyChanging">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
         <Entry Placeholder="Username"
                Text="{Binding Username}"/>
@@ -26,7 +26,11 @@
                 Command="{Binding LoginCommand}"/>
       </StackLayout>
     </ContentPage>
-    <ContentPage Title="Settings" Icon="Icons/settings-3.png"  >
+
+
+
+
+    <ContentPage Icon="Icons/settings-3.png"  >
       <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">
@@ -35,20 +39,33 @@
         </ResourceDictionary>
       </ContentPage.Resources>-->
 
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="Black" >
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="White" >
         <TableView>
           <TableRoot>
-            <TableSection Title="Basic" PropertyChanged="BindableObject_OnPropertyChanged" >
-              <SwitchCell Text="Secound Password"  />
-              <SwitchCell Text="Auto Logon" On="true" />
+            <TableSection>
+              <TextCell TextColor="Black" Text="Basic"/>
+              <TextCell Detail="Secound Password" DetailColor="#3181c4"/>
+                <SwitchCell/>
+
+              <TextCell Detail="Auto Logon" DetailColor="#3181c4" />
+                <SwitchCell On="True"/>
+
             </TableSection>
-            <TableSection Title="Expanded">
-              <SwitchCell Text="Registration" On="true"/>
-              <SwitchCell Text="Dark skin" On="False"/>
+            <TableSection>
+              <TextCell TextColor="Black" Text="Expanded" />
+              <TextCell Detail="Registration" DetailColor="#3181c4"/>
+                <SwitchCell On="true"/>
+
+              <TextCell Detail="Dark skin" DetailColor="#3181c4"/>
+                <SwitchCell On="False"/>
+
             </TableSection>
           </TableRoot>
         </TableView>
       </StackLayout>
     </ContentPage>
+
+
+
   </TabbedPage.Children>
 </TabbedPage>

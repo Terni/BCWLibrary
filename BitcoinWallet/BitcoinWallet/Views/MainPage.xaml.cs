@@ -10,15 +10,23 @@ namespace BitcoinWallet.Views
             InitializeComponent();
         }
 
-        private void BindableObject_OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+
+
+        //private void BindableObject_OnPropertyChangedopertyChanged(object sender, PropertyChangedEventArgs e)
+        //{
+        //     this.BarTextColor = Color.Red;
+        //}
+
+        private void BindableObject_OnPropertyChanging(object sender, PropertyChangingEventArgs e)
         {
-            throw new System.NotImplementedException();
-            //TableSection tb = new TableSection();
-            //TitleProperty
-            //{ Setter
-            //    new Setter();
-            //}
-            //tb.Title = Device.Styles.TitleStyle;
+            if (e != null)
+            {
+                this.BarTextColor = Color.Gray;
+            }
+            else
+            {
+                this.BarTextColor = Color.Black;
+            }
         }
     }
 }
