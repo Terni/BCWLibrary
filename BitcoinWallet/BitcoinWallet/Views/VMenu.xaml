@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="BitcoinWallet.Views.VMenu"
+            Title="{Binding title}"
+            BackgroundColor="White"
+            BarTextColor="Black"
+  >
+
+  <TabbedPage.Children>
+
+    <ContentPage Title="Main Menu" >
+      <!--<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />-->
+
+
+
+      <ScrollView >
+
+
+
+        <!--Grid 1 for orders row of items-->
+        <Grid VerticalOptions="Center">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />  <!--Row = 0-->
+          <RowDefinition Height="*" />  <!--Row = 1-->
+          <RowDefinition Height="*" />  <!--Row = 2-->
+          <RowDefinition Height="*" />  <!--Row = 3-->
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+          <!-- Inner Grid 0 for top row of items -->
+          <Grid VerticalOptions="Center" ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Column="0"
+                   OutlineColor="Accent">
+              <Label Text="{Binding DisplayText}" TextColor="Black" x:Name="ValueBw"/>
+            </Frame>
+
+            <Button Text="..."
+                    Command="{Binding DeleteCharCommand}"
+                    Grid.Column="1"
+                    BorderWidth="0"  BackgroundColor="#7ac3ff"/>
+          </Grid>
+
+
+          <Button Text="Payment"
+                  Grid.Row="1" Grid.Column="0" BackgroundColor="#7ac3ff" HeightRequest="100" Clicked="Payment_OnClicked"/>
+                  <!--Image="Icons/laptop-2.png" HeightRequest="100"/>-->
+
+          <Button Text="Address Book"
+                  Grid.Row="1" Grid.Column="1" BackgroundColor="#7ac3ff" Clicked="Book_OnClicked"/>
+
+          <Button Text="History"
+                  Grid.Row="2" Grid.Column="0" BackgroundColor="#7ac3ff" Clicked="History_OnClicked"/>
+
+          <Button Text="Charts"
+                  Grid.Row="2" Grid.Column="1" BackgroundColor="#7ac3ff" Clicked="Charts_OnClicked"/>
+
+          <Button Text="Test Keyboard"
+                  Grid.Row="3" Grid.Column="0" BackgroundColor="#7ac3ff" Clicked="Test_OnClicked"/>
+
+          <Button Text=".."
+                  Grid.Row="3" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
+
+          <Button Text="."
+                  Grid.Row="4" Grid.Column="0" BackgroundColor="#7ac3ff" IsVisible="False" />
+
+          <Button Text=".."
+                  Grid.Row="4" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
+
+          <Button Text="."
+                  Grid.Row="5" Grid.Column="0" BackgroundColor="#7ac3ff" IsVisible="False" />
+
+          <Button Text=".."
+                  Grid.Row="5" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
+
+          <Button Text="."
+                  Grid.Row="6" Grid.Column="0" BackgroundColor="#7ac3ff" IsVisible="False" />
+
+          <Button Text=".."
+                  Grid.Row="6" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
+        </Grid>
+
+      </ScrollView>
+    </ContentPage>
+  </TabbedPage.Children>
+</TabbedPage>

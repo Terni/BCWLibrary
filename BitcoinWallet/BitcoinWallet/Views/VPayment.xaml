@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="BitcoinWallet.Views.VPayment"
+            x:Name="VPaymentTabbedPage"
+            Title="{Binding title}"
+            BackgroundColor="White"
+            BarTextColor="Black"
+  >
+
+  <TabbedPage.Children>
+    <ContentPage Title="Quick">
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+        <Entry Placeholder="Address To" Text="{Binding Username}" x:Name="at" />
+        <Entry Placeholder="My Balance" Text="{Binding Password}" x:Name="mb" />
+        <Entry Placeholder="Value to Pay" Text="{Binding SecoundPassword}" x:Name="vtp"/>
+        <Button Text="Send" TextColor="White" BackgroundColor="#7ac3ff" Command="{Binding LoginCommand}" />
+      </StackLayout>
+    </ContentPage>
+
+
+
+
+    <ContentPage Title="Particular" >
+      <!--<ContentPage.Resources>
+        <ResourceDictionary>
+          <Style x:Key="baseStyle" TargetType="SwitchCell">
+            <Setter Property=""/>
+          </Style>
+        </ResourceDictionary>
+      </ContentPage.Resources>-->
+
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="White" >
+
+      </StackLayout>
+    </ContentPage>
+
+
+
+  </TabbedPage.Children>
+</TabbedPage>

@@ -8,13 +8,13 @@ using Xamarin.Forms;
 
 namespace BitcoinWallet.ViewModels
 {
-    public class bwStyle
+    public class BwStyle
     {
         #region Constructor
         /// <summary>
         /// Constructor bwStyle
         /// </summary>
-        public bwStyle()
+        public BwStyle()
         {
             var LabelStyle = new Style(typeof(Label))
             {

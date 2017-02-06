@@ -4,33 +4,33 @@
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="BitcoinWallet.Views.MainPage"
-            x:Name="MyTabbedPage"
+            x:Name="MainPageTabbedPage"
             Title="{Binding title}"
             BackgroundColor="White"
             BarTextColor="Black"
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Profile" Icon="Icons/group.png"   PropertyChanging="BindableObject_OnPropertyChanging">
+    <ContentPage Title="Profile" Icon="Icons/user.png"   PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPprofile">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
         <Entry Placeholder="Username"
-               Text="{Binding Username}"/>
+               Text="{Binding Username}" x:Name="UserMP"/>
         <Entry Placeholder="Password"
                Text="{Binding Password}"
-               IsPassword="true"/>
+               IsPassword="true" x:Name="PassMP1" />
         <Entry Placeholder="SecoundPassword"
          Text="{Binding SecoundPassword}"
-         IsPassword="true" IsVisible="False"/>
+         IsPassword="true" IsVisible="False" x:Name="PassMP2"/>
         <Button Text="Login" TextColor="White"
                 BackgroundColor="#7ac3ff"
-                Command="{Binding LoginCommand}"/>
+                Command="{Binding LoginCommand}" Clicked="Button_OnClicked"/>
       </StackLayout>
     </ContentPage>
 
 
 
 
-    <ContentPage Icon="Icons/settings-3.png"  >
+    <ContentPage Title="Setting" Icon="Icons/settings-3.png" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPsetting">
       <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">

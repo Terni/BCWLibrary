@@ -13,7 +13,7 @@ namespace BitcoinWallet.ViewModels
         /// Variables
         /// </summary>
         private string _title;
-        private bwStyle _bwStyleInstance;
+        private BwStyle _bwStyleInstance;
 
         /// <summary>
         /// Property
@@ -30,7 +30,7 @@ namespace BitcoinWallet.ViewModels
         /// </summary>
         public MainPageViewModel()
         {
-            _bwStyleInstance = new bwStyle();
+            _bwStyleInstance = new BwStyle();
         }
         #endregion
 
