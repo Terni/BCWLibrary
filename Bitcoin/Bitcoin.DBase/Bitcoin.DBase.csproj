@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Bitcoin.DBase.cs" />
+    <Compile Include="DBase.cs" />
     <Compile Include="ModelDB\DataContext.cs" />
     <Compile Include="ModelDB\ToDoItem.cs" />
     <Compile Include="ModelDB\ToDoLogin.cs" />

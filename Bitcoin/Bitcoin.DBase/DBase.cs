@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace Bitcoin.DBase
 {
-    public class Bitcoin.DBase : ContentPage
+    public class DBase : ContentPage
 	{
-		public Bitcoin.DBase ()
+		public DBase ()
 		{
 			var button = new Button
             {
@@ -18,8 +18,8 @@ namespace Bitcoin.DBase
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
             };
 
-    int clicked = 0;
-    button.Clicked += (s, e) => button.Text = "Clicked: " + clicked++;
+            int clicked = 0;
+            button.Clicked += (s, e) => button.Text = "Clicked: " + clicked++;
 
 			Content = button;
 		}

@@ -15,7 +15,7 @@ namespace Bitcoin.DBase.ModelDB
         // Specify the connection string as a static, used in main page and app.xaml.
         public static string DBConnectionString = "Data Source=isostore:/database.sdf";
 
-        
+
         public ToDoDataContext(string connectionString) : base(connectionString){}
 
 
