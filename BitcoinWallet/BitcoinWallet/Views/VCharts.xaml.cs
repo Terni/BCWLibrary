@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BitcoinMyWallet.Helpers;
 using BitcoinMyWallet.ViewModels;
-using ApiClient;
-using Bitcoin.WEBClient;
+using Bitcoin.APIClient;
 using System.Net;
 
 using Xamarin.Forms;

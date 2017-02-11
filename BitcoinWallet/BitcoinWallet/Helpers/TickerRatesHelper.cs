@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using ApiClient;
-using Bitcoin.WEBClient;
+
 using BitcoinWallet.ViewModels;
 using BitcoinMyWallet.ViewModels;
+using Bitcoin.APIClient;
 
 namespace BitcoinMyWallet.Helpers
 {
