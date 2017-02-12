@@ -12,6 +12,9 @@ packages/
 TestResults/
 .vs/
 
+# works
+Expanded/Expanded.VarEngine/
+
 # globs
 Makefile.in
 *.DS_Store
