@@ -5,7 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace Expanded.VarEngine
+namespace Expanded.VEngine
 {
     public class VarEngine : ContentPage
 	{

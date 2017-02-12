@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitcoin.APIClient", "Bitcoi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitcoin.DBase", "Bitcoin\Bitcoin.DBase\Bitcoin.DBase.csproj", "{DBCF2329-27C6-496B-B060-4E3B68445B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expanded.VarEngine", "Expanded\Expanded.VarEngine\Expanded.VarEngine.csproj", "{5E414CA8-E9B8-4643-A0E2-CF5C1AA72C2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expanded.VEngine", "Expanded\Expanded.VarEngine\Expanded.VEngine.csproj", "{5E414CA8-E9B8-4643-A0E2-CF5C1AA72C2B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expanded.Localization", "Expanded\Expanded.Localization\Expanded.Localization.csproj", "{7EC5E8D5-FC7E-4FCE-B830-8F3FFDAA7FC2}"
 EndProject
