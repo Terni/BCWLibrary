@@ -13,7 +13,7 @@ TestResults/
 .vs/
 
 # works
-Expanded/Expanded.VarEngine/
+Expanded/Expanded.VEngine/
 
 # globs
 Makefile.in
