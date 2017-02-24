@@ -4,6 +4,8 @@
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="BitcoinWallet.Views.VMenu"
+            xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=Expanded.Common"
+            xmlns:controlsx="clr-namespace:XLabs.Forms.Controls;assembly=BitcoinWallet.WinPhone"
             Title="{Binding title}"
             BackgroundColor="White"
             BarTextColor="Black"
@@ -54,10 +56,28 @@
                     BorderWidth="0"  BackgroundColor="#7ac3ff"/>
           </Grid>
 
-
-          <Button Text="Payment"
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="1" Grid.Column="0" Scale="1"
+                        HeightRequest="100"
+                        ImageHeightRequest="100"
+                        ImageWidthRequest="100"
+                        Orientation="ImageCentered"
+                        Command="{Binding AddCommand}"
+                        TextColor="#000000"
+                        Clicked="Payment_OnClicked"
+                        Text="">  <!-- Payment -->
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons_menu/laptop-2.png" />
+                </OnPlatform.WinPhone>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+          <!--<Button Text="Payment"
                   Grid.Row="1" Grid.Column="0" BackgroundColor="#7ac3ff" HeightRequest="100" Clicked="Payment_OnClicked"/>
-                  <!--Image="Icons/laptop-2.png" HeightRequest="100"/>-->
+                  --><!--Image="Icons/laptop-2.png" HeightRequest="100"/>-->
 
           <Button Text="Address Book"
                   Grid.Row="1" Grid.Column="1" BackgroundColor="#7ac3ff" Clicked="Book_OnClicked"/>
@@ -91,7 +111,8 @@
 
           <Button Text=".."
                   Grid.Row="6" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
-        </Grid>
+
+      </Grid>
 
       </ScrollView>
     </ContentPage>
