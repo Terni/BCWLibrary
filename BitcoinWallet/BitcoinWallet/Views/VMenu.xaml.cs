@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XLabs.Data;
+using XLabs.Forms.Controls;
 
 namespace BitcoinWallet.Views
 {
@@ -23,6 +25,7 @@ namespace BitcoinWallet.Views
             InitializeComponent();
             ValueBw.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
             ValueBw.Text = _defaultBTC +" BTC";
+            this.BindingContext = new ButtonPageViewModel();
         }
 
         async void Test_OnClicked(object sender, EventArgs e)
@@ -50,5 +53,34 @@ namespace BitcoinWallet.Views
             if (Navigation != null)
                 await Navigation.PushModalAsync(new VCharts());
         }
+
+        public class ButtonPageViewModel : ObservableObject
+        {
+            private bool buttonEnabled;
+
+            public bool ButtonEnabled
+            {
+                get
+                {
+                    return this.buttonEnabled;
+                }
+                set
+                {
+                    if (this.SetProperty(ref this.buttonEnabled, value))
+                    {
+                        this.NotifyPropertyChanged("EnabledButtonTitle");
+                    }
+                }
+            }
+
+            public string EnabledButtonTitle
+            {
+                get
+                {
+                    return this.buttonEnabled ? "Enabled Image" : "Disabled image";
+                }
+            }
+        }
+
     }
 }

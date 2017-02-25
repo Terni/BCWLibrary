@@ -185,6 +185,7 @@
     <Content Include="Icons\user-6.png" />
     <Content Include="Icons\user-7.png" />
     <Content Include="Icons\user.png" />
+    <Content Include="laptop-sm.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\VKeyboard.xaml">
@@ -220,6 +221,10 @@
     <ProjectReference Include="..\..\Bitcoin\Bitcoin.APIClient\Bitcoin.APIClient.csproj">
       <Project>{B73D5003-D37E-4932-ABED-F0FC844BE2B2}</Project>
       <Name>Bitcoin.APIClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Expanded\Expanded.Common\Expanded.Common.csproj">
+      <Project>{b8094309-3c83-46a1-9a6c-a084856e177f}</Project>
+      <Name>Expanded.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

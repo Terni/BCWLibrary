@@ -3,4 +3,39 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
                         x:Class="BitcoinWallet.App">
+  <prism:PrismApplication.Resources>
+    <ResourceDictionary>
+      <!-- Colors -->
+      <Color x:Key="LightBlue">#7ac3ff</Color>
+      <Color x:Key="White">White</Color>
+
+      <!--Button style-->
+      <Style x:Key="ClassicButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource LightBlue}"></Setter>
+        <Setter Property="HeightRequest" Value="40"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource White}"></Setter>
+        <Setter Property="BorderRadius" Value="20"></Setter>
+        <Setter Property="Margin" Value="0,0,0,10"></Setter>
+        <Setter Property="BorderWidth" Value="3"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource LightBlue}"></Setter>
+      </Style>
+      <!--Button style-->
+      <Style x:Key="OrdersButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource LightBlue}"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource White}"></Setter>
+        <Setter Property="BorderRadius" Value="10"></Setter>
+        <Setter Property="Margin" Value="0,0,0,0"></Setter>
+        <Setter Property="BorderWidth" Value="3"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource LightBlue}"></Setter>
+      </Style>
+      <!--Button style-->
+      <Style x:Key="MenuButtonStyle" TargetType="Button">
+        <Setter Property="TextColor" Value="{StaticResource White}"></Setter>
+        <Setter Property="BorderRadius" Value="10"></Setter>
+        <Setter Property="Margin" Value="0,0,0,0"></Setter>
+        <Setter Property="BorderWidth" Value="3"></Setter>
+        <Setter Property="BorderColor" Value="{StaticResource LightBlue}"></Setter>
+      </Style>
+    </ResourceDictionary>
+  </prism:PrismApplication.Resources>
 </prism:PrismApplication>

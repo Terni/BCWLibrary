@@ -12,6 +12,9 @@ packages/
 TestResults/
 .vs/
 
+# works
+Expanded/Expanded.VEngine/
+
 # globs
 Makefile.in
 *.DS_Store

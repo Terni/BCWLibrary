@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8094309-3C83-46A1-9A6C-A084856E177F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Expanded.Common</RootNamespace>
+    <AssemblyName>Expanded.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Core\Data\ObservableObject.cs" />
+    <Compile Include="Core\Exceptions\InvalidNestingException.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions.cs" />
+    <Compile Include="Forms\Behaviors\GestureCollection.cs" />
+    <Compile Include="Forms\Behaviors\GestureInterest.cs" />
+    <Compile Include="Forms\Behaviors\GestureResult.cs" />
+    <Compile Include="Forms\Behaviors\Gestures.cs" />
+    <Compile Include="Forms\Behaviors\IGesture.cs" />
+    <Compile Include="Forms\Behaviors\RelayGesture.cs" />
+    <Compile Include="Forms\Controls\AccessoryViewCell.cs" />
+    <Compile Include="Forms\Controls\AutoCompleteView.cs" />
+    <Compile Include="Forms\Controls\BindablePicker.cs" />
+    <Compile Include="Forms\Controls\ButtonGroup.cs" />
+    <Compile Include="Forms\Controls\CalendarView.cs" />
+    <Compile Include="Forms\Controls\CarouselView.cs" />
+    <Compile Include="Forms\Controls\CheckBox.cs" />
+    <Compile Include="Forms\Controls\CheckboxCell.cs" />
+    <Compile Include="Forms\Controls\CircleImage.cs" />
+    <Compile Include="Forms\Controls\CollectionChangedHandle.cs" />
+    <Compile Include="Forms\Controls\ContentControl.cs" />
+    <Compile Include="Forms\Controls\DataTemplateSelector.cs" />
+    <Compile Include="Forms\Controls\DragContentView.cs" />
+    <Compile Include="Forms\Controls\DynamicListView.cs" />
+    <Compile Include="Forms\Controls\EditableListView.cs" />
+    <Compile Include="Forms\Controls\ExtendedButton.cs" />
+    <Compile Include="Forms\Controls\ExtendedDatePicker.cs" />
+    <Compile Include="Forms\Controls\ExtendedEditor.cs" />
+    <Compile Include="Forms\Controls\ExtendedEntry.cs" />
+    <Compile Include="Forms\Controls\ExtendedEntryCell.cs" />
+    <Compile Include="Forms\Controls\ExtendedLabel.cs" />
+    <Compile Include="Forms\Controls\ExtendedListView.cs" />
+    <Compile Include="Forms\Controls\ExtendedPicker.cs" />
+    <Compile Include="Forms\Controls\ExtendedScrollView.cs" />
+    <Compile Include="Forms\Controls\ExtendedSlider.cs" />
+    <Compile Include="Forms\Controls\ExtendedSwitch.cs" />
+    <Compile Include="Forms\Controls\ExtendedTabbedPage.cs" />
+    <Compile Include="Forms\Controls\ExtendedTableView.cs" />
+    <Compile Include="Forms\Controls\ExtendedTextCell.cs" />
+    <Compile Include="Forms\Controls\ExtendedTimePicker.cs" />
+    <Compile Include="Forms\Controls\ExtendedViewCell.cs" />
+    <Compile Include="Forms\Controls\GesturesContentView.cs" />
+    <Compile Include="Forms\Controls\GradientContentView.cs" />
+    <Compile Include="Forms\Controls\GridView.cs" />
+    <Compile Include="Forms\Controls\IAutoCompleteSearchObject.cs" />
+    <Compile Include="Forms\Controls\ICarouselView.cs" />
+    <Compile Include="Forms\Controls\IconButton.cs" />
+    <Compile Include="Forms\Controls\IconLabel.cs" />
+    <Compile Include="Forms\Controls\ImageButton.cs" />
+    <Compile Include="Forms\Controls\ImageButtonSourceConverter.cs" />
+    <Compile Include="Forms\Controls\ImageGallery.cs" />
+    <Compile Include="Forms\Controls\PopupLayout.cs" />
+    <Compile Include="Forms\Controls\RadioButton\BindableRadioGroup.cs" />
+    <Compile Include="Forms\Controls\RadioButton\CustomRadioButton.cs" />
+    <Compile Include="Forms\Controls\RepeaterView.cs" />
+    <Compile Include="Forms\Controls\SegmentControl\SegmentControl.cs" />
+    <Compile Include="Forms\Controls\SegmentControl\SegmentedControlView.cs" />
+    <Compile Include="Forms\Controls\SelectCell.cs" />
+    <Compile Include="Forms\Controls\SensorBar\SensorBarView.cs" />
+    <Compile Include="Forms\Controls\Separator.cs" />
+    <Compile Include="Forms\Controls\TemplateContentView.cs" />
+    <Compile Include="Forms\Controls\TemplateSelector.cs" />
+    <Compile Include="Forms\Controls\WebImage.cs" />
+    <Compile Include="Forms\Controls\WrapLayout.cs" />
+    <Compile Include="Core\Enums\ImageOrientation.cs" />
+    <Compile Include="Core\Enums\TextCellDetailLocation.cs" />
+    <Compile Include="Core\Exceptions\InvalidVisualObjectException.cs" />
+    <Compile Include="Core\Exceptions\NoDataTemplateMatchException.cs" />
+    <Compile Include="Core\Helpers\EventArgs{T}.cs" />
+    <Compile Include="Expanded.Common.cs" />
+    <Compile Include="Forms\Exceptions\InvalidBindableException.cs" />
+    <Compile Include="Forms\Extensions\BindableObjectExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.180\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.180\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.180\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
