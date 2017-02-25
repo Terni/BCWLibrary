@@ -53,6 +53,11 @@ namespace BitcoinWallet.Views
             if (Navigation != null)
                 await Navigation.PushModalAsync(new VCharts());
         }
+        async void Detail_OnClicked(object sender, EventArgs e)
+        {
+            if (Navigation != null)
+                await Navigation.PushModalAsync(new VContactDetail());
+        }
 
         public class ButtonPageViewModel : ObservableObject
         {
@@ -81,6 +86,7 @@ namespace BitcoinWallet.Views
                 }
             }
         }
+
 
     }
 }

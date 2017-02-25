@@ -49,10 +49,26 @@
               <Label Text="{Binding DisplayText}" TextColor="Black" x:Name="ValueBw"/>
             </Frame>
 
-            <Button Text="..."
-                    Command="{Binding DeleteCharCommand}"
-                    Grid.Column="1"
-                    Style="{StaticResource OrdersButtonStyle}"/>
+            <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Column="1" Scale="1"
+              ImageHeightRequest="50"
+              ImageWidthRequest="50"
+              Orientation="ImageCentered"
+              Command="{Binding AddCommand}"
+              TextColor="#000000"
+              Clicked="Detail_OnClicked"
+              Style="{StaticResource OrdersButtonStyle}"
+              Text="">
+              <controls:ImageButton.Source>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+                <OnPlatform x:TypeArguments="ImageSource">
+                  <OnPlatform.WinPhone>
+                    <FileImageSource File="Resources/Icons_menu/user-4.png" />
+                  </OnPlatform.WinPhone>
+                  <!-- ReSharper disable once Xaml.InvalidType -->
+                </OnPlatform>
+              </controls:ImageButton.Source>
+            </controls:ImageButton>
+            <!--<Button Text="..." Command="{Binding DeleteCharCommand}" Grid.Column="1" Style="{StaticResource OrdersButtonStyle}"/>-->
           </Grid>
 
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="1" Grid.Column="0" Scale="1"
@@ -143,7 +159,57 @@
           </controls:ImageButton>
           <!--<Button Text="Charts"
                   Grid.Row="2" Grid.Column="1" BackgroundColor="#7ac3ff" Clicked="Charts_OnClicked"/>-->
+
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="3" Grid.Column="0" Scale="1"
+          HeightRequest="100"
+          ImageHeightRequest="95"
+          ImageWidthRequest="100"
+          Orientation="ImageCentered"
+          Command="{Binding AddCommand}"
+          TextColor="#000000"
+          Clicked="Test_OnClicked"
+          Style="{StaticResource MenuButtonStyle}"
+          Text="">
+            <!-- Test -->
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons_menu/help.png" />
+                </OnPlatform.WinPhone>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+          <!--<Button Text=".."
+          Grid.Row="3" Grid.Column="0" BackgroundColor="#7ac3ff" IsVisible="False" />-->
+
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="3" Grid.Column="1" Scale="1"
+              HeightRequest="100"
+              ImageHeightRequest="95"
+              ImageWidthRequest="100"
+              Orientation="ImageCentered"
+              Command="{Binding AddCommand}"
+              TextColor="#000000"
+              Clicked="Test_OnClicked"
+              Style="{StaticResource MenuButtonStyle}"
+              Text="">
+            <!-- Test -->
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons_menu/shopping-bag-1.png" />
+                </OnPlatform.WinPhone>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+
+          <!--<Button Text=".."
+          Grid.Row="3" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />-->
+
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="4" Grid.Column="0" Scale="1"
                         HeightRequest="100"
                         ImageHeightRequest="85"
                         ImageWidthRequest="100"
@@ -157,20 +223,15 @@
               <!-- ReSharper disable once Xaml.InvalidType -->
               <OnPlatform x:TypeArguments="ImageSource">
                 <OnPlatform.WinPhone>
-                  <FileImageSource File="Resources/Icons_menu/worldwide.png" />
+                  <FileImageSource File="Resources/Icons_menu/refresh.png" />
                 </OnPlatform.WinPhone>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
             </controls:ImageButton.Source>
           </controls:ImageButton>
           <!--<Button Text="Test Keyboard"
-                  Grid.Row="3" Grid.Column="0" BackgroundColor="#7ac3ff" Clicked="Test_OnClicked"/>-->
+                  Grid.Row="4" Grid.Column="0" BackgroundColor="#7ac3ff" Clicked="Test_OnClicked"/>-->
 
-          <Button Text=".."
-                  Grid.Row="3" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
-
-          <Button Text="."
-                  Grid.Row="4" Grid.Column="0" BackgroundColor="#7ac3ff" IsVisible="False" />
 
           <Button Text=".."
                   Grid.Row="4" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />

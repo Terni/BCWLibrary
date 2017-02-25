@@ -110,12 +110,17 @@
     <Content Include="Resources\Icons_menu\bar-chart.png" />
     <Content Include="Resources\Icons_menu\group-1.png" />
     <Content Include="Resources\Icons_menu\group.png" />
+    <Content Include="Resources\Icons_menu\help.png" />
     <Content Include="Resources\Icons_menu\laptop-2.png" />
     <Content Include="Resources\Icons_menu\laptop-sm.png" />
+    <Content Include="Resources\Icons_menu\refresh.png" />
+    <Content Include="Resources\Icons_menu\shopping-bag-1.png" />
     <Content Include="Resources\Icons_menu\transfer-2.png" />
     <Content Include="Resources\Icons_menu\user-4.png" />
     <Content Include="Resources\Icons_menu\worldwide.png" />
-    <Content Include="user-3.png" />
+    <Content Include="Resources\Icons\user-3.png" />
+    <Content Include="Resources\wallet1_qrcode.png" />
+    <Content Include="Resources\wallet2_qrcode.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\EmbeddedImageResourceExtension.cs" />
     <Compile Include="Helpers\TickerRatesHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BwStyle.cs" />
@@ -51,6 +52,12 @@
     </Compile>
     <Compile Include="Views\VCharts.xaml.cs">
       <DependentUpon>VCharts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VContactDetail.xaml.cs">
+      <DependentUpon>VContactDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VEmpty.xaml.cs">
+      <DependentUpon>VEmpty.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VHistory.xaml.cs">
       <DependentUpon>VHistory.xaml</DependentUpon>
@@ -167,28 +174,30 @@
     <Folder Include="Core\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icons\bar-chart.png" />
-    <Content Include="Icons\download.png" />
-    <Content Include="Icons\group.png" />
-    <Content Include="Icons\handshake.png" />
-    <Content Include="Icons\laptop-2.png" />
-    <Content Include="Icons\like-2.png" />
-    <Content Include="Icons\next.png" />
-    <Content Include="Icons\previous.png" />
-    <Content Include="Icons\settings-3.png" />
-    <Content Include="Icons\shopping-bag-1.png" />
-    <Content Include="Icons\shopping-bag.png" />
-    <Content Include="Icons\smartphone.png" />
-    <Content Include="Icons\title.png" />
-    <Content Include="Icons\transfer-2.png" />
-    <Content Include="Icons\upload.png" />
-    <Content Include="Icons\user-1.png" />
-    <Content Include="Icons\user-11.png" />
-    <Content Include="Icons\user-3.png" />
-    <Content Include="Icons\user-6.png" />
-    <Content Include="Icons\user-7.png" />
-    <Content Include="Icons\user.png" />
+    <Content Include="Resources\beach.jpg" />
+    <Content Include="Resources\Icons\bar-chart.png" />
+    <Content Include="Resources\Icons\download.png" />
+    <Content Include="Resources\Icons\group.png" />
+    <Content Include="Resources\Icons\handshake.png" />
+    <Content Include="Resources\Icons\laptop-2.png" />
+    <Content Include="Resources\Icons\like-2.png" />
+    <Content Include="Resources\Icons\next.png" />
+    <Content Include="Resources\Icons\previous.png" />
+    <Content Include="Resources\Icons\settings-3.png" />
+    <Content Include="Resources\Icons\shopping-bag-1.png" />
+    <Content Include="Resources\Icons\shopping-bag.png" />
+    <Content Include="Resources\Icons\smartphone.png" />
+    <Content Include="Resources\Icons\title.png" />
+    <Content Include="Resources\Icons\transfer-2.png" />
+    <Content Include="Resources\Icons\upload.png" />
+    <Content Include="Resources\Icons\user-1.png" />
+    <Content Include="Resources\Icons\user-11.png" />
+    <Content Include="Resources\Icons\user-3.png" />
+    <Content Include="Resources\Icons\user-6.png" />
+    <Content Include="Resources\Icons\user-7.png" />
+    <Content Include="Resources\Icons\user.png" />
     <Content Include="laptop-sm.png" />
+    <Content Include="user-3.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\VKeyboard.xaml">
@@ -232,6 +241,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\VBookAdd.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\VContactDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\VEmpty.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
