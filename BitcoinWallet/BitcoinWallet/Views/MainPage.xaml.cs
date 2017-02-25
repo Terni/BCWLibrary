@@ -36,7 +36,7 @@ namespace BitcoinWallet.Views
             }
         }
 
-        async void Button_OnClicked(object sender, EventArgs e)
+        async void Loging_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
                 await Navigation.PushModalAsync(new VMenu());

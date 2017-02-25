@@ -16,7 +16,7 @@
         <Entry Placeholder="Address To" Text="{Binding Username}" x:Name="at" />
         <Entry Placeholder="My Balance" Text="{Binding Password}" x:Name="mb" />
         <Entry Placeholder="Value to Pay" Text="{Binding SecoundPassword}" x:Name="vtp"/>
-        <Button Text="Send" TextColor="White" BackgroundColor="#7ac3ff" Command="{Binding LoginCommand}" />
+        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding LoginCommand}" />
       </StackLayout>
     </ContentPage>
 

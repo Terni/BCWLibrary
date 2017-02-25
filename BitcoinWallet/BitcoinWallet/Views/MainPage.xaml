@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             prism:ViewModelLocator.AutowireViewModel="True"
+            xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=Expanded.Common"
             x:Class="BitcoinWallet.Views.MainPage"
             x:Name="MainPageTabbedPage"
             Title="{Binding title}"
@@ -21,9 +22,30 @@
         <Entry Placeholder="SecoundPassword"
          Text="{Binding SecoundPassword}"
          IsPassword="true" IsVisible="False" x:Name="PassMP2"/>
-        <Button Text="Login" TextColor="White"
-                BackgroundColor="#7ac3ff"
-                Command="{Binding LoginCommand}" Clicked="Button_OnClicked"/>
+
+        <!--<controls:ImageButton IsVisible="{Binding IsAddVisible}" Scale="1"
+              HeightRequest="50"
+              ImageHeightRequest="0"
+              ImageWidthRequest="0"
+              Orientation="ImageCentered"
+              Command="{Binding LoginCommand}"
+              TextColor="#ffffff"
+              Clicked="Loging_OnClicked"
+              BackgroundColor="#7ac3ff"
+              Margin="10,0,0,0"
+              Text="Login">--><!-- Login --><!--
+          <controls:ImageButton.Source>
+            --><!-- ReSharper disable once Xaml.InvalidType --><!--
+            <OnPlatform x:TypeArguments="ImageSource">
+              <OnPlatform.WinPhone>
+                <FileImageSource File="" />
+              </OnPlatform.WinPhone>
+              --><!-- ReSharper disable once Xaml.InvalidType --><!--
+            </OnPlatform>
+          </controls:ImageButton.Source>
+        </controls:ImageButton>-->
+        <Button Text="Login" Command="{Binding LoginCommand}" Clicked="Loging_OnClicked"
+                Style="{StaticResource ClassicButtonStyle}"/>
       </StackLayout>
     </ContentPage>
 
@@ -58,6 +80,8 @@
 
               <TextCell Detail="Dark skin" DetailColor="#3181c4"/>
                 <SwitchCell On="False"/>
+              <TextCell Detail="Icons visible" DetailColor="#3181c4"/>
+              <SwitchCell On="False"/>
 
             </TableSection>
           </TableRoot>
