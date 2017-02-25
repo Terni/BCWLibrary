@@ -41,7 +41,7 @@ namespace BitcoinWallet.Views
         async void Book_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
-                await Navigation.PushModalAsync(new VBook());
+                await Navigation.PushModalAsync(new VBookAdd());
         }
         async void History_OnClicked(object sender, EventArgs e)
         {

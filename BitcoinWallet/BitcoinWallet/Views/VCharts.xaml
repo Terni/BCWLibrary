@@ -31,7 +31,8 @@
 
 
     <ContentPage Title="Chart2" >
-      <!--<ContentPage.Resources>
+      
+    <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">
             <Setter Property=""/>
@@ -39,7 +40,7 @@
         </ResourceDictionary>
       </ContentPage.Resources>-->
 
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="White" >
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
 
       </StackLayout>
     </ContentPage>

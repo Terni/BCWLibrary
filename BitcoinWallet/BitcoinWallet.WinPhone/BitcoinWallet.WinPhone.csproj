@@ -115,6 +115,7 @@
     <Content Include="Resources\Icons_menu\transfer-2.png" />
     <Content Include="Resources\Icons_menu\user-4.png" />
     <Content Include="Resources\Icons_menu\worldwide.png" />
+    <Content Include="user-3.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

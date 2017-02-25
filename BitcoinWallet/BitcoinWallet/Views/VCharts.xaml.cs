@@ -16,7 +16,7 @@ namespace BitcoinWallet.Views
     {
         public VCharts()
         {
-            //InitializeComponent();
+            InitializeComponent();
 
 
 
