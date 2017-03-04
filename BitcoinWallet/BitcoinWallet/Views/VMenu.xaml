@@ -167,7 +167,7 @@
           Orientation="ImageCentered"
           Command="{Binding AddCommand}"
           TextColor="#000000"
-          Clicked="Test_OnClicked"
+          Clicked="Empty_OnClicked"
           Style="{StaticResource MenuButtonStyle}"
           Text="">
             <!-- Test -->
@@ -191,7 +191,7 @@
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
               TextColor="#000000"
-              Clicked="Test_OnClicked"
+              Clicked="Keyboard_OnClicked"
               Style="{StaticResource MenuButtonStyle}"
               Text="">
             <!-- Test -->
@@ -216,7 +216,7 @@
                         Orientation="ImageCentered"
                         Command="{Binding AddCommand}"
                         TextColor="#000000"
-                        Clicked="Test_OnClicked"
+                        Clicked="Empty_OnClicked"
                         Style="{StaticResource MenuButtonStyle}"
                         Text="">  <!-- Test -->
             <controls:ImageButton.Source>
@@ -249,7 +249,6 @@
                   Grid.Row="6" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
 
       </Grid>
-
       </ScrollView>
     </ContentPage>
   </TabbedPage.Children>
