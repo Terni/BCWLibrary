@@ -2,10 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BitcoinWallet.Views.VMasterDetail"
-			       Padding="0,40,0,0"
-			       Icon="hamburger.png"
-			       Title="_Personal_"
-             BackgroundColor="Teal">
+			       Padding="10,150,0,0"
+			       Icon="Resources/Icons_menuItems/hamburger.png"
+			       Title="Fast Menu"
+             BackgroundColor="{StaticResource LightBlue}"
+             BackgroundImage="Resources/title3.png"
+             >
 
   <ContentPage.Content>
     <StackLayout VerticalOptions="FillAndExpand">

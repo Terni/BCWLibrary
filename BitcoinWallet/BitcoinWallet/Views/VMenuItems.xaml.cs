@@ -17,17 +17,26 @@ namespace BitcoinWallet.Views
 
             if (Device.OS == TargetPlatform.Windows)
             {
-                Master.Icon = "swap.png";
+                //Master.Title = "Fast Menu";
+                Master.Icon = "Resources/Icons_menuItems/gotoslide.png";
 
-                ToolbarItem itm = new ToolbarItem();
-                itm.Name = "something";
-                itm.Icon = "swap.png";
-                Master.ToolbarItems.Add(itm);
+                //ToolbarItem itm = new ToolbarItem();
+                //itm.Name = "Fast Menu";
+                //itm.Icon = "swap.png";
+                //Master.ToolbarItems.Add(itm);
 
                 Master.ToolbarItems.Add(new ToolbarItem
                 {
-                    Name = "Swap 2",
-                    Icon = "reminders.png",
+                    Name = "Payment",
+                    Icon = "Resources/Icons_menuItems/send.money.png",
+                    Order = ToolbarItemOrder.Primary,
+                    Priority = 0
+                });
+
+                Master.ToolbarItems.Add(new ToolbarItem
+                {
+                    Name = "Log off",
+                    Icon = "Resources/Icons_menuItems/logoff.png",
                     Order = ToolbarItemOrder.Primary,
                     Priority = 0
                 });
@@ -37,7 +46,6 @@ namespace BitcoinWallet.Views
                     Text = "about",
                     Order = ToolbarItemOrder.Secondary,
                     Priority = 1
-                    //Icon = "reminders.png"
                 });
             }
         }
