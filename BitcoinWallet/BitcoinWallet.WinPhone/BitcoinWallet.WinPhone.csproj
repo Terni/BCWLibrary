@@ -110,17 +110,21 @@
     <Content Include="Resources\Icons_menuItems\activate.png" />
     <Content Include="Resources\Icons_menuItems\calendar.late.png" />
     <Content Include="Resources\Icons_menuItems\chart.png" />
-    <Content Include="Resources\Icons_menuItems\contacts2.png" />
+    <Content Include="Resources\Icons_menuItems\contacts.dark.png" />
+    <Content Include="Resources\Icons_menuItems\contacts.png" />
     <Content Include="Resources\Icons_menuItems\gotoslide.png" />
+    <Content Include="Resources\Icons_menuItems\hamburger.dark.png" />
     <Content Include="Resources\Icons_menuItems\hamburger.png" />
     <Content Include="Resources\Icons_menuItems\logoff.png" />
     <Content Include="Resources\Icons_menuItems\manage.png" />
     <Content Include="Resources\Icons_menuItems\people.groups.png" />
     <Content Include="Resources\Icons_menuItems\question.png" />
-    <Content Include="Resources\Icons_menuItems\reminders2.png" />
+    <Content Include="Resources\Icons_menuItems\reminders.dark.png" />
+    <Content Include="Resources\Icons_menuItems\reminders.png" />
     <Content Include="Resources\Icons_menuItems\send.money.png" />
     <Content Include="Resources\Icons_menuItems\swap.png" />
-    <Content Include="Resources\Icons_menuItems\todo2.png" />
+    <Content Include="Resources\Icons_menuItems\todo.dark.png" />
+    <Content Include="Resources\Icons_menuItems\todo.png" />
     <Content Include="Resources\Icons_menu\bar-chart.png" />
     <Content Include="Resources\Icons_menu\group-1.png" />
     <Content Include="Resources\Icons_menu\group.png" />
@@ -136,6 +140,7 @@
     <Content Include="Resources\title.png" />
     <Content Include="Resources\title2.png" />
     <Content Include="Resources\title3.png" />
+    <Content Include="Resources\title4.png" />
     <Content Include="Resources\wallet1_qrcode.png" />
     <Content Include="Resources\wallet2_qrcode.png" />
   </ItemGroup>

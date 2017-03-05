@@ -19,20 +19,20 @@ namespace BitcoinWallet.Views
             var masterItems = new List<MasterDetailItem>();
             masterItems.Add(new MasterDetailItem
             {
-                Title = "Contacts",
-                IconSource = "Resources/Icons_menuItems/contacts2.png",
+                Title = " Contacts",
+                IconSource = "Resources/Icons_menuItems/contacts.dark.png",
                 TargetType = typeof(VContactDetail)
             });
             masterItems.Add(new MasterDetailItem
             {
-                Title = "Address Book",
-                IconSource = "Resources/Icons_menuItems/todo2.png",
+                Title = " Address Book",
+                IconSource = "Resources/Icons_menuItems/todo.dark.png",
                 TargetType = typeof(VBook)
             });
             masterItems.Add(new MasterDetailItem
             {
-                Title = "About",
-                IconSource = "Resources/Icons_menuItems/reminders2.png",
+                Title = " About",
+                IconSource = "Resources/Icons_menuItems/reminders.dark.png",
                 TargetType = typeof(VAbout)
             });
 
