@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="BitcoinWallet.Views.VPayment"
+            x:Name="VPaymentTabbedPage"
+            Title="{Binding title}"
+            BackgroundColor="White"
+            BarTextColor="Black"
+  >
+
+  <TabbedPage.Children>
+    <ContentPage Title="Quick">
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+
+        <!-- Inner Grid 0 for top row of items -->
+        <Grid VerticalOptions="Center" ColumnSpan="2">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto"/>
+          </Grid.ColumnDefinitions>
+
+          <Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="-2">
+            <Entry Placeholder="Address To" Text="{Binding AddressTo}" x:Name="ValueAddress" />
+          </Frame>
+
+          <Button Text="" WidthRequest="40"
+                  Grid.Column="1"
+                  Command="{Binding DeleteCharCommand}"
+                  Style="{StaticResource OrdersButtonStyle}"/>
+
+        </Grid>
+        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <Entry Placeholder="My Balance" Text="{Binding MyBalance}" x:Name="mb" />
+        </Frame>
+        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <Entry Placeholder="Value to Pay" Text="{Binding ValutoPay}" x:Name="vtp"/>
+        </Frame>
+        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SendCommand}" />
+      </StackLayout>
+    </ContentPage>
+
+
+
+
+    <ContentPage Title="Particular">
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" >
+        <!--<TableView>
+          <TableRoot>
+            <TableSection>
+              <TextCell TextColor="Black" Text="Particular"/>
+            </TableSection>
+          </TableRoot>
+        </TableView>-->
+
+
+        <!-- Inner Grid 0 for top row of items -->
+        <Grid VerticalOptions="Center" ColumnSpan="2">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="5"/>
+          </Grid.ColumnDefinitions>
+
+          <Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="-2">
+            <Entry Placeholder="Address To" Text="{Binding AddressTo}" x:Name="ValueAddress2" />
+          </Frame>
+
+          <Button Text="" WidthRequest="40"
+                  Command="{Binding DeleteCharCommand}"
+                  Grid.Column="1"
+                  Style="{StaticResource OrdersButtonStyle}"/>
+        </Grid>
+        
+        <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <Entry Placeholder="Address To" Text="{Binding Username}" x:Name="at2" Style="{StaticResource EntryStyle}"  />
+        </Frame>-->
+        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <Entry Placeholder="My Balance" Text="{Binding MyBalance}" x:Name="mb2" Style="{StaticResource EntryStyle}" />
+        </Frame>
+        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <Entry Placeholder="Value to Pay" Text="{Binding ValutoPay}" x:Name="vtp2" Style="{StaticResource EntryStyle}" />
+        </Frame>
+        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <Entry Placeholder="Fee = 0.001" Text="{Binding Fee}" x:Name="fee2" Style="{StaticResource EntryStyle}" />
+        </Frame>
+        <!--<Entry Placeholder="Note for transaction ..." Text="{Binding Note}" HeightRequest="100"  x:Name="nft2"/>-->
+        <Label Text="Note for transaction" Style="{StaticResource LabelStyle}" />
+        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <Editor HeightRequest="100" Style="{StaticResource EditorStyle}" VerticalOptions="End" />
+        </Frame>
+
+        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SendCommand}"  />
+
+
+
+
+      </StackLayout>
+    </ContentPage>
+
+
+
+  </TabbedPage.Children>
+</TabbedPage>

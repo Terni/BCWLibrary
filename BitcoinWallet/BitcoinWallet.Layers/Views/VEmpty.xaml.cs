@@ -8,11 +8,11 @@ using Xamarin.Forms;
 
 namespace BitcoinWallet.Views
 {
-    public partial class about : ContentPage
+    public partial class VEmpty : TabbedPage
     {
-        public about()
+        public VEmpty()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
     }
 }

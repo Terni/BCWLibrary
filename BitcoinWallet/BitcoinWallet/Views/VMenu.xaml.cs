@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BitcoinWallet.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,10 +29,15 @@ namespace BitcoinWallet.Views
             this.BindingContext = new ButtonPageViewModel();
         }
 
-        async void Test_OnClicked(object sender, EventArgs e)
+        async void Keyboard_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
                 await Navigation.PushModalAsync(new VKeyboard());
+        }
+        async void Keyboard2_OnClicked(object sender, EventArgs e)
+        {
+            if (Navigation != null)
+                await Navigation.PushModalAsync(new VKeyboard2());
         }
         async void Payment_OnClicked(object sender, EventArgs e)
         {
@@ -41,7 +47,7 @@ namespace BitcoinWallet.Views
         async void Book_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
-                await Navigation.PushModalAsync(new VBook());
+                await Navigation.PushModalAsync(new VBookAdd());
         }
         async void History_OnClicked(object sender, EventArgs e)
         {
@@ -52,6 +58,16 @@ namespace BitcoinWallet.Views
         {
             if (Navigation != null)
                 await Navigation.PushModalAsync(new VCharts());
+        }
+        async void Detail_OnClicked(object sender, EventArgs e)
+        {
+            if (Navigation != null)
+                await Navigation.PushModalAsync(new VContactDetail());
+        }
+        async void Empty_OnClicked(object sender, EventArgs e)
+        {
+            if (Navigation != null)
+                await Navigation.PushModalAsync(new VEmpty());
         }
 
         public class ButtonPageViewModel : ObservableObject
@@ -81,6 +97,7 @@ namespace BitcoinWallet.Views
                 }
             }
         }
+
 
     }
 }

@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace BitcoinWallet.Views
 {
-    public partial class VTestPage1 : ContentPage
+    public partial class VKeyboard2 : ContentPage
     {
-        public VTestPage1()
+        public VKeyboard2()
         {
             //InitializeComponent();
         }

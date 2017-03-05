@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace BitcoinWallet.Views
 {
-    public partial class VMenuLeft : ContentView
+    public partial class VBookAdd : TabbedPage
     {
-        public VMenuLeft()
+        public VBookAdd()
         {
             InitializeComponent();
         }

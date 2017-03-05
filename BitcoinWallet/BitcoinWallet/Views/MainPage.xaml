@@ -89,7 +89,5 @@
       </StackLayout>
     </ContentPage>
 
-
-
   </TabbedPage.Children>
 </TabbedPage>

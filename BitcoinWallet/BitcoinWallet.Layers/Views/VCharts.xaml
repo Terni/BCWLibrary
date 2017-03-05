@@ -2,29 +2,37 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:controls="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows.Foundation.UniversalApiContract"
             prism:ViewModelLocator.AutowireViewModel="True"
-            x:Class="BitcoinWallet.Views.VPayment"
-            x:Name="VPaymentTabbedPage"
+            x:Class="BitcoinWallet.Views.VCharts"
+            x:Name="VChartsTabbedPage"
             Title="{Binding title}"
             BackgroundColor="White"
             BarTextColor="Black"
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Quick">
+    <ContentPage Title="Chart1">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-        <Entry Placeholder="Address To" Text="{Binding Username}" x:Name="at" />
-        <Entry Placeholder="My Balance" Text="{Binding Password}" x:Name="mb" />
-        <Entry Placeholder="Value to Pay" Text="{Binding SecoundPassword}" x:Name="vtp"/>
-        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding LoginCommand}" />
+
+        <Label Text="15m." TextColor="Black"/>
+        <Label Text="Last" TextColor="Black"/>
+        <Label Text="Sell" TextColor="Black"/>
+        <Label Text="Buy" TextColor="Black"/>
+        <ListView x:Name="ListValues">
+
+        </ListView>
+
+
       </StackLayout>
     </ContentPage>
 
 
 
 
-    <ContentPage Title="Particular" >
-      <!--<ContentPage.Resources>
+    <ContentPage Title="Chart2" >
+      
+    <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">
             <Setter Property=""/>
@@ -32,7 +40,7 @@
         </ResourceDictionary>
       </ContentPage.Resources>-->
 
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="White" >
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
 
       </StackLayout>
     </ContentPage>

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BitcoinMyWallet.Helpers;
-using BitcoinMyWallet.ViewModels;
-using Bitcoin.APIClient;
+//using BitcoinMyWallet.Helpers;
+//using BitcoinMyWallet.ViewModels;
+//using Bitcoin.APIClient;
 using System.Net;
 
 using Xamarin.Forms;
@@ -16,7 +16,7 @@ namespace BitcoinWallet.Views
     {
         public VCharts()
         {
-            //InitializeComponent();
+            InitializeComponent();
 
 
 
