@@ -12,14 +12,14 @@ namespace BitcoinWallet
 
         public App(IPlatformInitializer initializer = null) : base(initializer)
         {
-
+            
         }
 
         protected override void OnInitialized()
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("MainPage");
+            NavigationService.NavigateAsync("MainPage", animated: false);
         }
 
         protected override void RegisterTypes()

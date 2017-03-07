@@ -10,10 +10,9 @@ namespace BitcoinWallet.Views
         {
             InitializeComponent();
 
-            // TODO: ciste pro testovani !! Musi se zmazat !!
-            UserMP.Text = "1393dcec-2f1d-45f3-8055-a304636dce13";
-            PassMP1.Text = "ro1008UKOMO87";
-            PassMP2.Text = "ro1008UKOMO1987";
+            UserMP.Text = "";
+            PassMP1.Text = "";
+            PassMP2.Text = "";
 
         }
 
