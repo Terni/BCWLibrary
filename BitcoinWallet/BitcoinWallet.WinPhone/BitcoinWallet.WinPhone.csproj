@@ -217,6 +217,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="login.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
