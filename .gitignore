@@ -57,3 +57,5 @@ Temporary*
 
 BitcoinWallet/BitcoinWallet.Droid/obj/Debug/sdks.cache
 Icons-all/
+BitcoinWallet/BitcoinWallet/login.xml
+BitcoinWallet/BitcoinWallet.WinPhone/login.xml

@@ -15,7 +15,7 @@ namespace BitcoinWallet.Core
     public class DataSyntFromXml
     {
         private List<Wallet> _rawWallets = null;
-        private List<Module> _rawModules = null;
+        private List<Modules> _rawModules = null;
         private XDocument _doc;
 
         public DataSyntFromXml(XDocument doc)
@@ -34,8 +34,8 @@ namespace BitcoinWallet.Core
                     };
                 _rawWallets = wallets.ToList();
 
-                IEnumerable<Module> modules = from s in _doc.Descendants("module")
-                    select new Module
+                IEnumerable<Modules> smallModules = from s in _doc.Descendants("module")
+                    select new Modules
                     {
                         Name = s.Attribute("name").Value,
                         Value = s.Attribute("value").Value,
@@ -43,7 +43,7 @@ namespace BitcoinWallet.Core
                         Enable = Convert.ToBoolean(s.Attribute("enable").Value),
                         Secure = Convert.ToBoolean(s.Attribute("secure").Value)
                     };
-                _rawModules = modules.ToList();
+                _rawModules = smallModules.ToList();
             });
         }
 
@@ -54,7 +54,7 @@ namespace BitcoinWallet.Core
             set { _rawWallets = value; }
         }
 
-        public List<Module> RawModules
+        public List<Modules> RawModules
         {
             get { return _rawModules; }
             set { _rawModules = value; }

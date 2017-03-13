@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BitcoinWallet.Core
 {
-    public class Module
+    public class Modules
     {
         private string _strValue;
 
-        public Module()
+        public Modules()
         {
             _strValue = string.Empty;
         }

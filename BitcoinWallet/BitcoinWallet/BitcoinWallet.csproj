@@ -132,7 +132,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="login.config" />
+    <Content Include="login.xml" />
     <Content Include="Resources\beach.jpg" />
     <Content Include="Resources\Icons\bar-chart.png" />
     <Content Include="Resources\Icons\download.png" />

@@ -6,25 +6,28 @@ using System.Xml.Linq;
 using BitcoinWallet.Core;
 using BitcoinWallet.Helpers;
 using Xamarin.Forms;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace BitcoinWallet.Views
 {
     public partial class MainPage : TabbedPage
     {
-        private List<Module> _listModules;
+        private List<Modules> _listModules;
         private DataSyntFromXml _fromXml;
 
         public MainPage()
         {
             InitializeComponent();
 
+            var assembly = typeof(MainPage).GetTypeInfo().Assembly;
+
+            Stream stream = assembly.GetManifestResourceStream("login.xml");
 
 
-            //XDocument doc = XDocument.Load("login.config");
-            XDocument doc = null;
-
-            if (doc != null)
+            if (stream != null)
             {
+                XDocument doc = XDocument.Load(stream);
                 _fromXml = new DataSyntFromXml(doc);
                 _listModules = _fromXml.RawModules;
                 foreach (var item in _listModules)
