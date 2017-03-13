@@ -11,7 +11,7 @@ namespace BitcoinWallet.Helpers
         Alias,
         LoginID,
         PasswordFirst,
-        PasswordSecound,
+        PasswordSecond,
         api_code,
         autologon,
         Theme
@@ -26,7 +26,7 @@ namespace BitcoinWallet.Helpers
             {"Alias",0},
             {"LoginID",1},
             {"PasswordFirst",2},
-            {"PasswordSecound",3},
+            {"PasswordSecond",3},
             {"api_code",4},
             {"autologon",5},
             {"Theme",6 }
