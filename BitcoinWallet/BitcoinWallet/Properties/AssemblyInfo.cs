@@ -12,7 +12,7 @@ using Xamarin.Forms.Xaml;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BitcoinWallet")]
+[assembly: AssemblyProduct("BitcoinWallet 2.0")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -10,11 +10,10 @@ namespace BitcoinWallet.Core
     public class Modules
     {
         private string _strValue;
+        private bool _visible;
+        private bool _enable;
+        private bool _secure;
 
-        public Modules()
-        {
-            _strValue = string.Empty;
-        }
 
         public string Name { get; set; }
 
@@ -30,9 +29,9 @@ namespace BitcoinWallet.Core
             }
             set { _strValue = value; }
         }
-        public bool Visible { get; set; }
-        public bool Enable { get; set; }
-        public bool Secure { get; set; }
+        public bool? Visible { get; set; }
+        public bool? Enable { get; set; }
+        public bool? Secure { get; set; }
     }
 
     public class Wallet

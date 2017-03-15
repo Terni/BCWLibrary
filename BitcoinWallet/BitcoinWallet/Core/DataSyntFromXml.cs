@@ -21,6 +21,8 @@ namespace BitcoinWallet.Core
         public DataSyntFromXml(XDocument doc)
         {
             _doc = doc;
+            _rawModules = new List<Modules>();
+            LoadXMLData();
         }
 
         private async void LoadXMLData()
@@ -34,17 +36,49 @@ namespace BitcoinWallet.Core
                     };
                 _rawWallets = wallets.ToList();
 
-                IEnumerable<Modules> smallModules = from s in _doc.Descendants("module")
-                    select new Modules
-                    {
-                        Name = s.Attribute("name").Value,
-                        Value = s.Attribute("value").Value,
-                        Visible = Convert.ToBoolean(s.Attribute("visible").Value),
-                        Enable = Convert.ToBoolean(s.Attribute("enable").Value),
-                        Secure = Convert.ToBoolean(s.Attribute("secure").Value)
-                    };
-                _rawModules = smallModules.ToList();
+                //IEnumerable<Modules> smallModules = from s in _doc.Descendants("module")
+                //    select new Modules
+                //    {
+                //        Name = s.Attribute("name").Value,
+                //        Value = s.Attribute("value").Value,
+                //        Visible = Convert.ToBoolean(s.Attribute("visible").Value),
+                //        Enable = Convert.ToBoolean(s.Attribute("enable").Value),
+                //        Secure = Convert.ToBoolean(s.Attribute("secure").Value)
+                //    };
+                //_rawModules = smallModules.ToList();
+
+                foreach (var x in _doc.Descendants("module"))
+                {
+                    Modules item = new Modules();
+                    item.Name = x.Attribute("name").Value;
+                    item.Value = GetAttributeString(x, "value");
+                    item.Visible = GetAttributeBool(x, "visible");
+                    item.Enable = GetAttributeBool(x, "enable");
+                    item.Secure = GetAttributeBool(x, "secure");
+                    _rawModules.Add(item);
+                }
             });
+        }
+
+        private string GetAttributeString(XElement x, string name)
+        {
+            XAttribute item;
+            if ((item = x.Attribute(name)) != null)
+            {
+                return item.Value;
+            }
+            return string.Empty;
+        }
+
+        private bool GetAttributeBool(XElement x, string name)
+        {
+            XAttribute item;
+            if ((item = x.Attribute(name)) != null)
+            {
+                if(item.Value != string.Empty)
+                    return Convert.ToBoolean(item.Value);
+            }
+            return false;
         }
 
 

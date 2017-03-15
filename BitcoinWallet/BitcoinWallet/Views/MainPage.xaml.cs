@@ -15,66 +15,75 @@ namespace BitcoinWallet.Views
     {
         private List<Modules> _listModules;
         private DataSyntFromXml _fromXml;
+        private Stream streamFile;
 
         public MainPage()
         {
             InitializeComponent();
 
-            var assembly = typeof(MainPage).GetTypeInfo().Assembly;
+            #region Loading LoginConfig.xml
+            //var assembly = typeof(MainPage).GetTypeInfo().Assembly;
+            //Stream stream = assembly.GetManifestResourceStream("BitcoinWallet.login.xml");
+            #endregion
+            LoadXmlFile instLoadXmlFile = new LoadXmlFile();
+            streamFile = instLoadXmlFile.Streams;
 
-            Stream stream = assembly.GetManifestResourceStream("login.xml");
-
-
-            if (stream != null)
+            if (streamFile != null)
             {
-                XDocument doc = XDocument.Load(stream);
+                XDocument doc = XDocument.Load(streamFile);
                 _fromXml = new DataSyntFromXml(doc);
-                _listModules = _fromXml.RawModules;
-                foreach (var item in _listModules)
+
+                if ((_listModules = _fromXml.RawModules) != null)
                 {
-                    //switch (item.Name)
-                    //{
-                    //    case NameModuleEnum.Name[]:
-                    //    case NameModuleEnum.Name[]:
-                    //}
-                    int valueEnumType;
-                    NameModuleEnum.Name.TryGetValue(item.Name, out valueEnumType);
-                    switch (valueEnumType)
+                    foreach (var item in _listModules)
                     {
-                        case 0: //alias
-                            break;
-                        case 1: // LoginID
+                        //switch (item.Name)
+                        //{
+                        //    case NameModuleEnum.Name[]:
+                        //    case NameModuleEnum.Name[]:
+                        //}
+                        int valueEnumType;
+                        NameModuleEnum.Name.TryGetValue(item.Name, out valueEnumType);
+                        switch (valueEnumType)
                         {
-                            UserMP.Text = item.Value;
-                            break;
+                            case 0: //alias
+                                break;
+                            case 1: // LoginID
+                            {
+                                UserMP.Text = item.Value;
+                                break;
+                            }
+                            case 2: // pass first
+                            {
+                                PassMP1.Text = item.Value;
+                                break;
+                            }
+                            case 3: // pass sec
+                            {
+                                PassMP2.Text = item.Value;
+                                break;
+                            }
+                            case 4: // api code
+                                break;
+                            case 5: // autologon
+                                break;
+                            case 6: // theme
+                                break;
+                            default:
+                                throw new NotImplementedException();
                         }
-                        case 2: // pass first
-                        {
-                            PassMP1.Text = item.Value;
-                            break;
-                        }
-                        case 3: // pass sec
-                        {
-                            PassMP2.Text = item.Value;
-                            break;
-                        }
-                        case 4: // api code
-                            break;
-                        case 5: // autologon
-                            break;
-                        case 6: // theme
-                            break;
-                        default:
-                            throw new NotImplementedException();
                     }
                 }
             }
-            else
+
+            if (UserMP.Text == null)
             {
                 UserMP.Text = "";
                 PassMP1.Text = "";
                 PassMP2.Text = "";
             }
+
+
 
 
         }
