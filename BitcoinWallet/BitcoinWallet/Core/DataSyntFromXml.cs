@@ -25,6 +25,9 @@ namespace BitcoinWallet.Core
             LoadXMLData();
         }
 
+        /// <summary>
+        /// Method load data from xml file
+        /// </summary>
         private async void LoadXMLData()
         {
 
@@ -60,6 +63,12 @@ namespace BitcoinWallet.Core
             });
         }
 
+        /// <summary>
+        /// Method for Getting Attribute
+        /// </summary>
+        /// <param name="x">Xelemet</param>
+        /// <param name="name"></param>
+        /// <returns>string</returns>
         private string GetAttributeString(XElement x, string name)
         {
             XAttribute item;
@@ -70,6 +79,12 @@ namespace BitcoinWallet.Core
             return string.Empty;
         }
 
+        /// <summary>
+        /// Method for Getting Attribute
+        /// </summary>
+        /// <param name="x">Xelemet</param>
+        /// <param name="name"></param>
+        /// <returns>bool</returns>
         private bool GetAttributeBool(XElement x, string name)
         {
             XAttribute item;

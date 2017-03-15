@@ -12,7 +12,9 @@ namespace BitcoinWallet
     {
         private Stream streams;
 
-
+        /// <summary>
+        /// Method loading file form Embedded resources
+        /// </summary>
         public LoadXmlFile()
         {
             //Attention: Embedded files will by must in Project file in syntax:

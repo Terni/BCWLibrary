@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace BitcoinWallet.Core
 {
+    /// <summary>
+    /// Class for Modules in XML
+    /// </summary>
     public class Modules
     {
         private string _strValue;
@@ -34,6 +37,9 @@ namespace BitcoinWallet.Core
         public bool? Secure { get; set; }
     }
 
+    /// <summary>
+    /// Class for Wallets in XML
+    /// </summary>
     public class Wallet
     {
         public int Number { get; set; }
