@@ -32,48 +32,8 @@ namespace BitcoinWallet.Views
             {
                 XDocument doc = XDocument.Load(streamFile);
                 _fromXml = new DataSyntFromXml(doc);
+                WaitData();
 
-                if ((_listModules = _fromXml.RawModules) != null)
-                {
-                    foreach (var item in _listModules)
-                    {
-                        //switch (item.Name)
-                        //{
-                        //    case NameModuleEnum.Name[]:
-                        //    case NameModuleEnum.Name[]:
-                        //}
-                        int valueEnumType;
-                        NameModuleEnum.Name.TryGetValue(item.Name, out valueEnumType);
-                        switch (valueEnumType)
-                        {
-                            case 0: //alias
-                                break;
-                            case 1: // LoginID
-                            {
-                                UserMP.Text = item.Value;
-                                break;
-                            }
-                            case 2: // pass first
-                            {
-                                PassMP1.Text = item.Value;
-                                break;
-                            }
-                            case 3: // pass sec
-                            {
-                                PassMP2.Text = item.Value;
-                                break;
-                            }
-                            case 4: // api code
-                                break;
-                            case 5: // autologon
-                                break;
-                            case 6: // theme
-                                break;
-                            default:
-                                throw new NotImplementedException();
-                        }
-                    }
-                }
             }
 
             if (UserMP.Text == null)
@@ -82,13 +42,53 @@ namespace BitcoinWallet.Views
                 PassMP1.Text = "";
                 PassMP2.Text = "";
             }
-
-
-
-
         }
 
-
+        private async void WaitData()
+        {
+            var result = await _fromXml.LoadXMLData();
+            if ((_listModules = _fromXml.RawModules) != null && result)
+            {
+                foreach (var item in _listModules)
+                {
+                    //switch (item.Name)
+                    //{
+                    //    case NameModuleEnum.Name[]:
+                    //    case NameModuleEnum.Name[]:
+                    //}
+                    int valueEnumType;
+                    NameModuleEnum.Name.TryGetValue(item.Name, out valueEnumType);
+                    switch (valueEnumType)
+                    {
+                        case 0: //alias
+                            break;
+                        case 1: // LoginID
+                            {
+                                UserMP.Text = item.Value;
+                                break;
+                            }
+                        case 2: // pass first
+                            {
+                                PassMP1.Text = item.Value;
+                                break;
+                            }
+                        case 3: // pass sec
+                            {
+                                PassMP2.Text = item.Value;
+                                break;
+                            }
+                        case 4: // api code
+                            break;
+                        case 5: // autologon
+                            break;
+                        case 6: // theme
+                            break;
+                        default:
+                            throw new NotImplementedException();
+                    }
+                }
+            }
+        }
 
         //private void BindableObject_OnPropertyChangedopertyChanged(object sender, PropertyChangedEventArgs e)
         //{

@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 using Xamarin.Forms.Xaml;
 
-namespace BitcoinWallet
+namespace BitcoinWallet.Helpers
 {
     public class LoadXmlFile
     {
@@ -28,10 +28,7 @@ namespace BitcoinWallet
             Streams = assembly.GetManifestResourceStream("BitcoinWallet.LoginConfig.xml");
 
             //TEST: Load all Embedded resources
-            foreach (var test in assembly.GetManifestResourceNames())
-            {
-
-            }
+            //foreach (var test in assembly.GetManifestResourceNames()){}
             #endregion
 
         }

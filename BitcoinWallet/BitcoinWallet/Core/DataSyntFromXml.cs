@@ -22,13 +22,13 @@ namespace BitcoinWallet.Core
         {
             _doc = doc;
             _rawModules = new List<Modules>();
-            LoadXMLData();
+            //LoadXMLData();
         }
 
         /// <summary>
         /// Method load data from xml file
         /// </summary>
-        private async void LoadXMLData()
+        public async Task<bool> LoadXMLData()
         {
 
             await Task.Factory.StartNew(delegate {
@@ -61,6 +61,7 @@ namespace BitcoinWallet.Core
                     _rawModules.Add(item);
                 }
             });
+            return true;
         }
 
         /// <summary>
@@ -96,13 +97,18 @@ namespace BitcoinWallet.Core
             return false;
         }
 
-
+        /// <summary>
+        /// Property for Wallets
+        /// </summary>
         public List<Wallet> RawWallets
         {
             get { return _rawWallets; }
             set { _rawWallets = value; }
         }
 
+        /// <summary>
+        /// Property for Modules
+        /// </summary>
         public List<Modules> RawModules
         {
             get { return _rawModules; }
