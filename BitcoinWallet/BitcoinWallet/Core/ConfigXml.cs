@@ -13,10 +13,6 @@ namespace BitcoinWallet.Core
     public class Modules
     {
         private string _strValue;
-        private bool _visible;
-        private bool _enable;
-        private bool _secure;
-
 
         public string Name { get; set; }
 
