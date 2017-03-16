@@ -3,7 +3,7 @@ Add a method for logging into the console for debugging and logging into a datab
 
 Release note 16/3/2017:
 The application can also be used loginconfig.xml initialization file. The project template is created
- loginconfig.template.xml.  These template simply rename the correct grass. The project has
+ loginconfig.template.xml. These template simply rename the correct grass. The project has
  already expects this file.
 
 Release note 15/3/2017:
