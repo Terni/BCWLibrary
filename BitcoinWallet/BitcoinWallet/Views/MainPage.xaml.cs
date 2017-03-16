@@ -51,7 +51,8 @@ namespace BitcoinWallet.Views
             {
                 foreach (var item in _listModules)
                 {
-                    NameModuleEnum.Name.TryGetValue(item.Name, out NameModule valueEnumType);
+                    NameModule valueEnumType;
+                    NameModuleEnum.Name.TryGetValue(item.Name, out valueEnumType);
                     switch (valueEnumType)
                     {
                         case NameModule.Alias:
