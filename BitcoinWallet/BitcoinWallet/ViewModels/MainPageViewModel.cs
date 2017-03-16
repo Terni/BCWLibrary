@@ -42,7 +42,7 @@ namespace BitcoinWallet.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             if (parameters.ContainsKey("title"))
-                Title = (string)parameters["title"] + " and Prism";
+                Title = (string)parameters["title"] + "";
         }
     }
 }

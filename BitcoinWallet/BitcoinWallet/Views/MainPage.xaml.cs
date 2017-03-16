@@ -46,6 +46,8 @@ namespace BitcoinWallet.Views
 
         private async void WaitData()
         {
+            Logging.Debug("neco");
+
             var result = await _fromXml.LoadXMLData();
             if ((_listModules = _fromXml.RawModules) != null && result)
             {

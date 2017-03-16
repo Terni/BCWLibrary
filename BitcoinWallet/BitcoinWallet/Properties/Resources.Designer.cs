@@ -60,14 +60,5 @@ namespace BitcoinWallet.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ConfigLogin.xml.
-        /// </summary>
-        internal static string ConfigLogin {
-            get {
-                return ResourceManager.GetString("ConfigLogin", resourceCulture);
-            }
-        }
     }
 }

@@ -40,6 +40,7 @@
     <Compile Include="Core\DataSyntToXml.cs" />
     <Compile Include="Helpers\EmbeddedImageResourceExtension.cs" />
     <Compile Include="Helpers\LoadXmlFile.cs" />
+    <Compile Include="Helpers\Logging.cs" />
     <Compile Include="Helpers\NameModule.cs" />
     <Compile Include="Helpers\TickerRatesHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,7 +72,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="LoginConfig.xml" />
     <EmbeddedResource Include="README.txt" />
   </ItemGroup>
@@ -169,7 +170,6 @@
     <Content Include="Resources\Icons\user-7.png" />
     <Content Include="Resources\Icons\user.png" />
     <Content Include="laptop-sm.png" />
-    <Content Include="user-3.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bitcoin\Bitcoin.APIClient\Bitcoin.APIClient.csproj">
