@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <wallet number="0">
+  <authentication>
+    <login-config>
+      <module name="Alias" value="bitcoinwallet" visible="true" />
+      <module name="LoginID" value="xxxx" visible="false" enable="true"/>
+      <module name="PasswordFirst" value="xxxx" visible="true" secure="true" enable="true"/>
+      <module name="PasswordSecound" value="xxxx" visible="false" secure="true" />
+      <module name="api_code" value="xxxx" visible="false"/>
+      <module name="autologon" enable="false"/>
+      <module name="Theme" value="Light" />
+    </login-config>
+  </authentication>
+  </wallet>
+</root>
+
