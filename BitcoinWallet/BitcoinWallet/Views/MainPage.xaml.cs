@@ -46,44 +46,36 @@ namespace BitcoinWallet.Views
 
         private async void WaitData()
         {
-            Logging.Debug("neco");
-
             var result = await _fromXml.LoadXMLData();
             if ((_listModules = _fromXml.RawModules) != null && result)
             {
                 foreach (var item in _listModules)
                 {
-                    //switch (item.Name)
-                    //{
-                    //    case NameModuleEnum.Name[]:
-                    //    case NameModuleEnum.Name[]:
-                    //}
-                    int valueEnumType;
-                    NameModuleEnum.Name.TryGetValue(item.Name, out valueEnumType);
+                    NameModuleEnum.Name.TryGetValue(item.Name, out NameModule valueEnumType);
                     switch (valueEnumType)
                     {
-                        case 0: //alias
+                        case NameModule.Alias:
                             break;
-                        case 1: // LoginID
+                        case NameModule.LoginID:
                             {
                                 UserMP.Text = item.Value;
                                 break;
                             }
-                        case 2: // pass first
+                        case NameModule.PasswordFirst:
                             {
                                 PassMP1.Text = item.Value;
                                 break;
                             }
-                        case 3: // pass sec
+                        case NameModule.PasswordSecond:
                             {
                                 PassMP2.Text = item.Value;
                                 break;
                             }
-                        case 4: // api code
+                        case NameModule.api_code:
                             break;
-                        case 5: // autologon
+                        case NameModule.autologon:
                             break;
-                        case 6: // theme
+                        case NameModule.Theme:
                             break;
                         default:
                             throw new NotImplementedException();
@@ -91,11 +83,6 @@ namespace BitcoinWallet.Views
                 }
             }
         }
-
-        //private void BindableObject_OnPropertyChangedopertyChanged(object sender, PropertyChangedEventArgs e)
-        //{
-        //     this.BarTextColor = Color.Red;
-        //}
 
         private void BindableObject_OnPropertyChanging(object sender, PropertyChangingEventArgs e)
         {

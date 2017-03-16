@@ -6,42 +6,30 @@ using System.Threading.Tasks;
 
 namespace BitcoinWallet.Helpers
 {
-    enum NameModule
+    public enum NameModule
     {
-        Alias,
-        LoginID,
-        PasswordFirst,
-        PasswordSecond,
-        api_code,
-        autologon,
-        Theme
+        Alias = 0,
+        LoginID = 1,
+        PasswordFirst = 2,
+        PasswordSecond = 3,
+        api_code = 4,
+        autologon = 5,
+        Theme = 6
     }
-    
-    
+
+
 
     public static class NameModuleEnum
     {
-        public static Dictionary<string, int> Name = new Dictionary<string, int>
+        public static Dictionary<string, NameModule> Name = new Dictionary<string, NameModule>
         {
-            {"Alias",0},
-            {"LoginID",1},
-            {"PasswordFirst",2},
-            {"PasswordSecond",3},
-            {"api_code",4},
-            {"autologon",5},
-            {"Theme",6 }
+            {"Alias",NameModule.Alias},
+            {"LoginID",NameModule.LoginID},
+            {"PasswordFirst",NameModule.PasswordFirst},
+            {"PasswordSecond",NameModule.PasswordSecond},
+            {"api_code", NameModule.api_code},
+            {"autologon",NameModule.autologon},
+            {"Theme",NameModule.Theme }
         };
-
-
-        //public static Dictionary<int, string> Name = new Dictionary<int, string>
-        //{
-        //    {0,"Alias"},
-        //    {1,"LoginID"},
-        //    {2,"PasswordFirst"},
-        //    {3,"PasswordSecound"},
-        //    {4,"api_code"},
-        //    {5,"autologon"},
-        //    {6,"Theme" }
-        //};
     }
 }
