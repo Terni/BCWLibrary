@@ -19,10 +19,10 @@ namespace BitcoinWallet.Helpers
         const string _fileName = "Logging.txt";
         private ISaveAndLoad _fileService;
 
-        SaveLoadString()
+        public SaveLoadString()
         {
             _fileService = DependencyService.Get<ISaveAndLoad>();
-            LoadTextAndView();
+            //LoadTextAndView();
         }
 
         /// <summary>

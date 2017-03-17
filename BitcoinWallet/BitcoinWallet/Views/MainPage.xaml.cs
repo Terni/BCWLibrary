@@ -32,7 +32,7 @@ namespace BitcoinWallet.Views
             {
                 XDocument doc = XDocument.Load(streamFile);
                 _fromXml = new DataSyntFromXml(doc);
-                WaitData();
+                WaitData(); // here method wait on data from xml file
 
             }
 

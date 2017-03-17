@@ -10,6 +10,9 @@ namespace BitcoinWallet.Helpers
 {
     public static class Logging
     {
+        /// <summary>
+        /// Enum for Tags
+        /// </summary>
         private enum Tags
         {
             RELEASE = 0,
@@ -19,6 +22,19 @@ namespace BitcoinWallet.Helpers
             ERROR = 4
         }
 
+        private enum Level
+        {
+            CONSOLE = 0,
+            FILETXT = 1,
+            FILEXML = 2,
+            FILEHTML = 3,
+            DATABASE = 4
+        }
+
+
+        /// <summary>
+        /// Dictionary for StatusTags
+        /// </summary>
         private static Dictionary<string, Tags> StatusTags = new Dictionary<string, Tags>
         {
             {"RELEASE",Tags.RELEASE},
@@ -28,35 +44,67 @@ namespace BitcoinWallet.Helpers
             {"ERROR",Tags.ERROR}
         };
 
+        //Variables
+        private static SaveLoadString _instSaveLoadString;
+
         /// <summary>
         /// Construction
         /// </summary>
         static Logging()
         {
+            _instSaveLoadString = new SaveLoadString();
         }
 
 
-        public static void Debug(string message)
+        public static void Debug(string message, int level = (int)Level.CONSOLE)
         {
-            ConsoleWriteMessage(SetTages(message, "DEBUG"));
+            CheckLevelLoggin(SetTages(message, "DEBUG"), level);
 
             //WriteMessage(message, LogType.typeDebug, tag);
             //Log.Debug(tag, message);
         }
 
-        public static void Info(string message, string tag = "")
+        public static void Info(string message, int level = (int)Level.CONSOLE)
         {
-            ConsoleWriteMessage(SetTages(message, "INFO"));
+            CheckLevelLoggin(SetTages(message, "INFO"), level);
         }
 
-        public static void Warring(string message, string tag = "")
+        public static void Warring(string message, int level = (int)Level.CONSOLE)
         {
-            ConsoleWriteMessage(SetTages(message, "WARRING"));
+            CheckLevelLoggin(SetTages(message, "WARRING"), level);
         }
 
-        public static void Error(string message, string tag = "")
+        public static void Error(string message, int level = (int)Level.CONSOLE)
         {
-            ConsoleWriteMessage(SetTages(message, "ERROR"));
+            CheckLevelLoggin(SetTages(message, "ERROR"), level);
+        }
+
+        public static void Log(string message, string tag = "DEBUG", int level = (int)Level.CONSOLE)
+        {
+            CheckLevelLoggin(SetTages(message, tag), level);
+        }
+
+        /// <summary>
+        /// Method for Check level logging and writeline log message
+        /// </summary>
+        /// <param name="m"></param>
+        /// <param name="level"></param>
+        private static void CheckLevelLoggin(string m, int level)
+        {
+            switch (level)
+            {
+                case (int)Level.FILETXT:
+                    FileTXTWriteMessage(m);
+                    break;
+                case (int)Level.FILEXML:
+                case (int)Level.FILEHTML:
+                case (int)Level.DATABASE:
+                default:
+                {
+                    ConsoleWriteMessage(m);
+                    break;
+                }
+            }
         }
 
         /// <summary>
@@ -102,7 +150,8 @@ namespace BitcoinWallet.Helpers
 
         private static void FileTXTWriteMessage(string m)
         {
-
+            string setMessage = m + "\n";
+            _instSaveLoadString.SaveText(setMessage);
         }
 
         private static void FileXMLWriteMessage(string m)
