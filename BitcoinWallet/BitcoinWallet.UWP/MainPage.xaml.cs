@@ -23,8 +23,15 @@ namespace BitcoinWallet.UWP
         {
             this.InitializeComponent();
 
-            //LoadApplication(new BitcoinWallet.App(new UwpInitializer()));
+            LoadApplication(new BitcoinWallet.App(new UwpInitializer()));
         }
     }
 
+    public class UwpInitializer : IPlatformInitializer
+    {
+        public void RegisterTypes(IUnityContainer container)
+        {
+
+        }
+    }
 }
