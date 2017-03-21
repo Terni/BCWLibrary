@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BitcoinMyWallet.ViewModels
+namespace BitcoinWallet.Models
 {
     //public class TickerRateValue
     //{
@@ -69,5 +69,5 @@ namespace BitcoinMyWallet.ViewModels
 //  "THB" : {"15m" : 14662.21, "last" : 14662.21, "buy" : 14663.19, "sell" : 14700.04,  "symbol" : "฿"},
 //  "KRW" : {"15m" : 460431.86, "last" : 460431.86, "buy" : 460462.59, "sell" : 461619.92,  "symbol" : "₩"},
 //  "TWD" : {"15m" : 13556.29, "last" : 13556.29, "buy" : 13557.19, "sell" : 13591.27,  "symbol" : "NT$"}
-  
+
 //}
