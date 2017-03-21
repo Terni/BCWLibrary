@@ -100,6 +100,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveAndLoad.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -116,6 +117,42 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Resources\Icons\user-3.png" />
+    <Content Include="Resources\Icons_menuItems\activate.png" />
+    <Content Include="Resources\Icons_menuItems\calendar.late.png" />
+    <Content Include="Resources\Icons_menuItems\chart.png" />
+    <Content Include="Resources\Icons_menuItems\contacts.dark.png" />
+    <Content Include="Resources\Icons_menuItems\contacts.png" />
+    <Content Include="Resources\Icons_menuItems\gotoslide.png" />
+    <Content Include="Resources\Icons_menuItems\hamburger.dark.png" />
+    <Content Include="Resources\Icons_menuItems\hamburger.png" />
+    <Content Include="Resources\Icons_menuItems\logoff.png" />
+    <Content Include="Resources\Icons_menuItems\manage.png" />
+    <Content Include="Resources\Icons_menuItems\people.groups.png" />
+    <Content Include="Resources\Icons_menuItems\question.png" />
+    <Content Include="Resources\Icons_menuItems\reminders.dark.png" />
+    <Content Include="Resources\Icons_menuItems\reminders.png" />
+    <Content Include="Resources\Icons_menuItems\send.money.png" />
+    <Content Include="Resources\Icons_menuItems\swap.png" />
+    <Content Include="Resources\Icons_menuItems\todo.dark.png" />
+    <Content Include="Resources\Icons_menuItems\todo.png" />
+    <Content Include="Resources\Icons_menu\bar-chart.png" />
+    <Content Include="Resources\Icons_menu\group-1.png" />
+    <Content Include="Resources\Icons_menu\group.png" />
+    <Content Include="Resources\Icons_menu\help.png" />
+    <Content Include="Resources\Icons_menu\laptop-2.png" />
+    <Content Include="Resources\Icons_menu\laptop-sm.png" />
+    <Content Include="Resources\Icons_menu\refresh.png" />
+    <Content Include="Resources\Icons_menu\shopping-bag-1.png" />
+    <Content Include="Resources\Icons_menu\transfer-2.png" />
+    <Content Include="Resources\Icons_menu\user-4.png" />
+    <Content Include="Resources\Icons_menu\worldwide.png" />
+    <Content Include="Resources\title.png" />
+    <Content Include="Resources\title2.png" />
+    <Content Include="Resources\title3.png" />
+    <Content Include="Resources\title4.png" />
+    <Content Include="Resources\wallet1_qrcode.png" />
+    <Content Include="Resources\wallet2_qrcode.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
