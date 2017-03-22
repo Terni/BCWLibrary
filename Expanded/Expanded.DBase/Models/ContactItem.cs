@@ -15,10 +15,10 @@ namespace Expanded.DBase.Models
         public string FirstName { get; set; }
         [MaxLength(30)]
         public string LastName { get; set; }
+        [MaxLength(30)]
+        public string Alias { get; set; }
         [MaxLength(50)]
         public string IdWallet { get; set; }
-        public bool Visible { get; set; }
-        public bool Secure { get; set; }
-        public bool Enable { get; set; }
+        public DateTime Time { get; set; }
     }
 }
