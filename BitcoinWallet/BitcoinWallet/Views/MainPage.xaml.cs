@@ -5,6 +5,7 @@ using System.IO;
 using System.Xml.Linq;
 using BitcoinWallet.Core;
 using BitcoinWallet.Helpers;
+using BitcoinWallet.Models;
 using Xamarin.Forms;
 using System.Reflection;
 using System.Threading.Tasks;

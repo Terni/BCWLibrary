@@ -14,15 +14,18 @@
   <TabbedPage.Children>
     <ContentPage Title="Profile" Icon="Icons/user.png"   PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPprofile">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-        <Entry Placeholder="Username"
-               Text="{Binding Username}" x:Name="UserMP"/>
-        <Entry Placeholder="Password"
-               Text="{Binding Password}"
-               IsPassword="true" x:Name="PassMP1" />
-        <Entry Placeholder="SecoundPassword"
-         Text="{Binding SecoundPassword}"
-         IsPassword="true" IsVisible="False" x:Name="PassMP2"/>
-
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+          <Entry Placeholder="Alias" Text="{Binding Alias}" IsVisible="False" x:Name="ann"/>
+        </Frame>
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+          <Entry Placeholder="Username" Text="{Binding Username}" Style="{StaticResource EntryStyleRed}" x:Name="UserMP"/>
+        </Frame>
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+          <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true" Style="{StaticResource EntryStyleRed}" x:Name="PassMP1" />
+        </Frame>
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+          <Entry Placeholder="SecoundPassword" Text="{Binding SecoundPassword}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="PassMP2"/>
+        </Frame>
         <!--<controls:ImageButton IsVisible="{Binding IsAddVisible}" Scale="1"
               HeightRequest="50"
               ImageHeightRequest="0"

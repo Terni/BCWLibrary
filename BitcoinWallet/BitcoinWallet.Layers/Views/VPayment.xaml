@@ -3,6 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             prism:ViewModelLocator.AutowireViewModel="True"
+            xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=Expanded.Common"
             x:Class="BitcoinWallet.Views.VPayment"
             x:Name="VPaymentTabbedPage"
             Title="{Binding title}"
@@ -25,10 +26,29 @@
             <Entry Placeholder="Address To" Text="{Binding AddressTo}" x:Name="ValueAddress" />
           </Frame>
 
-          <Button Text="" WidthRequest="40"
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Column="1" Scale="1"
+              ImageHeightRequest="30"
+              ImageWidthRequest="30"
+              Orientation="ImageCentered"
+              Command="{Binding AddCommand}"
+              TextColor="#000000"
+              Clicked="Add_OnClicked"
+              Text="">
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons/add.png" />
+                </OnPlatform.WinPhone>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+
+          <!--<Button Text="" WidthRequest="40"
                   Grid.Column="1"
                   Command="{Binding DeleteCharCommand}"
-                  Style="{StaticResource OrdersButtonStyle}"/>
+                  Style="{StaticResource OrdersButtonStyle}"/>-->
 
         </Grid>
         <Frame Style="{StaticResource FrameStyle}" Padding="-2">
@@ -67,12 +87,31 @@
             <Entry Placeholder="Address To" Text="{Binding AddressTo}" x:Name="ValueAddress2" />
           </Frame>
 
-          <Button Text="" WidthRequest="40"
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Column="1" Scale="1"
+              ImageHeightRequest="30"
+              ImageWidthRequest="30"
+              Orientation="ImageCentered"
+              Command="{Binding AddCommand}"
+              TextColor="#000000"
+              Clicked="Add_OnClicked"
+              Text="">
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons/add.png" />
+                </OnPlatform.WinPhone>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+
+          <!--<Button Text="" WidthRequest="40"
                   Command="{Binding DeleteCharCommand}"
                   Grid.Column="1"
-                  Style="{StaticResource OrdersButtonStyle}"/>
+                  Style="{StaticResource OrdersButtonStyle}"/>-->
         </Grid>
-        
+
         <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">
           <Entry Placeholder="Address To" Text="{Binding Username}" x:Name="at2" Style="{StaticResource EntryStyle}"  />
         </Frame>-->

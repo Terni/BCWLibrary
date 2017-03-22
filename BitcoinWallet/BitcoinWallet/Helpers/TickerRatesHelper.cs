@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-using BitcoinWallet.ViewModels;
-using BitcoinMyWallet.ViewModels;
+using BitcoinWallet.Models;
 using Bitcoin.APIClient;
 
-namespace BitcoinMyWallet.Helpers
+namespace BitcoinWallet.Helpers
 {
     public class TickerRatesHelper
     {

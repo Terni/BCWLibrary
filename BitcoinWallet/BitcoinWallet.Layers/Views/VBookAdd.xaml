@@ -33,7 +33,7 @@
 
     </Grid>-->
         <!--<Image Source="{helpers:ImageResource BitcoinWallet.Resources.Icons.user-3.png}" Aspect="AspectFit" HeightRequest="200" WidthRequest="200"/>-->
-        <Image Source="Resources/Icons/user-3.png" Aspect="AspectFit" HeightRequest="200" WidthRequest="200"/>
+        <Image Source="Resources/Icons/user-add.png" Aspect="AspectFit" HeightRequest="200" WidthRequest="200"/>
 
         <Frame Style="{StaticResource FrameStyle}" Padding="-2">
           <Entry Placeholder="Name" Text="{Binding Name}" x:Name="nn" />
@@ -42,7 +42,10 @@
           <Entry Placeholder="Surname" Text="{Binding Surname}" x:Name="snn"/>
         </Frame>
         <Frame Style="{StaticResource FrameStyle}" Padding="-2">
-          <Entry Placeholder="Address" Text="{Binding AddressTo}" x:Name="ValueAddress" />
+          <Entry Placeholder="Alias" Text="{Binding Alias}" x:Name="ann"/>
+        </Frame>
+        <Frame Style="{StaticResource FrameStyleRed}" Padding="-2">
+          <Entry Placeholder="Address" Text="{Binding AddressTo}" Style="{StaticResource EntryStyleRed}" x:Name="ValueAddress" />
         </Frame>
         <Button Text="Save" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" />
       </StackLayout>
