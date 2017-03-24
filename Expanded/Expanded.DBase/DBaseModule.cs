@@ -1,17 +1,24 @@
-﻿using Prism.Modularity;
-using Prism.Regions;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Prism.Modularity;
+using Microsoft.Practices.Unity;
+using Prism.Unity;
+using Xamarin.Forms;
 
 namespace Expanded.DBase
 {
     public class DBaseModule : IModule
     {
-        IRegionManager _regionManager;
 
-        public DBaseModule(RegionManager regionManager)
+        readonly IUnityContainer _container;
+
+        public DBaseModule(IUnityContainer con)
         {
-            _regionManager = regionManager;
+            _container = con;
         }
+
 
         public void Initialize()
         {
