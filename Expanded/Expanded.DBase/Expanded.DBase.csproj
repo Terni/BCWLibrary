@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBaseModule.cs" />
+    <Compile Include="Interface\ITwithId.cs" />
     <Compile Include="Models\ContactItem.cs" />
     <Compile Include="Models\LogItem.cs" />
     <Compile Include="Models\SettingItem.cs" />
@@ -106,11 +107,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ViewModels\Contacts.cs" />
+    <Compile Include="ViewModels\SpecContactsDB.cs" />
     <Compile Include="ViewModels\ItemsDatabase.cs" />
-    <Compile Include="ViewModels\Logger.cs" />
-    <Compile Include="ViewModels\Settings.cs" />
-    <Compile Include="ViewModels\Tools.cs" />
+    <Compile Include="ViewModels\SpecLoggerDB.cs" />
+    <Compile Include="ViewModels\SpecSettingsDB.cs" />
+    <Compile Include="ViewModels\GenToolsDB.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

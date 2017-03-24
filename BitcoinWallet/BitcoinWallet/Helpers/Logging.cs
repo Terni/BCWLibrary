@@ -97,8 +97,14 @@ namespace BitcoinWallet.Helpers
                     FileTXTWriteMessage(m);
                     break;
                 case (int)Level.FILEXML:
+                    FileHTMLWriteMessage(m);
+                    break;
                 case (int)Level.FILEHTML:
+                    FileHTMLWriteMessage(m);
+                    break;
                 case (int)Level.DATABASE:
+                    DatabaseWriteMessage(m);
+                    break;
                 default:
                 {
                     ConsoleWriteMessage(m);
