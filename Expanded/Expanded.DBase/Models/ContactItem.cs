@@ -19,6 +19,6 @@ namespace Expanded.DBase.Models
         public string Alias { get; set; }
         [MaxLength(50)]
         public string IdWallet { get; set; }
-        public DateTime Time { get; set; }
+        public DateTime Date { get; set; }
     }
 }
