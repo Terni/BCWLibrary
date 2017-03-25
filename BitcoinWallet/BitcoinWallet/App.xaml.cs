@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml.Internals;
 using Expanded.DBase.ViewModels;
 using BitcoinWallet.Interface;
+using BitcoinWallet.Helpers;
 //using Xamarin.Forms.Maps;
 
 namespace BitcoinWallet
@@ -15,7 +16,8 @@ namespace BitcoinWallet
 
         public App(IPlatformInitializer initializer = null) : base(initializer)
         {
-
+            Logging.ReleaseTag = false;
+            Logging.Debug("Start app.",4);
         }
 
         public static ItemsDatabase Database

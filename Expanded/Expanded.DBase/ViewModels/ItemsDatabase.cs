@@ -32,9 +32,9 @@ namespace Expanded.DBase.ViewModels
         /// </summary>
         private void InitializationDB()
         {
-            _database.CreateTableAsync<ContactItem>().Wait();
-            _database.CreateTableAsync<LogItem>().Wait();
-            _database.CreateTableAsync<SettingItem>().Wait();
+            _database.CreateTableAsync<ContactItem>();
+            _database.CreateTableAsync<LogItem>();
+            _database.CreateTableAsync<SettingItem>();
         }
 
         public SQLiteAsyncConnection DatabaseString

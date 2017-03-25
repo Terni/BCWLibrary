@@ -13,7 +13,7 @@ namespace BitcoinWallet.Helpers
     public static class Logging
     {
         /// <summary>
-        /// Enum for Tags
+        /// Enum for Tags is type message
         /// </summary>
         private enum Tags
         {
@@ -24,6 +24,9 @@ namespace BitcoinWallet.Helpers
             ERROR = 4
         }
 
+        /// <summary>
+        /// Enum for Level is diferent out file or console or database
+        /// </summary>
         private enum Level
         {
             CONSOLE = 0,
@@ -48,6 +51,10 @@ namespace BitcoinWallet.Helpers
 
         //Variables
         private static SaveLoadString _instSaveLoadString;
+        private static LogItem _item;
+
+        public static bool ReleaseTag { get; set; }
+        public static int CurrentTag { get; set; }
 
         /// <summary>
         /// Construction
@@ -57,37 +64,65 @@ namespace BitcoinWallet.Helpers
             _instSaveLoadString = new SaveLoadString();
         }
 
-
+        /// <summary>
+        /// Method for debug logging
+        /// </summary>
+        /// <param name="message">Specifis string about status here.</param>
+        /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
         public static void Debug(string message, int level = (int)Level.CONSOLE)
         {
+            CurrentTag = (int)Tags.DEBUG;
+
             if (level == (int)Level.DATABASE)
-                SetNewLogItem(message, "DEBUG");
+            {
+                _item = SetNewLogItem(message, "DEBUG");
+                CheckLevelLoggin(string.Empty, level);
+            }
             else
                 CheckLevelLoggin(SetTages(message, "DEBUG"), level);
-
-
-
-            //WriteMessage(message, LogType.typeDebug, tag);
-            //Log.Debug(tag, message);
         }
 
+        /// <summary>
+        /// Method for info logging
+        /// </summary>
+        /// <param name="message">Specifis string about status here.</param>
+        /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
         public static void Info(string message, int level = (int)Level.CONSOLE)
         {
+            CurrentTag = (int)Tags.INFO;
             CheckLevelLoggin(SetTages(message, "INFO"), level);
         }
 
+        /// <summary>
+        /// Method for warring logging
+        /// </summary>
+        /// <param name="message">Specifis string about status here.</param>
+        /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
         public static void Warring(string message, int level = (int)Level.CONSOLE)
         {
+            CurrentTag = (int)Tags.WARRING;
             CheckLevelLoggin(SetTages(message, "WARRING"), level);
         }
 
+        /// <summary>
+        /// Method for error logging
+        /// </summary>
+        /// <param name="message">Specifis string about status here.</param>
+        /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
         public static void Error(string message, int level = (int)Level.CONSOLE)
         {
+            CurrentTag = (int)Tags.ERROR;
             CheckLevelLoggin(SetTages(message, "ERROR"), level);
         }
 
+        /// <summary>
+        /// Method for general logging
+        /// </summary>
+        /// <param name="message">Specifis string about status here.</param>
+        /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
         public static void Log(string message, string tag = "DEBUG", int level = (int)Level.CONSOLE)
         {
+            CurrentTag = (int)Tags.DEBUG;
             CheckLevelLoggin(SetTages(message, tag), level);
         }
 
@@ -97,6 +132,24 @@ namespace BitcoinWallet.Helpers
         /// <param name="m"></param>
         /// <param name="level"></param>
         private static void CheckLevelLoggin(string m, int level)
+        {
+            if(ReleaseTag && CurrentTag > 2)
+            {
+                MakeLog(m, level);
+            }
+            else if (!ReleaseTag)
+            {
+                MakeLog(m, level);
+            }
+            else
+            {
+                //nothing because ReleaseTag = true an CurrentTag not Error or Warring
+            }
+
+        }
+
+
+        private static void MakeLog(string m, int level)
         {
             switch (level)
             {
@@ -110,13 +163,13 @@ namespace BitcoinWallet.Helpers
                     FileHTMLWriteMessage(m);
                     break;
                 case (int)Level.DATABASE:
-                    DatabaseWriteMessage(m);
+                    DatabaseWriteMessage();
                     break;
                 default:
-                {
-                    ConsoleWriteMessage(m);
-                    break;
-                }
+                    {
+                        ConsoleWriteMessage(m);
+                        break;
+                    }
             }
         }
 
@@ -129,22 +182,21 @@ namespace BitcoinWallet.Helpers
         private static string SetTages(string m, string tag = "")
         {
             //variables
-            string newMessage = string.Empty;
+            string newMessage = string.Format("{0}: {1}.", tag, m);
             Tags valueEnumType;
 
             StatusTags.TryGetValue(tag, out valueEnumType);
             switch (valueEnumType)
             {
-                case Tags.RELEASE: //nothing It is release version. /// TODO vymyslet jinak Error a warring musi projit
-                    return string.Empty;
+                case Tags.ERROR:
+                case Tags.WARRING:
+                case Tags.INFO:
+                case Tags.DEBUG:
                 default:
                     {
-                        newMessage = string.Format("{0}: {1}.", tag, m);
-                        break;
+                        return newMessage;
                     }
             }
-
-            return newMessage;
         }
 
         /// <summary>
@@ -177,21 +229,10 @@ namespace BitcoinWallet.Helpers
             };
         }
 
-        private static void DatabaseWriteMessage(string m)
+        private static void DatabaseWriteMessage()
         {
-            //ItemsDatabase.DatabaseString;
-            LogItem item = new LogItem {
-                Id = 1,
-                Date = DateTime.Today,
-                Platform = "x",
-                Class = "xx",
-                Method = "xxx",
-                Line = 0
-            };
-            //ToolsDB<LogItem> insTools = new ToolsDB<LogItem>(item);
-
-            //insTools.SaveItemAsync(item);
-            App.Database.PropertyLog.SaveItemAsync(item);
+            if(_item != null)
+                App.Database.PropertyLog.SaveItemAsync(_item);
         }
 
         private static void FileTXTWriteMessage(string m)
