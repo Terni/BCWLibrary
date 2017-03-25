@@ -41,6 +41,7 @@
     <Compile Include="Helpers\EmbeddedImageResourceExtension.cs" />
     <Compile Include="Helpers\LoadXmlFile.cs" />
     <Compile Include="Helpers\Logging.cs" />
+    <Compile Include="Interface\IFileHelper.cs" />
     <Compile Include="Models\NameModule.cs" />
     <Compile Include="Helpers\SaveLoadString.cs" />
     <Compile Include="ViewModels\SaveAndLoadText.cs" />
@@ -191,6 +192,10 @@
     <ProjectReference Include="..\..\Expanded\Expanded.Common\Expanded.Common.csproj">
       <Project>{b8094309-3c83-46a1-9a6c-a084856e177f}</Project>
       <Name>Expanded.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Expanded\Expanded.DBase\Expanded.DBase.csproj">
+      <Project>{f1619d80-d35e-425a-9e40-c9fac3099b8c}</Project>
+      <Name>Expanded.DBase</Name>
     </ProjectReference>
     <ProjectReference Include="..\BitcoinWallet.Layers\BitcoinWallet.Layers.csproj">
       <Project>{63540BEE-3F9C-45EF-9A73-6BAEF76DAB9F}</Project>

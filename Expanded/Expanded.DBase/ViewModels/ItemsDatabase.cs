@@ -8,35 +8,36 @@ using SQLite;
 
 namespace Expanded.DBase.ViewModels
 {
-    public static class ItemsDatabase
+    public class ItemsDatabase
     {
         /// <summary>
         /// Variables
         /// </summary>
-        readonly static SQLiteAsyncConnection _database;
+        readonly SQLiteAsyncConnection _database;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="dbPath">Specific path into file database</param>
-        static ItemsDatabase()
+        public ItemsDatabase(string dbPath)
         {
-            string dbPath = " "; // TODO doplnit !!
+            //string dbPath = " "; // TODO doplnit !!
             _database = new SQLiteAsyncConnection(dbPath);
+            ItemsDatabase_ST.DatabaseString = _database; // set static class
             InitializationDB();
         }
 
         /// <summary>
         /// Method for init Database
         /// </summary>
-        private static void InitializationDB()
+        private void InitializationDB()
         {
             _database.CreateTableAsync<ContactItem>().Wait();
             _database.CreateTableAsync<LogItem>().Wait();
             _database.CreateTableAsync<SettingItem>().Wait();
         }
 
-        public static SQLiteAsyncConnection DatabaseString
+        public SQLiteAsyncConnection DatabaseString
         {
             get
             {
@@ -48,6 +49,29 @@ namespace Expanded.DBase.ViewModels
             //}
         }
 
+        public ToolsDB<LogItem> PropertyLog
+        {
+            get
+            {
+                return new ToolsDB<LogItem>(new LogItem());
+            }
+        }
+
+        public ToolsDB<SettingItem> PropertySetting
+        {
+            get
+            {
+                return new ToolsDB<SettingItem>(new SettingItem());
+            }
+        }
+
+        public ToolsDB<ContactItem> PropertyContact
+        {
+            get
+            {
+                return new ToolsDB<ContactItem>(new ContactItem());
+            }
+        }
 
 
     }

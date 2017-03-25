@@ -41,7 +41,8 @@
     <Compile Include="Models\LogItem.cs" />
     <Compile Include="Models\SettingItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\GenToolsDB.cs" />
+    <Compile Include="ViewModels\ToolsDB.cs" />
+    <Compile Include="ViewModels\ItemsDatabase_ST.cs" />
     <Compile Include="ViewModels\ItemsDatabase.cs" />
     <Compile Include="ViewModels\SpecContactsDB.cs" />
     <Compile Include="ViewModels\SpecLoggerDB.cs" />

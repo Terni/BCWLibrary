@@ -11,6 +11,10 @@ namespace Expanded.DBase.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        [MaxLength(8)]
+        public string TraceLevel { get; set; }
+        [MaxLength(100)]
+        public string Message { get; set; }
         public DateTime Date { get; set; }
         [MaxLength(30)]
         public string Platform { get; set; }

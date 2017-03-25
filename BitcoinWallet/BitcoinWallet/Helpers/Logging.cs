@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Expanded.DBase.ViewModels;
+using Expanded.DBase.Models;
 
 namespace BitcoinWallet.Helpers
 {
@@ -58,7 +60,12 @@ namespace BitcoinWallet.Helpers
 
         public static void Debug(string message, int level = (int)Level.CONSOLE)
         {
-            CheckLevelLoggin(SetTages(message, "DEBUG"), level);
+            if (level == (int)Level.DATABASE)
+                SetNewLogItem(message, "DEBUG");
+            else
+                CheckLevelLoggin(SetTages(message, "DEBUG"), level);
+
+
 
             //WriteMessage(message, LogType.typeDebug, tag);
             //Log.Debug(tag, message);
@@ -128,7 +135,7 @@ namespace BitcoinWallet.Helpers
             StatusTags.TryGetValue(tag, out valueEnumType);
             switch (valueEnumType)
             {
-                case Tags.RELEASE: //nothing It is release version.
+                case Tags.RELEASE: //nothing It is release version. /// TODO vymyslet jinak Error a warring musi projit
                     return string.Empty;
                 default:
                     {
@@ -149,9 +156,42 @@ namespace BitcoinWallet.Helpers
             System.Diagnostics.Debug.WriteLine(m);
         }
 
+        /// <summary>
+        /// Inner Method for new LogItem
+        /// </summary>
+        /// <param name="m"></param>
+        /// <param name="tag"></param>
+        /// <returns>New LogItem</returns>
+        private static LogItem SetNewLogItem(string m, string tag)
+        {
+            return new LogItem
+            {
+                Id = 1,
+                TraceLevel = tag,
+                Message = m,
+                Date = DateTime.Today,
+                Platform = "NULL",
+                Class = App.Current.ClassId,
+                Method = "NULL",
+                Line = 0
+            };
+        }
+
         private static void DatabaseWriteMessage(string m)
         {
+            //ItemsDatabase.DatabaseString;
+            LogItem item = new LogItem {
+                Id = 1,
+                Date = DateTime.Today,
+                Platform = "x",
+                Class = "xx",
+                Method = "xxx",
+                Line = 0
+            };
+            //ToolsDB<LogItem> insTools = new ToolsDB<LogItem>(item);
 
+            //insTools.SaveItemAsync(item);
+            App.Database.PropertyLog.SaveItemAsync(item);
         }
 
         private static void FileTXTWriteMessage(string m)

@@ -14,7 +14,7 @@ namespace Expanded.DBase.ViewModels
 
         SpecLoggerDB()
         {
-            _database = ItemsDatabase.DatabaseString;
+            _database = ItemsDatabase_ST.DatabaseString;
         }
 
         /// <summary>
