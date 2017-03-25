@@ -8,7 +8,7 @@
       <module name="PasswordFirst" value="xxxx" visible="true" secure="true" enable="true"/>
       <module name="PasswordSecound" value="xxxx" visible="false" secure="true" />
       <module name="api_code" value="xxxx" visible="false"/>
-      <module name="autologon" enable="false"/>
+      <module name="autologon" value="no" enable="false"/>
       <module name="Theme" value="Light" />
     </login-config>
   </authentication>

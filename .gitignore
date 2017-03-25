@@ -64,3 +64,4 @@ BitcoinWallet/BitcoinWallet/login.xml
 BitcoinWallet/BitcoinWallet.WinPhone/login.xml
 BitcoinWallet/BitcoinWallet/LoginConfig.xml
 Expanded.DBase/
+BitcoinWallet/BitcoinWallet.WinPhone/Database/DBSQLite.sqlite3
