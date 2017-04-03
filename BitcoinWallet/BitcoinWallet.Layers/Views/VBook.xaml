@@ -7,6 +7,6 @@
   <StackLayout>
     <!--<Label Text="{Binding MainText}" VerticalOptions="Center"  />-->
     <Label Text="Address Book" HorizontalOptions="Center"  TextColor="Black"/>
-    <Image Source="Icons/user.png" HorizontalOptions="Center" />
+    <!--<Image Source="Icons/user.png" HorizontalOptions="Center" />-->
   </StackLayout>
 </ContentPage>

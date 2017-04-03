@@ -40,6 +40,9 @@
                 <OnPlatform.WinPhone>
                   <FileImageSource File="Resources/Icons/add.png" />
                 </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/Icons/add.png" />
+                </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
             </controls:ImageButton.Source>

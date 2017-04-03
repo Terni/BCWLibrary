@@ -5,12 +5,12 @@ using BitcoinWallet.UWP;
 using BitcoinWallet.Interface;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(SaveAndLoad))]
+[assembly: Dependency(typeof(UWP_SaveAndLoad))]
 namespace BitcoinWallet.UWP
 {
     // https://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh758325.aspx
 
-    public class SaveAndLoad : ISaveAndLoad
+    public class UWP_SaveAndLoad : ISaveAndLoad
     {
         #region ISaveAndLoad implementation
 

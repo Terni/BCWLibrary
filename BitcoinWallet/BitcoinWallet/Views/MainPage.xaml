@@ -12,7 +12,9 @@
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Profile" Icon="Icons/user.png"   PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPprofile">
+    <!--TODO: ICON-->
+    <!--<ContentPage Title="Profile" Icon="Resources/Icons/user.png"   PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPprofile">-->
+    <ContentPage Title="Profile" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPprofile">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
           <Entry Placeholder="Alias" Text="{Binding Alias}" IsVisible="False" x:Name="ann"/>
@@ -53,9 +55,9 @@
     </ContentPage>
 
 
-
-
-    <ContentPage Title="Setting" Icon="Icons/settings-3.png" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPsetting">
+    <!--TODO: ICON-->
+    <!--<ContentPage Title="Setting" Icon="Resources/Icons/settings-3.png" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPsetting">-->
+    <ContentPage Title="Setting" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPsetting">
       <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">

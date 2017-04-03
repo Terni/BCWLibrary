@@ -22,16 +22,12 @@
         <ListView x:Name="ListValues">
 
         </ListView>
-
-
       </StackLayout>
     </ContentPage>
 
 
-
-
     <ContentPage Title="Chart2" >
-      
+
     <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">
@@ -41,11 +37,8 @@
       </ContentPage.Resources>-->
 
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-
       </StackLayout>
     </ContentPage>
-
-
 
   </TabbedPage.Children>
 </TabbedPage>

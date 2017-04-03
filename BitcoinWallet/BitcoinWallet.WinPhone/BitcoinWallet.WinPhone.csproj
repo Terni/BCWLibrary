@@ -87,12 +87,13 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ImageButtonRenderer.cs" />
-    <Compile Include="FileHelper.cs" />
+    <Compile Include="WinPhone_FileHelperDB.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveAndLoad_WinApp.cs" />
+    <Compile Include="WinPhone_Localize.cs" />
+    <Compile Include="WinPhone_SaveAndLoad.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -256,13 +257,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EmbeddedResource Include="Database\DBSQLite.sqlite3" />
-    <None Include="Database\DBSQLite.template.sqlite3" />
     <EmbeddedResource Include="Database\LogDB.db3" />
     <None Include="Database\LogDB.template.db3" />
     <EmbeddedResource Include="Database\MainDB.db3" />
     <None Include="Database\MainDB.template.db3" />
-    <EmbeddedResource Include="LogDB.db3" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

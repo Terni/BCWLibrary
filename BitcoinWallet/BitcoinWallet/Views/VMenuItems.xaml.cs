@@ -14,6 +14,7 @@ namespace BitcoinWallet.Views
         {
             InitializeComponent();
             masterDetail.ListView.ItemSelected += OnItemSelected;
+            //var test = Device.OS;
 
             if (Device.OS == TargetPlatform.Windows)
             {
@@ -48,6 +49,7 @@ namespace BitcoinWallet.Views
                     Priority = 1
                 });
             }
+
         }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

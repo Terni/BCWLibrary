@@ -52,6 +52,7 @@
             <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Column="1" Scale="1"
               ImageHeightRequest="50"
               ImageWidthRequest="50"
+              Image="Resources/Icons_menu/user-4x.png"
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
               TextColor="#000000"
@@ -64,6 +65,9 @@
                   <OnPlatform.WinPhone>
                     <FileImageSource File="Resources/Icons_menu/user-4.png" />
                   </OnPlatform.WinPhone>
+                  <OnPlatform.Android>
+                    <FileImageSource File="Resources/Icons_menu/user-4.png" />
+                  </OnPlatform.Android>
                   <!-- ReSharper disable once Xaml.InvalidType -->
                 </OnPlatform>
               </controls:ImageButton.Source>
@@ -75,6 +79,7 @@
                         HeightRequest="100"
                         ImageHeightRequest="100"
                         ImageWidthRequest="100"
+                        Image="Resources/Icons_menu/laptop-2x.png"
                         Orientation="ImageCentered"
                         Command="{Binding AddCommand}"
                         TextColor="#000000"
@@ -87,6 +92,9 @@
                 <OnPlatform.WinPhone>
                   <FileImageSource File="Resources/Icons_menu/laptop-2.png" />
                 </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/Icons_menu/laptop-2.png" />
+                </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
             </controls:ImageButton.Source>
@@ -97,6 +105,7 @@
                         HeightRequest="100"
                         ImageHeightRequest="115"
                         ImageWidthRequest="100"
+                        Image="Resources/Icons_menu/group-1x.png"
                         Orientation="ImageCentered"
                         Command="{Binding AddCommand}"
                         TextColor="#000000"
@@ -109,6 +118,9 @@
                 <OnPlatform.WinPhone>
                   <FileImageSource File="Resources/Icons_menu/group-1.png" />
                 </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/Icons_menu/group-1.png" />
+                </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
             </controls:ImageButton.Source>
@@ -119,6 +131,7 @@
                         HeightRequest="100"
                         ImageHeightRequest="100"
                         ImageWidthRequest="100"
+                        Image="Resources/Icons_menu/transfer-2x.png"
                         Orientation="ImageCentered"
                         Command="{Binding AddCommand}"
                         TextColor="#000000"
@@ -131,6 +144,9 @@
                 <OnPlatform.WinPhone>
                   <FileImageSource File="Resources/Icons_menu/transfer-2.png" />
                 </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/Icons_menu/transfer-2.png" />
+                </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
             </controls:ImageButton.Source>
@@ -141,6 +157,7 @@
                         HeightRequest="100"
                         ImageHeightRequest="85"
                         ImageWidthRequest="100"
+                        Image="Resources/Icons_menu/bar-chartx.png"
                         Orientation="ImageCentered"
                         Command="{Binding AddCommand}"
                         TextColor="#000000"
@@ -153,6 +170,9 @@
                 <OnPlatform.WinPhone>
                   <FileImageSource File="Resources/Icons_menu/bar-chart.png" />
                 </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/Icons_menu/bar-chart.png" />
+                </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
             </controls:ImageButton.Source>
@@ -165,6 +185,7 @@
               HeightRequest="100"
               ImageHeightRequest="95"
               ImageWidthRequest="100"
+              Image="Resources/Icons_menu/shopping-bag-1x.png"
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
               TextColor="#000000"
@@ -178,6 +199,9 @@
                 <OnPlatform.WinPhone>
                   <FileImageSource File="Resources/Icons_menu/shopping-bag-1.png" />
                 </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/Icons_menu/shopping-bag-1.png" />
+                </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
             </controls:ImageButton.Source>
@@ -190,6 +214,7 @@
           HeightRequest="100"
           ImageHeightRequest="95"
           ImageWidthRequest="100"
+          Image="Resources/Icons_menu/helpx.png"
           Orientation="ImageCentered"
           Command="{Binding AddCommand}"
           TextColor="#000000"
@@ -203,6 +228,9 @@
                 <OnPlatform.WinPhone>
                   <FileImageSource File="Resources/Icons_menu/help.png" />
                 </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/Icons_menu/help.png" />
+                </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
             </controls:ImageButton.Source>
@@ -226,6 +254,9 @@
                 <OnPlatform.WinPhone>
                   <FileImageSource File="Resources/Icons_menu/refresh.png" />
                 </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/Icons_menu/refresh.png" />
+                </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
             </controls:ImageButton.Source>

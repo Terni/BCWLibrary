@@ -11,16 +11,17 @@
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Receive" Icon="Icons/download.png">
+    <!--TODO: ICON-->
+    <!--<ContentPage Title="Receive" Icon="Icons/download.png">-->
+    <ContentPage Title="Receive">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-
       </StackLayout>
     </ContentPage>
 
 
-
-
-    <ContentPage Title="Send" Icon="Icons/upload.png">
+    <!--TODO: ICON-->
+    <!--<ContentPage Title="Send" Icon="Icons/upload.png">-->
+    <ContentPage Title="Send">
       <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">
@@ -30,11 +31,8 @@
       </ContentPage.Resources>-->
 
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="White" >
-
       </StackLayout>
     </ContentPage>
-
-
 
   </TabbedPage.Children>
 </TabbedPage>
