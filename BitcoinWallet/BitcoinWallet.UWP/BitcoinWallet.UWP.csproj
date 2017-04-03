@@ -90,7 +90,8 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <EmbeddedResource Include="Database\SQLite.db3" />
+    <EmbeddedResource Include="Database\MainDB.db3" />
+    <EmbeddedResource Include="Database\LogDB.db3" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>

@@ -44,6 +44,11 @@
     <Compile Include="Interface\IFileHelper.cs" />
     <Compile Include="Models\NameModule.cs" />
     <Compile Include="Helpers\SaveLoadString.cs" />
+    <Compile Include="Resx\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\SaveAndLoadText.cs" />
     <Compile Include="Helpers\TickerRatesHelper.cs" />
     <Compile Include="Interface\ISaveAndLoad.cs" />
@@ -73,6 +78,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="LoginConfig.xml" />
+    <EmbeddedResource Include="Resx\Resources.cs.resx" />
+    <EmbeddedResource Include="Resx\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="README.txt" />
   </ItemGroup>
   <ItemGroup>

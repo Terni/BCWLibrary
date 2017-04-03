@@ -21,10 +21,9 @@ namespace Expanded.DBase.ViewModels
         /// <param name="dbPath">Specific path into file database</param>
         public ItemsDatabase(string dbPath)
         {
-            //string dbPath = " "; // TODO doplnit !!
             _database = new SQLiteAsyncConnection(dbPath);
             ItemsDatabase_ST.DatabaseString = _database; // set static class
-            InitializationDB();
+            //InitializationDB();
         }
 
         /// <summary>
@@ -54,6 +53,15 @@ namespace Expanded.DBase.ViewModels
             get
             {
                 return new ToolsDB<LogItem>(new LogItem());
+            }
+        }
+
+
+        public SpecLoggerDB PropertyLogSpec
+        {
+            get
+            {
+                return new SpecLoggerDB();
             }
         }
 

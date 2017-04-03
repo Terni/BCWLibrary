@@ -12,7 +12,7 @@ namespace Expanded.DBase.ViewModels
     {
         private SQLiteAsyncConnection _database;
 
-        SpecLoggerDB()
+        public SpecLoggerDB()
         {
             _database = ItemsDatabase_ST.DatabaseString;
         }
@@ -36,5 +36,14 @@ namespace Expanded.DBase.ViewModels
             return _database.Table<LogItem>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
+        public Task<int> SaveItemAsync(LogItem item)
+        {
+            //if (item.Id != 0)
+            //{
+            //    return _database.UpdateAsync(item);
+            //}
+
+            return _database.InsertAsync(item);
+        }
     }
 }

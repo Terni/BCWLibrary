@@ -15,7 +15,7 @@ namespace Expanded.DBase.Models
         public string TraceLevel { get; set; }
         [MaxLength(100)]
         public string Message { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         [MaxLength(30)]
         public string Platform { get; set; }
         [MaxLength(50)]
