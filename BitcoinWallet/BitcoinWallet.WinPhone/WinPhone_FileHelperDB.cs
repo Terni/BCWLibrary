@@ -1,13 +1,13 @@
 ﻿using System.IO;
 using Xamarin.Forms;
-using BitcoinWallet.UWP;
+using BitcoinWallet.WinPhone;
 using Windows.Storage;
 using BitcoinWallet.Interface;
 
-[assembly: Dependency(typeof(FileHelper))]
-namespace BitcoinWallet.UWP
+[assembly: Dependency(typeof(WinPhone_FileHelperDB))]
+namespace BitcoinWallet.WinPhone
 {
-    public class FileHelper : IFileHelper
+    public class WinPhone_FileHelperDB : IFileHelper
     {
         public string GetLocalFilePath(string filename)
         {

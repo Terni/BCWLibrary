@@ -5,13 +5,13 @@ using BitcoinWallet.WinPhone;
 using BitcoinWallet.Interface;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(SaveAndLoad_WinApp))]
+[assembly: Dependency(typeof(WinPhone_SaveAndLoad))]
 
 namespace BitcoinWallet.WinPhone
 {
     // https://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh758325.aspx
 
-    public class SaveAndLoad_WinApp : ISaveAndLoad
+    public class WinPhone_SaveAndLoad : ISaveAndLoad
     {
 
         #region ISaveAndLoad implementation
