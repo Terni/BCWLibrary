@@ -60,11 +60,7 @@ Temporary*
 
 BitcoinWallet/BitcoinWallet.Droid/obj/Debug/sdks.cache
 Icons-all/
-BitcoinWallet/BitcoinWallet/login.xml
-BitcoinWallet/BitcoinWallet.WinPhone/login.xml
 BitcoinWallet/BitcoinWallet/LoginConfig.xml
-Expanded.DBase/
-BitcoinWallet/BitcoinWallet.WinPhone/Database/DBSQLite.sqlite3
 BitcoinWallet/BitcoinWallet.UWP/Database/LogDB.db3
 BitcoinWallet/BitcoinWallet.UWP/Database/MainDB.db3
 BitcoinWallet/BitcoinWallet.WinPhone/Database/LogDB.db3
