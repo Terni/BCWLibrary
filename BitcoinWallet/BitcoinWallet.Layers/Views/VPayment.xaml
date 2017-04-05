@@ -41,7 +41,7 @@
                   <FileImageSource File="Resources/Icons/add.png" />
                 </OnPlatform.WinPhone>
                 <OnPlatform.Android>
-                  <FileImageSource File="Resources/Icons/add.png" />
+                  <FileImageSource File="Resources/drawable/Icons/add.png" />
                 </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>

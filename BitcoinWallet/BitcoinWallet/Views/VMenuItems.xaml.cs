@@ -50,6 +50,40 @@ namespace BitcoinWallet.Views
                 });
             }
 
+            if (Device.OS == TargetPlatform.Android)
+            {
+                //Master.Title = "Fast Menu";
+                Master.Icon = "Resources/drawable/Icons_menuItems/gotoslide.png";
+
+                //ToolbarItem itm = new ToolbarItem();
+                //itm.Name = "Fast Menu";
+                //itm.Icon = "swap.png";
+                //Master.ToolbarItems.Add(itm);
+
+                Master.ToolbarItems.Add(new ToolbarItem
+                {
+                    Name = "Payment",
+                    Icon = "Resources/drawable/Icons_menuItems/send.money.png",
+                    Order = ToolbarItemOrder.Primary,
+                    Priority = 0
+                });
+
+                Master.ToolbarItems.Add(new ToolbarItem
+                {
+                    Name = "Log off",
+                    Icon = "Resources/drawable/Icons_menuItems/logoff.png",
+                    Order = ToolbarItemOrder.Primary,
+                    Priority = 0
+                });
+
+                Master.ToolbarItems.Add(new ToolbarItem
+                {
+                    Text = "about",
+                    Order = ToolbarItemOrder.Secondary,
+                    Priority = 1
+                });
+            }
+
         }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

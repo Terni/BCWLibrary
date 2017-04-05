@@ -16,23 +16,28 @@ namespace BitcoinWallet.Views
         {
             InitializeComponent();
 
+            string droid = "";
+            if (Device.OS == TargetPlatform.Android)
+            {
+                droid = "drawable/";
+            }
             var masterItems = new List<MasterDetailItem>();
             masterItems.Add(new MasterDetailItem
             {
                 Title = " Contacts",
-                IconSource = "Resources/Icons_menuItems/contacts.dark.png",
+                IconSource = "Resources/" + droid + "Icons_menuItems/contacts.dark.png",
                 TargetType = typeof(VContactDetail)
             });
             masterItems.Add(new MasterDetailItem
             {
                 Title = " Address Book",
-                IconSource = "Resources/Icons_menuItems/todo.dark.png",
+                IconSource = "Resources/" + droid + "Icons_menuItems/todo.dark.png",
                 TargetType = typeof(VBook)
             });
             masterItems.Add(new MasterDetailItem
             {
                 Title = " About",
-                IconSource = "Resources/Icons_menuItems/reminders.dark.png",
+                IconSource = "Resources/" + droid + "Icons_menuItems/reminders.dark.png",
                 TargetType = typeof(VAbout)
             });
 

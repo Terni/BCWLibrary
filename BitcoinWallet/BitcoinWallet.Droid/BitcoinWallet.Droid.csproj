@@ -154,6 +154,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Droid_FileHelper.cs" />
+    <Compile Include="Droid_Localize.cs" />
+    <Compile Include="Droid_SaveAndLoad.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
