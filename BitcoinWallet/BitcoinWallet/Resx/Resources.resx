@@ -120,6 +120,9 @@
   <data name="Alias" xml:space="preserve">
     <value>Your Alias</value>
   </data>
+  <data name="ApiCode" xml:space="preserve">
+    <value>API Code</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Bitcoin Wallet 2.0</value>
   </data>
@@ -136,7 +139,7 @@
     <value>Profile</value>
   </data>
   <data name="SecPassword" xml:space="preserve">
-    <value>Secound Password</value>
+    <value>Second Password</value>
   </data>
   <data name="Setting" xml:space="preserve">
     <value>Setting</value>

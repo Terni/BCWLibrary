@@ -10,7 +10,7 @@ using BitcoinWallet.Interface;
 [assembly: Dependency(typeof(UWP_Localize))]
 namespace BitcoinWallet.UWP
 {
-    public class UWP_Localize : ILocale
+    public class UWP_Localize : ILocalize
     {
         public System.Globalization.CultureInfo GetCurrentCultureInfo()
         {
@@ -18,7 +18,7 @@ namespace BitcoinWallet.UWP
                 Windows.System.UserProfile.GlobalizationPreferences.Languages[0].ToString());
         }
 
-        public void SetLocale(System.Globalization.CultureInfo ci)
+        public void SetLocalize(System.Globalization.CultureInfo ci)
         {
             // Do nothing
         }

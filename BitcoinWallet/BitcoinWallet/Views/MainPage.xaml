@@ -14,19 +14,22 @@
   <TabbedPage.Children>
     <!--TODO: ICON-->
     <!--<ContentPage Title="Profile" Icon="Resources/Icons/user.png"   PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPprofile">-->
-    <ContentPage Title="Profile" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPprofile">
+    <ContentPage Title="Profile" x:Name="AppProfile">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
-          <Entry Placeholder="Alias" Text="{Binding Alias}" IsVisible="False" x:Name="ann"/>
+          <Entry Placeholder="Alias" Text="{Binding Alias}" IsVisible="True" x:Name="AlsMP"/>
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
           <Entry Placeholder="Username" Text="{Binding Username}" Style="{StaticResource EntryStyleRed}" x:Name="UserMP"/>
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
-          <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true" Style="{StaticResource EntryStyleRed}" x:Name="PassMP1" />
+            <Entry Placeholder="APICode" Text="{Binding Username}" Style="{StaticResource EntryStyleRed}" x:Name="ApiCodeMP"/> <!--Margin <left,0,0,0>-->
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
-          <Entry Placeholder="SecoundPassword" Text="{Binding SecoundPassword}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="PassMP2"/>
+          <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true" Style="{StaticResource EntryStyleRed}" x:Name="Pass1MP" />
+        </Frame>
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+          <Entry Placeholder="SecoundPassword" Text="{Binding SecoundPassword}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="Pass2MP"/>
         </Frame>
         <!--<controls:ImageButton IsVisible="{Binding IsAddVisible}" Scale="1"
               HeightRequest="50"
@@ -57,7 +60,7 @@
 
     <!--TODO: ICON-->
     <!--<ContentPage Title="Setting" Icon="Resources/Icons/settings-3.png" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPsetting">-->
-    <ContentPage Title="Setting" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPsetting">
+    <ContentPage x:Name="AppSetting">
       <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">
@@ -66,8 +69,9 @@
         </ResourceDictionary>
       </ContentPage.Resources>-->
 
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="White" >
-        <TableView>
+      <StackLayout Spacing="10" Padding="0" VerticalOptions="Center" BackgroundColor="White" >
+        <Label TextColor="Black" Text="Setting" FontSize="24" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
+        <TableView >
           <TableRoot>
             <TableSection>
               <TextCell TextColor="Black" Text="Basic"/>

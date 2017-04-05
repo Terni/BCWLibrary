@@ -42,7 +42,7 @@
     <Compile Include="Helpers\LoadXmlFile.cs" />
     <Compile Include="Helpers\Logging.cs" />
     <Compile Include="Interface\IFileHelper.cs" />
-    <Compile Include="Interface\ILocale.cs" />
+    <Compile Include="Interface\ILocalize.cs" />
     <Compile Include="Models\NameModule.cs" />
     <Compile Include="Helpers\SaveLoadString.cs" />
     <Compile Include="Resx\Resources.Designer.cs">
@@ -50,6 +50,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Loc.cs" />
     <Compile Include="ViewModels\SaveAndLoadText.cs" />
     <Compile Include="Helpers\TickerRatesHelper.cs" />
     <Compile Include="Interface\ISaveAndLoad.cs" />

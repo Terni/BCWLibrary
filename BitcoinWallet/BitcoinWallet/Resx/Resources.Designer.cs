@@ -71,6 +71,15 @@ namespace BitcoinWallet.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to API Code.
+        /// </summary>
+        internal static string ApiCode {
+            get {
+                return ResourceManager.GetString("ApiCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bitcoin Wallet 2.0.
         /// </summary>
         internal static string AppName {
@@ -116,7 +125,7 @@ namespace BitcoinWallet.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Secound Password.
+        ///   Looks up a localized string similar to Second Password.
         /// </summary>
         internal static string SecPassword {
             get {

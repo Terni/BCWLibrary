@@ -120,6 +120,9 @@
   <data name="Alias" xml:space="preserve">
     <value>Váš Alias</value>
   </data>
+  <data name="ApiCode" xml:space="preserve">
+    <value>API kód</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Bitcoin Peněženka 2.0</value>
   </data>
@@ -136,7 +139,7 @@
     <value>Profil</value>
   </data>
   <data name="SecPassword" xml:space="preserve">
-    <value>Sekundární Heslo</value>
+    <value>Druhé Heslo</value>
   </data>
   <data name="Setting" xml:space="preserve">
     <value>Nastavení</value>
