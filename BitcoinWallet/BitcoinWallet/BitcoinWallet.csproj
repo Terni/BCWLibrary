@@ -41,6 +41,7 @@
     <Compile Include="Helpers\EmbeddedImageResourceExtension.cs" />
     <Compile Include="Helpers\LoadXmlFile.cs" />
     <Compile Include="Helpers\Logging.cs" />
+    <Compile Include="Helpers\Tools.cs" />
     <Compile Include="Interface\IFileHelper.cs" />
     <Compile Include="Interface\ILocalize.cs" />
     <Compile Include="Models\NameModule.cs" />
