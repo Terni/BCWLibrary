@@ -10,7 +10,7 @@ namespace Expanded.DBase.ViewModels
 {
     public class SpecSettingsDB
     {
-        private SQLiteAsyncConnection _database;
+        private SQLiteConnection _database;
 
         SpecSettingsDB()
         {
@@ -21,9 +21,9 @@ namespace Expanded.DBase.ViewModels
         /// Method for Get all items from SettingItem
         /// </summary>
         /// <returns>List all item from SettingItem Table</returns>
-        public Task<List<SettingItem>> GetItemsAsync()
+        public List<SettingItem> GetItems()
         {
-            return _database.Table<SettingItem>().ToListAsync();
+            return _database.Table<SettingItem>().ToList();
         }
 
         /// <summary>
@@ -31,9 +31,9 @@ namespace Expanded.DBase.ViewModels
         /// </summary>
         /// <param name="id"></param>
         /// <returns>One SettingItem</returns>
-        public Task<SettingItem> GetItemAsync(int id)
+        public SettingItem GetItem(int id)
         {
-            return _database.Table<SettingItem>().Where(i => i.Id == id).FirstOrDefaultAsync();
+            return _database.Table<SettingItem>().Where(i => i.Id == id).FirstOrDefault();
         }
     }
 }

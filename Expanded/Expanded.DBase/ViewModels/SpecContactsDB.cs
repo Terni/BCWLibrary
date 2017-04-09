@@ -10,7 +10,7 @@ namespace Expanded.DBase.ViewModels
 {
     public class SpecContactsDB
     {
-        private SQLiteAsyncConnection _database;
+        private SQLiteConnection _database;
 
         SpecContactsDB()
         {
@@ -21,9 +21,9 @@ namespace Expanded.DBase.ViewModels
         /// Method for Get all items from ContactItem
         /// </summary>
         /// <returns>List all item from ContactItem Table</returns>
-        public Task<List<ContactItem>> GetItemsAsync()
+        public List<ContactItem> GetItems()
         {
-            return _database.Table<ContactItem>().ToListAsync();
+            return _database.Table<ContactItem>().ToList();
         }
 
         /// <summary>
@@ -31,9 +31,9 @@ namespace Expanded.DBase.ViewModels
         /// </summary>
         /// <param name="id"></param>
         /// <returns>One ContactItem</returns>
-        public Task<ContactItem> GetItemAsync(int id)
+        public ContactItem GetItem(int id)
         {
-            return _database.Table<ContactItem>().Where(i => i.Id == id).FirstOrDefaultAsync();
+            return _database.Table<ContactItem>().Where(i => i.Id == id).FirstOrDefault();
         }
     }
 }

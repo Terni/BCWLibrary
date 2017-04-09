@@ -10,7 +10,7 @@ namespace Expanded.DBase.ViewModels
 {
     public class SpecLoggerDB
     {
-        private SQLiteAsyncConnection _database;
+        private SQLiteConnection _database;
 
         public SpecLoggerDB()
         {
@@ -21,9 +21,9 @@ namespace Expanded.DBase.ViewModels
         /// Method for Get all items from LogItem
         /// </summary>
         /// <returns>List all item from LogItem Table</returns>
-        public Task<List<LogItem>> GetItemsAsync()
+        public List<LogItem> GetItems()
         {
-            return _database.Table<LogItem>().ToListAsync();
+            return _database.Table<LogItem>().ToList();
         }
 
         /// <summary>
@@ -31,19 +31,19 @@ namespace Expanded.DBase.ViewModels
         /// </summary>
         /// <param name="id"></param>
         /// <returns>One LogItem</returns>
-        public Task<LogItem> GetItemAsync(int id)
+        public LogItem GetItem(int id)
         {
-            return _database.Table<LogItem>().Where(i => i.Id == id).FirstOrDefaultAsync();
+            return _database.Table<LogItem>().Where(i => i.Id == id).FirstOrDefault();
         }
 
-        public Task<int> SaveItemAsync(LogItem item)
+        public int SaveItem(LogItem item)
         {
-            //if (item.Id != 0)
-            //{
-            //    return _database.UpdateAsync(item);
-            //}
+            if (item.Id != 0)
+            {
+                return _database.Update(item);
+            }
 
-            return _database.InsertAsync(item);
+            return _database.Insert(item);
         }
     }
 }

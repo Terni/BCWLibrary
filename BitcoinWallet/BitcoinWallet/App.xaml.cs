@@ -26,7 +26,7 @@ namespace BitcoinWallet
             {
                 if (_database == null)
                 {
-                    _database = new ItemsDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("Database\\LogDB.db3"));
+                    _database = new ItemsDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("LogDB.db3"));
                 }
                 return _database;
             }

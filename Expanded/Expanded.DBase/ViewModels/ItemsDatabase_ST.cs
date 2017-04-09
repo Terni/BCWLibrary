@@ -13,7 +13,7 @@ namespace Expanded.DBase.ViewModels
         /// <summary>
         /// Variables
         /// </summary>
-        static SQLiteAsyncConnection _database;
+        static SQLiteConnection _database;
 
         /// <summary>
         /// Constructor
@@ -25,7 +25,7 @@ namespace Expanded.DBase.ViewModels
         }
 
 
-        public static SQLiteAsyncConnection DatabaseString
+        public static SQLiteConnection DatabaseString
         {
             get
             {

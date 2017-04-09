@@ -231,12 +231,9 @@ namespace BitcoinWallet.Helpers
 
         private static void DatabaseWriteMessage()
         {
-            //if(_item != null)
-            //    App.Database.PropertyLog.SaveItemAsync(_item);
-
-            //App.Database.PropertyLogSpec.GetItemsAsync();
-
-           // App.Database.PropertyLogSpec.SaveItemAsync(_item);
+            if(_item != null)
+                App.Database.PropertyLogSpec.SaveItem(_item);
+                //App.Database.PropertyLog.SaveItem(_item);
         }
 
         private static void FileTXTWriteMessage(string m)

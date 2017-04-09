@@ -12,8 +12,9 @@ namespace Expanded.DBase.ViewModels
 
     public class ToolsDB<T> where T : new()
     {
-        private SQLiteAsyncConnection _database;
+        private SQLiteConnection _database;
         private T _type;
+        static object locker = new object();
 
         public int Id { get; }
 
@@ -26,20 +27,30 @@ namespace Expanded.DBase.ViewModels
             _type = obj;
         }
 
-        public Task<List<T>> GetItemsAsync()
+        public List<T> GetItemsList()
         {
-            return _database.Table<T>().ToListAsync();
+            lock (locker)
+            {
+                return _database.Table<T>().ToList();
+            }
         }
 
-        public Task<List<T>> GetItemsAsyncWithDate(DateTime date)
+        public List<T> GetItemsWithDate(string date)
         {
-            return _database.QueryAsync<T>(string.Format("SELECT Top 10 * FROM [{0}] WHERE [{1}] <= {2}",_type.GetType(), "Date",date));
+            lock (locker)
+            {
+                return _database.Query<T>(string.Format("SELECT Top 10 * FROM [{0}] WHERE [{1}] <= {2}",
+                    _type.GetType(), "Date", date));
+            }
         }
 
-        public Task<T> GetItemAsync(int id)
-        {
-            return _database.Table<T>().Where(i => GetById((ITwithId)i) == id).FirstOrDefaultAsync();
-        }
+        //public T GetItem(int id)
+        //{
+        //    lock (locker)
+        //    {
+        //        return _database.Table<T>().Where(i => GetById((ITwithId) i) == id).FirstOrDefault();
+        //    }
+        //}
 
         /// <summary>
         /// Method with Interface for ID
@@ -51,21 +62,27 @@ namespace Expanded.DBase.ViewModels
             return item.Id;
         }
 
-        public Task<int> SaveItemAsync(T item)
+        public int SaveItem(T item)
         {
-            //if (GetById((ITwithId)item) != 0)
-            //{
-            //    return _database.UpdateAsync(item);
-            //}
-            //else
-            //{
-                return _database.InsertAsync(item);
-            //}
+            lock (locker)
+            {
+                //if (GetById((ITwithId)item) != 0)
+                //{
+                //    return _database.Update(item);
+                //}
+                //else
+                //{
+                return _database.Insert(item);
+                //}
+            }
         }
 
-        public Task<int> DeleteItemAsync(T item)
+        public int DeleteItem(T item)
         {
-            return _database.DeleteAsync(item);
+            lock (locker)
+            {
+                return _database.Delete(item);
+            }
         }
 
 

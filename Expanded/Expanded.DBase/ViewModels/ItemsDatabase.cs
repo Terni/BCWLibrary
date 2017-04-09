@@ -13,7 +13,7 @@ namespace Expanded.DBase.ViewModels
         /// <summary>
         /// Variables
         /// </summary>
-        readonly SQLiteAsyncConnection _database;
+        readonly SQLiteConnection _database;
 
         /// <summary>
         /// Constructor
@@ -21,9 +21,9 @@ namespace Expanded.DBase.ViewModels
         /// <param name="dbPath">Specific path into file database</param>
         public ItemsDatabase(string dbPath)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
+            _database = new SQLiteConnection(dbPath);
             ItemsDatabase_ST.DatabaseString = _database; // set static class
-            //InitializationDB();
+            InitializationDB();
         }
 
         /// <summary>
@@ -31,12 +31,12 @@ namespace Expanded.DBase.ViewModels
         /// </summary>
         private void InitializationDB()
         {
-            _database.CreateTableAsync<ContactItem>();
-            _database.CreateTableAsync<LogItem>();
-            _database.CreateTableAsync<SettingItem>();
+            _database.CreateTable<ContactItem>();
+            _database.CreateTable<LogItem>();
+            _database.CreateTable<SettingItem>();
         }
 
-        public SQLiteAsyncConnection DatabaseString
+        public SQLiteConnection DatabaseString
         {
             get
             {
