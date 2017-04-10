@@ -16,7 +16,7 @@ namespace Expanded.DBase.ViewModels
         private T _type;
         static object locker = new object();
 
-        public int Id { get; }
+        //public int Id { get; }
 
         /// <summary>
         /// Constructor
@@ -57,10 +57,10 @@ namespace Expanded.DBase.ViewModels
         /// </summary>
         /// <param name="item">Generic T but with interface</param>
         /// <returns>Result is specific Id</returns>
-        private int GetById(ITwithId item)
-        {
-            return item.Id;
-        }
+        //private int GetById(ITwithId item)
+        //{
+        //    return item.Id;
+        //}
 
         public int SaveItem(T item)
         {

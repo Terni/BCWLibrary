@@ -11,6 +11,7 @@ namespace Expanded.DBase.ViewModels
     public class SpecLoggerDB
     {
         private SQLiteConnection _database;
+        static object locker = new object();
 
         public SpecLoggerDB()
         {
@@ -25,6 +26,33 @@ namespace Expanded.DBase.ViewModels
         {
             return _database.Table<LogItem>().ToList();
         }
+
+        //public IEnumerable<LogItem> GetItems()
+        //{
+        //    lock (locker)
+        //    {
+        //        return (from i in _database.Table<LogItem>() select i).ToList();
+        //    }
+        //}
+
+        public IEnumerable<LogItem> GetItemsTraceLevel(string typeTraceLevel) // typeTraceLevel = ERROR, WARRING, ...
+        {
+            lock (locker)
+            {
+                return _database.Query<LogItem>(string.Format("SELECT * FROM [{0}] WHERE [{1}] = {2}",
+                    "LogItem", "TraceLevel", typeTraceLevel));
+            }
+        }
+
+        public List<LogItem> GetItemsWithDate(string date)
+        {
+            lock (locker)
+            {
+                return _database.Query<LogItem>(string.Format("SELECT Top 10 * FROM [{0}] WHERE [{1}] <= {2}",
+                    "LogItem", "Date", date));
+            }
+        }
+
 
         /// <summary>
         /// Method for one item
@@ -44,6 +72,11 @@ namespace Expanded.DBase.ViewModels
             }
 
             return _database.Insert(item);
+        }
+
+        public int DropAllItem()
+        {
+            return _database.DeleteAll<LogItem>();
         }
     }
 }

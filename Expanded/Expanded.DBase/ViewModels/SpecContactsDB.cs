@@ -11,6 +11,7 @@ namespace Expanded.DBase.ViewModels
     public class SpecContactsDB
     {
         private SQLiteConnection _database;
+        static object locker = new object();
 
         SpecContactsDB()
         {
@@ -21,7 +22,7 @@ namespace Expanded.DBase.ViewModels
         /// Method for Get all items from ContactItem
         /// </summary>
         /// <returns>List all item from ContactItem Table</returns>
-        public List<ContactItem> GetItems()
+        public List<ContactItem> GetItemsAll()
         {
             return _database.Table<ContactItem>().ToList();
         }
@@ -31,9 +32,82 @@ namespace Expanded.DBase.ViewModels
         /// </summary>
         /// <param name="id"></param>
         /// <returns>One ContactItem</returns>
-        public ContactItem GetItem(int id)
+        public ContactItem GetItemAsID(int id)
         {
             return _database.Table<ContactItem>().Where(i => i.Id == id).FirstOrDefault();
+        }
+
+        public ContactItem GetItemAsFirstName(string name)
+        {
+            return _database.Table<ContactItem>().Where(i => i.FirstName == name).FirstOrDefault();
+        }
+
+        public ContactItem GetItemAsLastName(string surname)
+        {
+            return _database.Table<ContactItem>().Where(i => i.LastName == surname).FirstOrDefault();
+        }
+
+        public ContactItem GetItemAsAlias(string alias)
+        {
+            return _database.Table<ContactItem>().Where(i => i.Alias == alias).FirstOrDefault();
+        }
+
+        public ContactItem GetItemAsIdwallet(string idwallet)
+        {
+            return _database.Table<ContactItem>().Where(i => i.Idwallet == idwallet).FirstOrDefault();
+        }
+
+        public List<ContactItem> GetItemsWithDate(string date)
+        {
+            lock (locker)
+            {
+                return _database.Query<ContactItem>(string.Format("SELECT Top 10 * FROM [{0}] WHERE [{1}] <= {2}",
+                    "ContactItem", "Date", date));
+            }
+        }
+
+        public IEnumerable<ContactItem> GetItemsFirstName(string name)
+        {
+            lock (locker)
+            {
+                return _database.Query<ContactItem>(string.Format("SELECT * FROM [{0}] WHERE [{1}] = {2}",
+                    "ContactItem", "FirstName", name));
+            }
+        }
+
+
+        public IEnumerable<ContactItem> GetItemsLastName(string surname)
+        {
+            lock (locker)
+            {
+                return _database.Query<ContactItem>(string.Format("SELECT * FROM [{0}] WHERE [{1}] = {2}",
+                    "ContactItem", "LastName", surname));
+            }
+        }
+
+        public IEnumerable<ContactItem> GetItemsAlias(string alias)
+        {
+            lock (locker)
+            {
+                return _database.Query<ContactItem>(string.Format("SELECT * FROM [{0}] WHERE [{1}] = {2}",
+                    "ContactItem", "Alias", alias));
+            }
+        }
+
+
+        public int SaveItem(ContactItem item)
+        {
+            if (item.Id != 0)
+            {
+                return _database.Update(item);
+            }
+
+            return _database.Insert(item);
+        }
+
+        public int DropAllItem()
+        {
+            return _database.DeleteAll<ContactItem>();
         }
     }
 }

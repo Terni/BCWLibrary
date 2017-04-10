@@ -11,6 +11,7 @@ namespace Expanded.DBase.ViewModels
     public class SpecSettingsDB
     {
         private SQLiteConnection _database;
+        static object locker = new object();
 
         SpecSettingsDB()
         {
@@ -34,6 +35,21 @@ namespace Expanded.DBase.ViewModels
         public SettingItem GetItem(int id)
         {
             return _database.Table<SettingItem>().Where(i => i.Id == id).FirstOrDefault();
+        }
+
+        public int SaveItem(SettingItem item)
+        {
+            if (item.Id != 0)
+            {
+                return _database.Update(item);
+            }
+
+            return _database.Insert(item);
+        }
+
+        public int DropAllItem()
+        {
+            return _database.DeleteAll<SettingItem>();
         }
     }
 }
