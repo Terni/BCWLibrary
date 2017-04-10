@@ -94,6 +94,11 @@ namespace Expanded.DBase.ViewModels
             }
         }
 
+        public int GenerLastIndex()
+        {
+            return _database.CreateIndex("ContactItem", "Id", true);
+        }
+
 
         public int SaveItem(ContactItem item)
         {

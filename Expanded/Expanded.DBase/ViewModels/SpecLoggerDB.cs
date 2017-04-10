@@ -71,10 +71,10 @@ namespace Expanded.DBase.ViewModels
 
         public int SaveItem(LogItem item)
         {
-            if (item.Id != 0)
-            {
-                return _database.Update(item);
-            }
+            //if (item.Id != 0)
+            //{
+            //    return _database.Update(item);
+            //}
 
             return _database.Insert(item);
         }
