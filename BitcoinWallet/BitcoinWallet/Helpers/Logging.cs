@@ -220,7 +220,7 @@ namespace BitcoinWallet.Helpers
         {
             return new LogItem
             {
-                //Id = 1,
+                Id = App.Database.PropertyLogSpec.GenerLastIndex(),
                 TraceLevel = tag,
                 Message = m,
                 Date = DateTime.Today.ToString(),

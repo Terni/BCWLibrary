@@ -37,6 +37,12 @@ namespace Expanded.DBase.ViewModels
             return _database.Table<SettingItem>().Where(i => i.Id == id).FirstOrDefault();
         }
 
+
+        public int GenerLastIndex()
+        {
+            return _database.CreateIndex("SettingItem", "Id", true);
+        }
+
         public int SaveItem(SettingItem item)
         {
             if (item.Id != 0)

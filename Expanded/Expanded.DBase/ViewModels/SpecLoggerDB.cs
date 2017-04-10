@@ -64,6 +64,11 @@ namespace Expanded.DBase.ViewModels
             return _database.Table<LogItem>().Where(i => i.Id == id).FirstOrDefault();
         }
 
+        public int GenerLastIndex()
+        {
+            return _database.CreateIndex("LogItem","Id", true);
+        }
+
         public int SaveItem(LogItem item)
         {
             if (item.Id != 0)
