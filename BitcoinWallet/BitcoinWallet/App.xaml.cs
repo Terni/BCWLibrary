@@ -17,7 +17,7 @@ namespace BitcoinWallet
         public App(IPlatformInitializer initializer = null) : base(initializer)
         {
             Logging.ReleaseTag = false;
-            Logging.Debug("Start app.",4);
+            Logging.Debug("Start app.", (int)Logging.Level.DATABASE);
         }
 
         public static ItemsDatabase Database
@@ -26,7 +26,7 @@ namespace BitcoinWallet
             {
                 if (_database == null)
                 {
-                    _database = new ItemsDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("LogDB.db3"));
+                    _database = new ItemsDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("MainDB.db3"));
                 }
                 return _database;
             }

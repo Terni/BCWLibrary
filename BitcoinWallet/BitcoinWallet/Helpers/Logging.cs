@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Android.Bluetooth;
 using Expanded.DBase.ViewModels;
 using Expanded.DBase.Models;
+using Xamarin.Forms;
 
 namespace BitcoinWallet.Helpers
 {
@@ -27,7 +29,7 @@ namespace BitcoinWallet.Helpers
         /// <summary>
         /// Enum for Level is diferent out file or console or database
         /// </summary>
-        private enum Level
+        public enum Level
         {
             CONSOLE = 0,
             FILETXT = 1,
@@ -218,12 +220,12 @@ namespace BitcoinWallet.Helpers
         {
             return new LogItem
             {
-                Id = 1,
+                //Id = 1,
                 TraceLevel = tag,
                 Message = m,
                 Date = DateTime.Today.ToString(),
-                Platform = "NULL",
-                Class = App.Current.ClassId,
+                Platform = Device.OS.ToString(),
+                Class = Application.Current.ClassId,
                 Method = "NULL",
                 Line = 0
             };
