@@ -6,20 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Bitcoin.APIv2Client.Models;
 
-using BitcoinWallet.Models;
-using Bitcoin.APIClient;
-
-namespace BitcoinWallet.Helpers
+namespace Bitcoin.APIv2Client.ViewModels
 {
-    public class TickerRatesHelper
+    public class RatesTicker
     {
-        public static ClassWebClient Client;
+        //public static ClassWebClient Client;
 
-        public static List<TickerRateValue> GetRatesValue(string jsonData)
+        public static List<DataTricker> GetRates(string jsonData)
         {
             JObject data = JObject.Parse(jsonData);
-            List<TickerRateValue> result = new List<TickerRateValue>();
+            List<DataTricker> result = new List<DataTricker>();
             string[] newaArray =
             {
                 "USD", "CNY", "JPY", "SGD", "HKD", "CAD", "NZD", "AUD", "CLP", "GBP",
@@ -29,7 +27,7 @@ namespace BitcoinWallet.Helpers
             int i = 0;
             foreach (var obj in data.Properties().Select(p => p.Value))
             {
-                var idem = new TickerRateValue
+                var idem = new DataTricker
                 {
                     NameCurrency = newaArray[i],
                     FifteenMinuts = (decimal)obj["15m"],
