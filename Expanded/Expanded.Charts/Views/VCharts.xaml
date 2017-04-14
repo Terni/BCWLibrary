@@ -25,7 +25,7 @@
       </StackLayout>
     </ContentPage>
 
-    <ContentPage Title="Bitcoins in circulation" x:Name="BCTinCiculation" >
+    <ContentPage Title="Bitcoins in circulation" x:Name="BTCinCiculation" >
         <!--<ContentPage.Resources>
       <ResourceDictionary>
         <Style x:Key="baseStyle" TargetType="SwitchCell">
@@ -67,7 +67,7 @@
         </StackLayout>
     </ContentPage>
 
-    <ContentPage Title="Market Price (USD)" x:Name="marketPriceUSD" >
+    <ContentPage Title="US Exchange Trade Volume " x:Name="USDexchangeTradeVolume" >
         <!--<ContentPage.Resources>
       <ResourceDictionary>
         <Style x:Key="baseStyle" TargetType="SwitchCell">
