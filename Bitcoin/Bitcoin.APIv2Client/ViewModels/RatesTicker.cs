@@ -33,7 +33,8 @@ namespace Bitcoin.APIv2Client.ViewModels
                     FifteenMinuts = (decimal)obj["15m"],
                     Last = (decimal)obj["last"],
                     Buy = (decimal)obj["buy"],
-                    Sell = (decimal)obj["sell"]
+                    Sell = (decimal)obj["sell"],
+                    Symbol = (string)obj["symbol"]
                 };
                 i++;
                 result.Add(idem);
