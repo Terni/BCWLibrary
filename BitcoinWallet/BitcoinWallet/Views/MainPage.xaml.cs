@@ -145,7 +145,6 @@ namespace BitcoinWallet.Views
             }
         }
 
-
         async void Loging_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
