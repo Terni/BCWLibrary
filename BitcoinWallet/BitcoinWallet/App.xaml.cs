@@ -17,7 +17,7 @@ namespace BitcoinWallet
         public App(IPlatformInitializer initializer = null) : base(initializer)
         {
             Logging.ReleaseTag = false;
-            Logging.Debug("Start app.", (int)Logging.Level.DATABASE);
+            Logging.Debug("Start app.", Logging.Level.DATABASE);
         }
 
         public static ItemsDatabase Database

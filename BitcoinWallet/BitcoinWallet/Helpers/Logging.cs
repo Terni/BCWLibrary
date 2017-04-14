@@ -1,14 +1,9 @@
 ﻿using System;
-using System.IO;
-using System.Diagnostics;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Android.Bluetooth;
-using Expanded.DBase.ViewModels;
 using Expanded.DBase.Models;
 using Xamarin.Forms;
+using System.Reflection;
 
 namespace BitcoinWallet.Helpers
 {
@@ -17,12 +12,12 @@ namespace BitcoinWallet.Helpers
         /// <summary>
         /// Enum for Tags is type message
         /// </summary>
-        private enum Tags
+        public enum Tags
         {
             RELEASE = 0,
             DEBUG = 1,
             INFO = 2,
-            WARRING = 3,
+            WARNING = 3,
             ERROR = 4
         }
 
@@ -38,25 +33,12 @@ namespace BitcoinWallet.Helpers
             DATABASE = 4
         }
 
-
-        /// <summary>
-        /// Dictionary for StatusTags
-        /// </summary>
-        private static Dictionary<string, Tags> StatusTags = new Dictionary<string, Tags>
-        {
-            {"RELEASE",Tags.RELEASE},
-            {"DEBUG",Tags.DEBUG},
-            {"INFO",Tags.INFO},
-            {"WARRING",Tags.WARRING},
-            {"ERROR",Tags.ERROR}
-        };
-
         //Variables
         private static SaveLoadString _instSaveLoadString;
         private static LogItem _item;
 
         public static bool ReleaseTag { get; set; }
-        public static int CurrentTag { get; set; }
+        public static Tags CurrentTag { get; set; }
 
         /// <summary>
         /// Construction
@@ -71,17 +53,17 @@ namespace BitcoinWallet.Helpers
         /// </summary>
         /// <param name="message">Specifis string about status here.</param>
         /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
-        public static void Debug(string message, int level = (int)Level.CONSOLE)
+        public static void Debug(string message, Level level = Level.CONSOLE)
         {
-            CurrentTag = (int)Tags.DEBUG;
+            CurrentTag = Tags.DEBUG;
 
-            if (level == (int)Level.DATABASE)
+            if (level == Level.DATABASE)
             {
-                _item = SetNewLogItem(message, "DEBUG");
+                _item = SetNewLogItem(message, Tags.DEBUG);
                 CheckLevelLoggin(string.Empty, level);
             }
             else
-                CheckLevelLoggin(SetTages(message, "DEBUG"), level);
+                CheckLevelLoggin(SetTages(message, Tags.DEBUG), level);
         }
 
         /// <summary>
@@ -89,10 +71,10 @@ namespace BitcoinWallet.Helpers
         /// </summary>
         /// <param name="message">Specifis string about status here.</param>
         /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
-        public static void Info(string message, int level = (int)Level.CONSOLE)
+        public static void Info(string message, Level level = Level.CONSOLE)
         {
-            CurrentTag = (int)Tags.INFO;
-            CheckLevelLoggin(SetTages(message, "INFO"), level);
+            CurrentTag = Tags.INFO;
+            CheckLevelLoggin(SetTages(message, Tags.INFO), level);
         }
 
         /// <summary>
@@ -100,10 +82,10 @@ namespace BitcoinWallet.Helpers
         /// </summary>
         /// <param name="message">Specifis string about status here.</param>
         /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
-        public static void Warring(string message, int level = (int)Level.CONSOLE)
+        public static void Warning(string message, Level level = Level.CONSOLE)
         {
-            CurrentTag = (int)Tags.WARRING;
-            CheckLevelLoggin(SetTages(message, "WARRING"), level);
+            CurrentTag = Tags.WARNING;
+            CheckLevelLoggin(SetTages(message, Tags.WARNING), level);
         }
 
         /// <summary>
@@ -111,10 +93,21 @@ namespace BitcoinWallet.Helpers
         /// </summary>
         /// <param name="message">Specifis string about status here.</param>
         /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
-        public static void Error(string message, int level = (int)Level.CONSOLE)
+        public static void Error(string message, Level level = Level.CONSOLE)
         {
-            CurrentTag = (int)Tags.ERROR;
-            CheckLevelLoggin(SetTages(message, "ERROR"), level);
+            CurrentTag = Tags.ERROR;
+            CheckLevelLoggin(SetTages(message, Tags.ERROR), level);
+        }
+
+        /// <summary>
+        /// Method for error logging
+        /// </summary>
+        /// <param name="message">Specifis string about status here.</param>
+        /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
+        public static void Error(string message, Exception exception ,object objectImprint, Level level = Level.CONSOLE)
+        {
+            CurrentTag = Tags.ERROR;
+            CheckLevelLoggin(SetTages(message, Tags.ERROR, exception, objectImprint), level);
         }
 
         /// <summary>
@@ -122,26 +115,26 @@ namespace BitcoinWallet.Helpers
         /// </summary>
         /// <param name="message">Specifis string about status here.</param>
         /// <param name="level">Specific params 0=console, 1=txt, 2=xml, 3=hmtl and 4=databse</param>
-        public static void Log(string message, string tag = "DEBUG", int level = (int)Level.CONSOLE)
+        public static void Log(string message, Tags tag = Tags.DEBUG, Level level = Level.CONSOLE)
         {
-            CurrentTag = (int)Tags.DEBUG;
+            CurrentTag = Tags.DEBUG;
             CheckLevelLoggin(SetTages(message, tag), level);
         }
 
         /// <summary>
         /// Method for Check level logging and writeline log message
         /// </summary>
-        /// <param name="m"></param>
+        /// <param name="message"></param>
         /// <param name="level"></param>
-        private static void CheckLevelLoggin(string m, int level)
+        private static void CheckLevelLoggin(string message, Level level)
         {
-            if(ReleaseTag && CurrentTag > 2)
+            if(ReleaseTag && CurrentTag >= Tags.WARNING)
             {
-                MakeLog(m, level);
+                MakeLog(message, level);
             }
             else if (!ReleaseTag)
             {
-                MakeLog(m, level);
+                MakeLog(message, level);
             }
             else
             {
@@ -150,83 +143,108 @@ namespace BitcoinWallet.Helpers
 
         }
 
-
-        private static void MakeLog(string m, int level)
+        private static void MakeLog(string message, Level level)
         {
             switch (level)
             {
-                case (int)Level.FILETXT:
-                    FileTXTWriteMessage(m);
+                case Level.FILETXT:
+                    FileTXTWriteMessage(message);
                     break;
-                case (int)Level.FILEXML:
-                    FileHTMLWriteMessage(m);
+                case Level.FILEXML:
+                    FileXMLWriteMessage(message);
                     break;
-                case (int)Level.FILEHTML:
-                    FileHTMLWriteMessage(m);
+                case Level.FILEHTML:
+                    FileHTMLWriteMessage(message);
                     break;
-                case (int)Level.DATABASE:
+                case Level.DATABASE:
                     DatabaseWriteMessage();
                     break;
-                default:
-                    {
-                        ConsoleWriteMessage(m);
-                        break;
-                    }
+                case Level.CONSOLE:
+                    ConsoleWriteMessage(message);
+                    break;
+                default: throw new NotImplementedException();
             }
         }
 
         /// <summary>
         /// Set new tag for message
         /// </summary>
-        /// <param name="m"></param>
+        /// <param name="message"></param>
         /// <param name="tag"></param>
+        /// <param name="exception"></param>
+        /// <param name="memoryPrint"></param>
         /// <returns>message</returns>
-        private static string SetTages(string m, string tag = "")
+        private static string SetTages(string message, Tags tag, Exception exception = null, object memoryPrint = null)
         {
-            //variables
-            string newMessage = string.Format("{0}: {1}.", tag, m);
-            Tags valueEnumType;
+            return $"{tag}: {message} {ParseException(exception)} {ParseObject(memoryPrint)}";
+        }
 
-            StatusTags.TryGetValue(tag, out valueEnumType);
-            switch (valueEnumType)
+        /// <summary>
+        /// Parses object through
+        /// </summary>
+        /// <param name="memoryPrint"></param>
+        /// <returns></returns>
+        private static string ParseObject(object memoryPrint)
+        {
+            Type objectType = memoryPrint.GetType();
+            StringBuilder sb = new StringBuilder($"{objectType.FullName} {Environment.NewLine}");
+            var properties = objectType.GetRuntimeFields();
+            foreach (var item in properties)
             {
-                case Tags.ERROR:
-                case Tags.WARRING:
-                case Tags.INFO:
-                case Tags.DEBUG:
-                default:
-                    {
-                        return newMessage;
-                    }
+                object value = item.GetValue(memoryPrint);
+                if (value != null)
+                {
+                    sb.AppendFormat("{0} = {1} {2}", item.Name, value.ToString(), Environment.NewLine);
+                }
+                else
+                {
+                    sb.AppendFormat("{0} = {1} {2}", item.Name, "null", Environment.NewLine);
+                }
             }
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Parses Exception and stackTrace to human readeable format
+        /// </summary>
+        /// <param name="exception"><see cref="Exception"/></param>
+        /// <returns>Parsed exception or <see cref="String.Empty"/> if exception is null</returns>
+        private static object ParseException(Exception exception)
+        {
+            if (exception == null)
+            {
+                return string.Empty;
+            }
+
+            return exception.ToString();
         }
 
         /// <summary>
         /// Write message on console only debug mode
         /// </summary>
-        /// <param name="m"></param>
-        private static void ConsoleWriteMessage(string m)
+        /// <param name="message"></param>
+        private static void ConsoleWriteMessage(string message)
         {
-            System.Diagnostics.Debug.WriteLine(m);
+            System.Diagnostics.Debug.WriteLine(message);
         }
 
         /// <summary>
         /// Inner Method for new LogItem
         /// </summary>
-        /// <param name="m"></param>
+        /// <param name="message"></param>
         /// <param name="tag"></param>
         /// <returns>New LogItem</returns>
-        private static LogItem SetNewLogItem(string m, string tag)
+        private static LogItem SetNewLogItem(string message, Tags tag)
         {
             return new LogItem
             {
                 Id = App.Database.PropertyLogSpec.GenerLastIndex(),
-                TraceLevel = tag,
-                Message = m,
+                TraceLevel = tag.ToString(),
+                Message = message.Substring(0,100),
                 Date = DateTime.Today.ToString(),
                 Platform = Device.OS.ToString(),
                 Class = Application.Current.ClassId,
-                Method = "NULL",
+                Method =  "NULL",
                 Line = 0
             };
         }
@@ -235,23 +253,21 @@ namespace BitcoinWallet.Helpers
         {
             if(_item != null)
                 App.Database.PropertyLogSpec.SaveItem(_item);
-                //App.Database.PropertyLog.SaveItem(_item);
         }
 
-        private static void FileTXTWriteMessage(string m)
+        private static void FileTXTWriteMessage(string message)
         {
-            string setMessage = m + "\n";
-            _instSaveLoadString.SaveText(setMessage);
+            _instSaveLoadString.SaveText($"{message}{Environment.NewLine}");
         }
 
-        private static void FileXMLWriteMessage(string m)
+        private static void FileXMLWriteMessage(string message)
         {
-
+            throw new NotImplementedException();
         }
 
-        private static void FileHTMLWriteMessage(string m)
+        private static void FileHTMLWriteMessage(string message)
         {
-
+            throw new NotImplementedException();
         }
 
     }
