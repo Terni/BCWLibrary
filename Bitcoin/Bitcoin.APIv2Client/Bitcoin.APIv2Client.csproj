@@ -48,10 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Info.Blockchain.API">
-      <HintPath>..\..\Library\Info.Blockchain.API.dll</HintPath>
+      <HintPath>..\..\Library\Blockchain.API\Info.Blockchain.API.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\Library\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\Library\Blockchain.API\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -59,7 +59,7 @@
     <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

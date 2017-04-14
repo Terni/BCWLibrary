@@ -51,46 +51,50 @@ namespace BitcoinWallet.Views
 
         private async void WaitData()
         {
-            var result = await _fromXml.LoadXMLData();
-            if ((_listModules = _fromXml.RawModules) != null && result)
+            //var result = await _fromXml.LoadXMLData();
+            lock(_listModules)
             {
-                foreach (var item in _listModules)
+                if (_listModules != null)
                 {
-                    NameModule valueEnumType;
-                    NameModuleEnum.Name.TryGetValue(item.Name, out valueEnumType);
-                    switch (valueEnumType)
+                    foreach (var item in _listModules)
                     {
-                        case NameModule.Alias:
-                            break;
-                        case NameModule.LoginID:
+                        NameModule valueEnumType;
+                        NameModuleEnum.Name.TryGetValue(item.Name, out valueEnumType);
+                        switch (valueEnumType)
                         {
-                            UserMP.Text = item.Value;
-                            break;
+                            case NameModule.Alias:
+                                break;
+                            case NameModule.LoginID:
+                            {
+                                UserMP.Text = item.Value;
+                                break;
+                            }
+                            case NameModule.PasswordFirst:
+                            {
+                                Pass1MP.Text = item.Value;
+                                break;
+                            }
+                            case NameModule.PasswordSecond:
+                            {
+                                Pass2MP.Text = item.Value;
+                                break;
+                            }
+                            case NameModule.api_code:
+                            {
+                                ApiCodeMP.Text = item.Value;
+                                break;
+                            }
+                            case NameModule.autologon:
+                                break;
+                            case NameModule.Theme:
+                                break;
+                            default:
+                                throw new NotImplementedException();
                         }
-                        case NameModule.PasswordFirst:
-                        {
-                            Pass1MP.Text = item.Value;
-                            break;
-                        }
-                        case NameModule.PasswordSecond:
-                        {
-                            Pass2MP.Text = item.Value;
-                            break;
-                        }
-                        case NameModule.api_code:
-                        {
-                            ApiCodeMP.Text = item.Value;
-                            break;
-                        }
-                        case NameModule.autologon:
-                            break;
-                        case NameModule.Theme:
-                            break;
-                        default:
-                            throw new NotImplementedException();
                     }
                 }
             }
+
         }
 
         private async void InitDataLocalization()

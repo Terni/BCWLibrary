@@ -65,4 +65,5 @@ BitcoinWallet/BitcoinWallet.UWP/Database/LogDB.db3
 BitcoinWallet/BitcoinWallet.UWP/Database/MainDB.db3
 BitcoinWallet/BitcoinWallet.WinPhone/Database/LogDB.db3
 BitcoinWallet/BitcoinWallet.WinPhone/Database/MainDB.db3
-Library/Info.Blockchain.API.pdb
+Library/Blockchain.API/Info.Blockchain.API.pdb
+Library/Telerik.Xamarin/
