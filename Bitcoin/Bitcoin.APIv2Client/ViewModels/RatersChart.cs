@@ -12,7 +12,7 @@ namespace Bitcoin.APIv2Client.ViewModels
 {
     public class RatersChart
     {
-        //public static WebClient Client;
+        //public static ClassWebClient Client;
 
         public static List<DataPointChart> GetRates(string jsonData)
         {

@@ -53,7 +53,6 @@
     </Compile>
     <Compile Include="ViewModels\Loc.cs" />
     <Compile Include="ViewModels\SaveAndLoadText.cs" />
-    <Compile Include="Helpers\TickerRatesHelper.cs" />
     <Compile Include="Interface\ISaveAndLoad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BwStyle.cs" />
