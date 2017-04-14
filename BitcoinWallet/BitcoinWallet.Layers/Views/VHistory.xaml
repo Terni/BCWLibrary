@@ -30,7 +30,7 @@
         </ResourceDictionary>
       </ContentPage.Resources>-->
 
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="White" >
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="White"  >
       </StackLayout>
     </ContentPage>
 
