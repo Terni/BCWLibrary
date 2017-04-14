@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,9 @@ namespace BitcoinWallet.WinPhone
     {
         public System.Globalization.CultureInfo GetCurrentCultureInfo()
         {
-            return new System.Globalization.CultureInfo(
-                Windows.System.UserProfile.GlobalizationPreferences.Languages[0].ToString());
+            CultureInfo culture =  new CultureInfo(Windows.System.UserProfile.GlobalizationPreferences.Languages[0].ToString());
+
+            return culture;
         }
 
         public void SetLocalize(System.Globalization.CultureInfo ci)

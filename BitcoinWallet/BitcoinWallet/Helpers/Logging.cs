@@ -240,7 +240,7 @@ namespace BitcoinWallet.Helpers
             {
                 Id = App.Database.PropertyLogSpec.GenerLastIndex(),
                 TraceLevel = tag.ToString(),
-                Message = message.Substring(0,100),
+                Message = message, // TODO need fix
                 Date = DateTime.Today.ToString(),
                 Platform = Device.OS.ToString(),
                 Class = Application.Current.ClassId,

@@ -2,21 +2,19 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Xamarin.Forms.Xaml;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BitcoinWallet.Layers")]
+[assembly: AssemblyTitle("Bitcoin.APIv2Client")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BitcoinWallet.Layers")]
+[assembly: AssemblyProduct("Bitcoin.APIv2Client")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 
 // Version information for an assembly consists of the following four values:
 //

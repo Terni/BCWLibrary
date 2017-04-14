@@ -35,11 +35,20 @@ namespace BitcoinWallet.ViewModels
         public static string Localize(string key, string defaultLocalize)
         {
             //var netLanguage = GetLocalize();
+            string result = null;
 
             // Platform-specific
             ResourceManager temp = new ResourceManager(ResourceId, typeof(Loc).GetTypeInfo().Assembly);
             Debug.WriteLine("Localize " + key);
-            string result = temp.GetString(key, DependencyService.Get<ILocalize>().GetCurrentCultureInfo());
+            try
+            {
+                var resultCultrure = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+                result = temp.GetString(key, resultCultrure);
+            }
+            catch
+            {
+                return defaultLocalize; //set default localize
+            }
 
             if(string.IsNullOrWhiteSpace(result)) // is null
             {

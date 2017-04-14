@@ -18,6 +18,11 @@ namespace BitcoinWallet.Views
         {
             InitializeComponent();
 
+            //var model = new MainViewModel();
+            //model.Data1 = MainViewModel.GetCategoricalData();
+            //model.Data2 = MainViewModel.GetCategoricalData();
+
+
             var grid = new CartesianChartGrid();
 
             var chart = new RadCartesianChart
@@ -42,19 +47,20 @@ namespace BitcoinWallet.Views
 
             //series.ItemsSource = model.Data1;
 
+            series.CategoryBinding = new PropertyNameDataPointBinding
+            {
+                PropertyName = "Date"
+            };
+
             series.ValueBinding = new PropertyNameDataPointBinding
             {
                 PropertyName = "Value"
             };
 
-            series.CategoryBinding = new PropertyNameDataPointBinding
-            {
-                PropertyName = "Category"
-            };
 
             chart.Series.Add(series);
 
-            //this.Content = chart;
+            this.marketPriceUSD.Content = chart;
 
 
 
