@@ -36,8 +36,6 @@ namespace BitcoinWallet.Views
                 XDocument doc = XDocument.Load(streamFile);
                 _fromXml = new DataSyntFromXml(doc);
                 InitDataLocalization(); // init localization keys
-                WaitData(); // here method wait on data from xml file
-
             }
 
             //// Whipe text field
@@ -49,53 +47,6 @@ namespace BitcoinWallet.Views
             //}
         }
 
-        private async void WaitData()
-        {
-            //var result = await _fromXml.LoadXMLData();
-            lock(_listModules)
-            {
-                if (_listModules != null)
-                {
-                    foreach (var item in _listModules)
-                    {
-                        NameModule valueEnumType;
-                        NameModuleEnum.Name.TryGetValue(item.Name, out valueEnumType);
-                        switch (valueEnumType)
-                        {
-                            case NameModule.Alias:
-                                break;
-                            case NameModule.LoginID:
-                            {
-                                UserMP.Text = item.Value;
-                                break;
-                            }
-                            case NameModule.PasswordFirst:
-                            {
-                                Pass1MP.Text = item.Value;
-                                break;
-                            }
-                            case NameModule.PasswordSecond:
-                            {
-                                Pass2MP.Text = item.Value;
-                                break;
-                            }
-                            case NameModule.api_code:
-                            {
-                                ApiCodeMP.Text = item.Value;
-                                break;
-                            }
-                            case NameModule.autologon:
-                                break;
-                            case NameModule.Theme:
-                                break;
-                            default:
-                                throw new NotImplementedException();
-                        }
-                    }
-                }
-            }
-
-        }
 
         private async void InitDataLocalization()
         {
@@ -142,7 +93,58 @@ namespace BitcoinWallet.Views
                     }
                 }
             }
+
+            WaitData(); // here method wait on data from xml file
         }
+
+        /// <summary>
+        /// Method for fill values
+        /// </summary>
+        private void WaitData()
+        {
+            //var result = await _fromXml.LoadXMLData();
+
+            if (_listModules != null)
+            {
+                foreach (var item in _listModules)
+                {
+                    NameModule valueEnumType;
+                    NameModuleEnum.Name.TryGetValue(item.Name, out valueEnumType);
+                    switch (valueEnumType)
+                    {
+                        case NameModule.Alias:
+                            break;
+                        case NameModule.LoginID:
+                        {
+                            UserMP.Text = item.Value;
+                            break;
+                        }
+                        case NameModule.PasswordFirst:
+                        {
+                            Pass1MP.Text = item.Value;
+                            break;
+                        }
+                        case NameModule.PasswordSecond:
+                        {
+                            Pass2MP.Text = item.Value;
+                            break;
+                        }
+                        case NameModule.api_code:
+                        {
+                            ApiCodeMP.Text = item.Value;
+                            break;
+                        }
+                        case NameModule.autologon:
+                            break;
+                        case NameModule.Theme:
+                            break;
+                        default:
+                            throw new NotImplementedException();
+                    }
+                }
+            }
+        }
+
 
         async void Loging_OnClicked(object sender, EventArgs e)
         {
