@@ -38,13 +38,6 @@ namespace BitcoinWallet.Views
                 InitDataLocalization(); // init localization keys
             }
 
-            //// Whipe text field
-            //if (UserMP.Text == null)
-            //{
-            //    UserMP.Text = "";
-            //    Pass1MP.Text = "";
-            //    Pass2MP.Text = "";
-            //}
         }
 
 
