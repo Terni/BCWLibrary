@@ -28,9 +28,9 @@
           <RowDefinition Height="*" />  <!--Row = 1-->
           <RowDefinition Height="*" />  <!--Row = 2-->
           <RowDefinition Height="*" />  <!--Row = 3-->
+          <!--<RowDefinition Height="*" />
           <RowDefinition Height="*" />
-          <RowDefinition Height="*" />
-          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="*" />
@@ -238,7 +238,7 @@
           <!--<Button Text=".."
           Grid.Row="3" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />-->
 
-          <controls:ImageButton IsVisible="False" Grid.Row="4" Grid.Column="0" Scale="1"
+          <!--<controls:ImageButton IsVisible="False" Grid.Row="4" Grid.Column="0" Scale="1"
                         HeightRequest="100"
                         ImageHeightRequest="85"
                         ImageWidthRequest="100"
@@ -247,9 +247,9 @@
                         TextColor="#000000"
                         Clicked="Empty_OnClicked"
                         Style="{StaticResource MenuButtonStyle}"
-                        Text="">  <!-- Test -->
+                        Text="">  --><!-- Test --><!--
             <controls:ImageButton.Source>
-              <!-- ReSharper disable once Xaml.InvalidType -->
+              --><!-- ReSharper disable once Xaml.InvalidType --><!--
               <OnPlatform x:TypeArguments="ImageSource">
                 <OnPlatform.WinPhone>
                   <FileImageSource File="Resources/Icons_menu/refresh.png" />
@@ -257,15 +257,13 @@
                 <OnPlatform.Android>
                   <FileImageSource File="Resources/drawable/Icons_menu/refresh.png" />
                 </OnPlatform.Android>
-                <!-- ReSharper disable once Xaml.InvalidType -->
+                --><!-- ReSharper disable once Xaml.InvalidType --><!--
               </OnPlatform>
             </controls:ImageButton.Source>
-          </controls:ImageButton>
-          <!--<Button Text="Test Keyboard"
-                  Grid.Row="4" Grid.Column="0" BackgroundColor="#7ac3ff" Clicked="Test_OnClicked"/>-->
+          </controls:ImageButton> -->
 
 
-          <Button Text=".."
+          <!--<Button Text=".."
                   Grid.Row="4" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
 
           <Button Text="."
@@ -278,7 +276,7 @@
                   Grid.Row="6" Grid.Column="0" BackgroundColor="#7ac3ff" IsVisible="False" />
 
           <Button Text=".."
-                  Grid.Row="6" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
+                  Grid.Row="6" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />-->
 
       </Grid>
       </ScrollView>
