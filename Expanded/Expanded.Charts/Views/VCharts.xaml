@@ -1,10 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-            xmlns:controls="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows.Foundation.UniversalApiContract"
-            prism:ViewModelLocator.AutowireViewModel="True"
-            x:Class="BitcoinWallet.Views.VCharts"
+            x:Class="Expanded.Charts.Views.VCharts"
             x:Name="VChartsTabbedPage"
             Title="{Binding title}"
             BackgroundColor="White"
@@ -12,20 +9,21 @@
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Exchange Rates" x:Name="exchanger">
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-
-        <Label Text="15m." TextColor="Black"/>
+    <ContentPage  Title="Exchange Rates..." x:Name="exchanger">
+      <StackLayout Spacing="20" Padding="20">
+        <!--<Label Text="Exchange Rates" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
+        <Label Text="15m.   Last    Sell    Buy" TextColor="Black"/>
+        <!--<Label Text="15m." TextColor="Black"/>
         <Label Text="Last" TextColor="Black"/>
         <Label Text="Sell" TextColor="Black"/>
-        <Label Text="Buy" TextColor="Black"/>
-        <ListView x:Name="ListValues">
+        <Label Text="Buy" TextColor="Black"/>-->
+        <!--<ListView x:Name="ListValues">
 
-        </ListView>
+        </ListView>-->
       </StackLayout>
     </ContentPage>
 
-    <ContentPage Title="Bitcoins in circulation" x:Name="BTCinCiculation" >
+    <ContentPage Title="Circulation BTC..." x:Name="BTCinCiculation" >
         <!--<ContentPage.Resources>
       <ResourceDictionary>
         <Style x:Key="baseStyle" TargetType="SwitchCell">
@@ -33,55 +31,35 @@
         </Style>
       </ResourceDictionary>
     </ContentPage.Resources>-->
-
-        <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+        <StackLayout Spacing="20" Padding="20"  HorizontalOptions="StartAndExpand">
+            <!--<Label Text="Bitcoins in circulation" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
             <Label Text="The total number of bitcoins that have already been mined." TextColor="Black"/>
         </StackLayout>
     </ContentPage>
 
-    <ContentPage Title="Market Price (USD)" x:Name="marketPriceUSD" >
-    <!--<ContentPage.Resources>
-        <ResourceDictionary>
-          <Style x:Key="baseStyle" TargetType="SwitchCell">
-            <Setter Property=""/>
-          </Style>
-        </ResourceDictionary>
-      </ContentPage.Resources>-->
-
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-          <Label Text="Average USD market price across major bitcoin exchanges." TextColor="Black"/>
+    <ContentPage Title="Market Price USD." x:Name="marketPriceUSD" >
+      <StackLayout Spacing="20" Padding="20" HorizontalOptions="StartAndExpand"> 
+        <!--<Label Text="Market Price (USD)" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
+        <Label Text="Average USD market price across major bitcoin exchanges." TextColor="Black"/>
       </StackLayout>
     </ContentPage>
 
-    <ContentPage Title="Market Capatalization" x:Name="marketCapatalization" >
-        <!--<ContentPage.Resources>
-      <ResourceDictionary>
-        <Style x:Key="baseStyle" TargetType="SwitchCell">
-          <Setter Property=""/>
-        </Style>
-      </ResourceDictionary>
-    </ContentPage.Resources>-->
-
-        <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+    <ContentPage Title="Capatalization..." x:Name="marketCapatalization" >
+        <StackLayout Spacing="20" Padding="20" >
+            <!--<Label Text="Market Capatalization" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
             <Label Text="The total USD value of bitcoin supply in circulation." TextColor="Black"/>
         </StackLayout>
     </ContentPage>
 
-    <ContentPage Title="US Exchange Trade Volume " x:Name="USDexchangeTradeVolume" >
-        <!--<ContentPage.Resources>
-      <ResourceDictionary>
-        <Style x:Key="baseStyle" TargetType="SwitchCell">
-          <Setter Property=""/>
-        </Style>
-      </ResourceDictionary>
-    </ContentPage.Resources>-->
-
-        <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-            <Label Text="The total USD value of trading volume on major bitcoin exchanges." TextColor="Black"/>
-        </StackLayout>
+    <ContentPage Title="Exchange Trade..." x:Name="USDexchangeTradeVolume" >
+      <StackLayout Spacing="20" Padding="20" >
+        <!--<Label Text="US Exchange Trade Volume" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
+        <Label Text="The total USD value of trading volume on major bitcoin exchanges." TextColor="Black"/>
+      </StackLayout>
     </ContentPage>
 
 
 
-  </TabbedPage.Children>
+  
+</TabbedPage.Children>
 </TabbedPage>

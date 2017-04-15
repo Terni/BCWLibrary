@@ -12,7 +12,7 @@
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Quick">
+    <ContentPage Title="Quick Payment...">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
 
         <!-- Inner Grid 0 for top row of items -->
@@ -67,7 +67,7 @@
 
 
 
-    <ContentPage Title="Particular">
+    <ContentPage Title="Particular Pay...">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" >
         <!--<TableView>
           <TableRoot>

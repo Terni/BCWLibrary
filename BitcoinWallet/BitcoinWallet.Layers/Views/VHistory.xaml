@@ -13,7 +13,7 @@
   <TabbedPage.Children>
     <!--TODO: ICON-->
     <!--<ContentPage Title="Receive" Icon="Icons/download.png">-->
-    <ContentPage Title="Receive">
+    <ContentPage Title="Receive History...">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
       </StackLayout>
     </ContentPage>
@@ -21,7 +21,7 @@
 
     <!--TODO: ICON-->
     <!--<ContentPage Title="Send" Icon="Icons/upload.png">-->
-    <ContentPage Title="Send">
+    <ContentPage Title="Send History...">
       <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">

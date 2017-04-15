@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 //using BitcoinMyWallet.ViewModels;
 //using Bitcoin.APIClient;
 using System.Net;
+using Expanded.Charts.ViewModels;
 using Telerik.XamarinForms.Chart;
 using Xamarin.Forms;
+using Expanded.Charts.Models;
 
-namespace BitcoinWallet.Views
+namespace Expanded.Charts.Views
 {
     public partial class VCharts : TabbedPage
     {
@@ -19,48 +21,11 @@ namespace BitcoinWallet.Views
             InitializeComponent();
 
             //var model = new MainViewModel();
-            //model.Data1 = MainViewModel.GetCategoricalData();
-            //model.Data2 = MainViewModel.GetCategoricalData();
+            //model.Data1 = MainViewModel.GetPointsData();
+            //model.Data2 = MainViewModel.GetPointsData();
 
+            CreateChart();
 
-            var grid = new CartesianChartGrid();
-
-            var chart = new RadCartesianChart
-            {
-                VerticalAxis = new NumericalAxis(),
-                HorizontalAxis = new CategoricalAxis()
-                {
-                    LabelFitMode = AxisLabelFitMode.MultiLine,
-                    PlotMode = AxisPlotMode.OnTicks
-                },
-                Grid = grid,
-            };
-
-
-            grid.MajorLinesVisibility = GridLineVisibility.Y;
-            grid.MajorYLineDashArray = Device.OnPlatform(null, new double[] { 4, 2 }, new double[] { 4, 2 });
-
-
-            grid.MajorLineColor = Color.FromHex("D3D3D3");
-            grid.MajorLineThickness = Device.OnPlatform(0.5, 2, 2);
-            var series = new SplineAreaSeries();
-
-            //series.ItemsSource = model.Data1;
-
-            series.CategoryBinding = new PropertyNameDataPointBinding
-            {
-                PropertyName = "Date"
-            };
-
-            series.ValueBinding = new PropertyNameDataPointBinding
-            {
-                PropertyName = "Value"
-            };
-
-
-            chart.Series.Add(series);
-
-            this.marketPriceUSD.Content = chart;
 
 
 
@@ -74,6 +39,49 @@ namespace BitcoinWallet.Views
             //TickerRatesHelper.Client = new WebClient();
             //TickerRatesHelper.Client.DownloadStringCompleted += ClientOnDownloadStringCompleted_Rate;
             //TickerRatesHelper.Client.DownloadStringAsync(GlobalParamas.UrlTicker);
+        }
+
+        private async void CreateChart()
+        {
+            var model = new ViewCharts();
+            //model.DataFirstList = ViewCharts.GetPointsData("total-bitcoins");
+            model.DataSecondList = await ViewCharts.GetPointsData("market-price");
+            //model.DataThirdList = ViewCharts.GetPointsData("market-cap");
+            //model.DataFourthList = ViewCharts.GetPointsData("trade-volume");
+
+            var grid = new CartesianChartGrid();
+            var chart = new RadCartesianChart
+            {
+                VerticalAxis = new NumericalAxis(),
+                HorizontalAxis = new CategoricalAxis()
+                {
+                    LabelFitMode = AxisLabelFitMode.MultiLine,
+                    PlotMode = AxisPlotMode.OnTicks
+                },
+                Grid = grid,
+            };
+
+            grid.MajorLinesVisibility = GridLineVisibility.Y;
+            grid.MajorYLineDashArray = Device.OnPlatform(null, new double[] { 4, 2 }, new double[] { 4, 2 });
+            grid.MajorLineColor = Color.FromHex("00357f");
+            grid.MajorLineThickness = Device.OnPlatform(0.5, 2, 2);
+            var series = new SplineAreaSeries();
+
+            series.ItemsSource = model.DataSecondList;
+
+
+            series.ValueBinding = new PropertyNameDataPointBinding
+            {
+                PropertyName = "Value"
+            };
+
+            series.CategoryBinding = new PropertyNameDataPointBinding
+            {
+                PropertyName = "Date"
+            };
+
+            chart.Series.Add(series);
+            this.marketPriceUSD.Content = chart;
         }
 
         /*

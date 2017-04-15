@@ -36,8 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Expanded.Charts.cs" />
-    <Compile Include="Helpers\UrlEngine.cs" />
-    <Compile Include="Models\Chart.cs" />
+    <Compile Include="Helpers\UriEngine.cs" />
+    <Compile Include="Models\ArgChart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ViewCharts.cs" />
     <Compile Include="Views\VCharts.xaml.cs">
@@ -45,6 +45,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhoneApp\v8.1\System.Net.Http.dll</HintPath>
+    </Reference>
     <Reference Include="Telerik.XamarinForms.Chart">
       <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>

@@ -236,11 +236,16 @@ namespace BitcoinWallet.Helpers
         /// <returns>New LogItem</returns>
         private static LogItem SetNewLogItem(string message, Tags tag)
         {
+            if (message.Length > 100)
+            {
+                message = message.Substring(0, 100);
+            }
+
             return new LogItem
             {
                 Id = App.Database.PropertyLogSpec.GenerLastIndex(),
                 TraceLevel = tag.ToString(),
-                Message = message, // TODO need fix
+                Message = message,
                 Date = DateTime.Today.ToString(),
                 Platform = Device.OS.ToString(),
                 Class = Application.Current.ClassId,

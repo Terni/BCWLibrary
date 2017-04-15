@@ -38,6 +38,7 @@
     <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Models\DataPointChart.cs" />
     <Compile Include="Models\DataTricker.cs" />
+    <Compile Include="Models\TypeApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\RatersChart.cs" />
     <Compile Include="ViewModels\RatesTicker.cs" />

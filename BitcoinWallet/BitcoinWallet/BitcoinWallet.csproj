@@ -209,6 +209,10 @@
       <Project>{B73D5003-D37E-4932-ABED-F0FC844BE2B2}</Project>
       <Name>Bitcoin.APIClient</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Expanded\Expanded.Charts\Expanded.Charts.csproj">
+      <Project>{8d244de8-7fe8-4f40-b27a-8077ff2f5848}</Project>
+      <Name>Expanded.Charts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Expanded\Expanded.Common\Expanded.Common.csproj">
       <Project>{b8094309-3c83-46a1-9a6c-a084856e177f}</Project>
       <Name>Expanded.Common</Name>
