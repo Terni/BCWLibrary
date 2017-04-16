@@ -150,8 +150,6 @@
     <Content Include="Resources\Icons_menu\worldwide.png" />
     <Content Include="Resources\Icons\user-3.png" />
     <Content Include="Resources\title.png" />
-    <Content Include="Resources\title2.png" />
-    <Content Include="Resources\title3.png" />
     <Content Include="Resources\title4.png" />
     <Content Include="Resources\wallet1_qrcode.png" />
     <Content Include="Resources\wallet2_qrcode.png" />

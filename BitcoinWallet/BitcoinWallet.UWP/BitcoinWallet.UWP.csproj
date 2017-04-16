@@ -116,6 +116,11 @@
     <None Include="BitcoinWallet.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -172,8 +177,6 @@
     <Content Include="Resources\Icons_menu\user-4x.png" />
     <Content Include="Resources\Icons_menu\worldwide.png" />
     <Content Include="Resources\title.png" />
-    <Content Include="Resources\title2.png" />
-    <Content Include="Resources\title3.png" />
     <Content Include="Resources\title4.png" />
     <Content Include="Resources\wallet1_qrcode.png" />
     <Content Include="Resources\wallet2_qrcode.png" />
