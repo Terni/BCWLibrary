@@ -12,9 +12,9 @@ using Xamarin.Forms;
 
 namespace BitcoinWallet.Views
 {
-    public partial class VCharts : TabbedPage
+    public partial class VCharts2 : TabbedPage
     {
-        public VCharts()
+        public VCharts2()
         {
             InitializeComponent();
 

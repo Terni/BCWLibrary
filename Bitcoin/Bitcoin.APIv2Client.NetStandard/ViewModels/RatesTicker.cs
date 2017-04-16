@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Bitcoin.APIv2Client.Models;
+using Bitcoin.APIv2Client.NetStandard.Models;
 
-namespace Bitcoin.APIv2Client.ViewModels
+namespace Bitcoin.APIv2Client.NetStandard.ViewModels
 {
     public class RatesTicker
     {

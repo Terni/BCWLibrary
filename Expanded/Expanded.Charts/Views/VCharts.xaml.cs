@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //using BitcoinMyWallet.ViewModels;
 //using Bitcoin.APIClient;
 using System.Net;
+using Bitcoin.APIv2Client.Models;
 using Expanded.Charts.ViewModels;
 using Telerik.XamarinForms.Chart;
 using Xamarin.Forms;
@@ -20,35 +21,39 @@ namespace Expanded.Charts.Views
         {
             InitializeComponent();
 
-            //var model = new MainViewModel();
-            //model.Data1 = MainViewModel.GetPointsData();
-            //model.Data2 = MainViewModel.GetPointsData();
-
-            CreateChart();
-
-
-
-
-
-
-
-
-
-
-
-            //TickerRatesHelper.Client = new WebClient();
-            //TickerRatesHelper.Client.DownloadStringCompleted += ClientOnDownloadStringCompleted_Rate;
-            //TickerRatesHelper.Client.DownloadStringAsync(GlobalParamas.UrlTicker);
+            ShowCharts();
         }
 
-        private async void CreateChart()
+        private async void ShowCharts()
         {
-            var model = new ViewCharts();
+            var model = new ViewCharts(); // init base url
+            List<DataPointChart> dataList = new List<DataPointChart>();
+            dataList = await ViewCharts.GetPointsData("total-bitcoins");
+            this.ciculationBTC.Content = CreateChart(dataList);
+            dataList = await ViewCharts.GetPointsData("market-price");
+            this.marketPriceUSD.Content = CreateChart(dataList);
+            dataList = await ViewCharts.GetPointsData("market-cap");
+            this.marketCapatalization.Content = CreateChart(dataList);
+            dataList = await ViewCharts.GetPointsData("trade-volume");
+            this.exchangeTradeVolume.Content = CreateChart(dataList);
+        }
+
+
+        private async void ShowChartMarketPrice()
+        {
+            //var model = new ViewCharts();
+            List <DataPointChart> dataList = new List<DataPointChart>();
             //model.DataFirstList = ViewCharts.GetPointsData("total-bitcoins");
-            model.DataSecondList = await ViewCharts.GetPointsData("market-price");
+            //model.DataSecondList = await ViewCharts.GetPointsData("market-price");
+            dataList = await ViewCharts.GetPointsData("market-price");
             //model.DataThirdList = ViewCharts.GetPointsData("market-cap");
             //model.DataFourthList = ViewCharts.GetPointsData("trade-volume");
 
+            this.marketPriceUSD.Content = CreateChart(dataList);
+        }
+
+        private RadCartesianChart CreateChart(List<DataPointChart>  dataList)
+        {
             var grid = new CartesianChartGrid();
             var chart = new RadCartesianChart
             {
@@ -67,22 +72,24 @@ namespace Expanded.Charts.Views
             grid.MajorLineThickness = Device.OnPlatform(0.5, 2, 2);
             var series = new SplineAreaSeries();
 
-            series.ItemsSource = model.DataSecondList;
+            //series.ItemsSource = model.DataSecondList;
+            series.ItemsSource = dataList;
 
+            //series.CategoryBinding = new PropertyNameDataPointBinding
+            //{
+            //    PropertyName = "Date"
+            //};
 
             series.ValueBinding = new PropertyNameDataPointBinding
             {
                 PropertyName = "Value"
             };
-
-            series.CategoryBinding = new PropertyNameDataPointBinding
-            {
-                PropertyName = "Date"
-            };
-
             chart.Series.Add(series);
-            this.marketPriceUSD.Content = chart;
+
+            return chart;
         }
+
+
 
         /*
         private void ClientOnDownloadStringCompleted_Rate(object sender, DownloadStringCompletedEventArgs downloadStringCompletedEventArgs)

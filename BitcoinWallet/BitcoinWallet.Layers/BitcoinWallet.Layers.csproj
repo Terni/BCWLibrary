@@ -46,8 +46,8 @@
     <Compile Include="Views\VBookAdd.xaml.cs">
       <DependentUpon>VBookAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\VCharts.xaml.cs">
-      <DependentUpon>VCharts.xaml</DependentUpon>
+    <Compile Include="Views\VCharts2.xaml.cs">
+      <DependentUpon>VCharts2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VContactDetail.xaml.cs">
       <DependentUpon>VContactDetail.xaml</DependentUpon>
@@ -152,7 +152,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\VCharts.xaml">
+    <EmbeddedResource Include="Views\VCharts2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

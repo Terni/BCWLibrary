@@ -12,7 +12,7 @@ namespace Bitcoin.APIv2Client.Models
         /// Properties
         /// </summary>
         public DateTime Date { get; set; }
-        public float Value { get; set; }
+        public double Value { get; set; }
 
     }
 }

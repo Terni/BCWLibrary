@@ -4,7 +4,7 @@
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             xmlns:controls="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows.Foundation.UniversalApiContract"
             prism:ViewModelLocator.AutowireViewModel="True"
-            x:Class="BitcoinWallet.Views.VCharts"
+            x:Class="BitcoinWallet.Views.VCharts2"
             x:Name="VChartsTabbedPage"
             Title="{Binding title}"
             BackgroundColor="White"

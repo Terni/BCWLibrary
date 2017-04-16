@@ -20,14 +20,17 @@ namespace Expanded.Charts.ViewModels
         public IList DataThirdList { get; set; }
         public IList DataFourthList { get; set; }
 
-        private static List<DataPointChart> _charts;
-
         public ViewCharts()
         {
             string startUrl = $"{BaseApi.ApiName}";
             UriEngine.MainUriChart = new Uri(startUrl);
         }
 
+        /// <summary>
+        /// Method for all points one year
+        /// </summary>
+        /// <param name="namechart">Specific name chart</param>
+        /// <returns>Result is list points</returns>
         public static async Task<List<DataPointChart>> GetPointsData(string namechart)
         {
             Tuple<int, ArgChart.Date> timespan = new Tuple<int, ArgChart.Date>(1, ArgChart.Date.year);
@@ -36,14 +39,41 @@ namespace Expanded.Charts.ViewModels
 
             HttpClient client = new HttpClient();
             Debug.WriteLine(newUri.AbsoluteUri);
-            string jsonData = await client.GetStringAsync(newUri);
+            string jsonData = string.Empty;
+            try
+            {
+                jsonData = await client.GetStringAsync(newUri);
+            }
+            catch
+            {
+                throw new Exception("Error in client.GetStringAsynch, maeby bad url address or params!");
+                //Logging.Debug("Start app.", Logging.Level.DATABASE); // TODO vyresit kruhovou referenci na Logging
+            }
 
 
-
-            //return new List<DataPointChart>();
-            return RatersChart.GetRates(jsonData);
+            List<DataPointChart> selectedList = new List<DataPointChart>();
+            selectedList = DateSelector(RatersChart.GetRates(jsonData));
+            return selectedList;
+            //return RatersChart.GetRates(jsonData);
         }
 
+        /// <summary>
+        /// Method for Selected list points
+        /// </summary>
+        /// <param name="notSelectedList">Not Selected List</param>
+        /// <returns>Result is Selected list</returns>
+        private static List<DataPointChart> DateSelector(List<DataPointChart> notSelectedList)
+        {
+            List<DataPointChart> selectedList = new List<DataPointChart>();
+            int step = notSelectedList.Count / 20; // specific step for Date and Value
+            for (int i = 0; i < notSelectedList.Count; )
+            {
+                selectedList.Add(notSelectedList[i]);
+                i = i + step;
+            }
+
+            return selectedList;
+        }
 
 
     }

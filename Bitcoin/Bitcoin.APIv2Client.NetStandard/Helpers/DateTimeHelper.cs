@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bitcoin.APIv2Client.Helpers
+namespace Bitcoin.APIv2Client.NetStandard.Helpers
 {
     public static class DateTimeHelper
     {

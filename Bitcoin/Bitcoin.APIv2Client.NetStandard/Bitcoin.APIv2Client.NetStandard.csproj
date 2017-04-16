@@ -8,8 +8,8 @@
     <ProjectGuid>{5CBCB0D6-F52B-42E4-898D-A37FBE9F057F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bitcoin.APIv2Client</RootNamespace>
-    <AssemblyName>Bitcoin.APIv2Client</AssemblyName>
+    <RootNamespace>Bitcoin.APIv2Client.NetStandard</RootNamespace>
+    <AssemblyName>Bitcoin.APIv2Client.NetStandard</AssemblyName>
     <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>

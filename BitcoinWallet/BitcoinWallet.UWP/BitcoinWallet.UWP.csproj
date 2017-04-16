@@ -105,6 +105,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UWP_NativeDevice.cs" />
     <Compile Include="UWP_SaveAndLoad.cs" />
     <Compile Include="UWP_Localize.cs" />
   </ItemGroup>
@@ -192,7 +193,64 @@
       <Name>BitcoinWallet</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Telerik.Core">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Data">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Chart.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.UI.Xaml.Chart.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Controls.Data.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.UI.Xaml.Controls.Data.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Input.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.UI.Xaml.Input.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Primitives.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.UI.Xaml.Primitives.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Chart, Version=2017.1.10321.233, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ChartRenderer.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\UWP\Telerik.XamarinForms.ChartRenderer.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common, Version=2017.1.10321.233, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\UWP\Telerik.XamarinForms.Common.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.DataControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControlsRenderer.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\UWP\Telerik.XamarinForms.DataControlsRenderer.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.InputRenderer.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\UWP\Telerik.XamarinForms.InputRenderer.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Primitives">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.PrimitivesRenderer.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\UWP\Telerik.XamarinForms.PrimitivesRenderer.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
