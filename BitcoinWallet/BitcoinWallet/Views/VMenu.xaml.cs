@@ -57,7 +57,7 @@ namespace BitcoinWallet.Views
         async void Charts_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
-                await Navigation.PushModalAsync(new VCharts());
+                await Navigation.PushModalAsync(new Expanded.Charts.Views.VCharts());
         }
         async void Detail_OnClicked(object sender, EventArgs e)
         {

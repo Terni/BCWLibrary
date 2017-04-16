@@ -90,17 +90,24 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <EmbeddedResource Include="Database\MainDB.db3" />
+    <EmbeddedResource Include="Database\LogDB.db3" />
+    <None Include="Database\LogDB.template.db3" />
+    <None Include="Database\MainDB.template.db3" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UWP_FileHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveAndLoad.cs" />
+    <Compile Include="UWP_NativeDevice.cs" />
+    <Compile Include="UWP_SaveAndLoad.cs" />
+    <Compile Include="UWP_Localize.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -109,6 +116,11 @@
     <None Include="BitcoinWallet.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -117,7 +129,17 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Resources\Icons\add.png" />
+    <Content Include="Resources\Icons\user-1.png" />
+    <Content Include="Resources\Icons\user-12.png" />
     <Content Include="Resources\Icons\user-3.png" />
+    <Content Include="Resources\Icons\user-add.png" />
+    <Content Include="Resources\Icons_base\add.png" />
+    <Content Include="Resources\Icons_base\cancel.png" />
+    <Content Include="Resources\Icons_base\check.png" />
+    <Content Include="Resources\Icons_base\delete.png" />
+    <Content Include="Resources\Icons_base\manage-dark.png" />
+    <Content Include="Resources\Icons_base\qrcode.png" />
     <Content Include="Resources\Icons_menuItems\activate.png" />
     <Content Include="Resources\Icons_menuItems\calendar.late.png" />
     <Content Include="Resources\Icons_menuItems\chart.png" />
@@ -137,19 +159,24 @@
     <Content Include="Resources\Icons_menuItems\todo.dark.png" />
     <Content Include="Resources\Icons_menuItems\todo.png" />
     <Content Include="Resources\Icons_menu\bar-chart.png" />
+    <Content Include="Resources\Icons_menu\bar-chartx.png" />
     <Content Include="Resources\Icons_menu\group-1.png" />
+    <Content Include="Resources\Icons_menu\group-1x.png" />
     <Content Include="Resources\Icons_menu\group.png" />
     <Content Include="Resources\Icons_menu\help.png" />
+    <Content Include="Resources\Icons_menu\helpx.png" />
     <Content Include="Resources\Icons_menu\laptop-2.png" />
+    <Content Include="Resources\Icons_menu\laptop-2x.png" />
     <Content Include="Resources\Icons_menu\laptop-sm.png" />
     <Content Include="Resources\Icons_menu\refresh.png" />
     <Content Include="Resources\Icons_menu\shopping-bag-1.png" />
+    <Content Include="Resources\Icons_menu\shopping-bag-1x.png" />
     <Content Include="Resources\Icons_menu\transfer-2.png" />
+    <Content Include="Resources\Icons_menu\transfer-2x.png" />
     <Content Include="Resources\Icons_menu\user-4.png" />
+    <Content Include="Resources\Icons_menu\user-4x.png" />
     <Content Include="Resources\Icons_menu\worldwide.png" />
     <Content Include="Resources\title.png" />
-    <Content Include="Resources\title2.png" />
-    <Content Include="Resources\title3.png" />
     <Content Include="Resources\title4.png" />
     <Content Include="Resources\wallet1_qrcode.png" />
     <Content Include="Resources\wallet2_qrcode.png" />
@@ -168,6 +195,64 @@
     <ProjectReference Include="..\BitcoinWallet\BitcoinWallet.csproj">
       <Name>BitcoinWallet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Telerik.Core">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Data">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Chart.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.UI.Xaml.Chart.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Controls.Data.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.UI.Xaml.Controls.Data.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Input.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.UI.Xaml.Input.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Primitives.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\UWP\Telerik.UI.Xaml.Primitives.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Chart, Version=2017.1.10321.233, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ChartRenderer.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\UWP\Telerik.XamarinForms.ChartRenderer.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common, Version=2017.1.10321.233, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\UWP\Telerik.XamarinForms.Common.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.DataControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControlsRenderer.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\UWP\Telerik.XamarinForms.DataControlsRenderer.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.InputRenderer.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\UWP\Telerik.XamarinForms.InputRenderer.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Primitives">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.PrimitivesRenderer.UWP">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\UWP\Telerik.XamarinForms.PrimitivesRenderer.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

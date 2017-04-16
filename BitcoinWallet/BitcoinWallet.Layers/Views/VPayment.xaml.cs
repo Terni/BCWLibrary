@@ -14,5 +14,10 @@ namespace BitcoinWallet.Views
         {
             InitializeComponent();
         }
+
+        private void Add_OnClicked(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
     }
 }

@@ -14,6 +14,32 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
+using Telerik.XamarinForms.Common.UWP;
+
+// >> chart-getting-started-uwp-renderers
+[assembly: Xamarin.Forms.Platform.UWP.ExportRenderer(typeof(Telerik.XamarinForms.Chart.RadCartesianChart), typeof(Telerik.XamarinForms.ChartRenderer.UWP.CartesianChartRenderer))]
+[assembly: Xamarin.Forms.Platform.UWP.ExportRenderer(typeof(Telerik.XamarinForms.Chart.RadPieChart), typeof(Telerik.XamarinForms.ChartRenderer.UWP.PieChartRenderer))]
+// << chart-getting-started-uwp-renderers
+
+// >> calendar-getting-started-uwp-renderer
+[assembly: Xamarin.Forms.Platform.UWP.ExportRenderer(typeof(Telerik.XamarinForms.Input.RadCalendar), typeof(Telerik.XamarinForms.InputRenderer.UWP.CalendarRenderer))]
+// << calendar-getting-started-uwp-renderer
+
+// >> sidedrawer-getting-started-uwp-renderer
+[assembly: Xamarin.Forms.Platform.UWP.ExportRenderer(typeof(Telerik.XamarinForms.Primitives.RadSideDrawer), typeof(Telerik.XamarinForms.PrimitivesRenderer.UWP.SideDrawerRenderer))]
+// << sidedrawer-getting-started-uwp-renderer
+
+// >> listview-getting-started-uwp-renderer
+[assembly: Xamarin.Forms.Platform.UWP.ExportRenderer(typeof(Telerik.XamarinForms.DataControls.RadListView), typeof(Telerik.XamarinForms.DataControlsRenderer.UWP.ListViewRenderer))]
+// << listview-getting-started-uwp-renderer
+
+// >> dataform-getting-started-uwp-renderer
+[assembly: Xamarin.Forms.Platform.UWP.ExportRenderer(typeof(Telerik.XamarinForms.Input.RadDataForm), typeof(Telerik.XamarinForms.InputRenderer.UWP.DataFormRenderer))]
+// << dataform-getting-started-uwp-renderer
+
+// >> autocomplete-getting-started-uwp-renderer
+[assembly: Xamarin.Forms.Platform.UWP.ExportRenderer(typeof(Telerik.XamarinForms.Input.RadAutoComplete), typeof(Telerik.XamarinForms.InputRenderer.UWP.AutoCompleteRenderer))]
+// << autocomplete-getting-started-uwp-renderer
 
 namespace BitcoinWallet.UWP
 {
@@ -24,6 +50,7 @@ namespace BitcoinWallet.UWP
             this.InitializeComponent();
 
             LoadApplication(new BitcoinWallet.App(new UwpInitializer()));
+            TelerikForms.Init();
         }
     }
 

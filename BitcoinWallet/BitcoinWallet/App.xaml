@@ -10,6 +10,8 @@
       <Color x:Key="DarkBlue">#3181c4</Color>
       <Color x:Key="White">White</Color>
       <Color x:Key="Black">Black</Color>
+      <Color x:Key="Red">Red</Color>
+      <Color x:Key="LightRed">#ff5151</Color>
 
       <!--Button style-->
       <Style x:Key="ClassicButtonStyle" TargetType="Button">
@@ -50,10 +52,20 @@
         <Setter Property="OutlineColor" Value="{StaticResource LightBlue}"></Setter>
         <Setter Property="HasShadow" Value="True"></Setter>
       </Style>
+      <Style x:Key="FrameStyleRed" TargetType="Frame">
+        <Setter Property="OutlineColor" Value="{StaticResource Red}"></Setter>
+        <Setter Property="HasShadow" Value="True"></Setter>
+      </Style>
+      <Style x:Key="FrameStyleEmpty" TargetType="Frame">
+      </Style>
 
       <!--Entry style-->
       <Style x:Key="EntryStyle" TargetType="Entry">
         <Setter Property="TextColor" Value="{StaticResource Black}"></Setter>
+        <Setter Property="Margin" Value="0,0,0,0"></Setter>
+      </Style>
+      <Style x:Key="EntryStyleRed" TargetType="Entry">
+        <Setter Property="PlaceholderColor" Value="{StaticResource LightRed}"></Setter>
         <Setter Property="Margin" Value="0,0,0,0"></Setter>
       </Style>
 

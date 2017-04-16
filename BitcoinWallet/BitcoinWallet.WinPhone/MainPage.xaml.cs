@@ -17,6 +17,29 @@ using Microsoft.Practices.Unity;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
+// >> chart-getting-started-winrt-renderers
+[assembly: Xamarin.Forms.Platform.WinRT.ExportRenderer(typeof(Telerik.XamarinForms.Chart.RadCartesianChart), typeof(Telerik.XamarinForms.ChartRenderer.WinRT.CartesianChartRenderer))]
+[assembly: Xamarin.Forms.Platform.WinRT.ExportRenderer(typeof(Telerik.XamarinForms.Chart.RadPieChart), typeof(Telerik.XamarinForms.ChartRenderer.WinRT.PieChartRenderer))]
+// << chart-getting-started-winrt-renderers
+
+// >> calendar-getting-started-winrt-renderer
+[assembly: Xamarin.Forms.Platform.WinRT.ExportRenderer(typeof(Telerik.XamarinForms.Input.RadCalendar), typeof(Telerik.XamarinForms.InputRenderer.WinRT.CalendarRenderer))]
+// << calendar-getting-started-winrt-renderer
+
+// >> sidedrawer-getting-started-winrt-renderer
+[assembly: Xamarin.Forms.Platform.WinRT.ExportRenderer(typeof(Telerik.XamarinForms.Primitives.RadSideDrawer), typeof(Telerik.XamarinForms.PrimitivesRenderer.WinRT.SideDrawerRenderer))]
+// << sidedrawer-getting-started-winrt-renderer
+
+// >> listview-getting-started-winrt-renderer
+[assembly: Xamarin.Forms.Platform.WinRT.ExportRenderer(typeof(Telerik.XamarinForms.DataControls.RadListView), typeof(Telerik.XamarinForms.DataControlsRenderer.WinRT.ListViewRenderer))]
+// << listview-getting-started-winrt-renderer
+
+// >> dataform-getting-started-winrt-renderer
+[assembly: Xamarin.Forms.Platform.WinRT.ExportRenderer(typeof(Telerik.XamarinForms.Input.RadDataForm), typeof(Telerik.XamarinForms.InputRenderer.WinRT.DataFormRenderer))]
+// << dataform-getting-started-winrt-renderer
+
+[assembly: Xamarin.Forms.Platform.WinRT.ExportRenderer(typeof(Telerik.XamarinForms.Input.RadAutoComplete), typeof(Telerik.XamarinForms.InputRenderer.WinRT.AutoCompleteRenderer))]
+
 namespace BitcoinWallet.WinPhone
 {
     /// <summary>
@@ -27,10 +50,9 @@ namespace BitcoinWallet.WinPhone
         public MainPage()
         {
             this.InitializeComponent();
-
-            this.NavigationCacheMode = NavigationCacheMode.Required;
-
             LoadApplication(new BitcoinWallet.App(new WinPhoneInitializer()));
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+            
         }
 
         /// <summary>

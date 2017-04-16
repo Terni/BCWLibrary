@@ -61,11 +61,14 @@
                     <OnPlatform.WinPhone>
                       <FileImageSource File="Resources/wallet1_qrcode.png" />
                     </OnPlatform.WinPhone>
+                    <OnPlatform.Android>
+                      <FileImageSource File="Resources/drawable/wallet1_qrcode.png" />
+                    </OnPlatform.Android>
                     <!-- ReSharper disable once Xaml.InvalidType -->
                   </OnPlatform>
                 </controls:ImageButton.Source>
               </controls:ImageButton>
-              
+
               <!--<Image Source="Resources/wallet1_qrcode.png" Grid.Column="1" Aspect="AspectFit" HeightRequest="110"  IsEnabled="False"/>-->
 
           </Grid>
@@ -75,6 +78,9 @@
           </Frame>
           <Frame Style="{StaticResource FrameStyle}" Padding="-2">
             <Entry Placeholder="Surname" Text="{Binding Surname}" x:Name="snn" IsEnabled="False"/>
+          </Frame>
+          <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+            <Entry Placeholder="Alias" Text="{Binding Alias}" x:Name="ann" IsEnabled="False"/>
           </Frame>
           <Frame Style="{StaticResource FrameStyle}" Padding="-2">
             <Editor HeightRequest="100" Style="{StaticResource EditorStyle}" VerticalOptions="End" IsEnabled="False"/>

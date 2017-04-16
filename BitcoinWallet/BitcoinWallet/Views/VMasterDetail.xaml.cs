@@ -5,12 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using BitcoinWallet.ViewModels;
 using Xamarin.Forms;
+using BitcoinWallet.Helpers;
 
 namespace BitcoinWallet.Views
 {
     public partial class VMasterDetail : ContentPage
     {
-        public ListView ListView { get { return listViewMasterItem; } }
+        /// <summary>
+        /// Property for ListView
+        /// </summary>
+        public ListView ListView
+        {
+            get { return listViewMasterItem; }
+        }
 
         public VMasterDetail()
         {
@@ -20,24 +27,23 @@ namespace BitcoinWallet.Views
             masterItems.Add(new MasterDetailItem
             {
                 Title = " Contacts",
-                IconSource = "Resources/Icons_menuItems/contacts.dark.png",
+                IconSource = $"{Tools.GetFolder}contacts.dark.png",
                 TargetType = typeof(VContactDetail)
             });
             masterItems.Add(new MasterDetailItem
             {
                 Title = " Address Book",
-                IconSource = "Resources/Icons_menuItems/todo.dark.png",
+                IconSource = $"{Tools.GetFolder}todo.dark.png",
                 TargetType = typeof(VBook)
             });
             masterItems.Add(new MasterDetailItem
             {
                 Title = " About",
-                IconSource = "Resources/Icons_menuItems/reminders.dark.png",
+                IconSource = $"{Tools.GetFolder}reminders.dark.png",
                 TargetType = typeof(VAbout)
             });
 
             listViewMasterItem.ItemsSource = masterItems;
-
         }
     }
 }

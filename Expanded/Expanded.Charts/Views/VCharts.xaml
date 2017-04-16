@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Expanded.Charts.Views.VCharts"
+            x:Name="VChartsTabbedPage"
+            Title="{Binding title}"
+            BarTextColor="Black"
+            BackgroundColor="White"
+  >
+
+  <TabbedPage.Children>
+    <ContentPage  Title="Exchange Rates..." x:Name="exchanger">
+      <StackLayout Spacing="20" Padding="20">
+        <!--<Label Text="Exchange Rates" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
+        <Label Text="15m.   Last    Sell    Buy" TextColor="Black"/>
+        <!--<Label Text="15m." TextColor="Black"/>
+        <Label Text="Last" TextColor="Black"/>
+        <Label Text="Sell" TextColor="Black"/>
+        <Label Text="Buy" TextColor="Black"/>
+        <ListView x:Name="ListValues">
+
+        </ListView>-->
+      </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Circulation BTC..." x:Name="ciculationBTC" >
+        <!--<ContentPage.Resources>
+      <ResourceDictionary>
+        <Style x:Key="baseStyle" TargetType="SwitchCell">
+          <Setter Property=""/>
+        </Style>
+      </ResourceDictionary>
+    </ContentPage.Resources>-->
+        <StackLayout Spacing="20" Padding="20"  HorizontalOptions="StartAndExpand">
+            <!--<Label Text="Bitcoins in circulation" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
+            <Label Text="The total number of bitcoins that have already been mined." TextColor="Black"/>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Market Price USD..." x:Name="marketPriceUSD" >
+      <StackLayout Spacing="20" Padding="20" HorizontalOptions="StartAndExpand"> 
+        <!--<Label Text="Market Price (USD)" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
+        <Label Text="Average USD market price across major bitcoin exchanges." TextColor="Black"/>
+      </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Capatalization..." x:Name="marketCapatalization" >
+        <StackLayout Spacing="20" Padding="20" >
+            <!--<Label Text="Market Capatalization" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
+            <Label Text="The total USD value of bitcoin supply in circulation." TextColor="Black"/>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Exchange Trade..." x:Name="exchangeTradeVolume" >
+      <StackLayout Spacing="20" Padding="20" >
+        <!--<Label Text="US Exchange Trade Volume" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
+        <Label Text="The total USD value of trading volume on major bitcoin exchanges." TextColor="Black"/>
+      </StackLayout>
+    </ContentPage>
+  
+</TabbedPage.Children>
+</TabbedPage>
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Expanded.Charts.Views.VCharts"
+             x:Name="VChartsContentPage"
+>
+    <Label Text="Test" HorizontalOptions="Center"  TextColor="Black"/>
+</ContentPage>-->
