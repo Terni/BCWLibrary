@@ -20,7 +20,7 @@ namespace Bitcoin.APIv2Client.ViewModels
             List<DataTricker> result = new List<DataTricker>();
             string[] newaArray =
             {
-                "USD", "CNY", "JPY", "SGD", "HKD", "CAD", "NZD", "AUD", "CLP", "GBP",
+                "USD", "JPY", "CNY", "SGD", "HKD", "CAD", "NZD", "AUD", "CLP", "GBP", "INR",
                 "DKK", "SEK", "ISK", "CHF", "BRL", "EUR", "RUB", "PLN", "THB", "KRW", "TWD"
             };
 

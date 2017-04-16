@@ -20,13 +20,60 @@ namespace Expanded.Charts.Views
         public VCharts()
         {
             InitializeComponent();
-
+            ShowExchange();
             ShowCharts();
         }
 
+
+        private async void ShowExchange()
+        {
+            var model = new ViewCharts(); // init base url
+            var srollview = new ScrollView();
+            var layout = new StackLayout();
+            List<DataTricker> dataList = new List<DataTricker>();
+            var label = new Label
+            {
+                TextColor = Color.Black,
+                Text = "Currency 15m. Last Sell Buy",
+                FontSize = 20
+            };
+            layout.Children.Add(label);
+
+            dataList = await ViewCharts.GetMarketData();
+            for (int i = 0; i < dataList.Count; i++)
+            {
+                var labelItem = new Label
+                {
+                    Text = $"{dataList[i].NameCurrency} {dataList[i].FifteenMinuts} {dataList[i].Buy} {dataList[i].Sell} {dataList[i].Buy}",
+                    FontSize = 10
+                };
+
+                float result = i % 2;
+                if (result > 0)
+                {
+                    labelItem.TextColor = Color.Blue;
+                }
+                else
+                {
+                    labelItem.TextColor = Color.Gray;
+                }
+                layout.Children.Add(labelItem);
+            }
+
+
+            srollview.Content = layout;
+            this.exchanger.Content = srollview;
+        }
+
+
+        /// <summary>
+        /// Async Method for show all chatrs
+        /// </summary>
         private async void ShowCharts()
         {
             var model = new ViewCharts(); // init base url
+            model.SetNewBaseUri();
+
             List<DataPointChart> dataList = new List<DataPointChart>();
             dataList = await ViewCharts.GetPointsData("total-bitcoins");
             this.ciculationBTC.Content = CreateChart(dataList);
@@ -52,6 +99,11 @@ namespace Expanded.Charts.Views
             this.marketPriceUSD.Content = CreateChart(dataList);
         }
 
+        /// <summary>
+        /// This method create one chart
+        /// </summary>
+        /// <param name="dataList">Specific data list</param>
+        /// <returns>Chart</returns>
         private RadCartesianChart CreateChart(List<DataPointChart>  dataList)
         {
             var grid = new CartesianChartGrid();

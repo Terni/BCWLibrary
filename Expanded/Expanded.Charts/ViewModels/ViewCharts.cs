@@ -20,11 +20,47 @@ namespace Expanded.Charts.ViewModels
         public IList DataThirdList { get; set; }
         public IList DataFourthList { get; set; }
 
+        /// <summary>
+        /// Constructor for init Base Url
+        /// </summary>
         public ViewCharts()
+        {
+            string startUrl = $"{BaseApi.MarketName}";
+            UriEngine.MainUriChart = new Uri(startUrl);
+        }
+
+        public void SetNewBaseUri()
         {
             string startUrl = $"{BaseApi.ApiName}";
             UriEngine.MainUriChart = new Uri(startUrl);
         }
+
+        public void SetNewBaseUri(string name)
+        {
+            string startUrl = $"{name}";
+            UriEngine.MainUriChart = new Uri(startUrl);
+        }
+
+        public static async Task<List<DataTricker>> GetMarketData()
+        {
+            Uri newUri = UriEngine.GetUriforChart(BaseApi.Type.ticker);
+
+            HttpClient client = new HttpClient();
+            Debug.WriteLine(newUri.AbsoluteUri);
+            string jsonData = string.Empty;
+            try
+            {
+                jsonData = await client.GetStringAsync(newUri);
+            }
+            catch
+            {
+                throw new Exception("Error in client.GetStringAsynch, maeby bad url address or params!");
+                //Logging.Debug("Start app.", Logging.Level.DATABASE); // TODO vyresit kruhovou referenci na Logging
+            }
+
+            return RatesTicker.GetRates(jsonData);
+        }
+
 
         /// <summary>
         /// Method for all points one year
