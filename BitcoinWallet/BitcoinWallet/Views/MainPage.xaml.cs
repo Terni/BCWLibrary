@@ -44,8 +44,11 @@ namespace BitcoinWallet.Views
         private async void InitDataLocalization()
         {
             var result = await _fromXml.LoadXMLData();
+
             if ((_listModules = _fromXml.RawModules) != null && result)
             {
+                XmlList.SetXmlList(_listModules); // add all values to static list
+
                 foreach (var item in _listModules)
                 {
                     NameModule valueEnumType;

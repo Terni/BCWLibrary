@@ -12,6 +12,20 @@ namespace BitcoinWallet.Core
     /// </summary>
     public class Modules
     {
+
+        public enum TypName
+        {
+            Alias = 0,
+            LoginID = 1,
+            PasswordFirst = 2,
+            PasswordSecond = 3,
+            api_code = 4,
+            autologon = 5,
+            Theme = 6,
+            api_google_maps = 7,
+            api_bing_maps = 8
+        }
+
         private string _strValue;
 
         public string Name { get; set; }
