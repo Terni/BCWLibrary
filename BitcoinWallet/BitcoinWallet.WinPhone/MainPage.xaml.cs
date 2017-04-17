@@ -15,7 +15,6 @@ using Windows.UI.Xaml.Navigation;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
 using BitcoinWallet.Helpers;
-
 //using Xamarin.Forms;
 using Xamarin;
 using Xamarin.Forms.Maps;

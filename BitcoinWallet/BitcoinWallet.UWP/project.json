@@ -11,6 +11,7 @@
     "sqlite-net": "1.0.8",
     "sqlite-net-pcl": "1.1.2",
     "Unity": "4.0.1",
+    "Xam.Plugin.Geolocator": "3.0.4",
     "Xamarin.Forms": "2.3.3.180",
     "Xamarin.Forms.Maps": "2.3.3.193"
   },

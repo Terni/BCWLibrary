@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms;
@@ -39,7 +40,7 @@ namespace BitcoinWallet.Layers.Views
         {
             map = new Map
             {
-                //IsShowingUser = true,
+                IsShowingUser = true,
                 HeightRequest = 100,
                 WidthRequest = 960,
                 VerticalOptions = LayoutOptions.FillAndExpand
@@ -139,13 +140,21 @@ namespace BitcoinWallet.Layers.Views
             Debug.WriteLine("                    " + bottom);
         }
 
-        public void GeocoderPage()
+        public async void GeocoderPage()
         {
             geoCoder = new Geocoder();
 
-            var b1 = new Button { Text = "Reverse geocode '37.808, -122.432'" };
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 50;
+            var position = await locator.GetPositionAsync(10000);
+
+            Debug.WriteLine("Position Status: {0}", position.Timestamp);
+            Debug.WriteLine("Position Latitude: {0}", position.Latitude);
+            Debug.WriteLine("Position Longitude: {0}", position.Longitude);
+
+            var b1 = new Button { Text = $"Reverse geocode '{position.Latitude}, {position.Longitude}'" };
             b1.Clicked += async (sender, e) => {
-                var fortMasonPosition = new Position(37.8044866, -122.4324132);
+                var fortMasonPosition = new Position(position.Latitude, position.Longitude);
                 var possibleAddresses = await geoCoder.GetAddressesForPositionAsync(fortMasonPosition);
                 foreach (var a in possibleAddresses)
                 {
