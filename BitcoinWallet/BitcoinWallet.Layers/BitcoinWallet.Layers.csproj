@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Layers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ViewAtmsShops.cs" />
     <Compile Include="Views\VAbout.xaml.cs">
       <DependentUpon>VAbout.xaml</DependentUpon>
     </Compile>
@@ -127,6 +128,9 @@
       <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhoneApp\v8.1\System.Net.Http.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.3.193\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
@@ -149,7 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\VKeyboard2.xaml">
@@ -212,6 +215,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Bitcoin\Bitcoin.APIv2Client\Bitcoin.APIv2Client.csproj">
+      <Project>{2C02924C-C295-4C34-98D2-0BD79E8A43C1}</Project>
+      <Name>Bitcoin.APIv2Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Expanded\Expanded.Common\Expanded.Common.csproj">
       <Project>{b8094309-3c83-46a1-9a6c-a084856e177f}</Project>
       <Name>Expanded.Common</Name>

@@ -10,7 +10,7 @@ namespace Bitcoin.APIv2Client.Models
     {
         public static readonly string ApiName = "https://api.blockchain.info/";
         public static readonly string MarketName = "https://blockchain.info/";
-
+        public static readonly string MapsApiName = "https://coinatmradar.com/api/locations/1990-01-01/";
         public enum Type
         {
             charts = 0,

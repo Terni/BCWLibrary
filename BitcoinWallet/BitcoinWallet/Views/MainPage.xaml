@@ -23,7 +23,7 @@
           <Entry Placeholder="Username" Text="{Binding Username}" Style="{StaticResource EntryStyleRed}" x:Name="UserMP"/>
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
-            <Entry Placeholder="APICode" Text="{Binding Username}" Style="{StaticResource EntryStyleRed}" x:Name="ApiCodeMP"/> <!--Margin <left,0,0,0>-->
+            <Entry Placeholder="APICode" Text="{Binding Username}" IsPassword="true" Style="{StaticResource EntryStyleRed}" x:Name="ApiCodeMP"/> <!--Margin <left,0,0,0>-->
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
           <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true" Style="{StaticResource EntryStyleRed}" x:Name="Pass1MP" />

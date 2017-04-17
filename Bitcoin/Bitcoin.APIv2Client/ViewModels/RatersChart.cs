@@ -12,6 +12,11 @@ namespace Bitcoin.APIv2Client.ViewModels
 {
     public class RatersChart
     {
+        /// <summary>
+        /// Method for get Rates for Poins on Chart
+        /// </summary>
+        /// <param name="jsonData">Specific json string</param>
+        /// <returns>Result is List <see cref="DataPointChart"/></returns>
         public static List<DataPointChart> GetRates(string jsonData)
         {
             var values = JObject.Parse(jsonData).Property("values").Value.AsEnumerable();

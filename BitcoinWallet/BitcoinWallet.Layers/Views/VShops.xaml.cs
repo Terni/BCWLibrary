@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bitcoin.APIv2Client.Models;
+using BitcoinWallet.Layers.ViewModels;
 using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -30,8 +32,30 @@ namespace BitcoinWallet.Layers.Views
 
             MapPage(); // create map
             GeocoderPage();
+            SetWorldPins();
         }
 
+
+        private async void SetWorldPins()
+        {
+            List<DataPin> dataList = new List<DataPin>();
+            var ATMsandShops = new ViewAtmsShops();
+            dataList = await ViewAtmsShops.GetPinsData();
+
+            foreach (DataPin item in dataList)
+            {
+                var position = new Position(item.Latitutde, item.Longitude); // Latitude, Longitude
+                var pin = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = position,
+                    Label = item.Type,
+                    Address = item.Url.ToString()
+                };
+                map.Pins.Add(pin);
+            }
+
+        }
 
         /// <summary>
         /// This Method for Create Map
