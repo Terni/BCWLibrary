@@ -6,6 +6,6 @@
   <ImportGroup>
     <Import Project="$(NuGetPackageRoot)\SQLitePCL.native.sqlite3.v140\0.9.2\build\SQLitePCL.native.sqlite3.v140.targets" Condition="Exists('$(NuGetPackageRoot)\SQLitePCL.native.sqlite3.v140\0.9.2\build\SQLitePCL.native.sqlite3.v140.targets')" />
     <Import Project="$(NuGetPackageRoot)\Xamarin.Forms\2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('$(NuGetPackageRoot)\Xamarin.Forms\2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
-    <Import Project="$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.3.180\build\win81\Xamarin.Forms.Maps.targets" Condition="Exists('$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.3.180\build\win81\Xamarin.Forms.Maps.targets')" />
+    <Import Project="$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.3.193\build\win81\Xamarin.Forms.Maps.targets" Condition="Exists('$(NuGetPackageRoot)\Xamarin.Forms.Maps\2.3.3.193\build\win81\Xamarin.Forms.Maps.targets')" />
   </ImportGroup>
 </Project>

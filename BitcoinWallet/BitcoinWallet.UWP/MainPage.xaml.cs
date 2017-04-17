@@ -48,7 +48,7 @@ namespace BitcoinWallet.UWP
         public MainPage()
         {
             this.InitializeComponent();
-
+            Xamarin.FormsMaps.Init("5A9AFGEvcl6PpV4TY8sG~QvPMPT_IBFiwtOmBuo42dQ~AhWtvUiUv1j4tqrPmIA4ukPOSnzD83adgtBZaWuzQwrcD1WobBrpYp-OC7q6wZ_w");
             LoadApplication(new BitcoinWallet.App(new UwpInitializer()));
             TelerikForms.Init();
         }

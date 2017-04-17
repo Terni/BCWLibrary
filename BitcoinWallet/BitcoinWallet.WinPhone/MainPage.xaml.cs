@@ -15,6 +15,11 @@ using Windows.UI.Xaml.Navigation;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
 
+//using Xamarin.Forms;
+using Xamarin;
+using Xamarin.Forms.Maps;
+using Xamarin.Forms.Maps.WinRT;
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 // >> chart-getting-started-winrt-renderers
@@ -50,6 +55,9 @@ namespace BitcoinWallet.WinPhone
         public MainPage()
         {
             this.InitializeComponent();
+
+            Xamarin.FormsMaps.Init("5A9AFGEvcl6PpV4TY8sG~QvPMPT_IBFiwtOmBuo42dQ~AhWtvUiUv1j4tqrPmIA4ukPOSnzD83adgtBZaWuzQwrcD1WobBrpYp-OC7q6wZ_w");
+
             LoadApplication(new BitcoinWallet.App(new WinPhoneInitializer()));
             this.NavigationCacheMode = NavigationCacheMode.Required;
             

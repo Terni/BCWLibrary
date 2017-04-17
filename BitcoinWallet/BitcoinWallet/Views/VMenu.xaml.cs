@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BitcoinWallet.Layers.Views;
 using Xamarin.Forms;
 using XLabs.Data;
 using XLabs.Forms.Controls;
@@ -29,10 +30,10 @@ namespace BitcoinWallet.Views
             this.BindingContext = new ButtonPageViewModel();
         }
 
-        async void Keyboard_OnClicked(object sender, EventArgs e)
+        async void Shops_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
-                await Navigation.PushModalAsync(new VKeyboard());
+                await Navigation.PushModalAsync(new VShops());
         }
         async void Keyboard2_OnClicked(object sender, EventArgs e)
         {
@@ -64,10 +65,10 @@ namespace BitcoinWallet.Views
             if (Navigation != null)
                 await Navigation.PushModalAsync(new VContactDetail());
         }
-        async void Empty_OnClicked(object sender, EventArgs e)
+        async void Help_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
-                await Navigation.PushModalAsync(new VEmpty());
+                await Navigation.PushModalAsync(new VHelp());
         }
 
         public class ButtonPageViewModel : ObservableObject

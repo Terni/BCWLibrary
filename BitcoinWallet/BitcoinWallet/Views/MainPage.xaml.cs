@@ -132,7 +132,7 @@ namespace BitcoinWallet.Views
                         case NameModule.Theme:
                             break;
                         default:
-                            throw new NotImplementedException();
+                            continue; // orders key
                     }
                 }
             }
