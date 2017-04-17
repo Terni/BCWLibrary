@@ -32,7 +32,7 @@ namespace Bitcoin.APIv2Client.ViewModels
                         Longitude = (double)obj["long"],
                         Type = (string)obj["type"],
                         isTowway = (bool)obj["is_twoway"],
-                        Cryptos = CreateCryptosTList((JObject)obj["cryptos"]),
+                        //Cryptos = CreateCryptosTList((JObject)obj["cryptos"]),
                         Url = (Uri)obj["url"]
                     };
                 datalist.Add(item);
