@@ -46,6 +46,7 @@
     <Compile Include="ViewModels\RatersPinMap.cs" />
     <Compile Include="ViewModels\RatersChart.cs" />
     <Compile Include="ViewModels\RatesTicker.cs" />
+    <Compile Include="ViewModels\ClientApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />

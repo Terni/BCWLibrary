@@ -55,6 +55,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Loc.cs" />
+    <Compile Include="ViewModels\Logon.cs" />
     <Compile Include="ViewModels\SaveAndLoadText.cs" />
     <Compile Include="Interface\ISaveAndLoad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +101,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Info.Blockchain.API">
+      <HintPath>..\..\Library\Blockchain.API\Info.Blockchain.API.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -241,9 +245,9 @@
     <Content Include="laptop-sm.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Bitcoin\Bitcoin.APIClient\Bitcoin.APIClient.csproj">
-      <Project>{B73D5003-D37E-4932-ABED-F0FC844BE2B2}</Project>
-      <Name>Bitcoin.APIClient</Name>
+    <ProjectReference Include="..\..\Bitcoin\Bitcoin.APIv2Client\Bitcoin.APIv2Client.csproj">
+      <Project>{2c02924c-c295-4c34-98d2-0bd79e8a43c1}</Project>
+      <Name>Bitcoin.APIv2Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Expanded\Expanded.Charts\Expanded.Charts.csproj">
       <Project>{8d244de8-7fe8-4f40-b27a-8077ff2f5848}</Project>
