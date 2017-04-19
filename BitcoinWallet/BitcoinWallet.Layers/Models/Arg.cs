@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BitcoinWallet.Models
+namespace BitcoinWallet.Layers.Models
 {
     public class Arg
     {
