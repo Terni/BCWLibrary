@@ -25,7 +25,7 @@ namespace Expanded.Charts.ViewModels
         /// </summary>
         public ViewCharts()
         {
-            string startUrl = $"{BaseApi.MarketName}";
+            string startUrl = $"{BaseApi.BaseName}";
             UriEngine.MainUriChart = new Uri(startUrl);
         }
 
