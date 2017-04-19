@@ -10,29 +10,22 @@
             BarTextColor="Black"
   >
 
-  <TabbedPage.Children>
-    <!--TODO: ICON-->
-    <!--<ContentPage Title="Receive" Icon="Icons/download.png">-->
-    <ContentPage Title="Receive History...">
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-      </StackLayout>
-    </ContentPage>
+    <TabbedPage.Children>
+        <!--TODO: ICON-->
+        <!--<ContentPage Title="Receive" Icon="Icons/download.png">-->
+        <ContentPage Title="Receive History..." x:Name="receiveHistory" >
+            <StackLayout Spacing="20" Padding="20"  HorizontalOptions="StartAndExpand">
+                <Label Text="All ATMs and Shops on the World." TextColor="Black"/>
+            </StackLayout>
+        </ContentPage>
 
+        <!--TODO: ICON-->
+        <!--<ContentPage Title="Send" Icon="Icons/upload.png">-->
+        <ContentPage Title="Send History..." x:Name="sendHistory" >
+            <StackLayout Spacing="20" Padding="20" HorizontalOptions="StartAndExpand">
+                <Label Text="Me Geocode." TextColor="Black"/>
+            </StackLayout>
+        </ContentPage>
 
-    <!--TODO: ICON-->
-    <!--<ContentPage Title="Send" Icon="Icons/upload.png">-->
-    <ContentPage Title="Send History...">
-      <!--<ContentPage.Resources>
-        <ResourceDictionary>
-          <Style x:Key="baseStyle" TargetType="SwitchCell">
-            <Setter Property=""/>
-          </Style>
-        </ResourceDictionary>
-      </ContentPage.Resources>-->
-
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" BackgroundColor="White"  >
-      </StackLayout>
-    </ContentPage>
-
-  </TabbedPage.Children>
+    </TabbedPage.Children>
 </TabbedPage>
