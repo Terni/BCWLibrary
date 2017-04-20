@@ -23,13 +23,13 @@ namespace BitcoinWallet.Layers.ViewModels
             UriEngine.MainUri = new Uri(startUrl);
         }
 
-        public static async Task<List<DataTransaction>> GetTransactionData()
+        public static async Task<DataTransaction> GetTransactionData()
         {
             HttpClient client = new HttpClient();
             Uri BaseUrl = UriEngine.GetUriforTransaction(BaseApi.Type.address, BitcoinAddres, Arg.Formater.json);
             if (BaseUrl == null)
             {
-                return new List<DataTransaction>();
+                return new DataTransaction();
             }
 
             Debug.WriteLine(BaseUrl.AbsoluteUri);

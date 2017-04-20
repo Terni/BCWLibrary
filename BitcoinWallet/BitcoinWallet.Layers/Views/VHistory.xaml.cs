@@ -89,22 +89,34 @@ namespace BitcoinWallet.Views
         /// <returns>Result is list transaction</returns>
         private async Task<List<TransRow>> GetListTranstion()
         {
-            List<DataTransaction> dataList = new List<DataTransaction>();
+            DataTransaction dataTransaction = new DataTransaction();
             List<TransRow> listTrans = new List<TransRow>();
 
 
-            dataList = await ViewTransaction.GetTransactionData();
-            for (int i = 0; i < dataList.Count; i++)
+            dataTransaction = await ViewTransaction.GetTransactionData();
+            foreach (var transaction in dataTransaction.ListTransactions)
             {
-                //TODO: zde bude if pro pridavani
+                TransRow item;
 
-
-                var item = new TransRow
+                if (string.Compare(transaction.ListInputs[0].PrevOut.Address,
+                        transaction.TupleOuts.Item2.Address) == 0) // is True = Send Transaction
                 {
-                    BitcoinAddress = "",
-                    Type = TypeTrans.Recieve, // or TypeTrans.Send
-                    Value = 0
-                };
+                    item = new TransRow
+                    {
+                        BitcoinAddress = transaction.TupleOuts.Item1.Address, // where send is here
+                        Type = TypeTrans.Send, // or TypeTrans.Send
+                        Value = transaction.TupleOuts.Item1.Value
+                    };
+                }
+                else // is False = Recieve Transaction
+                {
+                    item = new TransRow
+                    {
+                        BitcoinAddress = transaction.TupleOuts.Item1.Address, // where recieve is here
+                        Type = TypeTrans.Recieve, // or TypeTrans.Send
+                        Value = transaction.TupleOuts.Item1.Value
+                    };
+                }
 
                 listTrans.Add(item);
             }

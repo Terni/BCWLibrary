@@ -17,14 +17,15 @@ namespace Bitcoin.APIv2Client.ViewModels
         /// </summary>
         /// <param name="jsonData">Specific json string</param>
         /// <returns>Result is List <see cref="DataPin"/></returns>
-        public static List<DataTransaction> GetRates(string jsonData)
+        public static DataTransaction GetRates(string jsonData)
         {
             JObject data = JObject.Parse(jsonData);
 
-            List<DataTransaction> datalist = new List<DataTransaction>();
+            DataTransaction datalist = new DataTransaction();
 
             foreach (var obj in data.Properties().Select(p => p.Value))
             {
+                //TODO: Tady dodelat kod pro ziskani hodnot 
 
                 var item =  new DataTransaction
                 {

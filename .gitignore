@@ -68,3 +68,4 @@ BitcoinWallet/BitcoinWallet.WinPhone/Database/MainDB.db3
 Library/Blockchain.API/Info.Blockchain.API.pdb
 Library/Telerik.Xamarin/
 Library/Telerik.Xamarin.rar
+BitcoinWallet/BitcoinWallet.Layers/ViewModels/TransactionExample.json
