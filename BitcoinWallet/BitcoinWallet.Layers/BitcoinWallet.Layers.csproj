@@ -35,9 +35,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\UriEngine.cs" />
     <Compile Include="Layers.cs" />
+    <Compile Include="Models\Arg.cs" />
+    <Compile Include="Models\TransRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ViewAtmsShops.cs" />
+    <Compile Include="ViewModels\ViewTransaction.cs" />
     <Compile Include="Views\VAbout.xaml.cs">
       <DependentUpon>VAbout.xaml</DependentUpon>
     </Compile>
@@ -76,6 +80,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Info.Blockchain.API">
+      <HintPath>..\..\Library\Blockchain.API\Info.Blockchain.API.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -218,6 +225,10 @@
     <ProjectReference Include="..\..\Bitcoin\Bitcoin.APIv2Client\Bitcoin.APIv2Client.csproj">
       <Project>{2C02924C-C295-4C34-98D2-0BD79E8A43C1}</Project>
       <Name>Bitcoin.APIv2Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Expanded\Expanded.Charts\Expanded.Charts.csproj">
+      <Project>{8D244DE8-7FE8-4F40-B27A-8077FF2F5848}</Project>
+      <Name>Expanded.Charts</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Expanded\Expanded.Common\Expanded.Common.csproj">
       <Project>{b8094309-3c83-46a1-9a6c-a084856e177f}</Project>

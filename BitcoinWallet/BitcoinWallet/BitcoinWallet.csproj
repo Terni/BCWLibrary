@@ -42,10 +42,12 @@
     <Compile Include="Helpers\LoadXmlFile.cs" />
     <Compile Include="Helpers\Logging.cs" />
     <Compile Include="Helpers\Tools.cs" />
+    <Compile Include="Helpers\UriEngine.cs" />
     <Compile Include="Helpers\XmlList.cs" />
     <Compile Include="Interface\IDevice.cs" />
     <Compile Include="Interface\IFileHelper.cs" />
     <Compile Include="Interface\ILocalize.cs" />
+    <Compile Include="Models\Arg.cs" />
     <Compile Include="Models\ExtendedDevice.cs" />
     <Compile Include="Models\NameModule.cs" />
     <Compile Include="Helpers\SaveLoadString.cs" />
