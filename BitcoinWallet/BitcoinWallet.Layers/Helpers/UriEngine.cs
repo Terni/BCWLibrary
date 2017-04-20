@@ -13,7 +13,7 @@ namespace BitcoinWallet.Layers.Helpers
         /// <summary>
         /// Proporty for MainUri
         /// </summary>
-        public static Uri MainUriChart { get; set; }
+        public static Uri MainUri { get; set; }
 
         static UriEngine(){}
 
@@ -24,14 +24,14 @@ namespace BitcoinWallet.Layers.Helpers
         /// <param name="bitcoinAddress">Specific your bitcoin address </param>
         /// <param name="format">Specific type <see cref="Arg.Formater"/> </param>
         /// <returns>Result is url or null</returns>
-        public static Uri GetUriforChart(BaseApi.Type address, string bitcoinAddress, Arg.Formater format)
+        public static Uri GetUriforTransaction(BaseApi.Type address, string bitcoinAddress, Arg.Formater format)
         {
             string args = $"{address}";
 
             if (bitcoinAddress != null)
             {
                 args += $"{bitcoinAddress}?format={format}";
-                return new Uri(MainUriChart, args);
+                return new Uri(MainUri, args);
             }
             return null;
         }

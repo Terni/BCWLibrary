@@ -41,6 +41,9 @@ namespace Bitcoin.APIv2Client.Models
         public int VoutSz { get; set; }
     }
 
+    /// <summary>
+    /// Main Data Transaction
+    /// </summary>
     public class DataTransaction
     {
         public string Hash160 { get; set; }

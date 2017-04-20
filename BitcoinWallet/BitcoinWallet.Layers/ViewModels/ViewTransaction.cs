@@ -8,22 +8,30 @@ using System.Threading.Tasks;
 using Bitcoin.APIv2Client.Models;
 using Bitcoin.APIv2Client.ViewModels;
 using BitcoinWallet.Layers.Helpers;
+using BitcoinWallet.Layers.Models;
 
 namespace BitcoinWallet.Layers.ViewModels
 {
-    public class ViewTransaction
+    public static class ViewTransaction
     {
         private static Uri BaseUrl { get; set; }
+        public static string BitcoinAddres { get; set; }
 
-        public ViewTransaction()
+        static ViewTransaction()
         {
             string startUrl = $"{BaseApi.BaseName}";
-            UriEngine.MainUriChart = new Uri(startUrl);
+            UriEngine.MainUri = new Uri(startUrl);
         }
 
-        public static async Task<List<DataPin>> GetPinsData()
+        public static async Task<List<DataTransaction>> GetTransactionData()
         {
             HttpClient client = new HttpClient();
+            Uri BaseUrl = UriEngine.GetUriforTransaction(BaseApi.Type.address, BitcoinAddres, Arg.Formater.json);
+            if (BaseUrl == null)
+            {
+                return new List<DataTransaction>();
+            }
+
             Debug.WriteLine(BaseUrl.AbsoluteUri);
             string jsonData = string.Empty;
             try
@@ -36,7 +44,7 @@ namespace BitcoinWallet.Layers.ViewModels
                 //Logging.Debug("Start app.", Logging.Level.DATABASE); // TODO vyresit kruhovou referenci na Logging
             }
 
-            return RatersPinMap.GetRates(jsonData);
+            return RatersTransacion.GetRates(jsonData);
         }
 
     }
