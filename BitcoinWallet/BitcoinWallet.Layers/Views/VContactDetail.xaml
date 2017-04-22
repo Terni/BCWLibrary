@@ -73,18 +73,18 @@
 
           </Grid>
 
-          <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
             <Entry Placeholder="Name" Text="{Binding Name}" x:Name="nn" IsEnabled="False"/>
-          </Frame>
-          <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <!--</Frame>-->
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
             <Entry Placeholder="Surname" Text="{Binding Surname}" x:Name="snn" IsEnabled="False"/>
-          </Frame>
-          <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <!--</Frame>-->
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
             <Entry Placeholder="Alias" Text="{Binding Alias}" x:Name="ann" IsEnabled="False"/>
-          </Frame>
-          <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+          <!--</Frame>-->
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
             <Editor HeightRequest="100" Style="{StaticResource EditorStyle}" VerticalOptions="End" IsEnabled="False"/>
-          </Frame>
+          <!--</Frame>-->
           <Button Text="Edit" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" />
         </StackLayout>
 

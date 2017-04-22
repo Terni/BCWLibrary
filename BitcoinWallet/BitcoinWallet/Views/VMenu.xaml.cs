@@ -35,11 +35,11 @@ namespace BitcoinWallet.Views
             if (Navigation != null)
                 await Navigation.PushModalAsync(new VShops());
         }
-        async void Keyboard2_OnClicked(object sender, EventArgs e)
-        {
-            if (Navigation != null)
-                await Navigation.PushModalAsync(new VKeyboard2());
-        }
+        //async void Keyboard2_OnClicked(object sender, EventArgs e)
+        //{
+        //    if (Navigation != null)
+        //        await Navigation.PushModalAsync(new VKeyboard2());
+        //}
         async void Payment_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
@@ -48,7 +48,7 @@ namespace BitcoinWallet.Views
         async void Book_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
-                await Navigation.PushModalAsync(new VBookAdd());
+                await Navigation.PushModalAsync(new VBook());
         }
         async void History_OnClicked(object sender, EventArgs e)
         {

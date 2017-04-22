@@ -38,6 +38,7 @@
     <Compile Include="Helpers\UriEngine.cs" />
     <Compile Include="Layers.cs" />
     <Compile Include="Models\Arg.cs" />
+    <Compile Include="Models\ContactRow.cs" />
     <Compile Include="Models\TransRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ViewAtmsShops.cs" />
