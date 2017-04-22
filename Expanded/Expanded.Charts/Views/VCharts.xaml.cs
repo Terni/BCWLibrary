@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,14 @@ using Expanded.Charts.ViewModels;
 using Telerik.XamarinForms.Chart;
 using Xamarin.Forms;
 using Expanded.Charts.Models;
+using XLabs.Forms.Controls;
 
 namespace Expanded.Charts.Views
 {
     public partial class VCharts : TabbedPage
     {
+        private Grid _tableGrid;
+
         public VCharts()
         {
             InitializeComponent();
@@ -24,44 +28,65 @@ namespace Expanded.Charts.Views
             ShowCharts();
         }
 
+        private void GridRow(List<string> strList, Color color, int font, int indexRow)
+        {
+            _tableGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            for (int i = 0; i < 5; i++)
+            {
+                var label = new Label
+                {
+                    TextColor = color,
+                    Text = strList[i],
+                    FontSize = font
+                };
+                _tableGrid.Children.Add(label, i , indexRow);
+            }
+
+        }
 
         private async void ShowExchange()
         {
             var model = new ViewCharts(); // init base url
             var srollview = new ScrollView();
-            var layout = new StackLayout();
-            List<DataTricker> dataList = new List<DataTricker>();
-            var label = new Label
-            {
-                TextColor = Color.Black,
-                Text = "Currency 15m. Last Sell Buy",
-                FontSize = 12
-            };
-            layout.Children.Add(label);
+            _tableGrid = new Grid();
+            _tableGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            _tableGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            _tableGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            _tableGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            _tableGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            {// init Row
+                List<string> strList = new List<string>
+                {
+                    "Curr.","15m.","Last","Sell","Buy"
+                };
+                GridRow(strList, Color.Black, 14, 0);
+            }
 
+            // download data from server
+            List<DataTricker> dataList = new List<DataTricker>();
             dataList = await ViewCharts.GetMarketData();
             for (int i = 0; i < dataList.Count; i++)
             {
-                var labelItem = new Label
-                {
-                    Text = $"{dataList[i].NameCurrency} {dataList[i].FifteenMinuts} {dataList[i].Buy} {dataList[i].Sell} {dataList[i].Buy}",
-                    FontSize = 10
-                };
+                List<string> marketList = new List<string>();
+                marketList.Add(dataList[i].NameCurrency);
+                marketList.Add(dataList[i].FifteenMinuts.ToString());
+                marketList.Add(dataList[i].Buy.ToString());
+                marketList.Add(dataList[i].Sell.ToString());
+                marketList.Add(dataList[i].Buy.ToString());
 
                 float result = i % 2;
                 if (result > 0)
                 {
-                    labelItem.TextColor = Color.Blue;
+                    GridRow(marketList, Color.Blue, 10, i+1);
                 }
                 else
                 {
-                    labelItem.TextColor = Color.Gray;
+                    GridRow(marketList, Color.Gray, 10, i+1);
                 }
-                layout.Children.Add(labelItem);
             }
 
 
-            srollview.Content = layout;
+            srollview.Content = _tableGrid;
             this.exchanger.Content = srollview;
         }
 
