@@ -7,7 +7,7 @@
             x:Name="VHistoryTabbedPage"
             Title="{Binding title}"
             BackgroundColor="White"
-            BarTextColor="Black"
+            
   >
 
     <TabbedPage.Children>
@@ -15,7 +15,7 @@
         <!--<ContentPage Title="Receive" Icon="Icons/download.png">-->
         <ContentPage Title="Receive History..." x:Name="receiveHistory" >
             <StackLayout Spacing="20" Padding="20"  HorizontalOptions="StartAndExpand">
-                <Label Text="All ATMs and Shops on the World." TextColor="Black"/>
+                <Label Text="Sorry server data are unavailable for Receive Histroy. Please wait..." TextColor="Black"/>
             </StackLayout>
         </ContentPage>
 
@@ -23,7 +23,7 @@
         <!--<ContentPage Title="Send" Icon="Icons/upload.png">-->
         <ContentPage Title="Send History..." x:Name="sendHistory" >
             <StackLayout Spacing="20" Padding="20" HorizontalOptions="StartAndExpand">
-                <Label Text="Me Geocode." TextColor="Black"/>
+                <Label Text="Sorry server data are unavailable for Send Histroy. Please wait..." TextColor="Black"/>
             </StackLayout>
         </ContentPage>
 

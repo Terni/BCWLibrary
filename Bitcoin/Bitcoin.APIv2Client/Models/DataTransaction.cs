@@ -51,7 +51,7 @@ namespace Bitcoin.APIv2Client.Models
         public int NumberTransaction { get; set; } //n_tx
         public long TotalRecived { get; set; }
         public long TotalSent { get; set; }
-        public long TotalBalance { get; set; }
+        public long FinalBalance { get; set; }
         public List<Transaction> ListTransactions { get; set; }
     }
 }

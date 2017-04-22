@@ -26,7 +26,7 @@ namespace BitcoinWallet.Layers.Helpers
         /// <returns>Result is url or null</returns>
         public static Uri GetUriforTransaction(BaseApi.Type address, string bitcoinAddress, Arg.Formater format)
         {
-            string args = $"{address}";
+            string args = $"{address}/";
 
             if (bitcoinAddress != null)
             {

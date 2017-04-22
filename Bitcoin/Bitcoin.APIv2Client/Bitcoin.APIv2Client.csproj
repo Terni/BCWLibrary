@@ -38,6 +38,7 @@
     <Compile Include="Helpers\BoolHelper.cs" />
     <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Helpers\UriHelper.cs" />
+    <Compile Include="Models\DataLogon.cs" />
     <Compile Include="Models\DataPointChart.cs" />
     <Compile Include="Models\DataTricker.cs" />
     <Compile Include="Models\DataTransaction.cs" />

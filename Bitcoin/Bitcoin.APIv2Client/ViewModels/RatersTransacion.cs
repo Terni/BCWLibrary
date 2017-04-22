@@ -19,48 +19,74 @@ namespace Bitcoin.APIv2Client.ViewModels
         /// <returns>Result is List <see cref="DataPin"/></returns>
         public static DataTransaction GetRates(string jsonData)
         {
-            JObject data = JObject.Parse(jsonData);
+            var obj = JToken.Parse(jsonData);
 
-            DataTransaction datalist = new DataTransaction();
 
-            foreach (var obj in data.Properties().Select(p => p.Value))
+            //JToken obj =  data.Properties().Select(p => p.Value);
+            try
             {
-                var item = new DataTransaction
+                var dataTrx = new DataTransaction
                 {
-                        Hash160 = (string)obj["hash160"],
-                        Address = (string)obj["address"],
-                        NumberTransaction = (int)obj["n_tx"],
-                        TotalRecived = (long)obj["total_received"],
-                        TotalSent = (long)obj["total_sent"],
-                        TotalBalance = (long)obj["total_balance"],
-                        ListTransactions = GetListTransaction((JObject)obj["txs"])
-                    };
-                datalist = item;
-            } 
-
-            return datalist;
+                    Hash160 = (string)obj["hash160"],
+                    Address = (string)obj["address"],
+                    NumberTransaction = (int)obj["n_tx"],
+                    TotalRecived = (long)obj["total_received"],
+                    TotalSent = (long)obj["total_sent"],
+                    FinalBalance = (long)obj["final_balance"],
+                    ListTransactions = GetListTransaction(obj["txs"])
+                };
+                return dataTrx;
+            }
+            catch (Exception e)
+            {
+                return new DataTransaction();
+                //throw new Exception($"Maybe is bad key for parsing! Exception {e}");
+            }
         }
 
-        private static List<Transaction> GetListTransaction(JObject trans)
+        private static List<Transaction> GetListTransaction(JToken trans)
         {
             List<Transaction> listTransactions = new List<Transaction>();
             foreach (var oneTx in trans)
             {
-                //TODO dopsat
-
-                var input = new InputRow
+                //For INPUTS
+                List<InputRow> inputsList = new List<InputRow>();
                 {
+                    string innerInputs = oneTx["inputs"].Value<JToken>().ToString();
+                    JObject prevOut = JObject.Parse(innerInputs.Trim('[', ']'));
 
-                };
+                    var input = new InputRow
+                    {
+                        PrevOut = GetOutRow(JToken.Parse(prevOut["prev_out"].ToString()))
+                    };
+                    inputsList.Add(input);
+                }
+                
+                //For Transaction
+                JToken innerOuts = oneTx["out"].Value<JToken>();
                 var item = new Transaction
                 {
-                    ListInputs = new List<InputRow>(),
-                    TupleOuts = new Tuple<OutRow, OutRow>(new OutRow(), new OutRow())
+                    ListInputs = inputsList, //inputs
+                    TupleOuts = new Tuple<OutRow, OutRow>(GetOutRow(innerOuts.First), GetOutRow(innerOuts.First.Next)) //outs
                 };
-
+                listTransactions.Add(item);
 
             }
             return listTransactions;
+        }
+
+        private static OutRow GetOutRow(JToken row)
+        {
+            return new OutRow
+            {
+                Spent = (bool) row["spent"],
+                TxIndex = (long) row["tx_index"],
+                Type = (int) row["type"],
+                Address = (string) row["addr"],
+                Value = (long) row["value"],
+                Number = (int) row["n"],
+                Script = (string) row["script"]
+            };
         }
 
         //public class OutRow

@@ -11,6 +11,7 @@ using BitcoinWallet.ViewModels;
 using Xamarin.Forms;
 using System.Reflection;
 using System.Threading.Tasks;
+using Bitcoin.APIv2Client.Models;
 
 namespace BitcoinWallet.Views
 {
@@ -112,22 +113,22 @@ namespace BitcoinWallet.Views
                             break;
                         case NameModule.LoginID:
                         {
-                            UserMP.Text = item.Value;
+                            UserMP.Text = DataLogon.IdWallet = item.Value;
                             break;
                         }
                         case NameModule.PasswordFirst:
                         {
-                            Pass1MP.Text = item.Value;
+                            Pass1MP.Text = DataLogon.Password = item.Value;
                             break;
                         }
                         case NameModule.PasswordSecond:
                         {
-                            Pass2MP.Text = item.Value;
+                            Pass2MP.Text = DataLogon.PasswordSecond = item.Value;
                             break;
                         }
                         case NameModule.api_code:
                         {
-                            ApiCodeMP.Text = item.Value;
+                            ApiCodeMP.Text = DataLogon.ApiCode = item.Value;
                             break;
                         }
                         case NameModule.autologon:

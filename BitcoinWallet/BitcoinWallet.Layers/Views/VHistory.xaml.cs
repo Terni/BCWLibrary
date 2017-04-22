@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,12 @@ namespace BitcoinWallet.Views
 {
     public partial class VHistory : TabbedPage
     {
-        public string BitcoinAddres { get; set; }
+        private int SatoshiPerBitcoin { get; set; }
 
         public VHistory()
         {
             InitializeComponent();
-
+            SatoshiPerBitcoin = BitcoinValue.SatoshisPerBitcoin;
             ShowRecieveAndSendTrans();
         }
 
@@ -38,37 +39,44 @@ namespace BitcoinWallet.Views
             {
                 if (trans.Type == TypeTrans.Recieve) // For RECIEVE
                 {
+                    var frame = new Frame{ OutlineColor = Color.Green};
                     var labelAddrress = new Label
                     {
                         Text = $"{trans.BitcoinAddress}",
                         TextColor = Color.Green,
                         FontSize = 10
                     };
-                    recieveLayout.Children.Add(labelAddrress);
+                    frame.Content = labelAddrress;
+                    recieveLayout.Children.Add(frame);
 
-                    decimal resultValue = trans.Value / BitcoinValue.SatoshisPerBitcoin; //SatoshisPerBitcoin = 100000000
+                    float resultValue = (float)trans.Value / SatoshiPerBitcoin; //SatoshisPerBitcoin = 100000000
+                    Debug.WriteLine($"vysledek prichozi: {resultValue}");
                     var labelValue = new Label
                     {
-                        Text = $"{resultValue}", 
+                        Text = $"{resultValue} BTC", 
                         TextColor = Color.Green,
                         FontSize = 14
                     };
+                    
                     recieveLayout.Children.Add(labelValue);
                 }
                 else // For SEND
                 {
+                    var frame = new Frame { OutlineColor = Color.Red };
                     var labelAddrress = new Label
                     {
                         Text = $"{trans.BitcoinAddress}",
                         TextColor = Color.Red,
                         FontSize = 10
                     };
-                    sendLayout.Children.Add(labelAddrress);
+                    frame.Content = labelAddrress;
+                    sendLayout.Children.Add(frame);
 
-                    decimal resultValue = trans.Value / BitcoinValue.SatoshisPerBitcoin; //SatoshisPerBitcoin = 100000000
+                    float resultValue = (float)trans.Value / SatoshiPerBitcoin; //SatoshisPerBitcoin = 100000000
+                    Debug.WriteLine($"vysledek odchozi: -{resultValue}");
                     var labelValue = new Label
                     {
-                        Text = $"{resultValue}",
+                        Text = $"-{resultValue} BTC",
                         TextColor = Color.Red,
                         FontSize = 14
                     };
@@ -80,7 +88,7 @@ namespace BitcoinWallet.Views
             recieveScrollView.Content = recieveLayout;
             this.receiveHistory.Content = recieveScrollView;
             sendScrollView.Content = sendLayout;
-            this.receiveHistory.Content = sendScrollView;
+            this.sendHistory.Content = sendScrollView;
         }
 
         /// <summary>
@@ -118,6 +126,7 @@ namespace BitcoinWallet.Views
                     };
                 }
 
+                //Debug.WriteLine($"zapis hodnoty: {item.Value}");
                 listTrans.Add(item);
             }
 

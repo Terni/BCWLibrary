@@ -21,6 +21,7 @@ namespace BitcoinWallet.Layers.ViewModels
         {
             string startUrl = $"{BaseApi.BaseName}";
             UriEngine.MainUri = new Uri(startUrl);
+            BitcoinAddres = DataLogon.AddressWallet;
         }
 
         public static async Task<DataTransaction> GetTransactionData()
