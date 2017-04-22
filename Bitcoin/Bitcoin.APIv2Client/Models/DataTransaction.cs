@@ -34,7 +34,7 @@ namespace Bitcoin.APIv2Client.Models
         public string LockTime { get; set; }
         public double Result { get; set; }
         public long Size { get; set; }
-        public string Time { get; set; }
+        public DateTime Time { get; set; }
         public long TxIndex { get; set; }
         public int VinSz { get; set; }
         public string Hash { get; set; }

@@ -42,7 +42,7 @@ namespace BitcoinWallet.Views
                     var frame = new Frame{ OutlineColor = Color.Green};
                     var labelAddrress = new Label
                     {
-                        Text = $"{trans.BitcoinAddress}",
+                        Text = $"{trans.BitcoinAddress} \n{trans.Date}",
                         TextColor = Color.Green,
                         FontSize = 10
                     };
@@ -65,7 +65,7 @@ namespace BitcoinWallet.Views
                     var frame = new Frame { OutlineColor = Color.Red };
                     var labelAddrress = new Label
                     {
-                        Text = $"{trans.BitcoinAddress}",
+                        Text = $"{trans.BitcoinAddress} \n{trans.Date}",
                         TextColor = Color.Red,
                         FontSize = 10
                     };
@@ -113,7 +113,8 @@ namespace BitcoinWallet.Views
                     {
                         BitcoinAddress = transaction.TupleOuts.Item1.Address, // where send is here
                         Type = TypeTrans.Send, // or TypeTrans.Send
-                        Value = transaction.TupleOuts.Item1.Value
+                        Value = transaction.TupleOuts.Item1.Value,
+                        Date = transaction.Time
                     };
                 }
                 else // is False = Recieve Transaction
@@ -122,7 +123,8 @@ namespace BitcoinWallet.Views
                     {
                         BitcoinAddress = transaction.TupleOuts.Item1.Address, // where recieve is here
                         Type = TypeTrans.Recieve, // or TypeTrans.Send
-                        Value = transaction.TupleOuts.Item1.Value
+                        Value = transaction.TupleOuts.Item1.Value,
+                        Date = transaction.Time
                     };
                 }
 

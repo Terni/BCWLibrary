@@ -17,5 +17,6 @@ namespace BitcoinWallet.Layers.Models
         public string BitcoinAddress { get; set; }
         public long Value { get; set; }
         public TypeTrans Type { get; set; }
+        public DateTime Date { get; set; }
     }
 }

@@ -67,7 +67,8 @@ namespace Bitcoin.APIv2Client.ViewModels
                 var item = new Transaction
                 {
                     ListInputs = inputsList, //inputs
-                    TupleOuts = new Tuple<OutRow, OutRow>(GetOutRow(innerOuts.First), GetOutRow(innerOuts.First.Next)) //outs
+                    TupleOuts = new Tuple<OutRow, OutRow>(GetOutRow(innerOuts.First), GetOutRow(innerOuts.First.Next)), //outs
+                    Time = oneTx["time"].Value<long>().ConvertFromUnixTimeStamp()
                 };
                 listTransactions.Add(item);
 

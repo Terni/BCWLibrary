@@ -35,7 +35,7 @@ namespace Expanded.Charts.Views
             {
                 TextColor = Color.Black,
                 Text = "Currency 15m. Last Sell Buy",
-                FontSize = 20
+                FontSize = 12
             };
             layout.Children.Add(label);
 
