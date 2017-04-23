@@ -130,6 +130,7 @@
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Resources\Icons\add.png" />
+    <Content Include="Resources\Icons\delete.png" />
     <Content Include="Resources\Icons\user-1.png" />
     <Content Include="Resources\Icons\user-12.png" />
     <Content Include="Resources\Icons\user-3.png" />

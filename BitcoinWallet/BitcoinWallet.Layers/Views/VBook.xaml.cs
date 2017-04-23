@@ -4,8 +4,13 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BitcoinWallet.Layers.Helpers;
 using BitcoinWallet.Layers.Models;
 using Xamarin.Forms;
+using Expanded.Common;
+using Expanded.DBase.ViewModels;
+using XLabs.Enums;
+using XLabs.Forms.Controls;
 
 namespace BitcoinWallet.Views
 {
@@ -60,17 +65,58 @@ namespace BitcoinWallet.Views
                 _tableGrid.Children.Add(frame, 0, i); // for colum 0 and row i
 
                 //Button Text = "test" Grid.Row = "1" Grid.Column = "0" BackgroundColor = "#7ac3ff" HeightRequest = "100"
-                var button = new Button
+                //var button = new Button
+                //{
+                //    Text = "",
+                //    BackgroundColor = Color.FromHex("7ac3ff"),
+                //};
+                //_tableGrid.Children.Add(button, 1, i); // for colum 0 and row i
+
+                ImageButton remBtn = new ImageButton
                 {
-                    Text = "",
-                    BackgroundColor = Color.FromHex("7ac3ff"),
+                    IsVisible = true,
+                    ImageHeightRequest = 30,
+                    ImageWidthRequest = 30,
+                    Orientation = ImageOrientation.ImageCentered,
+                    Image = "Resources/Icons/delete.png",
+                    TextColor = Color.FromHex("000000"),
+                    Text = ""
                 };
-                _tableGrid.Children.Add(button, 1, i); // for colum 0 and row i
+                remBtn.Clicked += OnClickRemoveButton;
+                remBtn.Source = FileImageSource.FromFile($"{Tools.GetFolder}delete.png");
+                _tableGrid.Children.Add(remBtn, 1, i); // for colum 0 and row i
             }
+
+
 
             // Show all labels
             scrollView.Content = _tableGrid;
             this.listBook.Content = scrollView;
         }
+
+        private void OnClickRemoveButton(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
     }
 }
+
+//<controls:ImageButton IsVisible = "{Binding IsAddVisible}" Grid.Column="1" Scale="1"
+//    ImageHeightRequest="30"
+//    ImageWidthRequest="30"
+//    Orientation="ImageCentered"
+//    Command="{Binding AddCommand}"
+//    Image="Resources/Icons/add.png"
+//    TextColor="#000000"
+//    Clicked="Add_OnClicked"
+//    Text="">
+//    <controls:ImageButton.Source>
+//    <!-- ReSharper disable once Xaml.InvalidType -->
+//        <OnPlatform x:TypeArguments= "ImageSource" >
+//            < OnPlatform.WinPhone >
+//                < FileImageSource File= "Resources/Icons/add.png" />
+//            </ OnPlatform.WinPhone >
+//        < !--ReSharper disable once Xaml.InvalidType -->
+//        </OnPlatform>
+//    </controls:ImageButton.Source>
+//</controls:ImageButton>
