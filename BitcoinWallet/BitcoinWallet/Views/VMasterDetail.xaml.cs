@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BitcoinWallet.ViewModels;
 using Xamarin.Forms;
 using BitcoinWallet.Helpers;
+using BitcoinWallet.Layers.Views;
 
 namespace BitcoinWallet.Views
 {
@@ -35,6 +36,24 @@ namespace BitcoinWallet.Views
                 Title = " Address Book",
                 IconSource = $"{Tools.GetFolder}todo.dark.png",
                 TargetType = typeof(VBook)
+            });
+            masterItems.Add(new MasterDetailItem
+            {
+                Title = " Transaction",
+                IconSource = $"{Tools.GetFolder}trans.png",
+                TargetType = typeof(VHistory)
+            });
+            masterItems.Add(new MasterDetailItem
+            {
+                Title = " Charts",
+                IconSource = $"{Tools.GetFolder}charts.png",
+                TargetType = typeof(Expanded.Charts.Views.VCharts)
+            });
+            masterItems.Add(new MasterDetailItem
+            {
+                Title = " ATM & Shops",
+                IconSource = $"{Tools.GetFolder}shops.png",
+                TargetType = typeof(VShops)
             });
             masterItems.Add(new MasterDetailItem
             {

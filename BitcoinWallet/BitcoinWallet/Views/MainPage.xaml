@@ -16,42 +16,22 @@
     <ContentPage Title="" x:Name="AppProfile">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
-          <Entry Placeholder="Alias" Text="{Binding Alias}" IsVisible="True" x:Name="AlsMP"/>
+          <Entry Placeholder="Alias" Text="{Binding Alias}" IsVisible="False" x:Name="AlsMP"/>
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
           <Entry Placeholder="Username" Text="{Binding Username}" Style="{StaticResource EntryStyleRed}" x:Name="UserMP"/>
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
-            <Entry Placeholder="APICode" Text="{Binding Username}" IsPassword="true" Style="{StaticResource EntryStyleRed}" x:Name="ApiCodeMP"/> <!--Margin <left,0,0,0>-->
-        </Frame>
-        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
           <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true" Style="{StaticResource EntryStyleRed}" x:Name="Pass1MP" />
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
-          <Entry Placeholder="SecoundPassword" Text="{Binding SecoundPassword}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="Pass2MP"/>
+            <Entry Placeholder="SecoundPassword" Text="{Binding SecoundPassword}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="Pass2MP"/>
         </Frame>
-        <!--<controls:ImageButton IsVisible="{Binding IsAddVisible}" Scale="1"
-              HeightRequest="50"
-              ImageHeightRequest="0"
-              ImageWidthRequest="0"
-              Orientation="ImageCentered"
-              Command="{Binding LoginCommand}"
-              TextColor="#ffffff"
-              Clicked="Loging_OnClicked"
-              BackgroundColor="#7ac3ff"
-              Margin="10,0,0,0"
-              Text="Login">--><!-- Login --><!--
-          <controls:ImageButton.Source>
-            --><!-- ReSharper disable once Xaml.InvalidType --><!--
-            <OnPlatform x:TypeArguments="ImageSource">
-              <OnPlatform.WinPhone>
-                <FileImageSource File="" />
-              </OnPlatform.WinPhone>
-              --><!-- ReSharper disable once Xaml.InvalidType --><!--
-            </OnPlatform>
-          </controls:ImageButton.Source>
-        </controls:ImageButton>-->
-        <Button Text="Login" Command="{Binding LoginCommand}" Clicked="Loging_OnClicked"
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+            <Entry Placeholder="APICode" Text="{Binding Username}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="ApiCodeMP"/>
+            <!--Margin <left,top,right,botton>-->
+        </Frame>
+        <Button Text="Login" Command="{Binding LoginCommand}" Clicked="Loging_OnClicked" 
                 Style="{StaticResource ClassicButtonStyle}"/>
       </StackLayout>
     </ContentPage>
@@ -74,14 +54,12 @@
           <TableRoot>
             <TableSection>
               <TextCell TextColor="Black" Text="Basic"/>
-              <TextCell Detail="Secound Password" DetailColor="#3181c4"/>
-                <SwitchCell/>
-
+              <TextCell Detail="Second Password" DetailColor="#3181c4"/>
+                <SwitchCell On="False" OnChanged="SwitchCell_OnOnChanged"/>
               <TextCell Detail="Auto Logon" DetailColor="#3181c4" />
-                <SwitchCell On="True"/>
-
+                <SwitchCell On="False"/>
             </TableSection>
-            <TableSection>
+            <!--<TableSection>
               <TextCell TextColor="Black" Text="Expanded" />
               <TextCell Detail="Registration" DetailColor="#3181c4"/>
                 <SwitchCell On="true"/>
@@ -91,7 +69,7 @@
               <TextCell Detail="Icons visible" DetailColor="#3181c4"/>
               <SwitchCell On="False"/>
 
-            </TableSection>
+            </TableSection>-->
           </TableRoot>
         </TableView>
       </StackLayout>

@@ -148,5 +148,10 @@ namespace BitcoinWallet.Views
                 await Navigation.PushModalAsync(new VMenuItems());
             //Navigation.PushAsync(new menuPage());
         }
+
+        private void SwitchCell_OnOnChanged(object sender, ToggledEventArgs e)
+        {
+            Pass2MP.IsVisible = (sender as SwitchCell).On;
+        }
     }
 }

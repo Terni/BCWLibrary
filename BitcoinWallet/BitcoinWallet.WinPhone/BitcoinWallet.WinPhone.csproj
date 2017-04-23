@@ -87,6 +87,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ImageButtonRenderer.cs" />
+    <Compile Include="WinPhone_CloseApp.cs" />
     <Compile Include="WinPhone_FileHelperDB.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
