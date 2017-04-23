@@ -8,13 +8,12 @@
             x:Name="MainPageTabbedPage"
             Title="{Binding title}"
             BackgroundColor="White"
-            BarTextColor="Black"
   >
 
   <TabbedPage.Children>
     <!--TODO: ICON-->
     <!--<ContentPage Title="Profile" Icon="Resources/Icons/user.png"   PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPprofile">-->
-    <ContentPage Title="Profile" x:Name="AppProfile">
+    <ContentPage Title="" x:Name="AppProfile">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
           <Entry Placeholder="Alias" Text="{Binding Alias}" IsVisible="True" x:Name="AlsMP"/>
@@ -60,7 +59,7 @@
 
     <!--TODO: ICON-->
     <!--<ContentPage Title="Setting" Icon="Resources/Icons/settings-3.png" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPsetting">-->
-    <ContentPage x:Name="AppSetting">
+    <ContentPage Title="Settings" x:Name="AppSetting">
       <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">

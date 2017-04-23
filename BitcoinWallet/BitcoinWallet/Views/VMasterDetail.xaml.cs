@@ -26,7 +26,7 @@ namespace BitcoinWallet.Views
             var masterItems = new List<MasterDetailItem>();
             masterItems.Add(new MasterDetailItem
             {
-                Title = " Contacts",
+                Title = " Profil",
                 IconSource = $"{Tools.GetFolder}contacts.dark.png",
                 TargetType = typeof(VContactDetail)
             });

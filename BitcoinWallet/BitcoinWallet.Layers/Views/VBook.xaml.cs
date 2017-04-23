@@ -18,6 +18,9 @@ namespace BitcoinWallet.Views
     {
         private Grid _tableGrid;
 
+        public static bool IsAddAddress { get; set; }
+        
+
         public VBook()
         {
             InitializeComponent();
@@ -54,14 +57,22 @@ namespace BitcoinWallet.Views
                 ContactRow contact = contactList[i];
                 _tableGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
 
-                var frame = new Frame { OutlineColor = Color.Blue };
-                var labelContact = new Label
+                var frame = new Frame
+                {
+                    OutlineColor = Color.Blue,
+                    Margin = new Thickness(0), // left, Top, Right, Botton
+                    Padding = new Thickness(-5)
+                };
+                var bntContact = new Button
                 {
                     Text = $"{contact.Alias}, {contact.Name} {contact.Surname} \n{contact.BitcoinAddress}",
                     TextColor = Color.Blue,
-                    FontSize = 10
+                    AutomationId = contact.BitcoinAddress,
+                    FontSize = 10,
                 };
-                frame.Content = labelContact;
+                bntContact.Clicked += OnClickButtonSetBitAddress;
+                frame.Content = bntContact;
+                
                 _tableGrid.Children.Add(frame, 0, i); // for colum 0 and row i
 
                 //Button Text = "test" Grid.Row = "1" Grid.Column = "0" BackgroundColor = "#7ac3ff" HeightRequest = "100"
@@ -82,41 +93,31 @@ namespace BitcoinWallet.Views
                     TextColor = Color.FromHex("000000"),
                     Text = ""
                 };
-                remBtn.Clicked += OnClickRemoveButton;
+                remBtn.Clicked += OnClickButtonRemove;
                 remBtn.Source = FileImageSource.FromFile($"{Tools.GetFolder}delete.png");
                 _tableGrid.Children.Add(remBtn, 1, i); // for colum 0 and row i
             }
-
-
 
             // Show all labels
             scrollView.Content = _tableGrid;
             this.listBook.Content = scrollView;
         }
 
-        private void OnClickRemoveButton(object sender, EventArgs e)
+        private async void OnClickButtonSetBitAddress(object sender, EventArgs e)
+        {
+            if (IsAddAddress)
+            {
+                VPayment.BitcoinAddressFromBook = (sender as Button)?.AutomationId;
+                IsAddAddress = false; // reset status
+
+                if (Navigation != null)
+                    await Navigation.PushModalAsync(new VPayment());
+            }
+        }
+
+        private void OnClickButtonRemove(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
         }
     }
 }
-
-//<controls:ImageButton IsVisible = "{Binding IsAddVisible}" Grid.Column="1" Scale="1"
-//    ImageHeightRequest="30"
-//    ImageWidthRequest="30"
-//    Orientation="ImageCentered"
-//    Command="{Binding AddCommand}"
-//    Image="Resources/Icons/add.png"
-//    TextColor="#000000"
-//    Clicked="Add_OnClicked"
-//    Text="">
-//    <controls:ImageButton.Source>
-//    <!-- ReSharper disable once Xaml.InvalidType -->
-//        <OnPlatform x:TypeArguments= "ImageSource" >
-//            < OnPlatform.WinPhone >
-//                < FileImageSource File= "Resources/Icons/add.png" />
-//            </ OnPlatform.WinPhone >
-//        < !--ReSharper disable once Xaml.InvalidType -->
-//        </OnPlatform>
-//    </controls:ImageButton.Source>
-//</controls:ImageButton>

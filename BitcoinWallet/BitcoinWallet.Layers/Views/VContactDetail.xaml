@@ -12,7 +12,7 @@
 
   <TabbedPage.Children>
 
-    <ContentPage Title="Detail" >
+    <ContentPage Title="Current profil" >
       <!--<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />-->
 
 

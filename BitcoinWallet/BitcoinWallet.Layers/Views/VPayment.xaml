@@ -12,7 +12,7 @@
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Quick Payment...">
+    <ContentPage Title="Quick Payment..." x:Name="quickPay">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
 
         <!-- Inner Grid 0 for top row of items -->
@@ -68,7 +68,7 @@
 
 
 
-    <ContentPage Title="Particular Pay...">
+    <ContentPage Title="Particular Pay..." x:Name="particularPay">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" >
         <!--<TableView>
           <TableRoot>
@@ -87,9 +87,9 @@
             <ColumnDefinition Width="5"/>
           </Grid.ColumnDefinitions>
 
-          <Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="-2">
+          <!--<Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="-2">-->
             <Entry Placeholder="Address To" Text="{Binding AddressTo}" x:Name="ValueAddress2" />
-          </Frame>
+          <!--</Frame>-->
 
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Column="1" Scale="1"
               ImageHeightRequest="30"

@@ -44,6 +44,7 @@
     <Compile Include="Helpers\Tools.cs" />
     <Compile Include="Helpers\UriEngine.cs" />
     <Compile Include="Helpers\XmlList.cs" />
+    <Compile Include="Interface\ICloseApp.cs" />
     <Compile Include="Interface\IDevice.cs" />
     <Compile Include="Interface\IFileHelper.cs" />
     <Compile Include="Interface\ILocalize.cs" />

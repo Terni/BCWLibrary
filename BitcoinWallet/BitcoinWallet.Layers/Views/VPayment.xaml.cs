@@ -10,14 +10,25 @@ namespace BitcoinWallet.Views
 {
     public partial class VPayment : TabbedPage
     {
+        public static string BitcoinAddressFromBook { get; set; }
+
         public VPayment()
         {
             InitializeComponent();
+
+            //Set adress
+            if (!string.IsNullOrWhiteSpace(BitcoinAddressFromBook))
+            {
+                ValueAddress.Text = BitcoinAddressFromBook;
+                ValueAddress2.Text = BitcoinAddressFromBook;
+            }
         }
 
-        private void Add_OnClicked(object sender, EventArgs e)
+        private async void Add_OnClicked(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            VBook.IsAddAddress = true;
+            if (Navigation != null)
+                await Navigation.PushModalAsync(new VBook());
         }
     }
 }
