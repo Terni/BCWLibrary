@@ -61,7 +61,7 @@
         <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
           <Entry Placeholder="Value to Pay" Text="{Binding ValutoPay}" x:Name="vtp"/>
         <!--</Frame>-->
-        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SendCommand}" />
+        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SendCommand}" Clicked="OnClickSend" />
       </StackLayout>
     </ContentPage>
 
@@ -135,7 +135,7 @@
           <Editor HeightRequest="100" Style="{StaticResource EditorStyle}" VerticalOptions="End" />
         <!--</Frame>-->
 
-        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SendCommand}"  />
+        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SendCommand}" Clicked="OnClickSend"/>
 
 
 

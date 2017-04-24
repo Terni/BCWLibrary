@@ -38,6 +38,7 @@
     <Compile Include="Helpers\Tools.cs" />
     <Compile Include="Helpers\UriEngine.cs" />
     <Compile Include="Layers.cs" />
+    <Compile Include="Models\ApiLogon.cs" />
     <Compile Include="Models\Arg.cs" />
     <Compile Include="Models\ContactRow.cs" />
     <Compile Include="Models\TransRow.cs" />

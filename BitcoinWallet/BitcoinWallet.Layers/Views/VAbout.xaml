@@ -7,6 +7,6 @@
              x:Name="AboutPage"
              >
   <StackLayout>
-    <Label Text="About Application" HorizontalOptions="StartAndExpand"  TextColor="Black"/>
+    <Label Text="  About Application" HorizontalOptions="StartAndExpand"  TextColor="Black"/>
   </StackLayout>
 </ContentPage>

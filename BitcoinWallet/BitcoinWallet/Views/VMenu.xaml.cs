@@ -4,7 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BitcoinWallet.Helpers;
+using BitcoinWallet.Layers.Models;
 using BitcoinWallet.Layers.Views;
+using BitcoinWallet.ViewModels;
+using Info.Blockchain.API.BlockExplorer;
 using Xamarin.Forms;
 using XLabs.Data;
 using XLabs.Forms.Controls;
@@ -15,18 +19,21 @@ namespace BitcoinWallet.Views
     {
         private float _defaultBTC;
 
-
-
         public VMenu()
         {
             //Init variables
-            _defaultBTC = 0;
-
-
-
+            if (Logon.Balance >= 0)
+            {
+                _defaultBTC = (float)Logon.Balance / BitcoinValue.SatoshisPerBitcoin;
+            }
+            else
+            {
+                _defaultBTC = (float)3/100; //TODO: HACK for testing
+            }
+            
             InitializeComponent();
-            ValueBw.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
-            ValueBw.Text = _defaultBTC +" BTC";
+            ValueBTC.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+            ValueBTC.Text = _defaultBTC +" BTC";
             this.BindingContext = new ButtonPageViewModel();
         }
 

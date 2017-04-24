@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Info.Blockchain.API.Wallet;
 using Xamarin.Forms;
 
 namespace BitcoinWallet.Layers.Helpers

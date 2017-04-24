@@ -8,9 +8,13 @@ namespace Bitcoin.APIv2Client.Models
 {
     public static class BaseApi
     {
-        public static readonly string BaseName = "https://blockchain.info/";
-        public static readonly string ApiName = "https://api.blockchain.info/";
-        public static readonly string MapsApiName = "https://coinatmradar.com/api/locations/1990-01-01/";
+        public const string BaseName = "https://blockchain.info/";
+        public const string BaseNameInfoApi = "https://blockchain.info";
+        public const string ApiName = "https://api.blockchain.info/";
+        public const string MapsApiName = "https://coinatmradar.com/api/locations/1990-01-01/";
+
+        //public const int SatoshisPerBitcoin = 100000000;
+        public const int fee = 10000; // = fee/SatoshisPerBitcoin = 0,0001 fee for miners
 
         /// <summary>
         /// Examples:
