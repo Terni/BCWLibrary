@@ -24,6 +24,7 @@ namespace BitcoinWallet.Views
         private DataSyntFromXml _fromXml;
         private Stream streamFile;
         private bool IsPasswordSecond;
+        private string PasswordSecondValue;
 
         public MainPage()
         {
@@ -128,13 +129,14 @@ namespace BitcoinWallet.Views
                         }
                         case NameModule.PasswordSecond:
                         {
+                            PasswordSecondValue = DataLogon.PasswordSecond = item.Value;
                             if (IsPasswordSecond)
                             {
-                                Pass2MP.Text = DataLogon.PasswordSecond = item.Value;
+                                Pass2MP.Text = PasswordSecondValue;
                             }
                             else
                             {
-                                DataLogon.PasswordSecond = "";
+                                Pass2MP.Text = PasswordSecondValue = "";
                             }
                             break;
                         }
@@ -177,15 +179,15 @@ namespace BitcoinWallet.Views
             else
             {
                 //For ID Wallet and password
-                ApiLogon.IdentifierWallet =  Logon.IdentifierWallet = DataLogon.IdWallet;
-                ApiLogon.Password = Logon.Password = DataLogon.Password;
+                //ApiLogon.IdentifierWallet =  Logon.IdentifierWallet = DataLogon.IdWallet;
+                //ApiLogon.Password = Logon.Password = DataLogon.Password;
 
-                if (!string.IsNullOrWhiteSpace(DataLogon.PasswordSecond))
-                    ApiLogon.PasswordSecond = Logon.PasswordSecond = DataLogon.PasswordSecond;
-                else
-                {
-                    ApiLogon.PasswordSecond = Logon.PasswordSecond = null;
-                }
+                //if (!string.IsNullOrWhiteSpace(DataLogon.PasswordSecond))
+                //    ApiLogon.PasswordSecond = Logon.PasswordSecond = DataLogon.PasswordSecond;
+                //else
+                //{
+                //    ApiLogon.PasswordSecond = Logon.PasswordSecond = null;
+                //}
 
                 if (!string.IsNullOrWhiteSpace(DataLogon.ApiCode))
                     ApiLogon.ApiCode = Logon.ApiCode = DataLogon.ApiCode;
@@ -216,6 +218,10 @@ namespace BitcoinWallet.Views
         private void SwitchCell_OnOnChanged(object sender, ToggledEventArgs e)
         {
             IsPasswordSecond = Pass2MP.IsVisible = (sender as SwitchCell).On;
+            if (IsPasswordSecond)
+            {
+                Pass2MP.Text = DataLogon.PasswordSecond;
+            }
         }
     }
 }
