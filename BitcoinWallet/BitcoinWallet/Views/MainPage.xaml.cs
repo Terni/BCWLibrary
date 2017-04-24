@@ -144,6 +144,11 @@ namespace BitcoinWallet.Views
 
         async void Loging_OnClicked(object sender, EventArgs e)
         {
+
+            // TODO ziskat balance
+
+
+
             if (Navigation != null)
                 await Navigation.PushModalAsync(new VMenuItems());
             //Navigation.PushAsync(new menuPage());

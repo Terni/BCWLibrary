@@ -35,7 +35,7 @@ namespace BitcoinWallet.Views
 
             // Show all labels
             scrollView.Content = layout;
-            this.Content = scrollView;
+            //this.Content = scrollView;
         }
 
     }
