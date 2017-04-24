@@ -19,16 +19,16 @@
           <Entry Placeholder="Alias" Text="{Binding Alias}" IsVisible="False" x:Name="AlsMP"/>
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
-          <Entry Placeholder="Username" Text="{Binding Username}" Style="{StaticResource EntryStyleRed}" x:Name="UserMP"/>
+          <Entry Placeholder="IDWallet" Text="{Binding IDWallet}" Style="{StaticResource EntryStyleRed}" x:Name="IDWallet"/>
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
           <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true" Style="{StaticResource EntryStyleRed}" x:Name="Pass1MP" />
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
-            <Entry Placeholder="SecoundPassword" Text="{Binding SecoundPassword}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="Pass2MP"/>
+            <Entry Placeholder="SecondPassword" Text="{Binding SecondPassword}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="Pass2MP"/>
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
-            <Entry Placeholder="APICode" Text="{Binding Username}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="ApiCodeMP"/>
+            <Entry Placeholder="APICode" Text="{Binding APICode}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="ApiCodeMP"/>
             <!--Margin <left,top,right,botton>-->
         </Frame>
         <Button Text="Login" Command="{Binding LoginCommand}" Clicked="Loging_OnClicked" 

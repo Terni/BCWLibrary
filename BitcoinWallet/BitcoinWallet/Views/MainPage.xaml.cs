@@ -68,7 +68,7 @@ namespace BitcoinWallet.Views
                         }
                         case NameModule.LoginID:
                         {
-                            UserMP.Placeholder = Loc.Localize("IdWallet", "Id Wallet");
+                            IDWallet.Placeholder = Loc.Localize("IdWallet", "Id Wallet");
                             break;
                         }
                         case NameModule.PasswordFirst:
@@ -118,7 +118,7 @@ namespace BitcoinWallet.Views
                             break;
                         case NameModule.LoginID:
                         {
-                            UserMP.Text = DataLogon.IdWallet = item.Value;
+                            IDWallet.Text = DataLogon.IdWallet = item.Value;
                             break;
                         }
                         case NameModule.PasswordFirst:
@@ -156,9 +156,27 @@ namespace BitcoinWallet.Views
 
         async void Loging_OnClicked(object sender, EventArgs e)
         {
+            //Init all fields
+            ApiLogon.IdentifierWallet = IDWallet.Text;
+            ApiLogon.Password = Pass1MP.Text;
+            if (Pass2MP.IsVisible)
+                ApiLogon.PasswordSecond = Pass2MP.Text;
 
-            if (!string.IsNullOrWhiteSpace(DataLogon.IdWallet) && !string.IsNullOrWhiteSpace(DataLogon.Password)) // test logon strings
+            if (string.IsNullOrWhiteSpace(ApiLogon.IdentifierWallet) || string.IsNullOrWhiteSpace(ApiLogon.Password)) // test logon strings
             {
+                await DisplayAlert("Warning", $"ID Wallet or Password are bad filled!", "OK");
+            }
+            else if (ApiLogon.IdentifierWallet.Length != 36)
+            {
+                await DisplayAlert("Warning", $"ID Wallet have bad length!", "OK");
+            }
+            else if (string.IsNullOrWhiteSpace(ApiLogon.PasswordSecond) && Pass2MP.IsVisible)
+            {
+                await DisplayAlert("Warning", $"Second Password are bad filled!", "OK");
+            }
+            else
+            {
+                //For ID Wallet and password
                 ApiLogon.IdentifierWallet =  Logon.IdentifierWallet = DataLogon.IdWallet;
                 ApiLogon.Password = Logon.Password = DataLogon.Password;
 
