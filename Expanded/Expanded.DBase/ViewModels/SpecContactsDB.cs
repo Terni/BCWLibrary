@@ -13,7 +13,7 @@ namespace Expanded.DBase.ViewModels
         private SQLiteConnection _database;
         static object locker = new object();
 
-        SpecContactsDB()
+        public SpecContactsDB()
         {
             _database = ItemsDatabase_ST.DatabaseString;
         }
@@ -52,9 +52,9 @@ namespace Expanded.DBase.ViewModels
             return _database.Table<ContactItem>().Where(i => i.Alias == alias).FirstOrDefault();
         }
 
-        public ContactItem GetItemAsIdwallet(string idwallet)
+        public ContactItem GetItemAsAddress(string address)
         {
-            return _database.Table<ContactItem>().Where(i => i.Idwallet == idwallet).FirstOrDefault();
+            return _database.Table<ContactItem>().Where(i => i.Address == address).FirstOrDefault();
         }
 
         public List<ContactItem> GetItemsWithDate(string date)
@@ -118,6 +118,11 @@ namespace Expanded.DBase.ViewModels
         public int DeleteAsID(int id)
         {
             return _database.Delete(GetItemAsID(id));
+        }
+
+        public int DeleteAsAddress(string address)
+        {
+            return _database.Delete(GetItemAsAddress(address));
         }
 
         public int DropAllItem()

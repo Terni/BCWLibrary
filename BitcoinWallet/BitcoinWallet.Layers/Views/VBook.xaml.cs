@@ -11,6 +11,8 @@ using Expanded.Common;
 using Expanded.DBase.ViewModels;
 using XLabs.Enums;
 using XLabs.Forms.Controls;
+using Expanded.DBase.Models;
+using Expanded.DBase.ViewModels;
 
 namespace BitcoinWallet.Views
 {
@@ -19,13 +21,16 @@ namespace BitcoinWallet.Views
         private Grid _tableGrid;
 
         public static bool IsAddAddress { get; set; }
-        
+        public static ItemsDatabase Database { get; set; }
+
+        private bool TestItem;
 
         public VBook()
         {
             InitializeComponent();
 
             ShowAllItemsFromDatabase();
+            TestItem = true;
         }
 
         /// <summary>
@@ -34,27 +39,22 @@ namespace BitcoinWallet.Views
         private async void ShowAllItemsFromDatabase()
         {
             var scrollView = new ScrollView();
-            var layout = new StackLayout();
             _tableGrid = new Grid();
             _tableGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             _tableGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
-            List<ContactRow> contactList = new List<ContactRow>();
-            { // TODO for testing
-                ContactRow test = new ContactRow
-                {
-                    Alias = "Test",
-                    Name = "Jon",
-                    Surname = "Witch",
-                    BitcoinAddress = "xdfgsff24fggfg45ghhfd1121ff"
-                };
-                contactList.Add(test);
+            List<ContactItem> contactList = new List<ContactItem>();
+
+            { 
+                if (!TestItem) // TODO for testing
+                    TestAddFistItemsToDatabase();
             }
 
-            //listItems = await GetListItemsDB(); // TODO dopsat
+            contactList = Database.PropertyContactSpec.GetItemsAll(); //Get all imtes form database
+
             for (int i = 0; i < contactList.Count; i++)
             {
                 // init one contact and row for grid
-                ContactRow contact = contactList[i];
+                ContactItem contact = contactList[i];
                 _tableGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
 
                 var frame = new Frame
@@ -65,9 +65,9 @@ namespace BitcoinWallet.Views
                 };
                 var bntContact = new Button
                 {
-                    Text = $"{contact.Alias}, {contact.Name} {contact.Surname} \n{contact.BitcoinAddress}",
+                    Text = $"{contact.Alias}, {contact.FirstName} {contact.LastName} \n{contact.Address}",
                     TextColor = Color.Blue,
-                    AutomationId = contact.BitcoinAddress,
+                    AutomationId = contact.Address,
                     FontSize = 10,
                 };
                 bntContact.Clicked += OnClickButtonSetBitAddress;
@@ -91,7 +91,8 @@ namespace BitcoinWallet.Views
                     Orientation = ImageOrientation.ImageCentered,
                     Image = "Resources/Icons/delete.png",
                     TextColor = Color.FromHex("000000"),
-                    Text = ""
+                    Text = "",
+                    AutomationId = contact.Address
                 };
                 remBtn.Clicked += OnClickButtonRemove;
                 remBtn.Source = FileImageSource.FromFile($"{Tools.GetFolder}delete.png");
@@ -103,6 +104,11 @@ namespace BitcoinWallet.Views
             this.listBook.Content = scrollView;
         }
 
+        /// <summary>
+        /// Method for add address to ViewPayment
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void OnClickButtonSetBitAddress(object sender, EventArgs e)
         {
             if (IsAddAddress)
@@ -115,14 +121,57 @@ namespace BitcoinWallet.Views
             }
         }
 
+        /// <summary>
+        /// Method for delete one contact item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnClickButtonRemove(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            var address = (sender as Button).AutomationId;
+            Debug.WriteLine($"Delete address: {address}");
+
+            Database.PropertyContactSpec.DeleteAsAddress(address);
+
+            ShowAllItemsFromDatabase(); // update contentpage
         }
 
+        /// <summary>
+        /// Method for add new contact item and update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnClickAddNewContact(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var contact = new ContactItem
+            {
+                Id = Database.PropertyContactSpec.GenerLastIndex(),
+                FirstName = xname.Text,
+                LastName = xsurname.Text,
+                Alias = xalias.Text,
+                Address = xaddress.Text,
+                Date = DateTime.Now.ToString()
+            };
+
+            Database.PropertyContactSpec.SaveItem(contact);
+
+            ShowAllItemsFromDatabase(); // update contentpage
+        }
+
+
+        private void TestAddFistItemsToDatabase()
+        {
+            var testContact = new ContactItem
+            {
+                Id = Database.PropertyContactSpec.GenerLastIndex(),
+                Alias = "Test",
+                FirstName = "Jon",
+                LastName = "Witch",
+                Address = "xdfgsff24fggfg45ghhfd1121ff",
+                Date = DateTime.Now.ToString()
+            };
+
+            Database.PropertyContactSpec.SaveItem(testContact);
         }
     }
 }
