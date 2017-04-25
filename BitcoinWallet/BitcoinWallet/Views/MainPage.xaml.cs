@@ -11,6 +11,10 @@ using BitcoinWallet.ViewModels;
 using Xamarin.Forms;
 using System.Reflection;
 using System.Threading.Tasks;
+using Android.Util;
+using Bitcoin.APIv2Client.Models;
+using BitcoinWallet.Layers.Models;
+using Info.Blockchain.API.BlockExplorer;
 
 namespace BitcoinWallet.Views
 {
@@ -19,10 +23,13 @@ namespace BitcoinWallet.Views
         private List<Modules> _listModules;
         private DataSyntFromXml _fromXml;
         private Stream streamFile;
+        private bool IsPasswordSecond;
+        private string PasswordSecondValue;
 
         public MainPage()
         {
             InitializeComponent();
+            IsPasswordSecond = Pass2MP.IsVisible;
 
             #region Loading LoginConfig.xml
             //var assembly = typeof(MainPage).GetTypeInfo().Assembly;
@@ -44,8 +51,11 @@ namespace BitcoinWallet.Views
         private async void InitDataLocalization()
         {
             var result = await _fromXml.LoadXMLData();
+
             if ((_listModules = _fromXml.RawModules) != null && result)
             {
+                XmlList.SetXmlList(_listModules); // add all values to static list
+
                 foreach (var item in _listModules)
                 {
                     NameModule valueEnumType;
@@ -59,7 +69,7 @@ namespace BitcoinWallet.Views
                         }
                         case NameModule.LoginID:
                         {
-                            UserMP.Placeholder = Loc.Localize("IdWallet", "Id Wallet");
+                            IDWallet.Placeholder = Loc.Localize("IdWallet", "Id Wallet");
                             break;
                         }
                         case NameModule.PasswordFirst:
@@ -109,22 +119,30 @@ namespace BitcoinWallet.Views
                             break;
                         case NameModule.LoginID:
                         {
-                            UserMP.Text = item.Value;
+                            IDWallet.Text = DataLogon.IdWallet = item.Value;
                             break;
                         }
                         case NameModule.PasswordFirst:
                         {
-                            Pass1MP.Text = item.Value;
+                            Pass1MP.Text = DataLogon.Password = item.Value;
                             break;
                         }
                         case NameModule.PasswordSecond:
                         {
-                            Pass2MP.Text = item.Value;
+                            PasswordSecondValue = DataLogon.PasswordSecond = item.Value;
+                            if (IsPasswordSecond)
+                            {
+                                Pass2MP.Text = PasswordSecondValue;
+                            }
+                            else
+                            {
+                                Pass2MP.Text = PasswordSecondValue = "";
+                            }
                             break;
                         }
                         case NameModule.api_code:
                         {
-                            ApiCodeMP.Text = item.Value;
+                            ApiCodeMP.Text = DataLogon.ApiCode = item.Value;
                             break;
                         }
                         case NameModule.autologon:
@@ -132,7 +150,7 @@ namespace BitcoinWallet.Views
                         case NameModule.Theme:
                             break;
                         default:
-                            throw new NotImplementedException();
+                            continue; // orders key
                     }
                 }
             }
@@ -140,9 +158,70 @@ namespace BitcoinWallet.Views
 
         async void Loging_OnClicked(object sender, EventArgs e)
         {
-            if (Navigation != null)
-                await Navigation.PushModalAsync(new VMenuItems());
-            //Navigation.PushAsync(new menuPage());
+            //Init all fields
+            ApiLogon.IdentifierWallet = IDWallet.Text;
+            ApiLogon.Password = Pass1MP.Text;
+            if (Pass2MP.IsVisible)
+                ApiLogon.PasswordSecond = Pass2MP.Text;
+
+            if (string.IsNullOrWhiteSpace(ApiLogon.IdentifierWallet) || string.IsNullOrWhiteSpace(ApiLogon.Password)) // test logon strings
+            {
+                await DisplayAlert("Warning", $"ID Wallet or Password are bad filled!", "OK");
+            }
+            else if (ApiLogon.IdentifierWallet.Length != 36)
+            {
+                await DisplayAlert("Warning", $"ID Wallet have bad length!", "OK");
+            }
+            else if (string.IsNullOrWhiteSpace(ApiLogon.PasswordSecond) && Pass2MP.IsVisible)
+            {
+                await DisplayAlert("Warning", $"Second Password are bad filled!", "OK");
+            }
+            else
+            {
+                //For ID Wallet and password
+                //ApiLogon.IdentifierWallet =  Logon.IdentifierWallet = DataLogon.IdWallet;
+                //ApiLogon.Password = Logon.Password = DataLogon.Password;
+
+                //if (!string.IsNullOrWhiteSpace(DataLogon.PasswordSecond))
+                //    ApiLogon.PasswordSecond = Logon.PasswordSecond = DataLogon.PasswordSecond;
+                //else
+                //{
+                //    ApiLogon.PasswordSecond = Logon.PasswordSecond = null;
+                //}
+
+                if (!string.IsNullOrWhiteSpace(DataLogon.ApiCode))
+                    ApiLogon.ApiCode = Logon.ApiCode = DataLogon.ApiCode;
+
+                try
+                {
+                    new Logon(); // init Wallet
+
+                    ApiLogon.Balance = await BitcoinWallet.Layers.Models.ApiLogon.Wallet.GetBalanceAsync();
+
+                    Logon.Balance = (int)ApiLogon.Balance.Btc;
+                    Debug.WriteLine($"Balance is: {Logon.Balance}");
+
+                    if (Navigation != null)
+                        await Navigation.PushModalAsync(new VMenuItems());
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error from server or client! Error is: {ex}");
+                    //Logging.Debug($"Error from server or client! Error is: {ex}");
+
+                    if (Navigation != null) //TODO: HACK fot testing
+                        await Navigation.PushModalAsync(new VMenuItems());
+                }
+            }
+        }
+
+        private void SwitchCell_OnOnChanged(object sender, ToggledEventArgs e)
+        {
+            IsPasswordSecond = Pass2MP.IsVisible = (sender as SwitchCell).On;
+            if (IsPasswordSecond)
+            {
+                Pass2MP.Text = DataLogon.PasswordSecond;
+            }
         }
     }
 }

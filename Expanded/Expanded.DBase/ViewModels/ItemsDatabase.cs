@@ -82,5 +82,13 @@ namespace Expanded.DBase.ViewModels
         }
 
 
+        public SpecContactsDB PropertyContactSpec
+        {
+            get
+            {
+                return new SpecContactsDB();
+            }
+        }
+
     }
 }

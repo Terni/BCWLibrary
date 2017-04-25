@@ -13,6 +13,30 @@ namespace BitcoinWallet.Views
         public VAbout()
         {
             InitializeComponent();
+            ShowAllItems();
         }
+
+        private async void ShowAllItems()
+        {
+            var scrollView = new ScrollView();
+            var layout = new StackLayout();
+
+            var label = new Label
+            {
+                
+            };
+            layout.Children.Add(label);
+
+            var label2 = new Label
+            {
+
+            };
+            layout.Children.Add(label2);
+
+            // Show all labels
+            scrollView.Content = layout;
+            //this.Content = scrollView;
+        }
+
     }
 }

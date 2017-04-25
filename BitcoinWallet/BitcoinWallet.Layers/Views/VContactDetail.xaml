@@ -12,7 +12,7 @@
 
   <TabbedPage.Children>
 
-    <ContentPage Title="Detail" >
+    <ContentPage Title="Current profil" >
       <!--<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />-->
 
 
@@ -52,6 +52,7 @@
               ImageWidthRequest="110"
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
+              Image="Resources/wallet1_qrcode.png"
               TextColor="#000000"
               Clicked="Detail_OnClicked"
               Text="">
@@ -73,19 +74,19 @@
 
           </Grid>
 
-          <Frame Style="{StaticResource FrameStyle}" Padding="-2">
-            <Entry Placeholder="Name" Text="{Binding Name}" x:Name="nn" IsEnabled="False"/>
-          </Frame>
-          <Frame Style="{StaticResource FrameStyle}" Padding="-2">
-            <Entry Placeholder="Surname" Text="{Binding Surname}" x:Name="snn" IsEnabled="False"/>
-          </Frame>
-          <Frame Style="{StaticResource FrameStyle}" Padding="-2">
-            <Entry Placeholder="Alias" Text="{Binding Alias}" x:Name="ann" IsEnabled="False"/>
-          </Frame>
-          <Frame Style="{StaticResource FrameStyle}" Padding="-2">
-            <Editor HeightRequest="100" Style="{StaticResource EditorStyle}" VerticalOptions="End" IsEnabled="False"/>
-          </Frame>
-          <Button Text="Edit" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" />
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+            <Entry Placeholder="Name Surname" Text="{Binding Name}" x:Name="xname" IsEnabled="False"/>
+          <!--</Frame>-->
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+            <Entry Placeholder="Address" Text="{Binding Surname}" x:Name="xadress" IsEnabled="False"/>
+          <!--</Frame>-->
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+            <Entry Placeholder="Alias" Text="{Binding Alias}" x:Name="xalias" IsEnabled="False"/>
+          <!--</Frame>-->
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+            <Editor HeightRequest="100" Style="{StaticResource EditorStyle}" x:Name="xeditor" VerticalOptions="End" IsEnabled="False"/>
+          <!--</Frame>-->
+          <Button Text="Back" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" Clicked="OnClickBack"/>
         </StackLayout>
 
       </ScrollView>

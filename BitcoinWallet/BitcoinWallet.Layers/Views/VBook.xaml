@@ -1,12 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BitcoinWallet.Views.VBook"
-             BackgroundColor="White"
-             >
-  <StackLayout>
-    <!--<Label Text="{Binding MainText}" VerticalOptions="Center"  />-->
-    <Label Text="Address Book" HorizontalOptions="Center"  TextColor="Black"/>
-    <!--<Image Source="Icons/user.png" HorizontalOptions="Center" />-->
-  </StackLayout>
-</ContentPage>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:helpers="clr-namespace:BitcoinWallet;assembly=BitcoinWallet"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="BitcoinWallet.Views.VBook"
+            x:Name="VBookTabbedPage"
+            Title="{Binding title}"
+            BackgroundColor="White"
+>
+
+    <TabbedPage.Children>
+        <!--TODO: ICON-->
+        <!--<ContentPage Title="Address Book..." Icon="Icons/xxx">-->
+        <ContentPage Title="Address Book..." x:Name="listBook" >
+            <StackLayout Spacing="20" Padding="20"  HorizontalOptions="StartAndExpand">
+                <Label Text="Sorry data are unavailable for Database. Please wait..." TextColor="Black"/>
+            </StackLayout>
+        </ContentPage>
+      
+        <ContentPage Title="Add New contact">
+            <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+                <Image Source="Resources/Icons/user-add.png" Aspect="AspectFit" HeightRequest="175" WidthRequest="175"/>
+                <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+                    <Entry Placeholder="Alias" Text="{Binding Alias}" x:Name="xalias"/>
+                <!--</Frame>-->
+                <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+                    <Entry Placeholder="Name" Text="{Binding Name}" x:Name="xname" />
+                <!--</Frame>-->
+                <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+                    <Entry Placeholder="Surname" Text="{Binding Surname}" x:Name="xsurname"/>
+                <!--</Frame>-->
+                <!--<Frame Style="{StaticResource FrameStyleRed}" Padding="-2">-->
+                    <Entry Placeholder="Address" Text="{Binding AddressTo}" Style="{StaticResource EntryStyleRed}" x:Name="xaddress" />
+                <!--</Frame>-->
+                <Button Text="Save" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" Clicked="OnClickAddNewContact" />
+            </StackLayout>
+        </ContentPage>
+
+    </TabbedPage.Children>
+</TabbedPage>

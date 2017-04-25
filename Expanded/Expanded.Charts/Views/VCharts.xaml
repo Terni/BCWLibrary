@@ -12,7 +12,7 @@
     <ContentPage  Title="Exchange Rates..." x:Name="exchanger">
       <StackLayout Spacing="20" Padding="20">
         <!--<Label Text="Exchange Rates" FontSize="24" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>-->
-        <Label Text="15m.   Last    Sell    Buy" TextColor="Black"/>
+        <Label Text="Sorry server data are unavailable for Market Exchange. Please wait..." TextColor="Black"/>
         <!--<Label Text="15m." TextColor="Black"/>
         <Label Text="Last" TextColor="Black"/>
         <Label Text="Sell" TextColor="Black"/>

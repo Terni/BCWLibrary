@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Navigation;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
 using Telerik.XamarinForms.Common.UWP;
+using BitcoinWallet.Helpers;
+
 
 // >> chart-getting-started-uwp-renderers
 [assembly: Xamarin.Forms.Platform.UWP.ExportRenderer(typeof(Telerik.XamarinForms.Chart.RadCartesianChart), typeof(Telerik.XamarinForms.ChartRenderer.UWP.CartesianChartRenderer))]
@@ -48,7 +50,7 @@ namespace BitcoinWallet.UWP
         public MainPage()
         {
             this.InitializeComponent();
-
+            Xamarin.FormsMaps.Init("5A9AFGEvcl6PpV4TY8sG~QvPMPT_IBFiwtOmBuo42dQ~AhWtvUiUv1j4tqrPmIA4ukPOSnzD83adgtBZaWuzQwrcD1WobBrpYp - OC7q6wZ_w");
             LoadApplication(new BitcoinWallet.App(new UwpInitializer()));
             TelerikForms.Init();
         }

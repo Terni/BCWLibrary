@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BitcoinWallet.ViewModels;
 using Xamarin.Forms;
 using BitcoinWallet.Helpers;
+using BitcoinWallet.Interface;
 
 namespace BitcoinWallet.Views
 {
@@ -24,30 +25,54 @@ namespace BitcoinWallet.Views
             //itm.Name = "Fast Menu";
             //itm.Icon = "swap.png";
             //Master.ToolbarItems.Add(itm);
-
-            Master.ToolbarItems.Add(new ToolbarItem
+            ToolbarItem itmBarPay = new ToolbarItem
             {
                 Name = "Payment",
-                Icon = $"{Tools.GetFolder}send.money.png",
+                Icon = $"{Tools.GetFolder}send.bitcoin.png",
                 Order = ToolbarItemOrder.Primary,
                 Priority = 0
-            });
+            };
+            itmBarPay.Clicked += OnClickPayButton;
+            Master.ToolbarItems.Add(itmBarPay);
 
-            Master.ToolbarItems.Add(new ToolbarItem
+            ToolbarItem itmBarLogoff = new ToolbarItem
             {
                 Name = "Log off",
                 Icon = $"{Tools.GetFolder}logoff.png",
                 Order = ToolbarItemOrder.Primary,
                 Priority = 0
-            });
+            };
+            itmBarLogoff.Clicked += OnClickLogoffButton;
+            Master.ToolbarItems.Add(itmBarLogoff);
 
-            Master.ToolbarItems.Add(new ToolbarItem
+            ToolbarItem itmBarAbout = new ToolbarItem
             {
                 Text = "about",
                 Order = ToolbarItemOrder.Secondary,
                 Priority = 1
-            });
+            };
+            itmBarAbout.Clicked += OnClickAboutButton;
+            Master.ToolbarItems.Add(itmBarAbout);
 
+        }
+
+        private async void OnClickAboutButton(object sender, EventArgs e)
+        {
+            if (Navigation != null)
+                await Navigation.PushModalAsync(new VAbout());
+        }
+
+        private void OnClickLogoffButton(object sender, EventArgs e)
+        {
+            var closer = DependencyService.Get<ICloseApp>();
+            if (closer != null)
+                closer.CloseApp();
+        }
+
+        private async void OnClickPayButton(object sender, EventArgs e)
+        {
+            if (Navigation != null)
+                await Navigation.PushModalAsync(new VPayment());
         }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

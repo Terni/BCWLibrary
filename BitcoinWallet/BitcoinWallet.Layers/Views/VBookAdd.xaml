@@ -1,57 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             xmlns:helpers="clr-namespace:BitcoinWallet;assembly=BitcoinWallet"
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="BitcoinWallet.Views.VBookAdd"
             x:Name="VBookAddTabbedPage"
-            Title="{Binding title}"
+            Title="Add New contact"
             BackgroundColor="White"
-            BarTextColor="Black"
   >
+  
+  <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+    <Image Source="Resources/Icons/user-add.png" Aspect="AspectFit" HeightRequest="200" WidthRequest="200"/>
+    <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+        <Entry Placeholder="Alias" Text="{Binding Alias}" x:Name="ann"/>
+    </Frame>
+    <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+      <Entry Placeholder="Name" Text="{Binding Name}" x:Name="nn" />
+    </Frame>
+    <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+      <Entry Placeholder="Surname" Text="{Binding Surname}" x:Name="snn"/>
+    </Frame>
+    <Frame Style="{StaticResource FrameStyleRed}" Padding="-2">
+      <Entry Placeholder="Address" Text="{Binding AddressTo}" Style="{StaticResource EntryStyleRed}" x:Name="ValueAddress" />
+    </Frame>
+    <Button Text="Save" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" />
+  </StackLayout>
+</ContentPage>
 
-  <TabbedPage.Children>
-    <ContentPage Title="New contact">
-      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-
-        <!-- Inner Grid 0 for top row of items -->
-        <!--<Grid VerticalOptions="Center" ColumnSpan="2">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="Auto"/>
-      </Grid.ColumnDefinitions>
-
-      <Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="-2">
-        <Entry Placeholder="Address To" Text="{Binding AddressTo}" x:Name="ValueAddress" />
-      </Frame>
-
-      <Button Text="" WidthRequest="40"
-              Grid.Column="1"
-              Command="{Binding DeleteCharCommand}"
-              Style="{StaticResource OrdersButtonStyle}"/>
-
-    </Grid>-->
-        <!--<Image Source="{helpers:ImageResource BitcoinWallet.Resources.Icons.user-3.png}" Aspect="AspectFit" HeightRequest="200" WidthRequest="200"/>-->
-        <Image Source="Resources/Icons/user-add.png" Aspect="AspectFit" HeightRequest="200" WidthRequest="200"/>
-
-        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
-          <Entry Placeholder="Name" Text="{Binding Name}" x:Name="nn" />
-        </Frame>
-        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
-          <Entry Placeholder="Surname" Text="{Binding Surname}" x:Name="snn"/>
-        </Frame>
-        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
-          <Entry Placeholder="Alias" Text="{Binding Alias}" x:Name="ann"/>
-        </Frame>
-        <Frame Style="{StaticResource FrameStyleRed}" Padding="-2">
-          <Entry Placeholder="Address" Text="{Binding AddressTo}" Style="{StaticResource EntryStyleRed}" x:Name="ValueAddress" />
-        </Frame>
-        <Button Text="Save" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" />
-      </StackLayout>
-    </ContentPage>
-
-
-
-  </TabbedPage.Children>
-</TabbedPage>

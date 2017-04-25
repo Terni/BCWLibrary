@@ -25,7 +25,7 @@ namespace Expanded.Charts.ViewModels
         /// </summary>
         public ViewCharts()
         {
-            string startUrl = $"{BaseApi.MarketName}";
+            string startUrl = $"{BaseApi.BaseName}";
             UriEngine.MainUriChart = new Uri(startUrl);
         }
 
@@ -54,7 +54,7 @@ namespace Expanded.Charts.ViewModels
             }
             catch
             {
-                throw new Exception("Error in client.GetStringAsynch, maeby bad url address or params!");
+                throw new Exception("Error in client.GetStringAsynch, maybe bad url address or params!");
                 //Logging.Debug("Start app.", Logging.Level.DATABASE); // TODO vyresit kruhovou referenci na Logging
             }
 
@@ -82,7 +82,7 @@ namespace Expanded.Charts.ViewModels
             }
             catch
             {
-                throw new Exception("Error in client.GetStringAsynch, maeby bad url address or params!");
+                throw new Exception("Error in client.GetStringAsynch, maybe bad url address or params!");
                 //Logging.Debug("Start app.", Logging.Level.DATABASE); // TODO vyresit kruhovou referenci na Logging
             }
 

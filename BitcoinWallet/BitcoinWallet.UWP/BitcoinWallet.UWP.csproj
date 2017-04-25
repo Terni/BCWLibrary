@@ -100,6 +100,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UWP_CloseApp.cs" />
     <Compile Include="UWP_FileHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -130,6 +131,7 @@
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Resources\Icons\add.png" />
+    <Content Include="Resources\Icons\delete.png" />
     <Content Include="Resources\Icons\user-1.png" />
     <Content Include="Resources\Icons\user-12.png" />
     <Content Include="Resources\Icons\user-3.png" />
@@ -143,6 +145,7 @@
     <Content Include="Resources\Icons_menuItems\activate.png" />
     <Content Include="Resources\Icons_menuItems\calendar.late.png" />
     <Content Include="Resources\Icons_menuItems\chart.png" />
+    <Content Include="Resources\Icons_menuItems\charts.png" />
     <Content Include="Resources\Icons_menuItems\contacts.dark.png" />
     <Content Include="Resources\Icons_menuItems\contacts.png" />
     <Content Include="Resources\Icons_menuItems\gotoslide.png" />
@@ -154,10 +157,13 @@
     <Content Include="Resources\Icons_menuItems\question.png" />
     <Content Include="Resources\Icons_menuItems\reminders.dark.png" />
     <Content Include="Resources\Icons_menuItems\reminders.png" />
+    <Content Include="Resources\Icons_menuItems\send.bitcoin.png" />
     <Content Include="Resources\Icons_menuItems\send.money.png" />
+    <Content Include="Resources\Icons_menuItems\shops.png" />
     <Content Include="Resources\Icons_menuItems\swap.png" />
     <Content Include="Resources\Icons_menuItems\todo.dark.png" />
     <Content Include="Resources\Icons_menuItems\todo.png" />
+    <Content Include="Resources\Icons_menuItems\trans.png" />
     <Content Include="Resources\Icons_menu\bar-chart.png" />
     <Content Include="Resources\Icons_menu\bar-chartx.png" />
     <Content Include="Resources\Icons_menu\group-1.png" />
@@ -253,6 +259,11 @@
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
       <HintPath>..\..\Library\Telerik.Xamarin\XamarinForms\Common\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

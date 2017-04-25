@@ -46,7 +46,7 @@
 
             <Frame Grid.Column="0"
                    OutlineColor="Accent">
-              <Label Text="{Binding DisplayText}" TextColor="Black" x:Name="ValueBw"/>
+              <Label Text="{Binding DisplayText}" TextColor="Black" x:Name="ValueBTC"/>
             </Frame>
 
             <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Column="1" Scale="1"
@@ -189,7 +189,7 @@
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
               TextColor="#000000"
-              Clicked="Keyboard_OnClicked"
+              Clicked="Shops_OnClicked"
               Style="{StaticResource MenuButtonStyle}"
               Text="">
             <!-- Test -->
@@ -218,7 +218,7 @@
           Orientation="ImageCentered"
           Command="{Binding AddCommand}"
           TextColor="#000000"
-          Clicked="Empty_OnClicked"
+          Clicked="Help_OnClicked"
           Style="{StaticResource MenuButtonStyle}"
           Text="">
             <!-- Test -->

@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BitcoinWallet.Helpers;
+using BitcoinWallet.Layers.Models;
+using BitcoinWallet.Layers.Views;
+using BitcoinWallet.ViewModels;
+using Info.Blockchain.API.BlockExplorer;
 using Xamarin.Forms;
 using XLabs.Data;
 using XLabs.Forms.Controls;
@@ -14,31 +19,34 @@ namespace BitcoinWallet.Views
     {
         private float _defaultBTC;
 
-
-
         public VMenu()
         {
             //Init variables
-            _defaultBTC = 0;
-
-
-
+            if (Logon.Balance >= 0)
+            {
+                _defaultBTC = (float)Logon.Balance / BitcoinValue.SatoshisPerBitcoin;
+            }
+            else
+            {
+                _defaultBTC = (float)3/100; //TODO: HACK for testing
+            }
+            
             InitializeComponent();
-            ValueBw.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
-            ValueBw.Text = _defaultBTC +" BTC";
+            ValueBTC.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+            ValueBTC.Text = _defaultBTC +" BTC";
             this.BindingContext = new ButtonPageViewModel();
         }
 
-        async void Keyboard_OnClicked(object sender, EventArgs e)
+        async void Shops_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
-                await Navigation.PushModalAsync(new VKeyboard());
+                await Navigation.PushModalAsync(new VShops());
         }
-        async void Keyboard2_OnClicked(object sender, EventArgs e)
-        {
-            if (Navigation != null)
-                await Navigation.PushModalAsync(new VKeyboard2());
-        }
+        //async void Keyboard2_OnClicked(object sender, EventArgs e)
+        //{
+        //    if (Navigation != null)
+        //        await Navigation.PushModalAsync(new VKeyboard2());
+        //}
         async void Payment_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
@@ -47,7 +55,7 @@ namespace BitcoinWallet.Views
         async void Book_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
-                await Navigation.PushModalAsync(new VBookAdd());
+                await Navigation.PushModalAsync(new VBook());
         }
         async void History_OnClicked(object sender, EventArgs e)
         {
@@ -64,10 +72,10 @@ namespace BitcoinWallet.Views
             if (Navigation != null)
                 await Navigation.PushModalAsync(new VContactDetail());
         }
-        async void Empty_OnClicked(object sender, EventArgs e)
+        async void Help_OnClicked(object sender, EventArgs e)
         {
             if (Navigation != null)
-                await Navigation.PushModalAsync(new VEmpty());
+                await Navigation.PushModalAsync(new VHelp());
         }
 
         public class ButtonPageViewModel : ObservableObject

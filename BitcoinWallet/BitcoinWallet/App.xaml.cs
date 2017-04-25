@@ -18,6 +18,7 @@ namespace BitcoinWallet
         {
             Logging.ReleaseTag = false;
             Logging.Debug("Start app.", Logging.Level.DATABASE);
+            VBook.Database = Database;
         }
 
         public static ItemsDatabase Database

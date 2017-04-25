@@ -12,7 +12,7 @@
   >
 
   <TabbedPage.Children>
-    <ContentPage Title="Quick Payment...">
+    <ContentPage Title="Quick Payment..." x:Name="quickPay">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
 
         <!-- Inner Grid 0 for top row of items -->
@@ -22,15 +22,16 @@
             <ColumnDefinition Width="Auto"/>
           </Grid.ColumnDefinitions>
 
-          <Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="-2">
+          <!--<Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="-2">-->
             <Entry Placeholder="Address To" Text="{Binding AddressTo}" x:Name="ValueAddress" />
-          </Frame>
+          <!--</Frame>-->
 
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Column="1" Scale="1"
               ImageHeightRequest="30"
               ImageWidthRequest="30"
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
+              Image="Resources/Icons/add.png"
               TextColor="#000000"
               Clicked="Add_OnClicked"
               Text="">
@@ -54,20 +55,20 @@
                   Style="{StaticResource OrdersButtonStyle}"/>-->
 
         </Grid>
-        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+        <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
           <Entry Placeholder="My Balance" Text="{Binding MyBalance}" x:Name="mb" />
-        </Frame>
-        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+        <!--</Frame>-->
+        <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
           <Entry Placeholder="Value to Pay" Text="{Binding ValutoPay}" x:Name="vtp"/>
-        </Frame>
-        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SendCommand}" />
+        <!--</Frame>-->
+        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SendCommand}" Clicked="OnClickSend" />
       </StackLayout>
     </ContentPage>
 
 
 
 
-    <ContentPage Title="Particular Pay...">
+    <ContentPage Title="Particular Pay..." x:Name="particularPay">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center" >
         <!--<TableView>
           <TableRoot>
@@ -86,15 +87,16 @@
             <ColumnDefinition Width="5"/>
           </Grid.ColumnDefinitions>
 
-          <Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="-2">
+          <!--<Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="-2">-->
             <Entry Placeholder="Address To" Text="{Binding AddressTo}" x:Name="ValueAddress2" />
-          </Frame>
+          <!--</Frame>-->
 
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Column="1" Scale="1"
               ImageHeightRequest="30"
               ImageWidthRequest="30"
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
+              Image="Resources/Icons/add.png"
               TextColor="#000000"
               Clicked="Add_OnClicked"
               Text="">
@@ -118,22 +120,22 @@
         <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">
           <Entry Placeholder="Address To" Text="{Binding Username}" x:Name="at2" Style="{StaticResource EntryStyle}"  />
         </Frame>-->
-        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+        <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
           <Entry Placeholder="My Balance" Text="{Binding MyBalance}" x:Name="mb2" Style="{StaticResource EntryStyle}" />
-        </Frame>
-        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+        <!--</Frame>-->
+        <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
           <Entry Placeholder="Value to Pay" Text="{Binding ValutoPay}" x:Name="vtp2" Style="{StaticResource EntryStyle}" />
-        </Frame>
-        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
-          <Entry Placeholder="Fee = 0.001" Text="{Binding Fee}" x:Name="fee2" Style="{StaticResource EntryStyle}" />
-        </Frame>
+        <!--</Frame>-->
+        <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+          <Entry Placeholder="Fee = 0.0001" Text="{Binding Fee}" x:Name="fee2" Style="{StaticResource EntryStyle}" />
+        <!--</Frame>-->
         <!--<Entry Placeholder="Note for transaction ..." Text="{Binding Note}" HeightRequest="100"  x:Name="nft2"/>-->
         <Label Text="Note for transaction" Style="{StaticResource LabelStyle}" />
-        <Frame Style="{StaticResource FrameStyle}" Padding="-2">
+        <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
           <Editor HeightRequest="100" Style="{StaticResource EditorStyle}" VerticalOptions="End" />
-        </Frame>
+        <!--</Frame>-->
 
-        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SendCommand}"  />
+        <Button Text="Send" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SendCommand}" Clicked="OnClickSend"/>
 
 
 
