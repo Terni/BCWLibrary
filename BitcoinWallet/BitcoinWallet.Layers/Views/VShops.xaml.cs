@@ -81,14 +81,20 @@ namespace BitcoinWallet.Layers.Views
 
             // add the slider
             var slider = new Slider(1, 18, 1);
-            slider.ValueChanged += (sender, e) => {
-                var zoomLevel = e.NewValue; // between 1 and 18
-                var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-                Debug.WriteLine(zoomLevel + " -> " + latlongdegrees);
-                if (map.VisibleRegion != null)
-                    map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
-            };
-
+            try
+            {
+                slider.ValueChanged += (sender, e) => {
+                    var zoomLevel = e.NewValue; // between 1 and 18
+                    var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+                    Debug.WriteLine(zoomLevel + " -> " + latlongdegrees);
+                    if (map.VisibleRegion != null)
+                        map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
+                };
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Probably bad value for sender: {e}");
+            }
 
             // create map style buttons
             var street = new Button { Text = "Street", TextColor = Color.Black};
@@ -115,11 +121,11 @@ namespace BitcoinWallet.Layers.Views
 
 
             // for debugging output only
-            map.PropertyChanged += (sender, e) => {
-                Debug.WriteLine(e.PropertyName + " just changed!");
-                if (e.PropertyName == "VisibleRegion" && map.VisibleRegion != null)
-                    CalculateBoundingCoordinates(map.VisibleRegion);
-            };
+            //map.PropertyChanged += (sender, e) => {
+            //    Debug.WriteLine(e.PropertyName + " just changed!");
+            //    if (e.PropertyName == "VisibleRegion" && map.VisibleRegion != null)
+            //        CalculateBoundingCoordinates(map.VisibleRegion);
+            //};
         }
 
         void HandleClicked(object sender, EventArgs e)
