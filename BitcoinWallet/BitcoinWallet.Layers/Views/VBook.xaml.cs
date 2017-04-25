@@ -158,7 +158,6 @@ namespace BitcoinWallet.Views
             ShowAllItemsFromDatabase(); // update contentpage
         }
 
-
         private void TestAddFistItemsToDatabase()
         {
             var testContact = new ContactItem
