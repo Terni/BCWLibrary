@@ -103,16 +103,19 @@ namespace BitcoinWallet.Views
         {
             DataTransaction dataTransaction = new DataTransaction();
             List<TransRow> listTrans = new List<TransRow>();
+            dataTransaction = await ViewTransaction.GetTransactionData();  //update data
 
-            if (BalanceHelper.DataTransactiontTrans.ListTransactions.Count > 0)
+            if (dataTransaction.ListTransactions.Count > 0) // test for count
             {
-                dataTransaction = BalanceHelper.DataTransactiontTrans; // this chace data
+                BalanceHelper.DataTransactiontTrans = dataTransaction;
             }
-            else
+            else // from chace data
             {
-                dataTransaction = await ViewTransaction.GetTransactionData();
+                if (BalanceHelper.DataTransactiontTrans.ListTransactions.Count > 0) 
+                {
+                    dataTransaction = BalanceHelper.DataTransactiontTrans;
+                }
             }
-
             
             if (dataTransaction.ListTransactions.Count > 0) // test for count
             {

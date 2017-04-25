@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bitcoin.APIv2Client.Models;
 using BitcoinWallet.Layers.Models;
 using BitcoinWallet.Layers.Helpers;
 using Info.Blockchain.API.BlockExplorer;
@@ -14,14 +15,29 @@ namespace BitcoinWallet.Views
     public partial class VPayment : TabbedPage
     {
         public static string BitcoinAddressFromBook { get; set; }
+        private float _defaultBTC;
 
         public VPayment()
         {
             InitializeComponent();
 
             // Init cell for Balance
-            float myBalance =  (float) ApiLogon.Balance.Btc / BitcoinValue.SatoshisPerBitcoin;
-            mb.Text = mb2.Text = myBalance.ToString();
+            _defaultBTC =  (float) ApiLogon.Balance.Btc / BitcoinValue.SatoshisPerBitcoin;
+            if (_defaultBTC != 0)
+            {
+                mb.Text = mb2.Text = _defaultBTC.ToString();
+            }
+            else if (BalanceHelper.DataTransactiontTrans.FinalBalance > 0)
+            {
+                _defaultBTC = (float) BalanceHelper.DataTransactiontTrans.FinalBalance /
+                              BitcoinValue.SatoshisPerBitcoin;
+                mb.Text = mb2.Text = _defaultBTC.ToString();
+            }
+            else
+            {
+                _defaultBTC = 0;
+                mb.Text = mb2.Text = _defaultBTC.ToString();
+            }
 
             //Set adress
             if (!string.IsNullOrWhiteSpace(BitcoinAddressFromBook))
@@ -29,7 +45,26 @@ namespace BitcoinWallet.Views
                 ValueAddress.Text = BitcoinAddressFromBook;
                 ValueAddress2.Text = BitcoinAddressFromBook;
             }
+
+            GetValueBalance(); // update balance
         }
+
+        private async void GetValueBalance()
+        {
+            BalanceHelper balance = new BalanceHelper();
+            DataTransaction data = new DataTransaction();
+            data = await balance.GetDataTransactiontTrans();
+
+            //Init variables
+            if (data.FinalBalance > 0)
+            {
+                _defaultBTC = (float)data.FinalBalance / BitcoinValue.SatoshisPerBitcoin;
+            }
+
+            mb.Text = mb2.Text = _defaultBTC.ToString();
+        }
+
+
 
         private async void Add_OnClicked(object sender, EventArgs e)
         {
