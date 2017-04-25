@@ -182,7 +182,7 @@ namespace BitcoinWallet.Layers.Views
 
             try
             {
-                var position = await locator.GetPositionAsync(10000);
+                var position = await locator.GetPositionAsync(4000); // is 4 seconds
 
                 Debug.WriteLine("Position Status: {0}", position.Timestamp);
                 Debug.WriteLine("Position Latitude: {0}", position.Latitude);
