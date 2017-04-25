@@ -102,10 +102,10 @@ namespace Expanded.DBase.ViewModels
 
         public int SaveItem(ContactItem item)
         {
-            if (item.Id != 0)
-            {
-                return _database.Update(item);
-            }
+            //if (item.Id != 0) // TODO dont working good
+            //{
+            //    return _database.Update(item);
+            //}
 
             return _database.Insert(item);
         }
