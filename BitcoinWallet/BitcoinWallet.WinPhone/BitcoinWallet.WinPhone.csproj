@@ -113,6 +113,7 @@
     <Content Include="Assets\StoreLogo.scale-240.png" />
     <Content Include="Assets\WideLogo.scale-240.png" />
     <Content Include="Resources\Icons\add.png" />
+    <Content Include="Resources\Icons\delete.png" />
     <Content Include="Resources\Icons\user-add.png" />
     <Content Include="Resources\Icons_base\add.png" />
     <Content Include="Resources\Icons_base\cancel.png" />
@@ -123,6 +124,7 @@
     <Content Include="Resources\Icons_menuItems\activate.png" />
     <Content Include="Resources\Icons_menuItems\calendar.late.png" />
     <Content Include="Resources\Icons_menuItems\chart.png" />
+    <Content Include="Resources\Icons_menuItems\charts.png" />
     <Content Include="Resources\Icons_menuItems\contacts.dark.png" />
     <Content Include="Resources\Icons_menuItems\contacts.png" />
     <Content Include="Resources\Icons_menuItems\gotoslide.png" />
@@ -134,10 +136,12 @@
     <Content Include="Resources\Icons_menuItems\question.png" />
     <Content Include="Resources\Icons_menuItems\reminders.dark.png" />
     <Content Include="Resources\Icons_menuItems\reminders.png" />
-    <Content Include="Resources\Icons_menuItems\send.money.png" />
+    <Content Include="Resources\Icons_menuItems\send.bitcoin.png" />
+    <Content Include="Resources\Icons_menuItems\shops.png" />
     <Content Include="Resources\Icons_menuItems\swap.png" />
     <Content Include="Resources\Icons_menuItems\todo.dark.png" />
     <Content Include="Resources\Icons_menuItems\todo.png" />
+    <Content Include="Resources\Icons_menuItems\trans.png" />
     <Content Include="Resources\Icons_menu\bar-chart.png" />
     <Content Include="Resources\Icons_menu\group-1.png" />
     <Content Include="Resources\Icons_menu\group.png" />

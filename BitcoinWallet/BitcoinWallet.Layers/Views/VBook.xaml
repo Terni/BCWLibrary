@@ -8,6 +8,7 @@
             x:Name="VBookTabbedPage"
             Title="{Binding title}"
             BackgroundColor="White"
+            BarTextColor="Black"
 >
 
     <TabbedPage.Children>
@@ -22,18 +23,18 @@
         <ContentPage Title="Add New contact">
             <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
                 <Image Source="Resources/Icons/user-add.png" Aspect="AspectFit" HeightRequest="175" WidthRequest="175"/>
-                <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+                <Frame Style="{StaticResource FrameStyle}" Padding="-2">
                     <Entry Placeholder="Alias" Text="{Binding Alias}" x:Name="xalias"/>
-                <!--</Frame>-->
-                <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+                </Frame>
+                <Frame Style="{StaticResource FrameStyle}" Padding="-2">
                     <Entry Placeholder="Name" Text="{Binding Name}" x:Name="xname" />
-                <!--</Frame>-->
-                <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+                </Frame>
+                <Frame Style="{StaticResource FrameStyle}" Padding="-2">
                     <Entry Placeholder="Surname" Text="{Binding Surname}" x:Name="xsurname"/>
-                <!--</Frame>-->
-                <!--<Frame Style="{StaticResource FrameStyleRed}" Padding="-2">-->
+                </Frame>
+                <Frame Style="{StaticResource FrameStyleRed}" Padding="-2">
                     <Entry Placeholder="Address" Text="{Binding AddressTo}" Style="{StaticResource EntryStyleRed}" x:Name="xaddress" />
-                <!--</Frame>-->
+                </Frame>
                 <Button Text="Save" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" Clicked="OnClickAddNewContact" />
             </StackLayout>
         </ContentPage>

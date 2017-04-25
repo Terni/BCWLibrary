@@ -8,14 +8,15 @@
             x:Name="MainPageTabbedPage"
             Title="{Binding title}"
             BackgroundColor="White"
+            BarTextColor="Black"
   >
 
   <TabbedPage.Children>
     <!--TODO: ICON-->
     <!--<ContentPage Title="Profile" Icon="Resources/Icons/user.png"   PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPprofile">-->
-    <ContentPage Title="" x:Name="AppProfile">
+    <ContentPage Title="Starting..." x:Name="AppProfile">
       <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
-        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2" IsVisible="False">
           <Entry Placeholder="Alias" Text="{Binding Alias}" IsVisible="False" x:Name="AlsMP"/>
         </Frame>
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
@@ -24,10 +25,10 @@
         <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
           <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true" Style="{StaticResource EntryStyleRed}" x:Name="Pass1MP" />
         </Frame>
-        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2" IsVisible="False" x:Name="framePass2MP">
             <Entry Placeholder="SecondPassword" Text="{Binding SecondPassword}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="Pass2MP"/>
         </Frame>
-        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2" IsVisible="False">
             <Entry Placeholder="APICode" Text="{Binding APICode}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="ApiCodeMP"/>
             <!--Margin <left,top,right,botton>-->
         </Frame>
@@ -39,7 +40,7 @@
 
     <!--TODO: ICON-->
     <!--<ContentPage Title="Setting" Icon="Resources/Icons/settings-3.png" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPsetting">-->
-    <ContentPage Title="Settings" x:Name="AppSetting">
+    <ContentPage Title="" x:Name="AppSetting">
       <!--<ContentPage.Resources>
         <ResourceDictionary>
           <Style x:Key="baseStyle" TargetType="SwitchCell">

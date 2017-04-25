@@ -217,7 +217,7 @@ namespace BitcoinWallet.Views
 
         private void SwitchCell_OnOnChanged(object sender, ToggledEventArgs e)
         {
-            IsPasswordSecond = Pass2MP.IsVisible = (sender as SwitchCell).On;
+            IsPasswordSecond = Pass2MP.IsVisible = framePass2MP.IsVisible = (sender as SwitchCell).On;
             if (IsPasswordSecond)
             {
                 Pass2MP.Text = DataLogon.PasswordSecond;

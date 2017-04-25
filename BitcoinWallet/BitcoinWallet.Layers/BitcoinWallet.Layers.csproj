@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\LoadJsonFile.cs" />
     <Compile Include="Helpers\Tools.cs" />
     <Compile Include="Helpers\UriEngine.cs" />
     <Compile Include="Layers.cs" />
@@ -161,10 +162,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Resources\MapPins.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Views\VKeyboard2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

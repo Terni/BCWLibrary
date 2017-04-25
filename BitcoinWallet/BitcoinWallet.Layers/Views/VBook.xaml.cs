@@ -126,14 +126,18 @@ namespace BitcoinWallet.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnClickButtonRemove(object sender, EventArgs e)
+        private async void OnClickButtonRemove(object sender, EventArgs e)
         {
             var address = (sender as Button).AutomationId;
-            Debug.WriteLine($"Delete address: {address}");
 
-            Database.PropertyContactSpec.DeleteAsAddress(address);
+            if (await OnAlertYesNoClickedRemove(sender, e))
+            {
+                Debug.WriteLine($"Delete address: {address}");
 
-            ShowAllItemsFromDatabase(); // update contentpage
+                Database.PropertyContactSpec.DeleteAsAddress(address);
+
+                ShowAllItemsFromDatabase(); // update contentpage
+            }
         }
 
         /// <summary>
@@ -141,7 +145,7 @@ namespace BitcoinWallet.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnClickAddNewContact(object sender, EventArgs e)
+        private async void OnClickAddNewContact(object sender, EventArgs e)
         {
             var contact = new ContactItem
             {
@@ -156,6 +160,9 @@ namespace BitcoinWallet.Views
             Database.PropertyContactSpec.SaveItem(contact);
 
             ShowAllItemsFromDatabase(); // update contentpage
+
+            if (Navigation != null)
+                await Navigation.PushModalAsync(new VBook());
         }
 
         private void TestAddFistItemsToDatabase()
@@ -163,7 +170,7 @@ namespace BitcoinWallet.Views
             var testContact = new ContactItem
             {
                 Id = Database.PropertyContactSpec.GenerLastIndex(),
-                Alias = "Test",
+                Alias = "Test Contact",
                 FirstName = "Jon",
                 LastName = "Witch",
                 Address = "xdfgsff24fggfg45ghhfd1121ff",
@@ -171,6 +178,14 @@ namespace BitcoinWallet.Views
             };
 
             Database.PropertyContactSpec.SaveItem(testContact);
+        }
+
+
+        async Task<bool> OnAlertYesNoClickedRemove(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("Do you really want to remove the contact?", "", "Yes", "No");
+            Debug.WriteLine("Answer: " + answer);
+            return answer;
         }
     }
 }

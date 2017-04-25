@@ -54,8 +54,11 @@ namespace Expanded.Charts.ViewModels
             }
             catch
             {
-                throw new Exception("Error in client.GetStringAsynch, maybe bad url address or params!");
+                //throw new Exception("Error in client.GetStringAsynch, maybe bad url address or params!");
                 //Logging.Debug("Start app.", Logging.Level.DATABASE); // TODO vyresit kruhovou referenci na Logging
+
+                Debug.WriteLine("Error in client.GetStringAsynch, maybe bad url address or params!");
+                return new List<DataTricker>(); // empty data
             }
 
             return RatesTicker.GetRates(jsonData);
@@ -82,10 +85,12 @@ namespace Expanded.Charts.ViewModels
             }
             catch
             {
-                throw new Exception("Error in client.GetStringAsynch, maybe bad url address or params!");
+                //throw new Exception("Error in client.GetStringAsynch, maybe bad url address or params!");
                 //Logging.Debug("Start app.", Logging.Level.DATABASE); // TODO vyresit kruhovou referenci na Logging
-            }
 
+                Debug.WriteLine("Error in client.GetStringAsynch, maybe bad url address or params!");
+                return new List<DataPointChart>(); // empty data
+            }
 
             List<DataPointChart> selectedList = new List<DataPointChart>();
             selectedList = DateSelector(RatersChart.GetRates(jsonData));
