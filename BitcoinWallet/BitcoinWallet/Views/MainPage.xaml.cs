@@ -13,6 +13,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Android.Util;
 using Bitcoin.APIv2Client.Models;
+using BitcoinWallet.Layers.Helpers;
 using BitcoinWallet.Layers.Models;
 using Info.Blockchain.API.BlockExplorer;
 

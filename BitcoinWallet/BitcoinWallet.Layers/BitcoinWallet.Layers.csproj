@@ -45,6 +45,7 @@
     <Compile Include="Models\TransRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ViewAtmsShops.cs" />
+    <Compile Include="Helpers\BalanceHelper.cs" />
     <Compile Include="ViewModels\ViewTransaction.cs" />
     <Compile Include="Views\VAbout.xaml.cs">
       <DependentUpon>VAbout.xaml</DependentUpon>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bitcoin.APIv2Client.Models;
+using BitcoinWallet.Layers.Helpers;
 using BitcoinWallet.Layers.Models;
 using BitcoinWallet.Layers.ViewModels;
 using Xamarin.Forms;
@@ -26,7 +27,7 @@ namespace BitcoinWallet.Views
         /// <summary>
         /// Method for Show Recieve and Send Transaction in History max. 50 records
         /// </summary>
-        private async void ShowRecieveAndSendTrans()
+        public async void ShowRecieveAndSendTrans()
         {
             var recieveScrollView = new ScrollView();
             var recieveLayout = new StackLayout();
@@ -103,8 +104,16 @@ namespace BitcoinWallet.Views
             DataTransaction dataTransaction = new DataTransaction();
             List<TransRow> listTrans = new List<TransRow>();
 
+            if (BalanceHelper.DataTransactiontTrans.ListTransactions.Count > 0)
+            {
+                dataTransaction = BalanceHelper.DataTransactiontTrans; // this chace data
+            }
+            else
+            {
+                dataTransaction = await ViewTransaction.GetTransactionData();
+            }
 
-            dataTransaction = await ViewTransaction.GetTransactionData();
+            
             if (dataTransaction.ListTransactions.Count > 0) // test for count
             {
                 foreach (var transaction in dataTransaction.ListTransactions)
