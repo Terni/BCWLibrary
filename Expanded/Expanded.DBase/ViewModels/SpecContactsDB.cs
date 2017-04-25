@@ -110,6 +110,16 @@ namespace Expanded.DBase.ViewModels
             return _database.Insert(item);
         }
 
+        public int DeleteAsItem(ContactItem item)
+        {
+            return _database.Delete(item);
+        }
+
+        public int DeleteAsID(int id)
+        {
+            return _database.Delete(GetItemAsID(id));
+        }
+
         public int DropAllItem()
         {
             return _database.DeleteAll<ContactItem>();

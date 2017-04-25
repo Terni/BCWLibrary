@@ -119,5 +119,10 @@ namespace BitcoinWallet.Views
         {
             //throw new NotImplementedException();
         }
+
+        private void OnClickAddNewContact(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

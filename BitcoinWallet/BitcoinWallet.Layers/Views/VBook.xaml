@@ -34,7 +34,7 @@
                 <!--<Frame Style="{StaticResource FrameStyleRed}" Padding="-2">-->
                     <Entry Placeholder="Address" Text="{Binding AddressTo}" Style="{StaticResource EntryStyleRed}" x:Name="ValueAddress" />
                 <!--</Frame>-->
-                <Button Text="Save" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" />
+                <Button Text="Save" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" Clicked="OnClickAddNewContact" />
             </StackLayout>
         </ContentPage>
 
