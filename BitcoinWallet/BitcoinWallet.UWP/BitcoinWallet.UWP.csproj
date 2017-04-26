@@ -100,6 +100,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ImageButtonRenderer.cs" />
     <Compile Include="UWP_CloseApp.cs" />
     <Compile Include="UWP_FileHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -198,6 +199,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Expanded\Expanded.Common\Expanded.Common.csproj">
+      <Project>{b8094309-3c83-46a1-9a6c-a084856e177f}</Project>
+      <Name>Expanded.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BitcoinWallet\BitcoinWallet.csproj">
       <Name>BitcoinWallet</Name>
     </ProjectReference>

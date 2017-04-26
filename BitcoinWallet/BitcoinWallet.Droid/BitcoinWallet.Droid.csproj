@@ -210,6 +210,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\FontExtensions.cs" />
+    <Compile Include="Controls\ImageButtonRenderer.cs" />
     <Compile Include="Droid_CloseApp.cs" />
     <Compile Include="Droid_FileHelper.cs" />
     <Compile Include="Droid_Localize.cs" />
@@ -298,6 +300,10 @@
     <AndroidResource Include="Resources\drawable\Icons_menuItems\trans.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Expanded\Expanded.Common\Expanded.Common.csproj">
+      <Project>{b8094309-3c83-46a1-9a6c-a084856e177f}</Project>
+      <Name>Expanded.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BitcoinWallet\BitcoinWallet.csproj">
       <Name>BitcoinWallet</Name>
     </ProjectReference>
