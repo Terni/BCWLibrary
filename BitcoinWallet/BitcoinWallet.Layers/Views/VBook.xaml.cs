@@ -89,7 +89,7 @@ namespace BitcoinWallet.Views
                     ImageHeightRequest = 30,
                     ImageWidthRequest = 30,
                     Orientation = ImageOrientation.ImageCentered,
-                    Image = "Resources/Icons/delete.png",
+                    //Image = "Resources/Icons/delete.png",
                     TextColor = Color.FromHex("000000"),
                     Text = "",
                     AutomationId = contact.Address

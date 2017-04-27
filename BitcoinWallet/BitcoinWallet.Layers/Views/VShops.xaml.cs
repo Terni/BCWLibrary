@@ -184,9 +184,9 @@ namespace BitcoinWallet.Layers.Views
             {
                 var position = await locator.GetPositionAsync(4000); // is 4 seconds
 
-                Debug.WriteLine("Position Status: {0}", position.Timestamp);
-                Debug.WriteLine("Position Latitude: {0}", position.Latitude);
-                Debug.WriteLine("Position Longitude: {0}", position.Longitude);
+                //Debug.WriteLine("Position Status: {0}", position.Timestamp);
+                //Debug.WriteLine("Position Latitude: {0}", position.Latitude);
+                //Debug.WriteLine("Position Longitude: {0}", position.Longitude);
 
                 var b1 = new Button { Text = $"Reverse geocode '{position.Latitude}, {position.Longitude}'", TextColor = Color.Black };
                 b1.Clicked += async (sender, e) => {

@@ -52,7 +52,6 @@
               ImageWidthRequest="110"
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
-              Image="Resources/wallet1_qrcode.png"
               TextColor="#000000"
               Clicked="Detail_OnClicked"
               Text="">

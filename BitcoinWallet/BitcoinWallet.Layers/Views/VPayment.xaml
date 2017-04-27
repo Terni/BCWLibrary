@@ -31,7 +31,6 @@
               ImageWidthRequest="30"
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
-              Image="Resources/Icons/add.png"
               TextColor="#000000"
               Clicked="Add_OnClicked"
               Text="">
@@ -96,7 +95,6 @@
               ImageWidthRequest="30"
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
-              Image="Resources/Icons/add.png"
               TextColor="#000000"
               Clicked="Add_OnClicked"
               Text="">
