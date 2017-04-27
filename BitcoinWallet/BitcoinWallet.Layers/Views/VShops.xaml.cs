@@ -31,7 +31,7 @@ namespace BitcoinWallet.Layers.Views
             InitializeComponent();
 
             MapPage(); // create map
-            GeocoderPage();
+            //GeocoderPage();  // TODO: dont work in deployding  
             SetWorldPins();
 
             _lable.TextColor = Color.Black;
