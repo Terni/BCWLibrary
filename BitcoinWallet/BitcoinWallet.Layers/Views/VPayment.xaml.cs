@@ -16,6 +16,8 @@ namespace BitcoinWallet.Views
     {
         public static string BitcoinAddressFromBook { get; set; }
         private float _defaultBTC;
+        private bool _isNumber;
+        private double _outNumber;
 
         public VPayment()
         {
@@ -46,7 +48,15 @@ namespace BitcoinWallet.Views
                 ValueAddress2.Text = BitcoinAddressFromBook;
             }
 
-            GetValueBalance(); // update balance
+            try
+            {
+                GetValueBalance(); // update balance
+            }
+            catch (Exception e)
+            {
+                // nothing
+            }
+            
         }
 
         private async void GetValueBalance()
@@ -59,6 +69,7 @@ namespace BitcoinWallet.Views
             if (data.FinalBalance > 0)
             {
                 _defaultBTC = (float)data.FinalBalance / BitcoinValue.SatoshisPerBitcoin;
+                ApiLogon.Balance = new BitcoinValue(data.FinalBalance);
             }
 
             mb.Text = mb2.Text = _defaultBTC.ToString();
@@ -75,6 +86,11 @@ namespace BitcoinWallet.Views
 
         private async void OnClickSend(object sender, EventArgs e)
         {
+            // reset value
+            _isNumber = false; 
+            _outNumber = 0;
+            vtp.TextColor = Color.Black;
+
             try
             {
                 //For From Address
@@ -101,50 +117,71 @@ namespace BitcoinWallet.Views
             {
                 ApiLogon.ToBitcoinAddress = ValueAddress2.Text;
             }
-
+            
             //For Amount
             if (!string.IsNullOrWhiteSpace(vtp.Text))
-                ApiLogon.MyAmount = Convert.ToDouble(vtp.Text);
-            else
             {
-                ApiLogon.MyAmount = Convert.ToDouble(vtp2.Text);
-            }
-            BitcoinValue amount = new BitcoinValue((decimal)ApiLogon.MyAmount * BitcoinValue.SatoshisPerBitcoin);
-
-            if (ApiLogon.MyAmount < 0 || string.IsNullOrWhiteSpace(ApiLogon.ToBitcoinAddress)) // TODO correct is ApiLogon.MyAmount <= 0
-            {
-                await DisplayAlert("Warning",$"Amount or To Address are bad filled!", "OK");
-            }
-            else if (ApiLogon.MyAmount > (float) ApiLogon.Balance.Btc / BitcoinValue.SatoshisPerBitcoin)
-            {
-                await DisplayAlert("Warning", $"Amount higher than Balance!", "OK");
+                _isNumber = double.TryParse(vtp.Text, out _outNumber);
             }
             else
             {
-                //For Test Yes or No send money
-                bool result = await OnAlertYesNoClicked(sender, e);
-                if (result)
+                if (!string.IsNullOrWhiteSpace(vtp2.Text))
                 {
-                    try
-                    {
-                        //For SendMoney, (toAddres, Amount, fromAddress, fee=0.0001, note)
-                        ApiLogon.PayResponse =
-                            await ApiLogon.Wallet.SendAsync(ApiLogon.ToBitcoinAddress, amount,
-                                ApiLogon.FromMyBitcoinAddress, new BitcoinValue(10000), null);
+                    _isNumber = double.TryParse(vtp2.Text, out _outNumber);
+                }
+            }
 
-                        await DisplayAlert("Successfully",
-                            $"Send amount is: {ApiLogon.MyAmount}\n to {ApiLogon.ToBitcoinAddress}\n" +
-                            $" trans. hash is {ApiLogon.PayResponse.TxHash}\n message is {ApiLogon.PayResponse.Message}", "OK");
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine($"Error from server or client! Error is: {ex}");
-                        //Logging.Debug($"Error from server or client! Error is: {ex}");
+            if (_isNumber)
+            {
+                ApiLogon.MyAmount = _outNumber;
 
-                        await DisplayAlert("Successfully",
-                            $"Send amount is: {ApiLogon.MyAmount}\n to {ApiLogon.ToBitcoinAddress}", "OK"); //TODO HACK for testing
+                BitcoinValue amount = new BitcoinValue((decimal)ApiLogon.MyAmount * BitcoinValue.SatoshisPerBitcoin);
+
+                //for testing
+                Debug.WriteLine($"My Amount: {(float)ApiLogon.Balance.Btc / BitcoinValue.SatoshisPerBitcoin}");
+                Debug.WriteLine($"My Amount: {ApiLogon.MyAmount}");
+
+                if (ApiLogon.MyAmount < 0 || string.IsNullOrWhiteSpace(ApiLogon.ToBitcoinAddress)) // TODO correct is ApiLogon.MyAmount <= 0
+                {
+                    await DisplayAlert("Warning", $"Amount or To Address are bad filled!", "OK");
+                }
+                else if (ApiLogon.MyAmount > (float)ApiLogon.Balance.Btc / BitcoinValue.SatoshisPerBitcoin)
+                {
+                    await DisplayAlert("Warning", $"Amount higher than Balance!", "OK");
+                }
+                else
+                {
+                    //For Test Yes or No send money
+                    bool result = await OnAlertYesNoClicked(sender, e);
+                    if (result)
+                    {
+                        try
+                        {
+                            //For SendMoney, (toAddres, Amount, fromAddress, fee=0.0001, note)
+                            ApiLogon.PayResponse =
+                                await ApiLogon.Wallet.SendAsync(ApiLogon.ToBitcoinAddress, amount,
+                                    ApiLogon.FromMyBitcoinAddress, new BitcoinValue(10000), null);
+
+                            await DisplayAlert("Successfully",
+                                $"Send amount is: {ApiLogon.MyAmount}\n to {ApiLogon.ToBitcoinAddress}\n" +
+                                $" trans. hash is {ApiLogon.PayResponse.TxHash}\n message is {ApiLogon.PayResponse.Message}", "OK");
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Error from server or client! Error is: {ex}");
+                            //Logging.Debug($"Error from server or client! Error is: {ex}");
+
+                            await DisplayAlert("Successfully",
+                                $"Send amount is: {ApiLogon.MyAmount}\n to {ApiLogon.ToBitcoinAddress}", "OK"); //TODO HACK for testing
+                        }
                     }
                 }
+            }
+            else
+            {
+                ApiLogon.MyAmount = 0; //reset value
+                vtp.TextColor = Color.Red;
+                await DisplayAlert("Warning", $"Amount is not number!", "OK");
             }
         }
 

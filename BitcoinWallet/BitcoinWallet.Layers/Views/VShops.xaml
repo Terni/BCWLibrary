@@ -15,11 +15,11 @@
             </StackLayout>
         </ContentPage>
 
-        <ContentPage Title="Geocode Position..." x:Name="geocode" >
+        <!--<ContentPage Title="Geocode Position..." x:Name="geocode" >
             <StackLayout Spacing="20" Padding="20" HorizontalOptions="StartAndExpand">
                 <Label Text="Me Geocode." TextColor="Black"/>
             </StackLayout>
-        </ContentPage>
+        </ContentPage>-->
 
     </TabbedPage.Children>
 </TabbedPage>

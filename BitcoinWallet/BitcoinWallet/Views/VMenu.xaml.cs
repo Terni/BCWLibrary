@@ -47,6 +47,7 @@ namespace BitcoinWallet.Views
             else if (data.FinalBalance > 0)
             {
                 _defaultBTC = (float)data.FinalBalance / BitcoinValue.SatoshisPerBitcoin;
+                ApiLogon.Balance = new BitcoinValue(data.FinalBalance);
             }
             else
             {

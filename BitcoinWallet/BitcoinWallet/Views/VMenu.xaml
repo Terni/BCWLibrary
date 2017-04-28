@@ -65,7 +65,7 @@
                     <FileImageSource File="Resources/Icons_menu/user-4.png" />
                   </OnPlatform.WinPhone>
                   <OnPlatform.Android>
-                    <FileImageSource File="Resources/drawable/user-4.png" />
+                    <FileImageSource File="Resources/drawable/user-4x.png" />
                   </OnPlatform.Android>
                   <!-- ReSharper disable once Xaml.InvalidType -->
                 </OnPlatform>
@@ -75,7 +75,6 @@
           </Grid>
 
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="1" Grid.Column="0" Scale="1"
-                        HeightRequest="100"
                         ImageHeightRequest="100"
                         ImageWidthRequest="100"
                         Orientation="ImageCentered"
@@ -91,7 +90,7 @@
                   <FileImageSource File="Resources/Icons_menu/laptop-2.png" />
                 </OnPlatform.WinPhone>
                 <OnPlatform.Android>
-                  <FileImageSource File="Resources/drawable/laptop-2.png" />
+                  <FileImageSource File="Resources/drawable/laptop-2x.png" />
                 </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
@@ -100,7 +99,6 @@
           <!--<Button Text="Payment"
                   Grid.Row="1" Grid.Column="0" BackgroundColor="#7ac3ff" HeightRequest="100" Clicked="Payment_OnClicked"/>-->
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="1" Grid.Column="1" Scale="1"
-                        HeightRequest="100"
                         ImageHeightRequest="115"
                         ImageWidthRequest="100"
                         Orientation="ImageCentered"
@@ -125,7 +123,6 @@
           <!--<Button Text="Address Book"
                   Grid.Row="1" Grid.Column="1" BackgroundColor="#7ac3ff" Clicked="Book_OnClicked"/>-->
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="2" Grid.Column="0" Scale="1"
-                        HeightRequest="100"
                         ImageHeightRequest="100"
                         ImageWidthRequest="100"
                         Orientation="ImageCentered"
@@ -150,7 +147,6 @@
           <!--<Button Text="History"
                   Grid.Row="2" Grid.Column="0" BackgroundColor="#7ac3ff" Clicked="History_OnClicked"/>-->
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="2" Grid.Column="1" Scale="1"
-                        HeightRequest="100"
                         ImageHeightRequest="85"
                         ImageWidthRequest="100"
                         Orientation="ImageCentered"
@@ -177,10 +173,8 @@
 
 
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="3" Grid.Column="0" Scale="1"
-              HeightRequest="100"
               ImageHeightRequest="95"
               ImageWidthRequest="100"
-
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
               TextColor="#000000"
@@ -206,7 +200,6 @@
 
 
           <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="3" Grid.Column="1" Scale="1"
-          HeightRequest="100"
           ImageHeightRequest="95"
           ImageWidthRequest="100"
           Orientation="ImageCentered"

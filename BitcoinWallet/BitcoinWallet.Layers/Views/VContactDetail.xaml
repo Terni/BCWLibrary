@@ -53,6 +53,7 @@
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
               TextColor="#000000"
+              BackgroundColor="White"
               Clicked="Detail_OnClicked"
               Text="">
                 <controls:ImageButton.Source>

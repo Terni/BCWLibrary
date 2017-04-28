@@ -208,15 +208,15 @@ namespace BitcoinWallet.Layers.Views
                 //    }
                 //};
 
-                this.geocode.Content = new StackLayout
-                {
-                    Padding = new Thickness(0, 20, 0, 0),
-                    Children = {
-                        //b2,
-                        b1,
-                        _lable
-                    }
-                };
+                //this.geocode.Content = new StackLayout // TODO uncommnet 
+                //{
+                //    Padding = new Thickness(0, 20, 0, 0),
+                //    Children = {
+                //        //b2,
+                //        b1,
+                //        _lable
+                //    }
+                //};
             }
             catch (Exception e)
             {
