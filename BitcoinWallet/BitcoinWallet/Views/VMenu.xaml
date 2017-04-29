@@ -14,9 +14,6 @@
 
     <ContentPage Title="Main Menu" >
       <!--<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />-->
-
-
-
       <ScrollView >
 
 
@@ -65,7 +62,7 @@
                     <FileImageSource File="Resources/Icons_menu/user-4.png" />
                   </OnPlatform.WinPhone>
                   <OnPlatform.Android>
-                    <FileImageSource File="Resources/drawable/user-4x.png" />
+                    <FileImageSource File="Resources/drawable/user4.png" />
                   </OnPlatform.Android>
                   <!-- ReSharper disable once Xaml.InvalidType -->
                 </OnPlatform>
@@ -90,7 +87,7 @@
                   <FileImageSource File="Resources/Icons_menu/laptop-2.png" />
                 </OnPlatform.WinPhone>
                 <OnPlatform.Android>
-                  <FileImageSource File="Resources/drawable/laptop-2x.png" />
+                  <FileImageSource File="Resources/drawable/laptop2.png" />
                 </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
@@ -114,7 +111,7 @@
                   <FileImageSource File="Resources/Icons_menu/group-1.png" />
                 </OnPlatform.WinPhone>
                 <OnPlatform.Android>
-                  <FileImageSource File="Resources/drawable/group-1.png" />
+                  <FileImageSource File="Resources/drawable/group1.png" />
                 </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
@@ -138,7 +135,7 @@
                   <FileImageSource File="Resources/Icons_menu/transfer-2.png" />
                 </OnPlatform.WinPhone>
                 <OnPlatform.Android>
-                  <FileImageSource File="Resources/drawable/transfer-2.png" />
+                  <FileImageSource File="Resources/drawable/transfer2.png" />
                 </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
@@ -162,7 +159,7 @@
                   <FileImageSource File="Resources/Icons_menu/bar-chart.png" />
                 </OnPlatform.WinPhone>
                 <OnPlatform.Android>
-                  <FileImageSource File="Resources/drawable/bar-chart.png" />
+                  <FileImageSource File="Resources/drawable/barchart.png" />
                 </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
@@ -189,7 +186,7 @@
                   <FileImageSource File="Resources/Icons_menu/shopping-bag-1.png" />
                 </OnPlatform.WinPhone>
                 <OnPlatform.Android>
-                  <FileImageSource File="Resources/drawable/shopping-bag-1.png" />
+                  <FileImageSource File="Resources/drawable/shoppingbag1.png" />
                 </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>

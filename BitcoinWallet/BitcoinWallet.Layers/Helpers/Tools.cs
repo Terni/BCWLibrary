@@ -10,11 +10,11 @@ namespace BitcoinWallet.Layers.Helpers
 {
     public static class Tools
     {
-        private static string _droid;
+        private static string _dynamicPath;
 
         static Tools()
         {
-            _droid = CheckPlatform;
+            _dynamicPath = CheckPlatform;
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace BitcoinWallet.Layers.Helpers
         /// </summary>
         public static string GetFolder
         {
-            get { return $"Resources/{_droid}Icons/"; }
+            get { return $"Resources/{_dynamicPath}"; }
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace BitcoinWallet.Layers.Helpers
                 }
                 else if (Device.OS == TargetPlatform.Windows)
                 {
-                    return string.Empty; // for different platform
+                    return "Icons/"; // for different platform
                 }
                 return string.Empty;
             }

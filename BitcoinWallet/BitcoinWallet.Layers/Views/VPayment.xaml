@@ -32,6 +32,7 @@
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
               TextColor="#000000"
+              BackgroundColor="White"
               Clicked="Add_OnClicked"
               Text="">
             <controls:ImageButton.Source>
@@ -41,7 +42,7 @@
                   <FileImageSource File="Resources/Icons/add.png" />
                 </OnPlatform.WinPhone>
                 <OnPlatform.Android>
-                  <FileImageSource File="Resources/drawable/Icons/add.png" />
+                  <FileImageSource File="Resources/drawable/add.png" />
                 </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
@@ -96,6 +97,7 @@
               Orientation="ImageCentered"
               Command="{Binding AddCommand}"
               TextColor="#000000"
+              BackgroundColor="White"
               Clicked="Add_OnClicked"
               Text="">
             <controls:ImageButton.Source>
@@ -104,6 +106,9 @@
                 <OnPlatform.WinPhone>
                   <FileImageSource File="Resources/Icons/add.png" />
                 </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                    <FileImageSource File="Resources/drawable/add.png" />
+                </OnPlatform.Android>
                 <!-- ReSharper disable once Xaml.InvalidType -->
               </OnPlatform>
             </controls:ImageButton.Source>

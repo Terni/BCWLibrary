@@ -135,7 +135,16 @@
     <Content Include="Resources\Icons\delete.png" />
     <Content Include="Resources\Icons\user-1.png" />
     <Content Include="Resources\Icons\user-12.png" />
-    <Content Include="Resources\Icons\user-3.png" />
+    <Content Include="Resources\Icons_menuItems\charts_dark.png" />
+    <Content Include="Resources\Icons_menuItems\contacts_dark.png" />
+    <Content Include="Resources\Icons_menuItems\hamburger_dark.png" />
+    <Content Include="Resources\Icons_menuItems\reminders_dark.png" />
+    <Content Include="Resources\Icons_menuItems\send_bitcoin.png" />
+    <Content Include="Resources\Icons_menuItems\send_money.png" />
+    <Content Include="Resources\Icons_menuItems\shops_dark.png" />
+    <Content Include="Resources\Icons_menuItems\todo_dark.png" />
+    <Content Include="Resources\Icons_menuItems\trans_dark.png" />
+    <Content Include="Resources\user3.png" />
     <Content Include="Resources\Icons\user-add.png" />
     <Content Include="Resources\Icons_base\add.png" />
     <Content Include="Resources\Icons_base\cancel.png" />

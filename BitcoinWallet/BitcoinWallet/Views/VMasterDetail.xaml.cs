@@ -28,37 +28,37 @@ namespace BitcoinWallet.Views
             masterItems.Add(new MasterDetailItem
             {
                 Title = " Profil",
-                IconSource = $"{Tools.GetFolder}contacts.dark.png",
+                IconSource = $"{Tools.GetFolder}contacts_dark.png",
                 TargetType = typeof(VContactDetail)
             });
             masterItems.Add(new MasterDetailItem
             {
                 Title = " Address Book",
-                IconSource = $"{Tools.GetFolder}todo.dark.png",
+                IconSource = $"{Tools.GetFolder}todo_dark.png",
                 TargetType = typeof(VBook)
             });
             masterItems.Add(new MasterDetailItem
             {
                 Title = " Transaction",
-                IconSource = $"{Tools.GetFolder}trans.png",
+                IconSource = $"{Tools.GetFolder}trans_dark.png",
                 TargetType = typeof(VHistory)
             });
             masterItems.Add(new MasterDetailItem
             {
                 Title = " Charts",
-                IconSource = $"{Tools.GetFolder}charts.png",
+                IconSource = $"{Tools.GetFolder}charts_dark.png",
                 TargetType = typeof(Expanded.Charts.Views.VCharts)
             });
             masterItems.Add(new MasterDetailItem
             {
                 Title = " ATM & Shops",
-                IconSource = $"{Tools.GetFolder}shops.png",
+                IconSource = $"{Tools.GetFolder}shops_dark.png",
                 TargetType = typeof(VShops)
             });
             masterItems.Add(new MasterDetailItem
             {
                 Title = " About",
-                IconSource = $"{Tools.GetFolder}reminders.dark.png",
+                IconSource = $"{Tools.GetFolder}reminders_dark.png",
                 TargetType = typeof(VAbout)
             });
 

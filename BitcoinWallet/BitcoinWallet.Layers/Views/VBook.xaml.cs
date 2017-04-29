@@ -67,6 +67,7 @@ namespace BitcoinWallet.Views
                 {
                     Text = $"{contact.Alias}, {contact.FirstName} {contact.LastName} \n{contact.Address}",
                     TextColor = Color.Blue,
+                    BackgroundColor = Color.White,
                     AutomationId = contact.Address,
                     FontSize = 10,
                 };
@@ -91,6 +92,7 @@ namespace BitcoinWallet.Views
                     Orientation = ImageOrientation.ImageCentered,
                     //Image = "Resources/Icons/delete.png",
                     TextColor = Color.FromHex("000000"),
+                    BackgroundColor = Color.White,
                     Text = "",
                     AutomationId = contact.Address
                 };
