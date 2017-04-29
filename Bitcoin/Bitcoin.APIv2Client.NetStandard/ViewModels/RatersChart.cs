@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
-using System.Net;
 using Bitcoin.APIv2Client.NetStandard.Helpers;
 using Bitcoin.APIv2Client.NetStandard.Models;
+using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace Bitcoin.APIv2Client.NetStandard.ViewModels
 {
     public class RatersChart
     {
-        //public static ClassWebClient Client;
-
+        /// <summary>
+        /// Method for get Rates for Poins on Chart
+        /// </summary>
+        /// <param name="jsonData">Specific json string</param>
+        /// <returns>Result is List <see cref="DataPointChart"/></returns>
         public static List<DataPointChart> GetRates(string jsonData)
         {
             var values = JObject.Parse(jsonData).Property("values").Value.AsEnumerable();

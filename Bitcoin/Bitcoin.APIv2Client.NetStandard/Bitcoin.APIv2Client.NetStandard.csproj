@@ -36,11 +36,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\BlockchainApiHelper.cs" />
+    <Compile Include="Helpers\BoolHelper.cs" />
     <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Helpers\UriHelper.cs" />
+    <Compile Include="Models\BaseApi.cs" />
+    <Compile Include="Models\DataLogon.cs" />
+    <Compile Include="Models\DataPin.cs" />
     <Compile Include="Models\DataPointChart.cs" />
+    <Compile Include="Models\DataTransaction.cs" />
     <Compile Include="Models\DataTricker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ClientApi.cs" />
     <Compile Include="ViewModels\RatersChart.cs" />
+    <Compile Include="ViewModels\RatersPinMap.cs" />
+    <Compile Include="ViewModels\RatersTransacion.cs" />
     <Compile Include="ViewModels\RatesTicker.cs" />
   </ItemGroup>
   <ItemGroup>
