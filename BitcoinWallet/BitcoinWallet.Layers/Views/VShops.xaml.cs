@@ -42,8 +42,13 @@ namespace BitcoinWallet.Layers.Views
         {
             List<DataPin> dataList = new List<DataPin>();
             var ATMsandShops = new ViewAtmsShops();
-            dataList = await ViewAtmsShops.GetPinsData();
-
+            if (Device.OS == TargetPlatform.Android) // fix for android
+                dataList = await ViewAtmsShops.GetPinsDataAndroid();
+            else
+            {
+                dataList = await ViewAtmsShops.GetPinsData();
+            }
+                
             if (dataList.Count > 0) // test for count
             {
                 foreach (DataPin item in dataList)
@@ -58,6 +63,12 @@ namespace BitcoinWallet.Layers.Views
                     };
                     map.Pins.Add(pin);
                 }
+
+                //var stack = new StackLayout { Spacing = 0 };
+                //stack.Children.Add(map);
+                ////stack.Children.Add(segments);
+                ////stack.Children.Add(slider);
+                //this.atmsAndShops.Content = stack;
             }
         }
 
@@ -111,7 +122,6 @@ namespace BitcoinWallet.Layers.Views
                 Children = { street, hybrid, satellite }
             };
 
-
             // put the page together
             var stack = new StackLayout { Spacing = 0 };
             stack.Children.Add(map);
@@ -119,9 +129,9 @@ namespace BitcoinWallet.Layers.Views
             stack.Children.Add(slider);
             this.atmsAndShops.Content = stack;
 
-
-            // for debugging output only
-            //map.PropertyChanged += (sender, e) => {
+            //for debugging output only
+            //map.PropertyChanged += (sender, e) =>
+            //{
             //    Debug.WriteLine(e.PropertyName + " just changed!");
             //    if (e.PropertyName == "VisibleRegion" && map.VisibleRegion != null)
             //        CalculateBoundingCoordinates(map.VisibleRegion);
