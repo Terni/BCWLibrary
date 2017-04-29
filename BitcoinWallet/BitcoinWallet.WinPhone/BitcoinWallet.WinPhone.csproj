@@ -121,6 +121,7 @@
     <Content Include="Resources\Icons_base\delete.png" />
     <Content Include="Resources\Icons_base\manage-dark.png" />
     <Content Include="Resources\Icons_base\qrcode.png" />
+    <Content Include="Resources\Icons_menuItems\about_dark.png" />
     <Content Include="Resources\Icons_menuItems\activate.png" />
     <Content Include="Resources\Icons_menuItems\calendar.late.png" />
     <Content Include="Resources\Icons_menuItems\chart.png" />
@@ -130,11 +131,14 @@
     <Content Include="Resources\Icons_menuItems\contacts.png" />
     <Content Include="Resources\Icons_menuItems\contacts_dark.png" />
     <Content Include="Resources\Icons_menuItems\gotoslide.png" />
+    <Content Include="Resources\Icons_menuItems\group_dark.png" />
     <Content Include="Resources\Icons_menuItems\hamburger.dark.png" />
     <Content Include="Resources\Icons_menuItems\hamburger.png" />
     <Content Include="Resources\Icons_menuItems\hamburger_dark.png" />
+    <Content Include="Resources\Icons_menuItems\help_dark.png" />
     <Content Include="Resources\Icons_menuItems\logoff.png" />
     <Content Include="Resources\Icons_menuItems\manage.png" />
+    <Content Include="Resources\Icons_menuItems\payment_dark.png" />
     <Content Include="Resources\Icons_menuItems\people.groups.png" />
     <Content Include="Resources\Icons_menuItems\question.png" />
     <Content Include="Resources\Icons_menuItems\reminders.dark.png" />

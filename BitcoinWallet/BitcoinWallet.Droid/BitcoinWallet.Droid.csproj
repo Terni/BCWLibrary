@@ -295,6 +295,10 @@
     <AndroidResource Include="Resources\drawable\shops_dark.png" />
     <AndroidResource Include="Resources\drawable\todo_dark.png" />
     <AndroidResource Include="Resources\drawable\trans_dark.png" />
+    <AndroidResource Include="Resources\drawable\about_dark.png" />
+    <AndroidResource Include="Resources\drawable\group_dark.png" />
+    <AndroidResource Include="Resources\drawable\help_dark.png" />
+    <AndroidResource Include="Resources\drawable\payment_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Expanded\Expanded.Common\Expanded.Common.csproj">
