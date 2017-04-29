@@ -24,13 +24,11 @@ namespace BitcoinWallet.Layers.ViewModels
 
         public static async Task<List<DataPin>> GetPinsData()
         {
-
-
-            HttpClient client = new HttpClient();
             Debug.WriteLine(BaseUrl.AbsoluteUri);
             string jsonData = string.Empty;
             try
             {
+                HttpClient client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(60); //60s max
                 jsonData = await client.GetStringAsync(BaseUrl);
             }
@@ -46,9 +44,8 @@ namespace BitcoinWallet.Layers.ViewModels
                     using (StreamReader reader = new StreamReader(new LoadJsonFile().Streams))
                     {
                         string chaceJsonData = reader.ReadToEnd();
-                        RatersPinMap.GetRates(chaceJsonData);
+                        return RatersPinMap.GetRates(chaceJsonData);
                     }
-
                 }
                 catch (Exception e)
                 {
@@ -56,7 +53,26 @@ namespace BitcoinWallet.Layers.ViewModels
                     return new List<DataPin>(); //return empty data
                 }
             }
+            return RatersPinMap.GetRates(jsonData);
+        }
 
+        public static async Task<List<DataPin>> GetPinsDataAndroid()
+        {
+
+            string jsonData = string.Empty;
+            try
+            {
+                using (StreamReader reader = new StreamReader(new LoadJsonFile().Streams))
+                {
+                    string chaceJsonData = reader.ReadToEnd();
+                    return RatersPinMap.GetRates(chaceJsonData);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Error in chace data from file.json!");
+                return new List<DataPin>(); //return empty data
+            }
             return RatersPinMap.GetRates(jsonData);
         }
     }

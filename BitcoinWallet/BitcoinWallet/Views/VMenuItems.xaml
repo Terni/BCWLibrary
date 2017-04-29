@@ -4,7 +4,7 @@
              x:Class="BitcoinWallet.Views.VMenuItems"
 				     xmlns:views="clr-namespace:BitcoinWallet.Views;assembly=BitcoinWallet">
   <MasterDetailPage.Master>
-    <views:VMasterDetail x:Name="masterDetail" />
+    <views:VMasterDetail x:Name="masterDetail"/>
   </MasterDetailPage.Master>
   <MasterDetailPage.Detail>
     <NavigationPage>

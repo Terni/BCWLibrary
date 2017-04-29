@@ -22,7 +22,7 @@ namespace BitcoinWallet.Layers.Helpers
             // < EmbeddedResource Include = "MapPins.json" />
             //</ ItemGroup >
 
-            #region How to load an XML file embedded resource
+            #region Load file.json from embedded resource
             Assembly assembly = typeof(LoadJsonFile).GetTypeInfo().Assembly;
             Streams = assembly.GetManifestResourceStream("BitcoinWallet.Layers.Resources.MapPins.json");
 
