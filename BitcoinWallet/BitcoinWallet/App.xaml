@@ -34,6 +34,7 @@
       </Style>
       <!--Button style-->
       <Style x:Key="MenuButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource White}"></Setter>
         <Setter Property="TextColor" Value="{StaticResource White}"></Setter>
         <Setter Property="BorderRadius" Value="10"></Setter>
         <Setter Property="Margin" Value="0,0,0,0"></Setter>

@@ -17,6 +17,11 @@ namespace BitcoinWallet.Views
 
             FillValueToEntryCell();
 
+            if (Device.OS == TargetPlatform.Android) // fix for android
+            {
+                BackButton.IsVisible = false;
+            }
+
         }
 
 

@@ -100,6 +100,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ImageButtonRenderer.cs" />
     <Compile Include="UWP_CloseApp.cs" />
     <Compile Include="UWP_FileHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -122,6 +123,7 @@
     <Content Include="Assets\SplashScreen.scale-150.png" />
     <Content Include="Assets\Square44x44Logo.scale-100.png" />
     <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -134,7 +136,20 @@
     <Content Include="Resources\Icons\delete.png" />
     <Content Include="Resources\Icons\user-1.png" />
     <Content Include="Resources\Icons\user-12.png" />
-    <Content Include="Resources\Icons\user-3.png" />
+    <Content Include="Resources\Icons_menuItems\about_dark.png" />
+    <Content Include="Resources\Icons_menuItems\charts_dark.png" />
+    <Content Include="Resources\Icons_menuItems\contacts_dark.png" />
+    <Content Include="Resources\Icons_menuItems\group_dark.png" />
+    <Content Include="Resources\Icons_menuItems\hamburger_dark.png" />
+    <Content Include="Resources\Icons_menuItems\help_dark.png" />
+    <Content Include="Resources\Icons_menuItems\payment_dark.png" />
+    <Content Include="Resources\Icons_menuItems\reminders_dark.png" />
+    <Content Include="Resources\Icons_menuItems\send_bitcoin.png" />
+    <Content Include="Resources\Icons_menuItems\send_money.png" />
+    <Content Include="Resources\Icons_menuItems\shops_dark.png" />
+    <Content Include="Resources\Icons_menuItems\todo_dark.png" />
+    <Content Include="Resources\Icons_menuItems\trans_dark.png" />
+    <Content Include="Resources\user3.png" />
     <Content Include="Resources\Icons\user-add.png" />
     <Content Include="Resources\Icons_base\add.png" />
     <Content Include="Resources\Icons_base\cancel.png" />
@@ -198,6 +213,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Expanded\Expanded.Common\Expanded.Common.csproj">
+      <Project>{b8094309-3c83-46a1-9a6c-a084856e177f}</Project>
+      <Name>Expanded.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BitcoinWallet\BitcoinWallet.csproj">
       <Name>BitcoinWallet</Name>
     </ProjectReference>

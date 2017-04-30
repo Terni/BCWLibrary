@@ -20,7 +20,7 @@ namespace BitcoinWallet.Layers.Views
         /// </summary>
         private Map map;
         private Geocoder geoCoder;
-        private Label l = new Label();
+        private Label _lable = new Label();
 
 
         /// <summary>
@@ -31,8 +31,10 @@ namespace BitcoinWallet.Layers.Views
             InitializeComponent();
 
             MapPage(); // create map
-            GeocoderPage();
+            //GeocoderPage();  // TODO: dont work in deployding  
             SetWorldPins();
+
+            _lable.TextColor = Color.Black;
         }
 
 
@@ -40,21 +42,34 @@ namespace BitcoinWallet.Layers.Views
         {
             List<DataPin> dataList = new List<DataPin>();
             var ATMsandShops = new ViewAtmsShops();
-            dataList = await ViewAtmsShops.GetPinsData();
-
-            foreach (DataPin item in dataList)
+            if (Device.OS == TargetPlatform.Android) // fix for android
+                dataList = await ViewAtmsShops.GetPinsDataAndroid();
+            else
             {
-                var position = new Position(item.Latitutde, item.Longitude); // Latitude, Longitude
-                var pin = new Pin
-                {
-                    Type = PinType.Place,
-                    Position = position,
-                    Label = item.Type,
-                    Address = item.Url.ToString()
-                };
-                map.Pins.Add(pin);
+                dataList = await ViewAtmsShops.GetPinsData();
             }
+                
+            if (dataList.Count > 0) // test for count
+            {
+                foreach (DataPin item in dataList)
+                {
+                    var position = new Position(item.Latitutde, item.Longitude); // Latitude, Longitude
+                    var pin = new Pin
+                    {
+                        Type = PinType.Place,
+                        Position = position,
+                        Label = item.Type,
+                        Address = item.Url.ToString()
+                    };
+                    map.Pins.Add(pin);
+                }
 
+                //var stack = new StackLayout { Spacing = 0 };
+                //stack.Children.Add(map);
+                ////stack.Children.Add(segments);
+                ////stack.Children.Add(slider);
+                //this.atmsAndShops.Content = stack;
+            }
         }
 
         /// <summary>
@@ -77,19 +92,25 @@ namespace BitcoinWallet.Layers.Views
 
             // add the slider
             var slider = new Slider(1, 18, 1);
-            slider.ValueChanged += (sender, e) => {
-                var zoomLevel = e.NewValue; // between 1 and 18
-                var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-                Debug.WriteLine(zoomLevel + " -> " + latlongdegrees);
-                if (map.VisibleRegion != null)
-                    map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
-            };
-
+            try
+            {
+                slider.ValueChanged += (sender, e) => {
+                    var zoomLevel = e.NewValue; // between 1 and 18
+                    var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+                    Debug.WriteLine(zoomLevel + " -> " + latlongdegrees);
+                    if (map.VisibleRegion != null)
+                        map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
+                };
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Probably bad value for sender: {e}");
+            }
 
             // create map style buttons
-            var street = new Button { Text = "Street" };
-            var hybrid = new Button { Text = "Hybrid" };
-            var satellite = new Button { Text = "Satellite" };
+            var street = new Button { Text = "Street", TextColor = Color.Black};
+            var hybrid = new Button { Text = "Hybrid", TextColor = Color.Black };
+            var satellite = new Button { Text = "Satellite", TextColor = Color.Black };
             street.Clicked += HandleClicked;
             hybrid.Clicked += HandleClicked;
             satellite.Clicked += HandleClicked;
@@ -101,7 +122,6 @@ namespace BitcoinWallet.Layers.Views
                 Children = { street, hybrid, satellite }
             };
 
-
             // put the page together
             var stack = new StackLayout { Spacing = 0 };
             stack.Children.Add(map);
@@ -109,13 +129,13 @@ namespace BitcoinWallet.Layers.Views
             stack.Children.Add(slider);
             this.atmsAndShops.Content = stack;
 
-
-            // for debugging output only
-            map.PropertyChanged += (sender, e) => {
-                Debug.WriteLine(e.PropertyName + " just changed!");
-                if (e.PropertyName == "VisibleRegion" && map.VisibleRegion != null)
-                    CalculateBoundingCoordinates(map.VisibleRegion);
-            };
+            //for debugging output only
+            //map.PropertyChanged += (sender, e) =>
+            //{
+            //    Debug.WriteLine(e.PropertyName + " just changed!");
+            //    if (e.PropertyName == "VisibleRegion" && map.VisibleRegion != null)
+            //        CalculateBoundingCoordinates(map.VisibleRegion);
+            //};
         }
 
         void HandleClicked(object sender, EventArgs e)
@@ -167,44 +187,52 @@ namespace BitcoinWallet.Layers.Views
         public async void GeocoderPage()
         {
             geoCoder = new Geocoder();
-
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 50;
-            var position = await locator.GetPositionAsync(10000);
 
-            Debug.WriteLine("Position Status: {0}", position.Timestamp);
-            Debug.WriteLine("Position Latitude: {0}", position.Latitude);
-            Debug.WriteLine("Position Longitude: {0}", position.Longitude);
-
-            var b1 = new Button { Text = $"Reverse geocode '{position.Latitude}, {position.Longitude}'" };
-            b1.Clicked += async (sender, e) => {
-                var fortMasonPosition = new Position(position.Latitude, position.Longitude);
-                var possibleAddresses = await geoCoder.GetAddressesForPositionAsync(fortMasonPosition);
-                foreach (var a in possibleAddresses)
-                {
-                    l.Text += a + "\n";
-                }
-            };
-
-            //var b2 = new Button { Text = "Geocode '394 Pacific Ave'" };
-            //b2.Clicked += async (sender, e) => {
-            //    var xamarinAddress = "394 Pacific Ave, San Francisco, California";
-            //    var approximateLocation = await geoCoder.GetPositionsForAddressAsync(xamarinAddress);
-            //    foreach (var p in approximateLocation)
-            //    {
-            //        l.Text += p.Latitude + ", " + p.Longitude + "\n";
-            //    }
-            //};
-
-            this.geocode.Content = new StackLayout
+            try
             {
-                Padding = new Thickness(0, 20, 0, 0),
-                Children = {
-                    //b2,
-                    b1,
-                    l
-                }
-            };
+                var position = await locator.GetPositionAsync(4000); // is 4 seconds
+
+                //Debug.WriteLine("Position Status: {0}", position.Timestamp);
+                //Debug.WriteLine("Position Latitude: {0}", position.Latitude);
+                //Debug.WriteLine("Position Longitude: {0}", position.Longitude);
+
+                var b1 = new Button { Text = $"Reverse geocode '{position.Latitude}, {position.Longitude}'", TextColor = Color.Black };
+                b1.Clicked += async (sender, e) => {
+                    var fortMasonPosition = new Position(position.Latitude, position.Longitude);
+                    var possibleAddresses = await geoCoder.GetAddressesForPositionAsync(fortMasonPosition);
+                    foreach (var a in possibleAddresses)
+                    {
+                        _lable.Text += a + "\n";
+                    }
+                };
+
+                //var b2 = new Button { Text = "Geocode '394 Pacific Ave'" };
+                //b2.Clicked += async (sender, e) => {
+                //    var xamarinAddress = "394 Pacific Ave, San Francisco, California";
+                //    var approximateLocation = await geoCoder.GetPositionsForAddressAsync(xamarinAddress);
+                //    foreach (var p in approximateLocation)
+                //    {
+                //        l.Text += p.Latitude + ", " + p.Longitude + "\n";
+                //    }
+                //};
+
+                //this.geocode.Content = new StackLayout // TODO uncommnet 
+                //{
+                //    Padding = new Thickness(0, 20, 0, 0),
+                //    Children = {
+                //        //b2,
+                //        b1,
+                //        _lable
+                //    }
+                //};
+            }
+            catch (Exception e)
+            {
+                await DisplayAlert("Warning", $"Data for position is unavailable!", "OK");
+            }
+
         }
 
     }

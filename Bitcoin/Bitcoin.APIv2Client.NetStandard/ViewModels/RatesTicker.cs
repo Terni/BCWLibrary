@@ -12,32 +12,42 @@ namespace Bitcoin.APIv2Client.NetStandard.ViewModels
 {
     public class RatesTicker
     {
-        //public static ClassWebClient Client;
-
+        /// <summary>
+        /// Method for get Rates for Market prices
+        /// </summary>
+        /// <param name="jsonData">Specific json string</param>
+        /// <returns>Result is List <see cref="DataTricker"/></returns>
         public static List<DataTricker> GetRates(string jsonData)
         {
             JObject data = JObject.Parse(jsonData);
             List<DataTricker> result = new List<DataTricker>();
-            string[] newaArray =
+            string[] newArrays =
             {
-                "USD", "CNY", "JPY", "SGD", "HKD", "CAD", "NZD", "AUD", "CLP", "GBP",
+                "USD", "JPY", "CNY", "SGD", "HKD", "CAD", "NZD", "AUD", "CLP", "GBP", "INR",
                 "DKK", "SEK", "ISK", "CHF", "BRL", "EUR", "RUB", "PLN", "THB", "KRW", "TWD"
             };
-
-            int i = 0;
-            foreach (var obj in data.Properties().Select(p => p.Value))
+            
+            try
             {
-                var idem = new DataTricker
+                int i = 0;
+                foreach (var obj in data.Properties().Select(p => p.Value))
                 {
-                    NameCurrency = newaArray[i],
-                    FifteenMinuts = (decimal)obj["15m"],
-                    Last = (decimal)obj["last"],
-                    Buy = (decimal)obj["buy"],
-                    Sell = (decimal)obj["sell"],
-                    Symbol = (string)obj["symbol"]
-                };
-                i++;
-                result.Add(idem);
+                    var idem = new DataTricker
+                    {
+                        NameCurrency = newArrays[i],
+                        FifteenMinuts = (decimal)obj["15m"],
+                        Last = (decimal)obj["last"],
+                        Buy = (decimal)obj["buy"],
+                        Sell = (decimal)obj["sell"],
+                        Symbol = (string)obj["symbol"]
+                    };
+                    i++;
+                    result.Add(idem);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Maybe bad size newArrays! Exception {e}");
             }
 
             return result;

@@ -28,7 +28,7 @@ namespace BitcoinWallet.Views
             ToolbarItem itmBarPay = new ToolbarItem
             {
                 Name = "Payment",
-                Icon = $"{Tools.GetFolder}send.bitcoin.png",
+                Icon = $"{Tools.GetFolder}send_bitcoin.png",
                 Order = ToolbarItemOrder.Primary,
                 Priority = 0
             };

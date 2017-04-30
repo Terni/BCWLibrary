@@ -171,6 +171,10 @@
       <HintPath>..\..\packages\Xamarin.Android.Support.v7.RecyclerView.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Xamarin.Android.Support.v8.RenderScript, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Android.Support.v8.RenderScript.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v8.RenderScript.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.Android.Support.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
       <Private>True</Private>
@@ -210,6 +214,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\FontExtensions.cs" />
+    <Compile Include="Controls\ImageButtonRenderer.cs" />
     <Compile Include="Droid_CloseApp.cs" />
     <Compile Include="Droid_FileHelper.cs" />
     <Compile Include="Droid_Localize.cs" />
@@ -240,13 +246,72 @@
     <AndroidResource Include="Resources\values-v21\styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\AndroidManifest.xml" />
+    <Content Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <AndroidResource Include="Resources\drawable\title4.png" />
+    <AndroidResource Include="Resources\drawable\wallet1_qrcode.png" />
+    <AndroidResource Include="Resources\drawable\wallet2_qrcode.png" />
+    <AndroidResource Include="Resources\drawable\add.png" />
+    <AndroidResource Include="Resources\drawable\delete.png" />
+    <AndroidResource Include="Resources\drawable\user1.png" />
+    <AndroidResource Include="Resources\drawable\user3.png" />
+    <AndroidResource Include="Resources\drawable\user12.png" />
+    <AndroidResource Include="Resources\drawable\useradd.png" />
+    <AndroidResource Include="Resources\drawable\barchart.png" />
+    <AndroidResource Include="Resources\drawable\barchartx.png" />
+    <AndroidResource Include="Resources\drawable\group.png" />
+    <AndroidResource Include="Resources\drawable\group1.png" />
+    <AndroidResource Include="Resources\drawable\group1x.png" />
+    <AndroidResource Include="Resources\drawable\help.png" />
+    <AndroidResource Include="Resources\drawable\helpx.png" />
+    <AndroidResource Include="Resources\drawable\laptop2.png" />
+    <AndroidResource Include="Resources\drawable\laptop2x.png" />
+    <AndroidResource Include="Resources\drawable\laptopsm.png" />
+    <AndroidResource Include="Resources\drawable\refresh.png" />
+    <AndroidResource Include="Resources\drawable\shoppingbag1.png" />
+    <AndroidResource Include="Resources\drawable\shoppingbag1x.png" />
+    <AndroidResource Include="Resources\drawable\transfer2.png" />
+    <AndroidResource Include="Resources\drawable\transfer2x.png" />
+    <AndroidResource Include="Resources\drawable\user4.png" />
+    <AndroidResource Include="Resources\drawable\user4x.png" />
+    <AndroidResource Include="Resources\drawable\worldwide.png" />
+    <AndroidResource Include="Resources\drawable\activate.png" />
+    <AndroidResource Include="Resources\drawable\calendar.late.png" />
+    <AndroidResource Include="Resources\drawable\contacts.png" />
+    <AndroidResource Include="Resources\drawable\gotoslide.png" />
+    <AndroidResource Include="Resources\drawable\chart.png" />
+    <AndroidResource Include="Resources\drawable\logoff.png" />
+    <AndroidResource Include="Resources\drawable\manage.png" />
+    <AndroidResource Include="Resources\drawable\question.png" />
+    <AndroidResource Include="Resources\drawable\reminders.png" />
+    <AndroidResource Include="Resources\drawable\swap.png" />
+    <AndroidResource Include="Resources\drawable\todo.png" />
+    <AndroidResource Include="Resources\values\google_maps_api.xml" />
+    <AndroidResource Include="Resources\drawable\contacts_dark.png" />
+    <AndroidResource Include="Resources\drawable\hamburger_dark.png" />
+    <AndroidResource Include="Resources\drawable\charts_dark.png" />
+    <AndroidResource Include="Resources\drawable\reminders_dark.png" />
+    <AndroidResource Include="Resources\drawable\send_bitcoin.png" />
+    <AndroidResource Include="Resources\drawable\send_money.png" />
+    <AndroidResource Include="Resources\drawable\shops_dark.png" />
+    <AndroidResource Include="Resources\drawable\todo_dark.png" />
+    <AndroidResource Include="Resources\drawable\trans_dark.png" />
+    <AndroidResource Include="Resources\drawable\about_dark.png" />
+    <AndroidResource Include="Resources\drawable\group_dark.png" />
+    <AndroidResource Include="Resources\drawable\help_dark.png" />
+    <AndroidResource Include="Resources\drawable\payment_dark.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Expanded\Expanded.Common\Expanded.Common.csproj">
+      <Project>{b8094309-3c83-46a1-9a6c-a084856e177f}</Project>
+      <Name>Expanded.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BitcoinWallet\BitcoinWallet.csproj">
       <Name>BitcoinWallet</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

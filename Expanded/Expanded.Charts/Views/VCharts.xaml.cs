@@ -24,8 +24,16 @@ namespace Expanded.Charts.Views
         public VCharts()
         {
             InitializeComponent();
-            ShowExchange();
-            ShowCharts();
+            try
+            {
+                ShowExchange();
+                ShowCharts();
+            }
+            catch (Exception e)
+            {
+                //await DisplayAlert("Warning", $"Data for position is unavailable!", "OK");
+            }
+
         }
 
         private void GridRow(List<string> strList, Color color, int font, int indexRow)
@@ -65,29 +73,33 @@ namespace Expanded.Charts.Views
             // download data from server
             List<DataTricker> dataList = new List<DataTricker>();
             dataList = await ViewCharts.GetMarketData();
-            for (int i = 0; i < dataList.Count; i++)
+            if (dataList.Count > 0) //test for count
             {
-                List<string> marketList = new List<string>();
-                marketList.Add(dataList[i].NameCurrency);
-                marketList.Add(dataList[i].FifteenMinuts.ToString());
-                marketList.Add(dataList[i].Buy.ToString());
-                marketList.Add(dataList[i].Sell.ToString());
-                marketList.Add(dataList[i].Buy.ToString());
-
-                float result = i % 2;
-                if (result > 0)
+                for (int i = 0; i < dataList.Count; i++)
                 {
-                    GridRow(marketList, Color.Blue, 10, i+1);
+                    List<string> marketList = new List<string>();
+                    marketList.Add(dataList[i].NameCurrency);
+                    marketList.Add(dataList[i].FifteenMinuts.ToString());
+                    marketList.Add(dataList[i].Buy.ToString());
+                    marketList.Add(dataList[i].Sell.ToString());
+                    marketList.Add(dataList[i].Buy.ToString());
+
+                    float result = i % 2;
+                    if (result > 0)
+                    {
+                        GridRow(marketList, Color.Blue, 10, i + 1);
+                    }
+                    else
+                    {
+                        GridRow(marketList, Color.Gray, 10, i + 1);
+                    }
                 }
-                else
-                {
-                    GridRow(marketList, Color.Gray, 10, i+1);
-                }
-            }
 
 
-            srollview.Content = _tableGrid;
-            this.exchanger.Content = srollview;
+                srollview.Content = _tableGrid;
+                this.exchanger.Content = srollview;
+            } 
+
         }
 
 
@@ -101,13 +113,13 @@ namespace Expanded.Charts.Views
 
             List<DataPointChart> dataList = new List<DataPointChart>();
             dataList = await ViewCharts.GetPointsData("total-bitcoins");
-            this.ciculationBTC.Content = CreateChart(dataList);
+            if (dataList.Count > 0) this.ciculationBTC.Content = CreateChart(dataList);
             dataList = await ViewCharts.GetPointsData("market-price");
-            this.marketPriceUSD.Content = CreateChart(dataList);
+            if (dataList.Count > 0) this.marketPriceUSD.Content = CreateChart(dataList);
             dataList = await ViewCharts.GetPointsData("market-cap");
-            this.marketCapatalization.Content = CreateChart(dataList);
+            if (dataList.Count > 0) this.marketCapatalization.Content = CreateChart(dataList);
             dataList = await ViewCharts.GetPointsData("trade-volume");
-            this.exchangeTradeVolume.Content = CreateChart(dataList);
+            if (dataList.Count > 0) this.exchangeTradeVolume.Content = CreateChart(dataList);
         }
 
 

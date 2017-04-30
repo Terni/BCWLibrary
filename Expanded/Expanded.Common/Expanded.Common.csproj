@@ -105,6 +105,9 @@
     <Compile Include="Core\Helpers\EventArgs{T}.cs" />
     <Compile Include="Expanded.Common.cs" />
     <Compile Include="Forms\Exceptions\InvalidBindableException.cs" />
+    <Compile Include="Forms\Extensions\CollectionTypeExtension.cs" />
+    <Compile Include="Forms\Extensions\OnPlatformList.cs" />
+    <Compile Include="Forms\Extensions\ViewExtensions.cs" />
     <Compile Include="Forms\Extensions\BindableObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

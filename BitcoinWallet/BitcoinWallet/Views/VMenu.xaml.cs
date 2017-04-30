@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bitcoin.APIv2Client.Models;
 using BitcoinWallet.Helpers;
+using BitcoinWallet.Layers.Helpers;
 using BitcoinWallet.Layers.Models;
 using BitcoinWallet.Layers.Views;
 using BitcoinWallet.ViewModels;
@@ -21,21 +23,40 @@ namespace BitcoinWallet.Views
 
         public VMenu()
         {
-            //Init variables
-            if (Logon.Balance >= 0)
-            {
-                _defaultBTC = (float)Logon.Balance / BitcoinValue.SatoshisPerBitcoin;
-            }
-            else
-            {
-                _defaultBTC = (float)3/100; //TODO: HACK for testing
-            }
-            
             InitializeComponent();
+
+            GetValueBalance(); // get balance
+
             ValueBTC.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
             ValueBTC.Text = _defaultBTC +" BTC";
             this.BindingContext = new ButtonPageViewModel();
         }
+
+
+        private async void GetValueBalance()
+        {
+            BalanceHelper balance = new BalanceHelper();
+            DataTransaction data = new DataTransaction();
+            data = await balance.GetDataTransactiontTrans();
+
+            //Init variables
+            if (Logon.Balance > 0)
+            {
+                _defaultBTC = (float)Logon.Balance / BitcoinValue.SatoshisPerBitcoin;
+            }
+            else if (data.FinalBalance > 0)
+            {
+                _defaultBTC = (float)data.FinalBalance / BitcoinValue.SatoshisPerBitcoin;
+                ApiLogon.Balance = new BitcoinValue(data.FinalBalance);
+            }
+            else
+            {
+                _defaultBTC = 0;
+            }
+
+            ValueBTC.Text = _defaultBTC + " BTC";
+        }
+
 
         async void Shops_OnClicked(object sender, EventArgs e)
         {

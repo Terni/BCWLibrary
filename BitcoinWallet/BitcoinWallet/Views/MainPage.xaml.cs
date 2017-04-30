@@ -13,6 +13,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Android.Util;
 using Bitcoin.APIv2Client.Models;
+using BitcoinWallet.Layers.Helpers;
 using BitcoinWallet.Layers.Models;
 using Info.Blockchain.API.BlockExplorer;
 
@@ -217,7 +218,7 @@ namespace BitcoinWallet.Views
 
         private void SwitchCell_OnOnChanged(object sender, ToggledEventArgs e)
         {
-            IsPasswordSecond = Pass2MP.IsVisible = (sender as SwitchCell).On;
+            IsPasswordSecond = Pass2MP.IsVisible = framePass2MP.IsVisible = (sender as SwitchCell).On;
             if (IsPasswordSecond)
             {
                 Pass2MP.Text = DataLogon.PasswordSecond;

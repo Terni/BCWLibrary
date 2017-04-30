@@ -24,6 +24,10 @@ namespace BitcoinWallet.Layers.ViewModels
             BitcoinAddres = DataLogon.AddressWallet;
         }
 
+        /// <summary>
+        /// Method for Get Transaction max. 50 items
+        /// </summary>
+        /// <returns>Result is list transaction</returns>
         public static async Task<DataTransaction> GetTransactionData()
         {
             HttpClient client = new HttpClient();
@@ -41,8 +45,11 @@ namespace BitcoinWallet.Layers.ViewModels
             }
             catch
             {
-                throw new Exception("Error in client.GetStringAsynch, maybe bad url address or params!");
+                //throw new Exception("Error in client.GetStringAsynch, maybe bad url address or params!");
                 //Logging.Debug("Start app.", Logging.Level.DATABASE); // TODO vyresit kruhovou referenci na Logging
+
+                Debug.WriteLine("Error in client.GetStringAsynch, maybe bad url address or params!");
+                return new DataTransaction(); // empty data transaction
             }
 
             return RatersTransacion.GetRates(jsonData);

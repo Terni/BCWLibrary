@@ -53,5 +53,10 @@ namespace Bitcoin.APIv2Client.Models
         public long TotalSent { get; set; }
         public long FinalBalance { get; set; }
         public List<Transaction> ListTransactions { get; set; }
+
+        public DataTransaction()
+        {
+            ListTransactions = new List<Transaction>();
+        }
     }
 }

@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\LoadJsonFile.cs" />
     <Compile Include="Helpers\Tools.cs" />
     <Compile Include="Helpers\UriEngine.cs" />
     <Compile Include="Layers.cs" />
@@ -44,6 +45,7 @@
     <Compile Include="Models\TransRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ViewAtmsShops.cs" />
+    <Compile Include="Helpers\BalanceHelper.cs" />
     <Compile Include="ViewModels\ViewTransaction.cs" />
     <Compile Include="Views\VAbout.xaml.cs">
       <DependentUpon>VAbout.xaml</DependentUpon>
@@ -161,10 +163,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\MapPins.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Views\VKeyboard2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

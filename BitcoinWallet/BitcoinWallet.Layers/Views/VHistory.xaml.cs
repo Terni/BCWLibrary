@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bitcoin.APIv2Client.Models;
+using BitcoinWallet.Layers.Helpers;
 using BitcoinWallet.Layers.Models;
 using BitcoinWallet.Layers.ViewModels;
 using Xamarin.Forms;
@@ -26,7 +27,7 @@ namespace BitcoinWallet.Views
         /// <summary>
         /// Method for Show Recieve and Send Transaction in History max. 50 records
         /// </summary>
-        private async void ShowRecieveAndSendTrans()
+        public async void ShowRecieveAndSendTrans()
         {
             var recieveScrollView = new ScrollView();
             var recieveLayout = new StackLayout();
@@ -35,60 +36,63 @@ namespace BitcoinWallet.Views
             List<TransRow> listTrans = new List<TransRow>();
 
             listTrans = await GetListTranstion();
-            foreach (var trans in listTrans)
+            if (listTrans.Count > 0) // test for count
             {
-                if (trans.Type == TypeTrans.Recieve) // For RECIEVE
+                foreach (var trans in listTrans)
                 {
-                    var frame = new Frame{ OutlineColor = Color.Green};
-                    var labelAddrress = new Label
+                    if (trans.Type == TypeTrans.Recieve) // For RECIEVE
                     {
-                        Text = $"{trans.BitcoinAddress} \n{trans.Date}",
-                        TextColor = Color.Green,
-                        FontSize = 10
-                    };
-                    frame.Content = labelAddrress;
-                    recieveLayout.Children.Add(frame);
+                        var frame = new Frame { OutlineColor = Color.Green };
+                        var labelAddrress = new Label
+                        {
+                            Text = $"{trans.BitcoinAddress} \n{trans.Date}",
+                            TextColor = Color.Green,
+                            FontSize = 10
+                        };
+                        frame.Content = labelAddrress;
+                        recieveLayout.Children.Add(frame);
 
-                    float resultValue = (float)trans.Value / SatoshiPerBitcoin; //SatoshisPerBitcoin = 100000000
-                    Debug.WriteLine($"vysledek prichozi: {resultValue}");
-                    var labelValue = new Label
-                    {
-                        Text = $"{resultValue} BTC", 
-                        TextColor = Color.Green,
-                        FontSize = 14
-                    };
-                    
-                    recieveLayout.Children.Add(labelValue);
-                }
-                else // For SEND
-                {
-                    var frame = new Frame { OutlineColor = Color.Red };
-                    var labelAddrress = new Label
-                    {
-                        Text = $"{trans.BitcoinAddress} \n{trans.Date}",
-                        TextColor = Color.Red,
-                        FontSize = 10
-                    };
-                    frame.Content = labelAddrress;
-                    sendLayout.Children.Add(frame);
+                        float resultValue = (float)trans.Value / SatoshiPerBitcoin; //SatoshisPerBitcoin = 100000000
+                        Debug.WriteLine($"vysledek prichozi: {resultValue}");
+                        var labelValue = new Label
+                        {
+                            Text = $"{resultValue} BTC",
+                            TextColor = Color.Green,
+                            FontSize = 14
+                        };
 
-                    float resultValue = (float)trans.Value / SatoshiPerBitcoin; //SatoshisPerBitcoin = 100000000
-                    Debug.WriteLine($"vysledek odchozi: -{resultValue}");
-                    var labelValue = new Label
+                        recieveLayout.Children.Add(labelValue);
+                    }
+                    else // For SEND
                     {
-                        Text = $"-{resultValue} BTC",
-                        TextColor = Color.Red,
-                        FontSize = 14
-                    };
-                    sendLayout.Children.Add(labelValue);
+                        var frame = new Frame { OutlineColor = Color.Red };
+                        var labelAddrress = new Label
+                        {
+                            Text = $"{trans.BitcoinAddress} \n{trans.Date}",
+                            TextColor = Color.Red,
+                            FontSize = 10
+                        };
+                        frame.Content = labelAddrress;
+                        sendLayout.Children.Add(frame);
+
+                        float resultValue = (float)trans.Value / SatoshiPerBitcoin; //SatoshisPerBitcoin = 100000000
+                        Debug.WriteLine($"vysledek odchozi: -{resultValue}");
+                        var labelValue = new Label
+                        {
+                            Text = $"-{resultValue} BTC",
+                            TextColor = Color.Red,
+                            FontSize = 14
+                        };
+                        sendLayout.Children.Add(labelValue);
+                    }
                 }
+
+                // Show all labels
+                recieveScrollView.Content = recieveLayout;
+                this.receiveHistory.Content = recieveScrollView;
+                sendScrollView.Content = sendLayout;
+                this.sendHistory.Content = sendScrollView;
             }
-
-            // Show all labels
-            recieveScrollView.Content = recieveLayout;
-            this.receiveHistory.Content = recieveScrollView;
-            sendScrollView.Content = sendLayout;
-            this.sendHistory.Content = sendScrollView;
         }
 
         /// <summary>
@@ -99,37 +103,51 @@ namespace BitcoinWallet.Views
         {
             DataTransaction dataTransaction = new DataTransaction();
             List<TransRow> listTrans = new List<TransRow>();
+            dataTransaction = await ViewTransaction.GetTransactionData();  //update data
 
-
-            dataTransaction = await ViewTransaction.GetTransactionData();
-            foreach (var transaction in dataTransaction.ListTransactions)
+            if (dataTransaction.ListTransactions.Count > 0) // test for count
             {
-                TransRow item;
-
-                if (string.Compare(transaction.ListInputs[0].PrevOut.Address,
-                        transaction.TupleOuts.Item2.Address) == 0) // is True = Send Transaction
+                BalanceHelper.DataTransactiontTrans = dataTransaction;
+            }
+            else // from chace data
+            {
+                if (BalanceHelper.DataTransactiontTrans.ListTransactions.Count > 0) 
                 {
-                    item = new TransRow
-                    {
-                        BitcoinAddress = transaction.TupleOuts.Item1.Address, // where send is here
-                        Type = TypeTrans.Send, // or TypeTrans.Send
-                        Value = transaction.TupleOuts.Item1.Value,
-                        Date = transaction.Time
-                    };
+                    dataTransaction = BalanceHelper.DataTransactiontTrans;
                 }
-                else // is False = Recieve Transaction
+            }
+            
+            if (dataTransaction.ListTransactions.Count > 0) // test for count
+            {
+                foreach (var transaction in dataTransaction.ListTransactions)
                 {
-                    item = new TransRow
-                    {
-                        BitcoinAddress = transaction.TupleOuts.Item1.Address, // where recieve is here
-                        Type = TypeTrans.Recieve, // or TypeTrans.Send
-                        Value = transaction.TupleOuts.Item1.Value,
-                        Date = transaction.Time
-                    };
-                }
+                    TransRow item;
 
-                //Debug.WriteLine($"zapis hodnoty: {item.Value}");
-                listTrans.Add(item);
+                    if (string.Compare(transaction.ListInputs[0].PrevOut.Address,
+                            transaction.TupleOuts.Item2.Address) == 0) // is True = Send Transaction
+                    {
+                        item = new TransRow
+                        {
+                            BitcoinAddress = transaction.TupleOuts.Item1.Address, // where send is here
+                            Type = TypeTrans.Send, // or TypeTrans.Send
+                            Value = transaction.TupleOuts.Item1.Value,
+                            Date = transaction.Time
+                        };
+                    }
+                    else // is False = Recieve Transaction
+                    {
+                        item = new TransRow
+                        {
+                            BitcoinAddress = transaction.TupleOuts.Item1.Address, // where recieve is here
+                            Type = TypeTrans.Recieve, // or TypeTrans.Send
+                            Value = transaction.TupleOuts.Item1.Value,
+                            Date = transaction.Time
+                        };
+                    }
+
+                    //Debug.WriteLine($"zapis hodnoty: {item.Value}");
+                    listTrans.Add(item);
+                }
             }
 
             return listTrans;
