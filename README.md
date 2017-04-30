@@ -15,6 +15,8 @@ I thank **Microsoft**, **Telerik** and **Jetbrains** for granting a school licen
  - Window Phone 8.1 **[DONE]**
 
 ------------------------------------------------------------------------------------------
+**Videos**
+
  - Video for Android
  
    Coming soon ...
@@ -34,5 +36,5 @@ I thank **Microsoft**, **Telerik** and **Jetbrains** for granting a school licen
 ------------------------------------------------------------------------------------------
 
 Old project for Window Phone 8.0:
-Videos for Window Phone 8.1:
+
 https://www.youtube.com/watch?v=Xe2rF9Ub-Lo&list=PLJjTYBRz8jZz6Bvu94fnZ_4LbnzK4b81A&index=1
