@@ -8,8 +8,8 @@ using Android.OS;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
 //using Telerik.XamarinForms.Common.Android;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+//using Xamarin.Forms;
+//using Xamarin.Forms.Platform.Android;
 
 //// >> chart-getting-started-android-renderers
 //[assembly: ExportRenderer(typeof(Telerik.XamarinForms.Chart.RadCartesianChart), typeof(Telerik.XamarinForms.ChartRenderer.Android.CartesianChartRenderer))]
@@ -37,7 +37,7 @@ using Xamarin.Forms.Platform.Android;
 //// << autocomplete-getting-started-android-renderer
 namespace BitcoinWallet.Droid
 {
-    [Activity(Label = "BitcoinWallet", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Bitcoin Wallet", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)

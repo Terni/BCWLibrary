@@ -2545,89 +2545,86 @@ namespace BitcoinWallet.Droid
 			// aapt resource value: 0x7f0200e3
 			public const int mr_ic_play_light = 2130837731;
 			
-			// aapt resource value: 0x7f0200ff
-			public const int notification_template_icon_bg = 2130837759;
+			// aapt resource value: 0x7f0200fe
+			public const int notification_template_icon_bg = 2130837758;
 			
 			// aapt resource value: 0x7f0200e4
 			public const int payment_dark = 2130837732;
 			
 			// aapt resource value: 0x7f0200e5
-			public const int people = 2130837733;
+			public const int question = 2130837733;
 			
 			// aapt resource value: 0x7f0200e6
-			public const int question = 2130837734;
+			public const int refresh = 2130837734;
 			
 			// aapt resource value: 0x7f0200e7
-			public const int refresh = 2130837735;
+			public const int reminders = 2130837735;
 			
 			// aapt resource value: 0x7f0200e8
-			public const int reminders = 2130837736;
+			public const int reminders_dark = 2130837736;
 			
 			// aapt resource value: 0x7f0200e9
-			public const int reminders_dark = 2130837737;
+			public const int send_bitcoin = 2130837737;
 			
 			// aapt resource value: 0x7f0200ea
-			public const int send_bitcoin = 2130837738;
+			public const int send_money = 2130837738;
 			
 			// aapt resource value: 0x7f0200eb
-			public const int send_money = 2130837739;
+			public const int shoppingbag1 = 2130837739;
 			
 			// aapt resource value: 0x7f0200ec
-			public const int shoppingbag1 = 2130837740;
+			public const int shoppingbag1x = 2130837740;
 			
 			// aapt resource value: 0x7f0200ed
-			public const int shoppingbag1x = 2130837741;
+			public const int shops_dark = 2130837741;
 			
 			// aapt resource value: 0x7f0200ee
-			public const int shops_dark = 2130837742;
+			public const int swap = 2130837742;
 			
 			// aapt resource value: 0x7f0200ef
-			public const int swap = 2130837743;
+			public const int title4 = 2130837743;
 			
 			// aapt resource value: 0x7f0200f0
-			public const int title4 = 2130837744;
+			public const int todo = 2130837744;
 			
 			// aapt resource value: 0x7f0200f1
-			public const int todo = 2130837745;
+			public const int todo_dark = 2130837745;
 			
 			// aapt resource value: 0x7f0200f2
-			public const int todo_dark = 2130837746;
+			public const int trans_dark = 2130837746;
 			
 			// aapt resource value: 0x7f0200f3
-			public const int trans_dark = 2130837747;
+			public const int transfer2 = 2130837747;
 			
 			// aapt resource value: 0x7f0200f4
-			public const int transfer2 = 2130837748;
+			public const int transfer2x = 2130837748;
 			
 			// aapt resource value: 0x7f0200f5
-			public const int transfer2x = 2130837749;
+			public const int user1 = 2130837749;
 			
 			// aapt resource value: 0x7f0200f6
-			public const int user1 = 2130837750;
+			public const int user12 = 2130837750;
 			
 			// aapt resource value: 0x7f0200f7
-			public const int user12 = 2130837751;
+			public const int user3 = 2130837751;
 			
 			// aapt resource value: 0x7f0200f8
-			public const int user3 = 2130837752;
+			public const int user4 = 2130837752;
 			
 			// aapt resource value: 0x7f0200f9
-			public const int user4 = 2130837753;
+			public const int user4x = 2130837753;
 			
 			// aapt resource value: 0x7f0200fa
-			public const int user4x = 2130837754;
+			public const int useradd = 2130837754;
 			
 			// aapt resource value: 0x7f0200fb
-			public const int useradd = 2130837755;
+			public const int wallet1_qrcode = 2130837755;
 			
 			// aapt resource value: 0x7f0200fc
-			public const int wallet1_qrcode = 2130837756;
+			public const int wallet2_qrcode = 2130837756;
 			
 			// aapt resource value: 0x7f0200fd
-			public const int wallet2_qrcode = 2130837757;
-			
-			// aapt resource value: 0x7f0200fe
-			public const int worldwide = 2130837758;
+			public const int worldwide = 2130837757;
 			
 			static Drawable()
 			{
