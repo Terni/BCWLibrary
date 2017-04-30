@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-240.png" />
+    <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-140.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
@@ -144,6 +145,7 @@
     <Content Include="Resources\Icons_menuItems\reminders.dark.png" />
     <Content Include="Resources\Icons_menuItems\reminders.png" />
     <Content Include="Resources\Icons_menuItems\reminders_dark.png" />
+    <Content Include="Resources\Icons_menuItems\send_bitcoin.png" />
     <Content Include="Resources\Icons_menuItems\send_bitcoinx.png" />
     <Content Include="Resources\Icons_menuItems\send_money.png" />
     <Content Include="Resources\Icons_menuItems\shops.png" />
