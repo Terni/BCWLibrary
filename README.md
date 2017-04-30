@@ -9,25 +9,27 @@ I thank **Microsoft**, **Telerik** and **Jetbrains** for granting a school licen
 
 **Status Beta version**
 
- - Android **DONE**
- - IOS **Coming soob...**
- - UWP **DONE**
- - Window Phone 8.1 **DONE**
+ - Android **[DONE]**
+ - IOS **[Coming soob...]**
+ - UWP **[DONE]**
+ - Window Phone 8.1 **[DONE]**
 
 ------------------------------------------------------------------------------------------
  - Video for Android
- Coming soon ...
+ 
+   Coming soon ...
 
  - Video for Window Phone 8.1:
  
-https://www.youtube.com/watch?v=Xe2rF9Ub-Lo&list=PLJjTYBRz8jZz6Bvu94fnZ_4LbnzK4b81A&index=2
+   https://www.youtube.com/watch?v=Xe2rF9Ub-Lo&list=PLJjTYBRz8jZz6Bvu94fnZ_4LbnzK4b81A&index=2
 
  - Video for UWP:
  
-https://www.youtube.com/watch?v=Xe2rF9Ub-Lo&list=PLJjTYBRz8jZz6Bvu94fnZ_4LbnzK4b81A&index=3
+   https://www.youtube.com/watch?v=Xe2rF9Ub-Lo&list=PLJjTYBRz8jZz6Bvu94fnZ_4LbnzK4b81A&index=3
 
  - Video for IOS
- Coming soon ...
+ 
+   Coming soon ...
 
 ------------------------------------------------------------------------------------------
 
