@@ -18,7 +18,7 @@ I thank **Microsoft**, **Telerik** and **Jetbrains** for granting a school licen
 
  - Video for Android
  
-   Coming soon ...
+   https://www.youtube.com/watch?v=ZQcAci4YLsc&index=4&list=PLJjTYBRz8jZz6Bvu94fnZ_4LbnzK4b81A
 
  - Video for Window Phone 8.1:
  
