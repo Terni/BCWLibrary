@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="BitcoinWallet.Views.VContactDetail"
+            xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=Expanded.Common"
+            Title="{Binding title}"
+            BackgroundColor="White"
+            BarTextColor="Black"
+  >
+
+  <TabbedPage.Children>
+
+    <ContentPage Title="Current profil" >
+      <!--<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />-->
+
+
+
+      <ScrollView >
+
+        <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+
+          <!-- Inner Grid 0 for top row of items -->
+          <!--<Grid VerticalOptions="Center" ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="-2">
+              <Entry Placeholder="Address To" Text="{Binding AddressTo}" x:Name="ValueAddress" />
+            </Frame>
+
+            <Button Text="" WidthRequest="40"
+                    Grid.Column="1"
+                    Command="{Binding DeleteCharCommand}"
+                    Style="{StaticResource OrdersButtonStyle}"/>
+
+          </Grid>-->
+          <!--<Image Source="{helpers:ImageResource BitcoinWallet.Icons.user-3.png}" Aspect="AspectFit" HeightRequest="200" WidthRequest="200"/>-->
+            <Grid VerticalOptions="Center" ColumnSpan="2">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+
+              <Image Source="Resources/user3.png" Grid.Column="0" Aspect="AspectFit" HeightRequest="110" IsEnabled="False"/>
+
+              <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Column="1" Scale="1"
+              ImageHeightRequest="110"
+              ImageWidthRequest="110"
+              Orientation="ImageCentered"
+              Command="{Binding AddCommand}"
+              TextColor="#000000"
+              BackgroundColor="White"
+              Clicked="Detail_OnClicked"
+              Text="">
+                <controls:ImageButton.Source>
+                  <!-- ReSharper disable once Xaml.InvalidType -->
+                  <OnPlatform x:TypeArguments="ImageSource">
+                    <OnPlatform.WinPhone>
+                      <FileImageSource File="Resources/wallet1_qrcode.png" />
+                    </OnPlatform.WinPhone>
+                    <OnPlatform.Android>
+                      <FileImageSource File="Resources/drawable/wallet1_qrcode.png" />
+                    </OnPlatform.Android>
+                    <!-- ReSharper disable once Xaml.InvalidType -->
+                  </OnPlatform>
+                </controls:ImageButton.Source>
+              </controls:ImageButton>
+
+              <!--<Image Source="Resources/wallet1_qrcode.png" Grid.Column="1" Aspect="AspectFit" HeightRequest="110"  IsEnabled="False"/>-->
+
+          </Grid>
+
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+            <Entry Placeholder="Name Surname" Text="{Binding Name}" x:Name="xname" IsEnabled="False"/>
+          <!--</Frame>-->
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+            <Entry Placeholder="Address" Text="{Binding Surname}" x:Name="xadress" IsEnabled="False"/>
+          <!--</Frame>-->
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+            <Entry Placeholder="Alias" Text="{Binding Alias}" x:Name="xalias" IsEnabled="False"/>
+          <!--</Frame>-->
+          <!--<Frame Style="{StaticResource FrameStyle}" Padding="-2">-->
+            <Editor HeightRequest="100" Style="{StaticResource EditorStyle}" x:Name="xeditor" VerticalOptions="End" IsEnabled="False"/>
+          <!--</Frame>-->
+          <Button Text="Back" Style="{StaticResource ClassicButtonStyle}" Command="{Binding SaveCommand}" Clicked="OnClickBack" x:Name="BackButton"/>
+        </StackLayout>
+
+      </ScrollView>
+    </ContentPage>
+  </TabbedPage.Children>
+</TabbedPage>

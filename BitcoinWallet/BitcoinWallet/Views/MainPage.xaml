@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=Expanded.Common"
+            x:Class="BitcoinWallet.Views.MainPage"
+            x:Name="MainPageTabbedPage"
+            Title="{Binding title}"
+            BackgroundColor="White"
+            BarTextColor="Black"
+  >
+
+  <TabbedPage.Children>
+    <!--TODO: ICON-->
+    <!--<ContentPage Title="Profile" Icon="Resources/Icons/user.png"   PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPprofile">-->
+    <ContentPage Title="Starting..." x:Name="AppProfile">
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2" IsVisible="False">
+          <Entry Placeholder="Alias" Text="{Binding Alias}" IsVisible="False" x:Name="AlsMP"/>
+        </Frame>
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+          <Entry Placeholder="IDWallet" Text="{Binding IDWallet}" Style="{StaticResource EntryStyleRed}" x:Name="IDWallet"/>
+        </Frame>
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2">
+          <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true" Style="{StaticResource EntryStyleRed}" x:Name="Pass1MP" />
+        </Frame>
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2" IsVisible="False" x:Name="framePass2MP">
+            <Entry Placeholder="SecondPassword" Text="{Binding SecondPassword}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="Pass2MP"/>
+        </Frame>
+        <Frame Style="{StaticResource FrameStyleEmpty}" Padding="-2" IsVisible="False">
+            <Entry Placeholder="APICode" Text="{Binding APICode}" IsPassword="true" Style="{StaticResource EntryStyleRed}" IsVisible="False" x:Name="ApiCodeMP"/>
+            <!--Margin <left,top,right,botton>-->
+        </Frame>
+        <Button Text="Login" Command="{Binding LoginCommand}" Clicked="Loging_OnClicked" 
+                Style="{StaticResource ClassicButtonStyle}"/>
+      </StackLayout>
+    </ContentPage>
+
+
+    <!--TODO: ICON-->
+    <!--<ContentPage Title="Setting" Icon="Resources/Icons/settings-3.png" PropertyChanging="BindableObject_OnPropertyChanging" x:Name="CPsetting">-->
+    <ContentPage Title="" x:Name="AppSetting">
+      <!--<ContentPage.Resources>
+        <ResourceDictionary>
+          <Style x:Key="baseStyle" TargetType="SwitchCell">
+            <Setter Property=""/>
+          </Style>
+        </ResourceDictionary>
+      </ContentPage.Resources>-->
+
+      <StackLayout Spacing="10" Padding="0" VerticalOptions="Center" BackgroundColor="White" >
+        <Label TextColor="Black" Text="Setting" FontSize="24" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
+        <TableView >
+          <TableRoot>
+            <TableSection>
+              <TextCell TextColor="Black" Text="Basic"/>
+              <TextCell Detail="Second Password" DetailColor="#3181c4"/>
+                <SwitchCell On="False" OnChanged="SwitchCell_OnOnChanged"/>
+              <TextCell Detail="Auto Logon" DetailColor="#3181c4" />
+                <SwitchCell On="False"/>
+            </TableSection>
+            <!--<TableSection>
+              <TextCell TextColor="Black" Text="Expanded" />
+              <TextCell Detail="Registration" DetailColor="#3181c4"/>
+                <SwitchCell On="true"/>
+
+              <TextCell Detail="Dark skin" DetailColor="#3181c4"/>
+                <SwitchCell On="False"/>
+              <TextCell Detail="Icons visible" DetailColor="#3181c4"/>
+              <SwitchCell On="False"/>
+
+            </TableSection>-->
+          </TableRoot>
+        </TableView>
+      </StackLayout>
+    </ContentPage>
+
+  </TabbedPage.Children>
+</TabbedPage>

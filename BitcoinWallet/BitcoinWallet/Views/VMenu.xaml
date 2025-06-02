@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="BitcoinWallet.Views.VMenu"
+            xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=Expanded.Common"
+            Title="{Binding title}"
+            BackgroundColor="White"
+            BarTextColor="Black"
+  >
+
+  <TabbedPage.Children>
+
+    <ContentPage Title="Main Menu" >
+      <!--<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />-->
+      <ScrollView >
+
+
+
+        <!--Grid 1 for orders row of items-->
+        <Grid VerticalOptions="Center">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />  <!--Row = 0-->
+          <RowDefinition Height="*" />  <!--Row = 1-->
+          <RowDefinition Height="*" />  <!--Row = 2-->
+          <RowDefinition Height="*" />  <!--Row = 3-->
+          <!--<RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+          <!-- Inner Grid 0 for top row of items -->
+          <Grid VerticalOptions="Center" ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Column="0"
+                   OutlineColor="Accent">
+              <Label Text="{Binding DisplayText}" TextColor="Black" x:Name="ValueBTC"/>
+            </Frame>
+
+            <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Column="1" Scale="1"
+              ImageHeightRequest="50"
+              ImageWidthRequest="50"
+              Orientation="ImageCentered"
+              Command="{Binding AddCommand}"
+              TextColor="#000000"
+              Clicked="Detail_OnClicked"
+              Style="{StaticResource OrdersButtonStyle}"
+              Text="">
+              <controls:ImageButton.Source>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+                <OnPlatform x:TypeArguments="ImageSource">
+                  <OnPlatform.WinPhone>
+                    <FileImageSource File="Resources/Icons_menu/user-4.png" />
+                  </OnPlatform.WinPhone>
+                  <OnPlatform.Android>
+                    <FileImageSource File="Resources/drawable/user4.png" />
+                  </OnPlatform.Android>
+                  <!-- ReSharper disable once Xaml.InvalidType -->
+                </OnPlatform>
+              </controls:ImageButton.Source>
+            </controls:ImageButton>
+            <!--<Button Text="..." Command="{Binding DeleteCharCommand}" Grid.Column="1" Style="{StaticResource OrdersButtonStyle}"/>-->
+          </Grid>
+
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="1" Grid.Column="0" Scale="1"
+                        ImageHeightRequest="100"
+                        ImageWidthRequest="100"
+                        Orientation="ImageCentered"
+                        Command="{Binding AddCommand}"
+                        TextColor="#000000"
+                        Clicked="Payment_OnClicked"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Text="">  <!-- Payment -->
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons_menu/laptop-2.png" />
+                </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/drawable/laptop2.png" />
+                </OnPlatform.Android>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+          <!--<Button Text="Payment"
+                  Grid.Row="1" Grid.Column="0" BackgroundColor="#7ac3ff" HeightRequest="100" Clicked="Payment_OnClicked"/>-->
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="1" Grid.Column="1" Scale="1"
+                        ImageHeightRequest="115"
+                        ImageWidthRequest="100"
+                        Orientation="ImageCentered"
+                        Command="{Binding AddCommand}"
+                        TextColor="#000000"
+                        Clicked="Book_OnClicked"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Text="">  <!-- Address Book -->
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons_menu/group-1.png" />
+                </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/drawable/group1.png" />
+                </OnPlatform.Android>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+          <!--<Button Text="Address Book"
+                  Grid.Row="1" Grid.Column="1" BackgroundColor="#7ac3ff" Clicked="Book_OnClicked"/>-->
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="2" Grid.Column="0" Scale="1"
+                        ImageHeightRequest="100"
+                        ImageWidthRequest="100"
+                        Orientation="ImageCentered"
+                        Command="{Binding AddCommand}"
+                        TextColor="#000000"
+                        Clicked="History_OnClicked"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Text="">  <!-- History -->
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons_menu/transfer-2.png" />
+                </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/drawable/transfer2.png" />
+                </OnPlatform.Android>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+          <!--<Button Text="History"
+                  Grid.Row="2" Grid.Column="0" BackgroundColor="#7ac3ff" Clicked="History_OnClicked"/>-->
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="2" Grid.Column="1" Scale="1"
+                        ImageHeightRequest="85"
+                        ImageWidthRequest="100"
+                        Orientation="ImageCentered"
+                        Command="{Binding AddCommand}"
+                        TextColor="#000000"
+                        Clicked="Charts_OnClicked"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Text="">  <!-- Charts -->
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons_menu/bar-chart.png" />
+                </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/drawable/barchart.png" />
+                </OnPlatform.Android>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+          <!--<Button Text="Charts"
+                  Grid.Row="2" Grid.Column="1" BackgroundColor="#7ac3ff" Clicked="Charts_OnClicked"/>-->
+
+
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="3" Grid.Column="0" Scale="1"
+              ImageHeightRequest="95"
+              ImageWidthRequest="100"
+              Orientation="ImageCentered"
+              Command="{Binding AddCommand}"
+              TextColor="#000000"
+              Clicked="Shops_OnClicked"
+              Style="{StaticResource MenuButtonStyle}"
+              Text="">
+            <!-- Test -->
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons_menu/shopping-bag-1.png" />
+                </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/drawable/shoppingbag1.png" />
+                </OnPlatform.Android>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+          <!--<Button Text=".."
+          Grid.Row="3" Grid.Column="0" BackgroundColor="#7ac3ff" IsVisible="False" />-->
+
+
+          <controls:ImageButton IsVisible="{Binding IsAddVisible}" Grid.Row="3" Grid.Column="1" Scale="1"
+          ImageHeightRequest="95"
+          ImageWidthRequest="100"
+          Orientation="ImageCentered"
+          Command="{Binding AddCommand}"
+          TextColor="#000000"
+          Clicked="Help_OnClicked"
+          Style="{StaticResource MenuButtonStyle}"
+          Text="">
+            <!-- Test -->
+            <controls:ImageButton.Source>
+              <!-- ReSharper disable once Xaml.InvalidType -->
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons_menu/help.png" />
+                </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/drawable/help.png" />
+                </OnPlatform.Android>
+                <!-- ReSharper disable once Xaml.InvalidType -->
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton>
+          <!--<Button Text=".."
+          Grid.Row="3" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />-->
+
+          <!--<controls:ImageButton IsVisible="False" Grid.Row="4" Grid.Column="0" Scale="1"
+                        HeightRequest="100"
+                        ImageHeightRequest="85"
+                        ImageWidthRequest="100"
+                        Orientation="ImageCentered"
+                        Command="{Binding AddCommand}"
+                        TextColor="#000000"
+                        Clicked="Empty_OnClicked"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Text="">  --><!-- Test --><!--
+            <controls:ImageButton.Source>
+              --><!-- ReSharper disable once Xaml.InvalidType --><!--
+              <OnPlatform x:TypeArguments="ImageSource">
+                <OnPlatform.WinPhone>
+                  <FileImageSource File="Resources/Icons_menu/refresh.png" />
+                </OnPlatform.WinPhone>
+                <OnPlatform.Android>
+                  <FileImageSource File="Resources/drawable/Icons_menu/refresh.png" />
+                </OnPlatform.Android>
+                --><!-- ReSharper disable once Xaml.InvalidType --><!--
+              </OnPlatform>
+            </controls:ImageButton.Source>
+          </controls:ImageButton> -->
+
+
+          <!--<Button Text=".."
+                  Grid.Row="4" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
+
+          <Button Text="."
+                  Grid.Row="5" Grid.Column="0" BackgroundColor="#7ac3ff" IsVisible="False" />
+
+          <Button Text=".."
+                  Grid.Row="5" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />
+
+          <Button Text="."
+                  Grid.Row="6" Grid.Column="0" BackgroundColor="#7ac3ff" IsVisible="False" />
+
+          <Button Text=".."
+                  Grid.Row="6" Grid.Column="1" BackgroundColor="#7ac3ff" IsVisible="False" />-->
+
+      </Grid>
+      </ScrollView>
+    </ContentPage>
+  </TabbedPage.Children>
+</TabbedPage>

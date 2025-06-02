@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <wallet number="0">
+  <authentication>
+    <login-config>
+      <module name="Alias" value="bitcoinwallet" visible="true" />
+      <module name="LoginID" value="xxxx" visible="false" enable="true"/>
+      <module name="PasswordFirst" value="xxxx" visible="true" secure="true" enable="true"/>
+      <module name="PasswordSecond" value="xxxx" visible="false" secure="true" />
+      <module name="api_code" value="xxxx" visible="false" secure="true"/>
+      <module name="autologon" value="yes/no" enable="false"/>
+      <module name="Theme" value="Light" />
+	  <module name="api_google_maps" value="xxxx" visible="false" secure="true"/>
+	  <module name="api_bing_maps" value="xxxx" visible="false" secure="true"/>
+    </login-config>
+  </authentication>
+  </wallet>
+</root>
+

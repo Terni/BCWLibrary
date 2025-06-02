@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="BitcoinWallet.Views.VHistory"
+            x:Name="VHistoryTabbedPage"
+            Title="{Binding title}"
+            BackgroundColor="White"
+            BarTextColor="Black"
+  >
+
+    <TabbedPage.Children>
+        <!--TODO: ICON-->
+        <!--<ContentPage Title="Receive" Icon="Icons/download.png">-->
+        <ContentPage Title="Receive History..." x:Name="receiveHistory" >
+            <StackLayout Spacing="20" Padding="20"  HorizontalOptions="StartAndExpand">
+                <Label Text="Sorry server data are unavailable for Receive Histroy. Please wait..." TextColor="Black"/>
+            </StackLayout>
+        </ContentPage>
+
+        <!--TODO: ICON-->
+        <!--<ContentPage Title="Send" Icon="Icons/upload.png">-->
+        <ContentPage Title="Send History..." x:Name="sendHistory" >
+            <StackLayout Spacing="20" Padding="20" HorizontalOptions="StartAndExpand">
+                <Label Text="Sorry server data are unavailable for Send Histroy. Please wait..." TextColor="Black"/>
+            </StackLayout>
+        </ContentPage>
+
+    </TabbedPage.Children>
+</TabbedPage>

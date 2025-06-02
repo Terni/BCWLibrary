@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:controls="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows.Foundation.UniversalApiContract"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="BitcoinWallet.Views.VCharts2"
+            x:Name="VChartsTabbedPage"
+            Title="{Binding title}"
+            BackgroundColor="White"
+            BarTextColor="Black"
+  >
+
+  <TabbedPage.Children>
+    <ContentPage Title="Chart1">
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+
+        <Label Text="15m." TextColor="Black"/>
+        <Label Text="Last" TextColor="Black"/>
+        <Label Text="Sell" TextColor="Black"/>
+        <Label Text="Buy" TextColor="Black"/>
+        <ListView x:Name="ListValues">
+
+        </ListView>
+      </StackLayout>
+    </ContentPage>
+
+
+    <ContentPage Title="Chart2" >
+
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+          <Style x:Key="baseStyle" TargetType="SwitchCell">
+            <Setter Property=""/>
+          </Style>
+        </ResourceDictionary>
+      </ContentPage.Resources>-->
+
+      <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+      </StackLayout>
+    </ContentPage>
+
+  </TabbedPage.Children>
+</TabbedPage>
